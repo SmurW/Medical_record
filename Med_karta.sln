@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{3FD02F93-7E3C-4682-88F8-FDA6F0FB4202}"
 	ProjectSection(SolutionItems) = preProject
 		QandA.md = QandA.md
+		Queries.md = Queries.md
 		UserStories.md = UserStories.md
 	EndProjectSection
 EndProject
