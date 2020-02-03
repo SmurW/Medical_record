@@ -191,6 +191,7 @@
     <None Include="Resources\PassTrue.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="doc\минимальные_запросы и тд.txt" />
     <Content Include="doc\Функции_и_прочее.png" />
     <Content Include="Med_karta.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
