@@ -75,21 +75,21 @@
             this._buttonAddPatient = new System.Windows.Forms.Button();
             this._comBoxDisability = new System.Windows.Forms.ComboBox();
             this._mainPanel = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.control1 = new Med_karta.Control.Control();
             this._mainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -560,87 +560,39 @@
             this._mainPanel.Size = new System.Drawing.Size(812, 338);
             this._mainPanel.TabIndex = 53;
             // 
-            // dateTimePicker1
+            // label30
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(108, 341);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(142, 20);
-            this.dateTimePicker1.TabIndex = 54;
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(318, 496);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(50, 13);
+            this.label30.TabIndex = 66;
+            this.label30.Text = "Лечение";
             // 
-            // label24
+            // textBox6
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(3, 344);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(99, 13);
-            this.label24.TabIndex = 53;
-            this.label24.Text = "Дата медосмотра";
+            this.textBox6.Location = new System.Drawing.Point(450, 461);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(201, 76);
+            this.textBox6.TabIndex = 67;
             // 
-            // textBox1
+            // label29
             // 
-            this.textBox1.Location = new System.Drawing.Point(314, 341);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 20);
-            this.textBox1.TabIndex = 56;
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(4, 496);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(69, 13);
+            this.label29.TabIndex = 64;
+            this.label29.Text = "Заключение";
             // 
-            // label25
+            // textBox5
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(277, 344);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(31, 13);
-            this.label25.TabIndex = 55;
-            this.label25.Text = "Рост";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(509, 341);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(142, 20);
-            this.textBox2.TabIndex = 58;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(477, 344);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(26, 13);
-            this.label26.TabIndex = 57;
-            this.label26.Text = "Вес";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(107, 379);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(201, 76);
-            this.textBox3.TabIndex = 60;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(3, 414);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(81, 13);
-            this.label27.TabIndex = 59;
-            this.label27.Text = "Исследования";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(450, 379);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(201, 76);
-            this.textBox4.TabIndex = 62;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(318, 414);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(106, 13);
-            this.label28.TabIndex = 61;
-            this.label28.Text = "Доп. исследования";
+            this.textBox5.Location = new System.Drawing.Point(108, 461);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(201, 76);
+            this.textBox5.TabIndex = 65;
             // 
             // checkBox1
             // 
@@ -653,39 +605,87 @@
             this.checkBox1.Text = "Годность";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // label28
             // 
-            this.textBox5.Location = new System.Drawing.Point(108, 461);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(201, 76);
-            this.textBox5.TabIndex = 65;
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(318, 414);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(106, 13);
+            this.label28.TabIndex = 61;
+            this.label28.Text = "Доп. исследования";
             // 
-            // label29
+            // textBox4
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(4, 496);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(69, 13);
-            this.label29.TabIndex = 64;
-            this.label29.Text = "Заключение";
+            this.textBox4.Location = new System.Drawing.Point(450, 379);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(201, 76);
+            this.textBox4.TabIndex = 62;
             // 
-            // textBox6
+            // label27
             // 
-            this.textBox6.Location = new System.Drawing.Point(450, 461);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(201, 76);
-            this.textBox6.TabIndex = 67;
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(3, 414);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(81, 13);
+            this.label27.TabIndex = 59;
+            this.label27.Text = "Исследования";
             // 
-            // label30
+            // textBox3
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(318, 496);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(50, 13);
-            this.label30.TabIndex = 66;
-            this.label30.Text = "Лечение";
+            this.textBox3.Location = new System.Drawing.Point(107, 379);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(201, 76);
+            this.textBox3.TabIndex = 60;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(477, 344);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(26, 13);
+            this.label26.TabIndex = 57;
+            this.label26.Text = "Вес";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(509, 341);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(142, 20);
+            this.textBox2.TabIndex = 58;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(277, 344);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(31, 13);
+            this.label25.TabIndex = 55;
+            this.label25.Text = "Рост";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(314, 341);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(142, 20);
+            this.textBox1.TabIndex = 56;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(3, 344);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(99, 13);
+            this.label24.TabIndex = 53;
+            this.label24.Text = "Дата медосмотра";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(108, 341);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(142, 20);
+            this.dateTimePicker1.TabIndex = 54;
             // 
             // control1
             // 

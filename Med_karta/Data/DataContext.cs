@@ -9,7 +9,7 @@ namespace Med_karta.Data
 {
     class DataContext
     {
-        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source= D:\1ProgramForPraktiki\База данных\Med_karta.accdb");
+        OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source= Med_karta.accdb");
 
         public void Connection()
         {
