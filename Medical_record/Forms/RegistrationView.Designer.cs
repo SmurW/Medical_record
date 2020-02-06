@@ -1,6 +1,6 @@
 ﻿namespace Medical_record.Forms
 {
-    partial class Registration_Patient
+    partial class RegistrationView
     {
         /// <summary>
         /// Required designer variable.

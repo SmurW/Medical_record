@@ -1,6 +1,6 @@
 ﻿namespace Medical_record.Forms
 {
-    partial class Doctors
+    partial class DoctorsView
     {
         /// <summary>
         /// Required designer variable.
@@ -112,7 +112,7 @@
             this.button1.Text = "Добавить врача";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Doctors
+            // DoctorsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -126,7 +126,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Doctors";
+            this.Name = "DoctorsView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Врачи";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -46,53 +46,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Doctors.cs">
+    <Compile Include="Abstractions\IDataContext.cs" />
+    <Compile Include="AppController.cs" />
+    <Compile Include="Data\DbDataContext.cs" />
+    <Compile Include="Data\TestDataContext.cs" />
+    <Compile Include="Forms\DoctorsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Doctors.Designer.cs">
-      <DependentUpon>Doctors.cs</DependentUpon>
+    <Compile Include="Forms\DoctorsView.Designer.cs">
+      <DependentUpon>DoctorsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Form_Medications.cs">
+    <Compile Include="Forms\AddMedicationsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form_Medications.Designer.cs">
-      <DependentUpon>Form_Medications.cs</DependentUpon>
+    <Compile Include="Forms\AddMedicationsView.Designer.cs">
+      <DependentUpon>AddMedicationsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\List_Diagnoses.cs">
+    <Compile Include="Forms\DiagnosisView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\List_Diagnoses.Designer.cs">
-      <DependentUpon>List_Diagnoses.cs</DependentUpon>
+    <Compile Include="Forms\DiagnosisView.Designer.cs">
+      <DependentUpon>DiagnosisView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\List_Procedures.cs">
+    <Compile Include="Forms\AddProceduresView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\List_Procedures.Designer.cs">
-      <DependentUpon>List_Procedures.cs</DependentUpon>
+    <Compile Include="Forms\AddProceduresView.Designer.cs">
+      <DependentUpon>AddProceduresView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Registration_Patient.cs">
+    <Compile Include="Forms\RegistrationView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Registration_Patient.Designer.cs">
-      <DependentUpon>Registration_Patient.cs</DependentUpon>
+    <Compile Include="Forms\RegistrationView.Designer.cs">
+      <DependentUpon>RegistrationView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\View_FormCard.cs">
+    <Compile Include="Forms\CardView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\View_FormCard.Designer.cs">
-      <DependentUpon>View_FormCard.cs</DependentUpon>
+    <Compile Include="Forms\CardView.Designer.cs">
+      <DependentUpon>CardView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\View_ListDiagnoses.cs">
+    <Compile Include="Forms\DiagnosesView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\View_ListDiagnoses.Designer.cs">
-      <DependentUpon>View_ListDiagnoses.cs</DependentUpon>
+    <Compile Include="Forms\DiagnosesView.Designer.cs">
+      <DependentUpon>DiagnosesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForm_MedicalRecord.cs">
+    <Compile Include="Forms\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForm_MedicalRecord.Designer.cs">
-      <DependentUpon>MainForm_MedicalRecord.cs</DependentUpon>
+    <Compile Include="Forms\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,47 +118,57 @@
     <Compile Include="UseControl\Add_Records_Doctors.Designer.cs">
       <DependentUpon>Add_Records_Doctors.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\View_ListMedications.cs">
+    <Compile Include="Forms\MedicationsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\View_ListMedications.Designer.cs">
-      <DependentUpon>View_ListMedications.cs</DependentUpon>
+    <Compile Include="Forms\MedicationsView.Designer.cs">
+      <DependentUpon>MedicationsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\View_ListProcedures.cs">
+    <Compile Include="Forms\ProceduresView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\View_ListProcedures.Designer.cs">
-      <DependentUpon>View_ListProcedures.cs</DependentUpon>
+    <Compile Include="Forms\ProceduresView.Designer.cs">
+      <DependentUpon>ProceduresView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\Doctors.resx">
-      <DependentUpon>Doctors.cs</DependentUpon>
+    <Compile Include="ViewModels\AddMedicationsViewModel.cs" />
+    <Compile Include="ViewModels\AddProceduresViewModel.cs" />
+    <Compile Include="ViewModels\CardViewModel.cs" />
+    <Compile Include="ViewModels\DiagnosesViewModel.cs" />
+    <Compile Include="ViewModels\DiagnosisViewModel.cs" />
+    <Compile Include="ViewModels\DoctorsViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MedicationsViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\ProceduresViewModel.cs" />
+    <EmbeddedResource Include="Forms\DoctorsView.resx">
+      <DependentUpon>DoctorsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Medications.resx">
-      <DependentUpon>Form_Medications.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddMedicationsView.resx">
+      <DependentUpon>AddMedicationsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\List_Diagnoses.resx">
-      <DependentUpon>List_Diagnoses.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DiagnosisView.resx">
+      <DependentUpon>DiagnosisView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\List_Procedures.resx">
-      <DependentUpon>List_Procedures.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddProceduresView.resx">
+      <DependentUpon>AddProceduresView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Registration_Patient.resx">
-      <DependentUpon>Registration_Patient.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\RegistrationView.resx">
+      <DependentUpon>RegistrationView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm_MedicalRecord.resx">
-      <DependentUpon>MainForm_MedicalRecord.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\View_FormCard.resx">
-      <DependentUpon>View_FormCard.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CardView.resx">
+      <DependentUpon>CardView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\View_ListDiagnoses.resx">
-      <DependentUpon>View_ListDiagnoses.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\DiagnosesView.resx">
+      <DependentUpon>DiagnosesView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\View_ListMedications.resx">
-      <DependentUpon>View_ListMedications.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MedicationsView.resx">
+      <DependentUpon>MedicationsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\View_ListProcedures.resx">
-      <DependentUpon>View_ListProcedures.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ProceduresView.resx">
+      <DependentUpon>ProceduresView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -187,5 +201,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
