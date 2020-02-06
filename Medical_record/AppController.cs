@@ -20,8 +20,6 @@ namespace Medical_record
             _dataContext = dataContext;
         }
 
-        
-
         internal Form GetMainForm()
         {
             var vm = new MainViewModel(this);

@@ -33,7 +33,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -41,30 +40,31 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this._textBoxLastName = new System.Windows.Forms.TextBox();
+            this._textBoxCardNumber = new System.Windows.Forms.TextBox();
+            this._textBoxFirstName = new System.Windows.Forms.TextBox();
+            this._textBoxMiddleName = new System.Windows.Forms.TextBox();
+            this._comboBoxSex = new System.Windows.Forms.ComboBox();
+            this._dateTimePickerBirthdate = new System.Windows.Forms.DateTimePicker();
+            this._textBoxPassportNumber = new System.Windows.Forms.TextBox();
+            this._textBoxPassportSeries = new System.Windows.Forms.TextBox();
+            this._textBoxPassportUFMS = new System.Windows.Forms.TextBox();
+            this._dateTimePickerPassportIssueDate = new System.Windows.Forms.DateTimePicker();
+            this._textBoxPassportDepCode = new System.Windows.Forms.TextBox();
+            this._dateTimePickerRegistrationDate = new System.Windows.Forms.DateTimePicker();
+            this._textBoxResidence = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this._buttonSavePatient = new System.Windows.Forms.Button();
             this.add_Information_Hospitalization1 = new Medical_record.UseControl.Add_Information_Hospitalization();
             this.add_Observation1 = new Medical_record.UseControl.Add_Observation();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -111,15 +111,6 @@
             this.label5.Size = new System.Drawing.Size(86, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Дата рождения";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 204);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Гражданство";
             // 
             // label7
             // 
@@ -184,15 +175,6 @@
             this.label13.TabIndex = 12;
             this.label13.Text = "Место жительства";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(27, 170);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 13);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Место регистрации";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -211,112 +193,100 @@
             this.label16.TabIndex = 15;
             this.label16.Text = "Номер медецинской карты:";
             // 
-            // textBox1
+            // _textBoxLastName
             // 
-            this.textBox1.Location = new System.Drawing.Point(139, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 20);
-            this.textBox1.TabIndex = 16;
+            this._textBoxLastName.Location = new System.Drawing.Point(139, 64);
+            this._textBoxLastName.Name = "_textBoxLastName";
+            this._textBoxLastName.Size = new System.Drawing.Size(140, 20);
+            this._textBoxLastName.TabIndex = 16;
             // 
-            // textBox2
+            // _textBoxCardNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(167, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(78, 20);
-            this.textBox2.TabIndex = 17;
+            this._textBoxCardNumber.Location = new System.Drawing.Point(167, 19);
+            this._textBoxCardNumber.Name = "_textBoxCardNumber";
+            this._textBoxCardNumber.Size = new System.Drawing.Size(78, 20);
+            this._textBoxCardNumber.TabIndex = 17;
             // 
-            // textBox3
+            // _textBoxFirstName
             // 
-            this.textBox3.Location = new System.Drawing.Point(356, 64);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(140, 20);
-            this.textBox3.TabIndex = 18;
+            this._textBoxFirstName.Location = new System.Drawing.Point(356, 64);
+            this._textBoxFirstName.Name = "_textBoxFirstName";
+            this._textBoxFirstName.Size = new System.Drawing.Size(140, 20);
+            this._textBoxFirstName.TabIndex = 18;
             // 
-            // textBox4
+            // _textBoxMiddleName
             // 
-            this.textBox4.Location = new System.Drawing.Point(578, 64);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(140, 20);
-            this.textBox4.TabIndex = 19;
+            this._textBoxMiddleName.Location = new System.Drawing.Point(578, 64);
+            this._textBoxMiddleName.Name = "_textBoxMiddleName";
+            this._textBoxMiddleName.Size = new System.Drawing.Size(140, 20);
+            this._textBoxMiddleName.TabIndex = 19;
             // 
-            // comboBox1
+            // _comboBoxSex
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(139, 98);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 21);
-            this.comboBox1.TabIndex = 20;
+            this._comboBoxSex.FormattingEnabled = true;
+            this._comboBoxSex.Items.AddRange(new object[] {
+            "Мужской",
+            "Женский"});
+            this._comboBoxSex.Location = new System.Drawing.Point(139, 98);
+            this._comboBoxSex.Name = "_comboBoxSex";
+            this._comboBoxSex.Size = new System.Drawing.Size(140, 21);
+            this._comboBoxSex.TabIndex = 20;
             // 
-            // dateTimePicker1
+            // _dateTimePickerBirthdate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(139, 133);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(140, 20);
-            this.dateTimePicker1.TabIndex = 21;
+            this._dateTimePickerBirthdate.Location = new System.Drawing.Point(139, 133);
+            this._dateTimePickerBirthdate.Name = "_dateTimePickerBirthdate";
+            this._dateTimePickerBirthdate.Size = new System.Drawing.Size(140, 20);
+            this._dateTimePickerBirthdate.TabIndex = 21;
             // 
-            // textBox5
+            // _textBoxPassportNumber
             // 
-            this.textBox5.Location = new System.Drawing.Point(355, 135);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(84, 20);
-            this.textBox5.TabIndex = 22;
+            this._textBoxPassportNumber.Location = new System.Drawing.Point(355, 135);
+            this._textBoxPassportNumber.Name = "_textBoxPassportNumber";
+            this._textBoxPassportNumber.Size = new System.Drawing.Size(84, 20);
+            this._textBoxPassportNumber.TabIndex = 22;
             // 
-            // textBox6
+            // _textBoxPassportSeries
             // 
-            this.textBox6.Location = new System.Drawing.Point(489, 135);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(84, 20);
-            this.textBox6.TabIndex = 23;
+            this._textBoxPassportSeries.Location = new System.Drawing.Point(489, 135);
+            this._textBoxPassportSeries.Name = "_textBoxPassportSeries";
+            this._textBoxPassportSeries.Size = new System.Drawing.Size(84, 20);
+            this._textBoxPassportSeries.TabIndex = 23;
             // 
-            // textBox7
+            // _textBoxPassportUFMS
             // 
-            this.textBox7.Location = new System.Drawing.Point(389, 167);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(329, 20);
-            this.textBox7.TabIndex = 24;
+            this._textBoxPassportUFMS.Location = new System.Drawing.Point(389, 167);
+            this._textBoxPassportUFMS.Name = "_textBoxPassportUFMS";
+            this._textBoxPassportUFMS.Size = new System.Drawing.Size(329, 20);
+            this._textBoxPassportUFMS.TabIndex = 24;
             // 
-            // dateTimePicker2
+            // _dateTimePickerPassportIssueDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(389, 194);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(126, 20);
-            this.dateTimePicker2.TabIndex = 25;
+            this._dateTimePickerPassportIssueDate.Location = new System.Drawing.Point(389, 194);
+            this._dateTimePickerPassportIssueDate.Name = "_dateTimePickerPassportIssueDate";
+            this._dateTimePickerPassportIssueDate.Size = new System.Drawing.Size(126, 20);
+            this._dateTimePickerPassportIssueDate.TabIndex = 25;
             // 
-            // textBox8
+            // _textBoxPassportDepCode
             // 
-            this.textBox8.Location = new System.Drawing.Point(634, 197);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(84, 20);
-            this.textBox8.TabIndex = 26;
+            this._textBoxPassportDepCode.Location = new System.Drawing.Point(634, 197);
+            this._textBoxPassportDepCode.Name = "_textBoxPassportDepCode";
+            this._textBoxPassportDepCode.Size = new System.Drawing.Size(84, 20);
+            this._textBoxPassportDepCode.TabIndex = 26;
             // 
-            // textBox9
+            // _dateTimePickerRegistrationDate
             // 
-            this.textBox9.Location = new System.Drawing.Point(139, 167);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(140, 20);
-            this.textBox9.TabIndex = 27;
+            this._dateTimePickerRegistrationDate.Location = new System.Drawing.Point(139, 236);
+            this._dateTimePickerRegistrationDate.Name = "_dateTimePickerRegistrationDate";
+            this._dateTimePickerRegistrationDate.Size = new System.Drawing.Size(140, 20);
+            this._dateTimePickerRegistrationDate.TabIndex = 29;
             // 
-            // comboBox2
+            // _textBoxResidence
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(139, 201);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(140, 21);
-            this.comboBox2.TabIndex = 28;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(139, 236);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(140, 20);
-            this.dateTimePicker3.TabIndex = 29;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(139, 270);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(140, 20);
-            this.textBox10.TabIndex = 30;
+            this._textBoxResidence.Location = new System.Drawing.Point(139, 270);
+            this._textBoxResidence.Name = "_textBoxResidence";
+            this._textBoxResidence.Size = new System.Drawing.Size(140, 20);
+            this._textBoxResidence.TabIndex = 30;
             // 
             // button5
             // 
@@ -348,18 +318,19 @@
             this.button2.Text = "Добавить наблюдение";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // _buttonSavePatient
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(264, 712);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(219, 23);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Сохранить все данные";
-            this.button1.UseVisualStyleBackColor = true;
+            this._buttonSavePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._buttonSavePatient.Location = new System.Drawing.Point(264, 712);
+            this._buttonSavePatient.Name = "_buttonSavePatient";
+            this._buttonSavePatient.Size = new System.Drawing.Size(219, 23);
+            this._buttonSavePatient.TabIndex = 36;
+            this._buttonSavePatient.Text = "Сохранить все данные";
+            this._buttonSavePatient.UseVisualStyleBackColor = true;
             // 
             // add_Information_Hospitalization1
             // 
+            this.add_Information_Hospitalization1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.add_Information_Hospitalization1.Location = new System.Drawing.Point(15, 296);
             this.add_Information_Hospitalization1.Name = "add_Information_Hospitalization1";
             this.add_Information_Hospitalization1.Size = new System.Drawing.Size(470, 174);
@@ -367,37 +338,71 @@
             // 
             // add_Observation1
             // 
+            this.add_Observation1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.add_Observation1.Location = new System.Drawing.Point(15, 476);
             this.add_Observation1.Name = "add_Observation1";
             this.add_Observation1.Size = new System.Drawing.Size(431, 145);
             this.add_Observation1.TabIndex = 38;
             // 
-            // Registration_Patient
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(139, 167);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(140, 20);
+            this.textBox9.TabIndex = 27;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(27, 170);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(106, 13);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Место регистрации";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(139, 201);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(140, 21);
+            this.comboBox2.TabIndex = 28;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(27, 204);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Гражданство";
+            // 
+            // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 741);
             this.Controls.Add(this.add_Observation1);
             this.Controls.Add(this.add_Information_Hospitalization1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this._buttonSavePatient);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.dateTimePicker3);
+            this.Controls.Add(this._textBoxResidence);
+            this.Controls.Add(this._dateTimePickerRegistrationDate);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._textBoxPassportDepCode);
+            this.Controls.Add(this._dateTimePickerPassportIssueDate);
+            this.Controls.Add(this._textBoxPassportUFMS);
+            this.Controls.Add(this._textBoxPassportSeries);
+            this.Controls.Add(this._textBoxPassportNumber);
+            this.Controls.Add(this._dateTimePickerBirthdate);
+            this.Controls.Add(this._comboBoxSex);
+            this.Controls.Add(this._textBoxMiddleName);
+            this.Controls.Add(this._textBoxFirstName);
+            this.Controls.Add(this._textBoxCardNumber);
+            this.Controls.Add(this._textBoxLastName);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -415,7 +420,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Registration_Patient";
+            this.Name = "RegistrationView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Регистрация пациентов";
             this.ResumeLayout(false);
@@ -430,7 +435,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -438,29 +442,30 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox _textBoxLastName;
+        private System.Windows.Forms.TextBox _textBoxCardNumber;
+        private System.Windows.Forms.TextBox _textBoxFirstName;
+        private System.Windows.Forms.TextBox _textBoxMiddleName;
+        private System.Windows.Forms.ComboBox _comboBoxSex;
+        private System.Windows.Forms.DateTimePicker _dateTimePickerBirthdate;
+        private System.Windows.Forms.TextBox _textBoxPassportNumber;
+        private System.Windows.Forms.TextBox _textBoxPassportSeries;
+        private System.Windows.Forms.TextBox _textBoxPassportUFMS;
+        private System.Windows.Forms.DateTimePicker _dateTimePickerPassportIssueDate;
+        private System.Windows.Forms.TextBox _textBoxPassportDepCode;
+        private System.Windows.Forms.DateTimePicker _dateTimePickerRegistrationDate;
+        private System.Windows.Forms.TextBox _textBoxResidence;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button _buttonSavePatient;
         private UseControl.Add_Information_Hospitalization add_Information_Hospitalization1;
         private UseControl.Add_Observation add_Observation1;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label6;
     }
 }
