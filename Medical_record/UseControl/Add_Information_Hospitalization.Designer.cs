@@ -37,7 +37,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -113,20 +113,21 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Заключительный диагноз";
             // 
-            // button5
+            // label6
             // 
-            this.button5.Location = new System.Drawing.Point(120, 175);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(219, 23);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "Добавить сведения о госпитализации";
-            this.button5.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(386, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Записей 0/0";
             // 
             // Add_Information_Hospitalization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button5);
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
@@ -137,7 +138,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Add_Information_Hospitalization";
-            this.Size = new System.Drawing.Size(470, 209);
+            this.Size = new System.Drawing.Size(468, 172);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,6 +155,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label6;
     }
 }

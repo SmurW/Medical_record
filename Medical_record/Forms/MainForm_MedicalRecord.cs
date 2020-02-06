@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Medical_record.UseControl
+namespace Medical_record
 {
-    public partial class Add_Diagnoses : UserControl
+    public partial class MainForm_MedicalRecord : Form
     {
-        public Add_Diagnoses()
+        public MainForm_MedicalRecord()
         {
             InitializeComponent();
         }

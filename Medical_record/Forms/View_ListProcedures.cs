@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Medical_record.UseControl
+namespace Medical_record
 {
-    public partial class Add_Information_Interventions_Performed : UserControl
+    public partial class View_ListProcedures : Form
     {
-        public Add_Information_Interventions_Performed()
+        public View_ListProcedures()
         {
             InitializeComponent();
         }

@@ -59,7 +59,12 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.textBox10 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.add_Information_Hospitalization1 = new Medical_record.UseControl.Add_Information_Hospitalization();
+            this.add_Observation1 = new Medical_record.UseControl.Add_Observation();
             this.SuspendLayout();
             // 
             // label1
@@ -313,21 +318,71 @@
             this.textBox10.Size = new System.Drawing.Size(140, 20);
             this.textBox10.TabIndex = 30;
             // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button5.Location = new System.Drawing.Point(489, 683);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(219, 23);
+            this.button5.TabIndex = 34;
+            this.button5.Text = "Добавить сведения о госпитализации";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button4.Location = new System.Drawing.Point(264, 683);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(219, 23);
+            this.button4.TabIndex = 33;
+            this.button4.Text = "Добавить запись врачей";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(39, 683);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(219, 23);
+            this.button2.TabIndex = 31;
+            this.button2.Text = "Добавить наблюдение";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(569, 268);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(264, 712);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Зарегестрировать";
+            this.button1.Size = new System.Drawing.Size(219, 23);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Сохранить все данные";
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // add_Information_Hospitalization1
+            // 
+            this.add_Information_Hospitalization1.Location = new System.Drawing.Point(15, 296);
+            this.add_Information_Hospitalization1.Name = "add_Information_Hospitalization1";
+            this.add_Information_Hospitalization1.Size = new System.Drawing.Size(470, 174);
+            this.add_Information_Hospitalization1.TabIndex = 37;
+            // 
+            // add_Observation1
+            // 
+            this.add_Observation1.Location = new System.Drawing.Point(15, 476);
+            this.add_Observation1.Name = "add_Observation1";
+            this.add_Observation1.Size = new System.Drawing.Size(431, 145);
+            this.add_Observation1.TabIndex = 38;
             // 
             // Registration_Patient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 304);
+            this.ClientSize = new System.Drawing.Size(738, 741);
+            this.Controls.Add(this.add_Observation1);
+            this.Controls.Add(this.add_Information_Hospitalization1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.dateTimePicker3);
             this.Controls.Add(this.comboBox2);
@@ -401,6 +456,11 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private UseControl.Add_Information_Hospitalization add_Information_Hospitalization1;
+        private UseControl.Add_Observation add_Observation1;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Medical_record.Forms
 {
-    public partial class List_Medications : Form
+    public partial class View_ListDiagnoses : Form
     {
-        public List_Medications()
+        public View_ListDiagnoses()
         {
             InitializeComponent();
         }
