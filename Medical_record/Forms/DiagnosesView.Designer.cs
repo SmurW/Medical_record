@@ -1,6 +1,6 @@
 ﻿namespace Medical_record.Forms
 {
-    partial class View_ListDiagnoses
+    partial class DiagnosesView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this._buttonAddDiagnosis = new System.Windows.Forms.Button();
+            this._buttonUpdateDiagnosis = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -47,23 +47,23 @@
             this.dataGridView1.Size = new System.Drawing.Size(580, 251);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // _buttonAddDiagnosis
             // 
-            this.button1.Location = new System.Drawing.Point(117, 306);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this._buttonAddDiagnosis.Location = new System.Drawing.Point(117, 306);
+            this._buttonAddDiagnosis.Name = "_buttonAddDiagnosis";
+            this._buttonAddDiagnosis.Size = new System.Drawing.Size(75, 23);
+            this._buttonAddDiagnosis.TabIndex = 1;
+            this._buttonAddDiagnosis.Text = "Добавить";
+            this._buttonAddDiagnosis.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // _buttonUpdateDiagnosis
             // 
-            this.button2.Location = new System.Drawing.Point(208, 306);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Изменить";
-            this.button2.UseVisualStyleBackColor = true;
+            this._buttonUpdateDiagnosis.Location = new System.Drawing.Point(208, 306);
+            this._buttonUpdateDiagnosis.Name = "_buttonUpdateDiagnosis";
+            this._buttonUpdateDiagnosis.Size = new System.Drawing.Size(75, 23);
+            this._buttonUpdateDiagnosis.TabIndex = 2;
+            this._buttonUpdateDiagnosis.Text = "Изменить";
+            this._buttonUpdateDiagnosis.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -107,7 +107,7 @@
             this.textBox1.Size = new System.Drawing.Size(274, 20);
             this.textBox1.TabIndex = 7;
             // 
-            // View_ListDiagnoses
+            // DiagnosesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,10 +117,10 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this._buttonUpdateDiagnosis);
+            this.Controls.Add(this._buttonAddDiagnosis);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "View_ListDiagnoses";
+            this.Name = "DiagnosesView";
             this.Text = "Просмотр диагназов";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -131,8 +131,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button _buttonAddDiagnosis;
+        private System.Windows.Forms.Button _buttonUpdateDiagnosis;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;

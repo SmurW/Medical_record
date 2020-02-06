@@ -1,6 +1,6 @@
 ﻿namespace Medical_record
 {
-    partial class View_ListProcedures
+    partial class ProceduresView
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this._buttonUpdateProcedure = new System.Windows.Forms.Button();
+            this._buttonAddProcedure = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -81,23 +81,23 @@
             this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // _buttonUpdateProcedure
             // 
-            this.button2.Location = new System.Drawing.Point(205, 306);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Изменить";
-            this.button2.UseVisualStyleBackColor = true;
+            this._buttonUpdateProcedure.Location = new System.Drawing.Point(205, 306);
+            this._buttonUpdateProcedure.Name = "_buttonUpdateProcedure";
+            this._buttonUpdateProcedure.Size = new System.Drawing.Size(75, 23);
+            this._buttonUpdateProcedure.TabIndex = 10;
+            this._buttonUpdateProcedure.Text = "Изменить";
+            this._buttonUpdateProcedure.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // _buttonAddProcedure
             // 
-            this.button1.Location = new System.Drawing.Point(114, 306);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this._buttonAddProcedure.Location = new System.Drawing.Point(114, 306);
+            this._buttonAddProcedure.Name = "_buttonAddProcedure";
+            this._buttonAddProcedure.Size = new System.Drawing.Size(75, 23);
+            this._buttonAddProcedure.TabIndex = 9;
+            this._buttonAddProcedure.Text = "Добавить";
+            this._buttonAddProcedure.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -107,7 +107,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(580, 251);
             this.dataGridView1.TabIndex = 8;
             // 
-            // View_ListProcedures
+            // ProceduresView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,10 +117,10 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this._buttonUpdateProcedure);
+            this.Controls.Add(this._buttonAddProcedure);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "View_ListProcedures";
+            this.Name = "ProceduresView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр процедур";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -136,8 +136,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button _buttonUpdateProcedure;
+        private System.Windows.Forms.Button _buttonAddProcedure;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

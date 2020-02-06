@@ -1,4 +1,6 @@
-﻿using Medical_record.Forms;
+﻿using Medical_record.Abstractions;
+using Medical_record.Data;
+using Medical_record.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,12 @@ namespace Medical_record
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new List_Procedures());
+
+            IDataContext dataContext = new TestDataContext();
+            var appController = new AppController(dataContext);
+            var mainForm = appController.GetMainForm();
+
+            Application.Run(mainForm);
         }
     }
 }

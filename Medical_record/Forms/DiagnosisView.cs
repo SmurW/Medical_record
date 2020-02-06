@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Medical_record.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,14 @@ using System.Windows.Forms;
 
 namespace Medical_record.Forms
 {
-    public partial class View_ListDiagnoses : Form
+    public partial class DiagnosisView : Form
     {
-        public View_ListDiagnoses()
+        private DiagnosisViewModel _diagnosisViewModel;
+
+        public DiagnosisView(DiagnosisViewModel diagnosisViewModel)
         {
             InitializeComponent();
+            _diagnosisViewModel = diagnosisViewModel;
         }
     }
 }

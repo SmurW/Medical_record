@@ -1,6 +1,6 @@
 ﻿namespace Medical_record
 {
-    partial class View_ListMedications
+    partial class MedicationsView
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this._buttonUpdateMedication = new System.Windows.Forms.Button();
+            this._buttonAddMedication = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -81,23 +81,23 @@
             this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // _buttonUpdateMedication
             // 
-            this.button2.Location = new System.Drawing.Point(215, 307);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Изменить";
-            this.button2.UseVisualStyleBackColor = true;
+            this._buttonUpdateMedication.Location = new System.Drawing.Point(215, 307);
+            this._buttonUpdateMedication.Name = "_buttonUpdateMedication";
+            this._buttonUpdateMedication.Size = new System.Drawing.Size(75, 23);
+            this._buttonUpdateMedication.TabIndex = 10;
+            this._buttonUpdateMedication.Text = "Изменить";
+            this._buttonUpdateMedication.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // _buttonAddMedication
             // 
-            this.button1.Location = new System.Drawing.Point(124, 307);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this._buttonAddMedication.Location = new System.Drawing.Point(124, 307);
+            this._buttonAddMedication.Name = "_buttonAddMedication";
+            this._buttonAddMedication.Size = new System.Drawing.Size(75, 23);
+            this._buttonAddMedication.TabIndex = 9;
+            this._buttonAddMedication.Text = "Добавить";
+            this._buttonAddMedication.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -107,7 +107,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(580, 251);
             this.dataGridView1.TabIndex = 8;
             // 
-            // View_ListMedications
+            // MedicationsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,11 +117,11 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this._buttonUpdateMedication);
+            this.Controls.Add(this._buttonAddMedication);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "View_ListMedications";
+            this.Name = "MedicationsView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр лекарств";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -137,8 +137,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button _buttonUpdateMedication;
+        private System.Windows.Forms.Button _buttonAddMedication;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
