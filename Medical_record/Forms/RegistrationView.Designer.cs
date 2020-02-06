@@ -63,8 +63,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.add_Information_Hospitalization1 = new Medical_record.UseControl.Add_Information_Hospitalization();
-            this.add_Observation1 = new Medical_record.UseControl.Add_Observation();
             this.SuspendLayout();
             // 
             // label1
@@ -321,7 +319,7 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(489, 683);
+            this.button5.Location = new System.Drawing.Point(489, 315);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(219, 23);
             this.button5.TabIndex = 34;
@@ -331,7 +329,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(264, 683);
+            this.button4.Location = new System.Drawing.Point(264, 315);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(219, 23);
             this.button4.TabIndex = 33;
@@ -341,7 +339,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(39, 683);
+            this.button2.Location = new System.Drawing.Point(39, 315);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(219, 23);
             this.button2.TabIndex = 31;
@@ -351,34 +349,18 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(264, 712);
+            this.button1.Location = new System.Drawing.Point(264, 344);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(219, 23);
             this.button1.TabIndex = 36;
             this.button1.Text = "Сохранить все данные";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // add_Information_Hospitalization1
-            // 
-            this.add_Information_Hospitalization1.Location = new System.Drawing.Point(15, 296);
-            this.add_Information_Hospitalization1.Name = "add_Information_Hospitalization1";
-            this.add_Information_Hospitalization1.Size = new System.Drawing.Size(470, 174);
-            this.add_Information_Hospitalization1.TabIndex = 37;
-            // 
-            // add_Observation1
-            // 
-            this.add_Observation1.Location = new System.Drawing.Point(15, 476);
-            this.add_Observation1.Name = "add_Observation1";
-            this.add_Observation1.Size = new System.Drawing.Size(431, 145);
-            this.add_Observation1.TabIndex = 38;
-            // 
-            // Registration_Patient
+            // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 741);
-            this.Controls.Add(this.add_Observation1);
-            this.Controls.Add(this.add_Information_Hospitalization1);
+            this.ClientSize = new System.Drawing.Size(738, 373);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -415,7 +397,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Registration_Patient";
+            this.Name = "RegistrationView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Регистрация пациентов";
             this.ResumeLayout(false);
@@ -460,7 +442,5 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private UseControl.Add_Information_Hospitalization add_Information_Hospitalization1;
-        private UseControl.Add_Observation add_Observation1;
     }
 }

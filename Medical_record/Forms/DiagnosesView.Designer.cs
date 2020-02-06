@@ -96,15 +96,15 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(257, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(136, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Поиск по ФИО:";
+            this.label2.Text = "Поиск по наименованию:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(350, 16);
+            this.textBox1.Location = new System.Drawing.Point(399, 16);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 20);
+            this.textBox1.Size = new System.Drawing.Size(225, 20);
             this.textBox1.TabIndex = 7;
             // 
             // DiagnosesView
