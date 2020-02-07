@@ -40,9 +40,9 @@ namespace Medical_record.Forms
             _textBoxResidence.DataBindings.Add("Text", _viewModel, nameof(_viewModel.Residence),
                 true, DataSourceUpdateMode.OnPropertyChanged);
 
-            //_dateTimePickerBirthdate.DataBindings.Add("Value", _viewModel, nameof(_viewModel.Birthdate));
-            //_dateTimePickerPassportIssueDate.DataBindings.Add("Value", _viewModel, nameof(_viewModel.PassportIssueDate));
-            //_dateTimePickerRegistrationDate.DataBindings.Add("Value", _viewModel, nameof(_viewModel.RegistrationDate));
+            _dateTimePickerBirthdate.DataBindings.Add("Value", _viewModel, nameof(_viewModel.Birthdate));
+            _dateTimePickerPassportIssueDate.DataBindings.Add("Value", _viewModel, nameof(_viewModel.PassportIssueDate));
+            _dateTimePickerRegistrationDate.DataBindings.Add("Value", _viewModel, nameof(_viewModel.RegistrationDate));
 
             _comboBoxSex.DataBindings.Add("Text", _viewModel, nameof(_viewModel.Sex));
 

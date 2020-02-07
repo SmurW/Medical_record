@@ -59,12 +59,12 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this._buttonSavePatient = new System.Windows.Forms.Button();
-            this.add_Information_Hospitalization1 = new Medical_record.UseControl.Add_Information_Hospitalization();
-            this.add_Observation1 = new Medical_record.UseControl.Add_Observation();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.add_Observation1 = new Medical_record.UseControl.Add_Observation();
+            this.add_Information_Hospitalization1 = new Medical_record.UseControl.Add_Information_Hospitalization();
             this.SuspendLayout();
             // 
             // label1
@@ -198,28 +198,28 @@
             this._textBoxLastName.Location = new System.Drawing.Point(139, 64);
             this._textBoxLastName.Name = "_textBoxLastName";
             this._textBoxLastName.Size = new System.Drawing.Size(140, 20);
-            this._textBoxLastName.TabIndex = 16;
+            this._textBoxLastName.TabIndex = 1;
             // 
             // _textBoxCardNumber
             // 
             this._textBoxCardNumber.Location = new System.Drawing.Point(167, 19);
             this._textBoxCardNumber.Name = "_textBoxCardNumber";
             this._textBoxCardNumber.Size = new System.Drawing.Size(78, 20);
-            this._textBoxCardNumber.TabIndex = 17;
+            this._textBoxCardNumber.TabIndex = 0;
             // 
             // _textBoxFirstName
             // 
             this._textBoxFirstName.Location = new System.Drawing.Point(356, 64);
             this._textBoxFirstName.Name = "_textBoxFirstName";
             this._textBoxFirstName.Size = new System.Drawing.Size(140, 20);
-            this._textBoxFirstName.TabIndex = 18;
+            this._textBoxFirstName.TabIndex = 2;
             // 
             // _textBoxMiddleName
             // 
             this._textBoxMiddleName.Location = new System.Drawing.Point(578, 64);
             this._textBoxMiddleName.Name = "_textBoxMiddleName";
             this._textBoxMiddleName.Size = new System.Drawing.Size(140, 20);
-            this._textBoxMiddleName.TabIndex = 19;
+            this._textBoxMiddleName.TabIndex = 3;
             // 
             // _comboBoxSex
             // 
@@ -230,63 +230,63 @@
             this._comboBoxSex.Location = new System.Drawing.Point(139, 98);
             this._comboBoxSex.Name = "_comboBoxSex";
             this._comboBoxSex.Size = new System.Drawing.Size(140, 21);
-            this._comboBoxSex.TabIndex = 20;
+            this._comboBoxSex.TabIndex = 4;
             // 
             // _dateTimePickerBirthdate
             // 
             this._dateTimePickerBirthdate.Location = new System.Drawing.Point(139, 133);
             this._dateTimePickerBirthdate.Name = "_dateTimePickerBirthdate";
             this._dateTimePickerBirthdate.Size = new System.Drawing.Size(140, 20);
-            this._dateTimePickerBirthdate.TabIndex = 21;
+            this._dateTimePickerBirthdate.TabIndex = 5;
             // 
             // _textBoxPassportNumber
             // 
             this._textBoxPassportNumber.Location = new System.Drawing.Point(355, 135);
             this._textBoxPassportNumber.Name = "_textBoxPassportNumber";
             this._textBoxPassportNumber.Size = new System.Drawing.Size(84, 20);
-            this._textBoxPassportNumber.TabIndex = 22;
+            this._textBoxPassportNumber.TabIndex = 8;
             // 
             // _textBoxPassportSeries
             // 
             this._textBoxPassportSeries.Location = new System.Drawing.Point(489, 135);
             this._textBoxPassportSeries.Name = "_textBoxPassportSeries";
             this._textBoxPassportSeries.Size = new System.Drawing.Size(84, 20);
-            this._textBoxPassportSeries.TabIndex = 23;
+            this._textBoxPassportSeries.TabIndex = 9;
             // 
             // _textBoxPassportUFMS
             // 
             this._textBoxPassportUFMS.Location = new System.Drawing.Point(389, 167);
             this._textBoxPassportUFMS.Name = "_textBoxPassportUFMS";
             this._textBoxPassportUFMS.Size = new System.Drawing.Size(329, 20);
-            this._textBoxPassportUFMS.TabIndex = 24;
+            this._textBoxPassportUFMS.TabIndex = 10;
             // 
             // _dateTimePickerPassportIssueDate
             // 
             this._dateTimePickerPassportIssueDate.Location = new System.Drawing.Point(389, 194);
             this._dateTimePickerPassportIssueDate.Name = "_dateTimePickerPassportIssueDate";
             this._dateTimePickerPassportIssueDate.Size = new System.Drawing.Size(126, 20);
-            this._dateTimePickerPassportIssueDate.TabIndex = 25;
+            this._dateTimePickerPassportIssueDate.TabIndex = 11;
             // 
             // _textBoxPassportDepCode
             // 
             this._textBoxPassportDepCode.Location = new System.Drawing.Point(634, 197);
             this._textBoxPassportDepCode.Name = "_textBoxPassportDepCode";
             this._textBoxPassportDepCode.Size = new System.Drawing.Size(84, 20);
-            this._textBoxPassportDepCode.TabIndex = 26;
+            this._textBoxPassportDepCode.TabIndex = 12;
             // 
             // _dateTimePickerRegistrationDate
             // 
             this._dateTimePickerRegistrationDate.Location = new System.Drawing.Point(139, 236);
             this._dateTimePickerRegistrationDate.Name = "_dateTimePickerRegistrationDate";
             this._dateTimePickerRegistrationDate.Size = new System.Drawing.Size(140, 20);
-            this._dateTimePickerRegistrationDate.TabIndex = 29;
+            this._dateTimePickerRegistrationDate.TabIndex = 6;
             // 
             // _textBoxResidence
             // 
             this._textBoxResidence.Location = new System.Drawing.Point(139, 270);
             this._textBoxResidence.Name = "_textBoxResidence";
             this._textBoxResidence.Size = new System.Drawing.Size(140, 20);
-            this._textBoxResidence.TabIndex = 30;
+            this._textBoxResidence.TabIndex = 7;
             // 
             // button5
             // 
@@ -324,32 +324,16 @@
             this._buttonSavePatient.Location = new System.Drawing.Point(264, 712);
             this._buttonSavePatient.Name = "_buttonSavePatient";
             this._buttonSavePatient.Size = new System.Drawing.Size(219, 23);
-            this._buttonSavePatient.TabIndex = 36;
+            this._buttonSavePatient.TabIndex = 13;
             this._buttonSavePatient.Text = "Сохранить все данные";
             this._buttonSavePatient.UseVisualStyleBackColor = true;
-            // 
-            // add_Information_Hospitalization1
-            // 
-            this.add_Information_Hospitalization1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.add_Information_Hospitalization1.Location = new System.Drawing.Point(15, 296);
-            this.add_Information_Hospitalization1.Name = "add_Information_Hospitalization1";
-            this.add_Information_Hospitalization1.Size = new System.Drawing.Size(470, 174);
-            this.add_Information_Hospitalization1.TabIndex = 37;
-            // 
-            // add_Observation1
-            // 
-            this.add_Observation1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.add_Observation1.Location = new System.Drawing.Point(15, 476);
-            this.add_Observation1.Name = "add_Observation1";
-            this.add_Observation1.Size = new System.Drawing.Size(431, 145);
-            this.add_Observation1.TabIndex = 38;
             // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(139, 167);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(140, 20);
-            this.textBox9.TabIndex = 27;
+            this.textBox9.TabIndex = 6;
             // 
             // label14
             // 
@@ -366,7 +350,7 @@
             this.comboBox2.Location = new System.Drawing.Point(139, 201);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(140, 21);
-            this.comboBox2.TabIndex = 28;
+            this.comboBox2.TabIndex = 7;
             // 
             // label6
             // 
@@ -376,6 +360,22 @@
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Гражданство";
+            // 
+            // add_Observation1
+            // 
+            this.add_Observation1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.add_Observation1.Location = new System.Drawing.Point(15, 476);
+            this.add_Observation1.Name = "add_Observation1";
+            this.add_Observation1.Size = new System.Drawing.Size(431, 145);
+            this.add_Observation1.TabIndex = 38;
+            // 
+            // add_Information_Hospitalization1
+            // 
+            this.add_Information_Hospitalization1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.add_Information_Hospitalization1.Location = new System.Drawing.Point(15, 296);
+            this.add_Information_Hospitalization1.Name = "add_Information_Hospitalization1";
+            this.add_Information_Hospitalization1.Size = new System.Drawing.Size(470, 174);
+            this.add_Information_Hospitalization1.TabIndex = 37;
             // 
             // RegistrationView
             // 

@@ -1,4 +1,5 @@
 ﻿using Medical_record.Abstractions;
+using Medical_record.Data.Models;
 using Medical_record.Forms;
 using Medical_record.ViewModels;
 using System;
@@ -12,12 +13,13 @@ namespace Medical_record
 {
     public class AppController
     {
-        private readonly IDataContext _dataContext;
         private MainForm_MedicalRecord _mainForm;
+        public IDataContext DataContext { get; }
 
         public AppController(IDataContext dataContext)
         {
-            _dataContext = dataContext;
+            DataContext = dataContext ??
+                throw new ArgumentNullException(nameof(dataContext));
         }
 
         internal Form GetMainForm()
@@ -70,6 +72,15 @@ namespace Medical_record
         internal void ShowRegistrationView()
         {
             var vm = new RegistrationViewModel(this);
+            var form = new RegistrationView(vm);
+            form.Owner = _mainForm;
+            form.Show();
+        }
+
+        internal void ShowRegistrationView(Patient patient)
+        {
+            var vm = new RegistrationViewModel(this);
+            vm.SetPatient(patient);
             var form = new RegistrationView(vm);
             form.Owner = _mainForm;
             form.Show();
