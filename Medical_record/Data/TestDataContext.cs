@@ -11,10 +11,47 @@ namespace Medical_record.Data
     class TestDataContext : IDataContext
     {
         private readonly List<Patient> _patients = new List<Patient>();
+        private readonly List<Diagnosis> _diagnoses = new List<Diagnosis>();
 
         public TestDataContext()
         {
             SetPatients();
+            SetDiagnoses();
+        }
+
+        private void SetDiagnoses()
+        {
+            var d = new Diagnosis
+            {
+                Id = 1,
+                Name = "Грипп",
+                Description = "Острое инфекционное заболевание дыхательных путей, " +
+                "вызываемое вирусом гриппа. Входит в группу острых респираторных" +
+                " вирусных инфекций (ОРВИ). Периодически распространяется в виде эпидемий."
+            };
+            _diagnoses.Add(d);
+
+            d = new Diagnosis
+            {
+                Id = 2,
+                Name = "Просту́да",
+                Description = " острая респираторная инфекция общей (невыясненной) этиологии" +
+                " с воспалением верхних дыхательных путей, затрагивающая преимущественно нос." +
+                " В воспаление могут быть также вовлечены горло, гортань и пазухи." +
+                " Термин используется наряду с фарингитом, ларингитом, трахеитом и другими."
+            };
+            _diagnoses.Add(d);
+
+            d = new Diagnosis
+            {
+                Id = 3,
+                Name = "Диаре́я",
+                Description = "Патологическое состояние, при котором у больного наблюдается учащённая" +
+                " (более 3 раз в сутки) дефекация, при этом стул становится водянистым," +
+                " имеет объём более 200 мл и часто сопровождается болевыми ощущениями в области живота," +
+                " экстренными позывами и анальным недержанием"
+            };
+            _diagnoses.Add(d);
         }
 
         private void SetPatients()
@@ -126,6 +163,11 @@ namespace Medical_record.Data
 
             _patients.Remove(pt);
             return Task.FromResult(new Result<string>("Успешно удален", String.Empty));
+        }
+
+        public Task<Result<List<Diagnosis>>> GetAllDiagnosesAsync()
+        {
+            return Task.FromResult(new Result<List<Diagnosis>>(_diagnoses));
         }
     }
 }

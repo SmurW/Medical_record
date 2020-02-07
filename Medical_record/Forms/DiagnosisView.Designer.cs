@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this._buttonSaveDiagnosis = new System.Windows.Forms.Button();
+            this._textBoxDescriptionDiagnosis = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._textBoxNameDiagnosis = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // _buttonSaveDiagnosis
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this._buttonSaveDiagnosis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(121, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Добавить диагноз";
-            this.button1.UseVisualStyleBackColor = true;
+            this._buttonSaveDiagnosis.Location = new System.Drawing.Point(121, 121);
+            this._buttonSaveDiagnosis.Name = "_buttonSaveDiagnosis";
+            this._buttonSaveDiagnosis.Size = new System.Drawing.Size(142, 23);
+            this._buttonSaveDiagnosis.TabIndex = 14;
+            this._buttonSaveDiagnosis.Text = "Добавить диагноз";
+            this._buttonSaveDiagnosis.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // _textBoxDescriptionDiagnosis
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._textBoxDescriptionDiagnosis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(75, 36);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(301, 79);
-            this.textBox2.TabIndex = 13;
+            this._textBoxDescriptionDiagnosis.Location = new System.Drawing.Point(75, 36);
+            this._textBoxDescriptionDiagnosis.Multiline = true;
+            this._textBoxDescriptionDiagnosis.Name = "_textBoxDescriptionDiagnosis";
+            this._textBoxDescriptionDiagnosis.Size = new System.Drawing.Size(301, 79);
+            this._textBoxDescriptionDiagnosis.TabIndex = 13;
             // 
             // label2
             // 
@@ -66,14 +66,14 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Описание";
             // 
-            // textBox1
+            // _textBoxNameDiagnosis
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this._textBoxNameDiagnosis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(159, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 20);
-            this.textBox1.TabIndex = 11;
+            this._textBoxNameDiagnosis.Location = new System.Drawing.Point(159, 10);
+            this._textBoxNameDiagnosis.Name = "_textBoxNameDiagnosis";
+            this._textBoxNameDiagnosis.Size = new System.Drawing.Size(217, 20);
+            this._textBoxNameDiagnosis.TabIndex = 11;
             // 
             // label1
             // 
@@ -84,17 +84,17 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Наименование диагноза";
             // 
-            // List_Diagnoses
+            // DiagnosisView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 155);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this._buttonSaveDiagnosis);
+            this.Controls.Add(this._textBoxDescriptionDiagnosis);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._textBoxNameDiagnosis);
             this.Controls.Add(this.label1);
-            this.Name = "List_Diagnoses";
+            this.Name = "DiagnosisView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление диагнозов";
             this.ResumeLayout(false);
@@ -104,10 +104,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button _buttonSaveDiagnosis;
+        private System.Windows.Forms.TextBox _textBoxDescriptionDiagnosis;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox _textBoxNameDiagnosis;
         private System.Windows.Forms.Label label1;
     }
 }

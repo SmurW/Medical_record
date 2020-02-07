@@ -17,6 +17,11 @@ namespace Medical_record.Data
             throw new NotImplementedException();
         }
 
+        public Task<Result<List<Diagnosis>>> GetAllDiagnosesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Result<List<Patient>>> GetAllPatientsAsync()
         {
             throw new NotImplementedException();

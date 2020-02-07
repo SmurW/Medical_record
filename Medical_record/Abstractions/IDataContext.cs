@@ -15,5 +15,6 @@ namespace Medical_record.Abstractions
         Task<Result<string>> UpdatePatientAsync(Patient patient);
         Task<Result<string>> AddPatientAsync(Patient patient);
         Task<Result<string>> RemovePatientAsync(int id);
+        Task<Result<List<Diagnosis>>> GetAllDiagnosesAsync();
     }
 }
