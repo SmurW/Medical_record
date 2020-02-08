@@ -49,6 +49,7 @@
     <Compile Include="Abstractions\IDataContext.cs" />
     <Compile Include="AppController.cs" />
     <Compile Include="Data\DbDataContext.cs" />
+    <Compile Include="Data\Models\Patient.cs" />
     <Compile Include="Data\TestDataContext.cs" />
     <Compile Include="Forms\DoctorsView.cs">
       <SubType>Form</SubType>
@@ -130,6 +131,8 @@
     <Compile Include="Forms\ProceduresView.Designer.cs">
       <DependentUpon>ProceduresView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\MessagesService.cs" />
+    <Compile Include="Utils\Result.cs" />
     <Compile Include="ViewModels\AddMedicationsViewModel.cs" />
     <Compile Include="ViewModels\AddProceduresViewModel.cs" />
     <Compile Include="ViewModels\CardViewModel.cs" />
