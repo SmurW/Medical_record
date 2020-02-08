@@ -32,18 +32,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this._comboBoxName = new System.Windows.Forms.ComboBox();
+            this._dateTimeArivalDate = new System.Windows.Forms.DateTimePicker();
+            this._textBoxArrivalPackage = new System.Windows.Forms.TextBox();
+            this._datePikerShelfLife = new System.Windows.Forms.DateTimePicker();
+            this._buttonAddMedecine = new System.Windows.Forms.Button();
+            this._textBoxRemainedUnits = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this._textBoxRestPackage = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this._textBoxQuantityPackage = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this._textBoxDescription = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -83,50 +83,50 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Срок годности";
             // 
-            // comboBox1
+            // _comboBoxName
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(101, 18);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(178, 21);
-            this.comboBox1.TabIndex = 13;
+            this._comboBoxName.FormattingEnabled = true;
+            this._comboBoxName.Location = new System.Drawing.Point(101, 18);
+            this._comboBoxName.Name = "_comboBoxName";
+            this._comboBoxName.Size = new System.Drawing.Size(178, 21);
+            this._comboBoxName.TabIndex = 13;
             // 
-            // dateTimePicker1
+            // _dateTimeArivalDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(101, 46);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(178, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this._dateTimeArivalDate.Location = new System.Drawing.Point(101, 46);
+            this._dateTimeArivalDate.Name = "_dateTimeArivalDate";
+            this._dateTimeArivalDate.Size = new System.Drawing.Size(178, 20);
+            this._dateTimeArivalDate.TabIndex = 14;
             // 
-            // textBox1
+            // _textBoxArrivalPackage
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 20);
-            this.textBox1.TabIndex = 15;
+            this._textBoxArrivalPackage.Location = new System.Drawing.Point(112, 73);
+            this._textBoxArrivalPackage.Name = "_textBoxArrivalPackage";
+            this._textBoxArrivalPackage.Size = new System.Drawing.Size(167, 20);
+            this._textBoxArrivalPackage.TabIndex = 15;
             // 
-            // dateTimePicker2
+            // _datePikerShelfLife
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(112, 100);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(167, 20);
-            this.dateTimePicker2.TabIndex = 16;
+            this._datePikerShelfLife.Location = new System.Drawing.Point(112, 100);
+            this._datePikerShelfLife.Name = "_datePikerShelfLife";
+            this._datePikerShelfLife.Size = new System.Drawing.Size(167, 20);
+            this._datePikerShelfLife.TabIndex = 16;
             // 
-            // button1
+            // _buttonAddMedecine
             // 
-            this.button1.Location = new System.Drawing.Point(431, 209);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 23);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Добавить лекарство";
-            this.button1.UseVisualStyleBackColor = true;
+            this._buttonAddMedecine.Location = new System.Drawing.Point(431, 209);
+            this._buttonAddMedecine.Name = "_buttonAddMedecine";
+            this._buttonAddMedecine.Size = new System.Drawing.Size(126, 23);
+            this._buttonAddMedecine.TabIndex = 26;
+            this._buttonAddMedecine.Text = "Добавить лекарство";
+            this._buttonAddMedecine.UseVisualStyleBackColor = true;
             // 
-            // textBox10
+            // _textBoxRemainedUnits
             // 
-            this.textBox10.Location = new System.Drawing.Point(431, 74);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(106, 20);
-            this.textBox10.TabIndex = 25;
+            this._textBoxRemainedUnits.Location = new System.Drawing.Point(431, 74);
+            this._textBoxRemainedUnits.Name = "_textBoxRemainedUnits";
+            this._textBoxRemainedUnits.Size = new System.Drawing.Size(106, 20);
+            this._textBoxRemainedUnits.TabIndex = 25;
             // 
             // label13
             // 
@@ -137,12 +137,12 @@
             this.label13.TabIndex = 12;
             this.label13.Text = "Остаток едениц";
             // 
-            // textBox9
+            // _textBoxRestPackage
             // 
-            this.textBox9.Location = new System.Drawing.Point(431, 46);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(106, 20);
-            this.textBox9.TabIndex = 24;
+            this._textBoxRestPackage.Location = new System.Drawing.Point(431, 46);
+            this._textBoxRestPackage.Name = "_textBoxRestPackage";
+            this._textBoxRestPackage.Size = new System.Drawing.Size(106, 20);
+            this._textBoxRestPackage.TabIndex = 24;
             // 
             // label12
             // 
@@ -153,12 +153,12 @@
             this.label12.TabIndex = 11;
             this.label12.Text = "Остаток упаковок";
             // 
-            // textBox3
+            // _textBoxQuantityPackage
             // 
-            this.textBox3.Location = new System.Drawing.Point(431, 18);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(106, 20);
-            this.textBox3.TabIndex = 18;
+            this._textBoxQuantityPackage.Location = new System.Drawing.Point(431, 18);
+            this._textBoxQuantityPackage.Name = "_textBoxQuantityPackage";
+            this._textBoxQuantityPackage.Size = new System.Drawing.Size(106, 20);
+            this._textBoxQuantityPackage.TabIndex = 18;
             // 
             // label6
             // 
@@ -169,16 +169,16 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Количество в упаковке";
             // 
-            // textBox2
+            // _textBoxDescription
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._textBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(77, 134);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(202, 98);
-            this.textBox2.TabIndex = 28;
+            this._textBoxDescription.Location = new System.Drawing.Point(77, 134);
+            this._textBoxDescription.Multiline = true;
+            this._textBoxDescription.Name = "_textBoxDescription";
+            this._textBoxDescription.Size = new System.Drawing.Size(202, 98);
+            this._textBoxDescription.TabIndex = 28;
             // 
             // label5
             // 
@@ -189,21 +189,21 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Описание";
             // 
-            // Form_Medications
+            // AddMedicationsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(590, 255);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this._textBoxDescription);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this._buttonAddMedecine);
+            this.Controls.Add(this._textBoxRemainedUnits);
+            this.Controls.Add(this._textBoxRestPackage);
+            this.Controls.Add(this._textBoxQuantityPackage);
+            this.Controls.Add(this._datePikerShelfLife);
+            this.Controls.Add(this._textBoxArrivalPackage);
+            this.Controls.Add(this._dateTimeArivalDate);
+            this.Controls.Add(this._comboBoxName);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label6);
@@ -211,7 +211,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form_Medications";
+            this.Name = "AddMedicationsView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Дабовление лекарств";
             this.ResumeLayout(false);
@@ -225,18 +225,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.ComboBox _comboBoxName;
+        private System.Windows.Forms.DateTimePicker _dateTimeArivalDate;
+        private System.Windows.Forms.TextBox _textBoxArrivalPackage;
+        private System.Windows.Forms.DateTimePicker _datePikerShelfLife;
+        private System.Windows.Forms.Button _buttonAddMedecine;
+        private System.Windows.Forms.TextBox _textBoxRemainedUnits;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox _textBoxRestPackage;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox _textBoxQuantityPackage;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox _textBoxDescription;
         private System.Windows.Forms.Label label5;
     }
 }

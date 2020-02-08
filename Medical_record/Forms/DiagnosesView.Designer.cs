@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this._dataGridViewDiagnoses = new System.Windows.Forms.DataGridView();
+            this._columnOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._buttonAdd = new System.Windows.Forms.Button();
             this._buttonUpdate = new System.Windows.Forms.Button();
             this._buttonRemoveDiagnosis = new System.Windows.Forms.Button();
@@ -36,9 +39,6 @@
             this._comboBoxSelectSort = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this._textBoxSearchByName = new System.Windows.Forms.TextBox();
-            this._columnOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._columnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._columnDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewDiagnoses)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +57,27 @@
             this._dataGridViewDiagnoses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._dataGridViewDiagnoses.Size = new System.Drawing.Size(580, 251);
             this._dataGridViewDiagnoses.TabIndex = 0;
+            // 
+            // _columnOrderNumber
+            // 
+            this._columnOrderNumber.HeaderText = "Н/П";
+            this._columnOrderNumber.Name = "_columnOrderNumber";
+            this._columnOrderNumber.ReadOnly = true;
+            this._columnOrderNumber.Width = 50;
+            // 
+            // _columnName
+            // 
+            this._columnName.HeaderText = "Наименование";
+            this._columnName.Name = "_columnName";
+            this._columnName.ReadOnly = true;
+            this._columnName.Width = 170;
+            // 
+            // _columnDescr
+            // 
+            this._columnDescr.HeaderText = "Описание";
+            this._columnDescr.Name = "_columnDescr";
+            this._columnDescr.ReadOnly = true;
+            this._columnDescr.Width = 300;
             // 
             // _buttonAdd
             // 
@@ -120,27 +141,6 @@
             this._textBoxSearchByName.Name = "_textBoxSearchByName";
             this._textBoxSearchByName.Size = new System.Drawing.Size(225, 20);
             this._textBoxSearchByName.TabIndex = 7;
-            // 
-            // _columnOrderNumber
-            // 
-            this._columnOrderNumber.HeaderText = "Н/П";
-            this._columnOrderNumber.Name = "_columnOrderNumber";
-            this._columnOrderNumber.ReadOnly = true;
-            this._columnOrderNumber.Width = 50;
-            // 
-            // _columnName
-            // 
-            this._columnName.HeaderText = "Наименование";
-            this._columnName.Name = "_columnName";
-            this._columnName.ReadOnly = true;
-            this._columnName.Width = 170;
-            // 
-            // _columnDescr
-            // 
-            this._columnDescr.HeaderText = "Описание";
-            this._columnDescr.Name = "_columnDescr";
-            this._columnDescr.ReadOnly = true;
-            this._columnDescr.Width = 300;
             // 
             // DiagnosesView
             // 

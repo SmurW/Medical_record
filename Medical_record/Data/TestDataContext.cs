@@ -12,11 +12,30 @@ namespace Medical_record.Data
     {
         private readonly List<Patient> _patients = new List<Patient>();
         private readonly List<Diagnosis> _diagnoses = new List<Diagnosis>();
+        private readonly List<Medications> _medications = new List<Medications>();
 
         public TestDataContext()
         {
             SetPatients();
             SetDiagnoses();
+            SetMedications();
+        }
+
+        private void SetMedications()
+        {
+            var m = new Medications
+            {
+                Id = 1,
+                Name = "",
+                Description = "",
+                ArrivalDate = DateTime.Parse("23.03.1984"),
+                ArrivalPackages = "",
+                ShelfLife = DateTime.Parse("23.03.1984"),
+                QuantityPackage = "",
+                RestPackages = "",
+                RemainedUnits = "",
+            };
+            _medications.Add(m);
         }
 
         private void SetDiagnoses()
@@ -224,6 +243,67 @@ namespace Medical_record.Data
             return Task.FromResult(
                     new Result<List<Diagnosis>>(
                         _diagnoses.Where(d => d.Name.Contains(value)).ToList()));
+        }
+
+        public Task<Result<List<Medications>>> GetMedicationsAsync()
+        {
+            return Task.FromResult(new Result<List<Medications>>(_medications));
+        }
+
+        public Task<Result<string>> AddMedicationsAsync(Medications medications)
+        {
+            medications.Id = 1;
+            if (_medications.Count > 0)
+            {
+                medications.Id = _medications.Max(d => d.Id) + 1;
+            }
+            _medications.Add(medications);
+            return Task.FromResult(new Result<string>(
+                $"Успешно сохранен {medications.Name}", String.Empty));
+        }
+
+        public Task<Result<string>> UpdateMedicationsAsync(Medications medications)
+        {
+            var dg = _medications.FirstOrDefault(d => d.Id == medications.Id);
+            if (dg == null)
+                return Task.FromResult(new Result<string>("Не удалось обновить"));
+
+            dg.Name = medications.Name;
+            dg.Description = medications.Description;
+            return Task.FromResult(new Result<string>("Успешно обновлен", String.Empty));
+        }
+
+        public Task<Result<string>> RemoveMedicationsAsync(int id)
+        {
+            var dg = _medications.FirstOrDefault(d => d.Id == id);
+            if (dg == null)
+                return Task.FromResult(new Result<string>("Не удалось удалить"));
+
+            _medications.Remove(dg);
+            return Task.FromResult(new Result<string>("Успешно удален", String.Empty));
+        }
+
+        public Task<Result<List<Medications>>> GetMedicationsOrderByAsync(string key)
+        {
+            if (key.Equals("Name"))
+            {
+                return Task.FromResult(
+                    new Result<List<Medications>>(
+                        _medications.OrderBy(d => d.Name).ToList()));
+            }
+            else
+            {
+                return Task.FromResult(
+                    new Result<List<Medications>>(
+                        _medications.OrderBy(d => d.Description).ToList()));
+            }
+        }
+
+        public Task<Result<List<Medications>>> GetMedicationsLikeAsync(string value)
+        {
+            return Task.FromResult(
+                    new Result<List<Medications>>(
+                        _medications.Where(d => d.Name.Contains(value)).ToList()));
         }
     }
 }
