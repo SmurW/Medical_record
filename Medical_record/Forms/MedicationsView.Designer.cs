@@ -59,7 +59,8 @@
             // 
             this._comboBoxSelectSort.FormattingEnabled = true;
             this._comboBoxSelectSort.Items.AddRange(new object[] {
-            "По Наименованию"});
+            "По Наименованию",
+            "По Описанию"});
             this._comboBoxSelectSort.Location = new System.Drawing.Point(120, 17);
             this._comboBoxSelectSort.Name = "_comboBoxSelectSort";
             this._comboBoxSelectSort.Size = new System.Drawing.Size(121, 21);
@@ -103,6 +104,7 @@
             // 
             // _dataGridViewMedicat
             // 
+            this._dataGridViewMedicat.AllowUserToAddRows = false;
             this._dataGridViewMedicat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._dataGridViewMedicat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._dataGridViewMedicat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
