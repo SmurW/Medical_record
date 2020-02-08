@@ -1,6 +1,6 @@
 ﻿namespace Medical_record.Data.Models
 {
-    public class Diagnosis
+    public class Procedure
     {
         public int Id { get; set; }
         public int OrderNumber { get; set; }

@@ -51,6 +51,7 @@
     <Compile Include="Data\DbDataContext.cs" />
     <Compile Include="Data\Models\Diagnosis.cs" />
     <Compile Include="Data\Models\Patient.cs" />
+    <Compile Include="Data\Models\Procedure.cs" />
     <Compile Include="Data\TestDataContext.cs" />
     <Compile Include="Forms\DoctorsView.cs">
       <SubType>Form</SubType>

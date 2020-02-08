@@ -15,9 +15,9 @@ namespace Medical_record.ViewModels
             _appController = appController;
         }
 
-        internal void ShowAddProceduresView()
-        {
-            _appController.ShowAddProceduresView();
-        }
+        internal void ShowAddProceduresView() => _appController.ShowAddProceduresView();
+
+
+        
     }
 }
