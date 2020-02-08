@@ -12,11 +12,40 @@ namespace Medical_record.Data
     {
         private readonly List<Patient> _patients = new List<Patient>();
         private readonly List<Diagnosis> _diagnoses = new List<Diagnosis>();
+        private readonly List<Procedure> _procedures = new List<Procedure>();
 
         public TestDataContext()
         {
+            SetProcedures();
             SetPatients();
             SetDiagnoses();
+        }
+
+        private void SetProcedures()
+        {
+            var p = new Procedure
+            {
+                Id = 1,
+                Name = "Процедура 1",
+                Description = "Описание процедуры 1"
+            };
+            _procedures.Add(p);
+
+            p = new Procedure
+            {
+                Id = 2,
+                Name = "Процедура 2",
+                Description = "Описание процедуры 2"
+            };
+            _procedures.Add(p);
+
+            p = new Procedure
+            {
+                Id = 3,
+                Name = "Процедура 3",
+                Description = "Описание процедуры 3"
+            };
+            _procedures.Add(p);
         }
 
         private void SetDiagnoses()
@@ -224,6 +253,67 @@ namespace Medical_record.Data
             return Task.FromResult(
                     new Result<List<Diagnosis>>(
                         _diagnoses.Where(d => d.Name.Contains(value)).ToList()));
+        }
+
+        public Task<Result<List<Procedure>>> GetProceduresAsync()
+        {
+            return Task.FromResult(new Result<List<Procedure>>(_procedures));
+        }
+
+        public Task<Result<string>> AddProcedureAsync(Procedure proc)
+        {
+            proc.Id = 1;
+            if (_procedures.Count > 0)
+            {
+                proc.Id = _procedures.Max(p => p.Id) + 1;
+            }
+            _procedures.Add(proc);
+            return Task.FromResult(new Result<string>(
+                $"Успешно сохранена {proc.Name}", String.Empty));
+        }
+
+        public Task<Result<string>> UpdateProcedureAsync(Procedure proc)
+        {
+            var pr = _procedures.FirstOrDefault(p => p.Id == proc.Id);
+            if (pr == null)
+                return Task.FromResult(new Result<string>("Не удалось обновить"));
+
+            pr.Name = proc.Name;
+            pr.Description = proc.Description;
+            return Task.FromResult(new Result<string>("Успешно обновлена", String.Empty));
+        }
+
+        public Task<Result<List<Procedure>>> GetProceduresLikeAsync(string value)
+        {
+            return Task.FromResult(
+                    new Result<List<Procedure>>(
+                        _procedures.Where(d => d.Name.Contains(value)).ToList()));
+        }
+
+        public Task<Result<List<Procedure>>> GetProceduresOrderByAsync(string key)
+        {
+            if (key.Equals("Name"))
+            {
+                return Task.FromResult(
+                    new Result<List<Procedure>>(
+                        _procedures.OrderBy(d => d.Name).ToList()));
+            }
+            else
+            {
+                return Task.FromResult(
+                    new Result<List<Procedure>>(
+                        _procedures.OrderBy(d => d.Description).ToList()));
+            }
+        }
+
+        public Task<Result<string>> RemoveProcedureAsync(int id)
+        {
+            var pr = _procedures.FirstOrDefault(d => d.Id == id);
+            if (pr == null)
+                return Task.FromResult(new Result<string>("Не удалось удалить"));
+
+            _procedures.Remove(pr);
+            return Task.FromResult(new Result<string>("Успешно удалена", String.Empty));
         }
     }
 }

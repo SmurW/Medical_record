@@ -13,13 +13,20 @@ namespace Medical_record.Forms
 {
     public partial class AddProceduresView : Form
     {
-        private AddProceduresViewModel _addProceduresViewModel;
+        private AddProceduresViewModel _viewModel;
 
         public AddProceduresView(AddProceduresViewModel addProceduresViewModel)
         {
             InitializeComponent();
-            _addProceduresViewModel = addProceduresViewModel ??
+            _viewModel = addProceduresViewModel ??
                 throw new ArgumentNullException(nameof(addProceduresViewModel));
+
+            _textBoxDescr.DataBindings.Add("Text", _viewModel,
+                nameof(_viewModel.Description), true, DataSourceUpdateMode.OnPropertyChanged);
+            _textBoxName.DataBindings.Add("Text", _viewModel,
+                nameof(_viewModel.Name), true, DataSourceUpdateMode.OnPropertyChanged);
+
+            _buttonSave.Click += (s, e) => _viewModel.SaveProcedure();
         }
     }
 }

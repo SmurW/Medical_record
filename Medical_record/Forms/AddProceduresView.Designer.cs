@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this._textBoxName = new System.Windows.Forms.TextBox();
-            this._textBoxDescription = new System.Windows.Forms.TextBox();
+            this._textBoxDescr = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this._buttonAdd = new System.Windows.Forms.Button();
+            this._buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -53,16 +53,16 @@
             this._textBoxName.Size = new System.Drawing.Size(217, 20);
             this._textBoxName.TabIndex = 1;
             // 
-            // _textBoxDescription
+            // _textBoxDescr
             // 
-            this._textBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._textBoxDescr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._textBoxDescription.Location = new System.Drawing.Point(75, 42);
-            this._textBoxDescription.Multiline = true;
-            this._textBoxDescription.Name = "_textBoxDescription";
-            this._textBoxDescription.Size = new System.Drawing.Size(301, 79);
-            this._textBoxDescription.TabIndex = 3;
+            this._textBoxDescr.Location = new System.Drawing.Point(75, 42);
+            this._textBoxDescr.Multiline = true;
+            this._textBoxDescr.Name = "_textBoxDescr";
+            this._textBoxDescr.Size = new System.Drawing.Size(301, 79);
+            this._textBoxDescr.TabIndex = 3;
             // 
             // label2
             // 
@@ -73,24 +73,24 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Описание";
             // 
-            // _buttonAdd
+            // _buttonSave
             // 
-            this._buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this._buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this._buttonAdd.Location = new System.Drawing.Point(121, 127);
-            this._buttonAdd.Name = "_buttonAdd";
-            this._buttonAdd.Size = new System.Drawing.Size(142, 23);
-            this._buttonAdd.TabIndex = 4;
-            this._buttonAdd.Text = "Добавить процедуру";
-            this._buttonAdd.UseVisualStyleBackColor = true;
+            this._buttonSave.Location = new System.Drawing.Point(121, 127);
+            this._buttonSave.Name = "_buttonSave";
+            this._buttonSave.Size = new System.Drawing.Size(142, 23);
+            this._buttonSave.TabIndex = 4;
+            this._buttonSave.Text = "Добавить процедуру";
+            this._buttonSave.UseVisualStyleBackColor = true;
             // 
             // AddProceduresView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 155);
-            this.Controls.Add(this._buttonAdd);
-            this.Controls.Add(this._textBoxDescription);
+            this.Controls.Add(this._buttonSave);
+            this.Controls.Add(this._textBoxDescr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this._textBoxName);
             this.Controls.Add(this.label1);
@@ -106,8 +106,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox _textBoxName;
-        private System.Windows.Forms.TextBox _textBoxDescription;
+        private System.Windows.Forms.TextBox _textBoxDescr;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button _buttonAdd;
+        private System.Windows.Forms.Button _buttonSave;
     }
 }
