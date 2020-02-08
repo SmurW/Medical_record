@@ -57,6 +57,8 @@ namespace Medical_record
             form.Show();
         }
 
+        
+
         internal void ShowDoctorsView()
         {
             var vm = new DoctorsViewModel(this);
@@ -110,6 +112,15 @@ namespace Medical_record
         internal void ShowAddProceduresView()
         {
             var vm = new AddProceduresViewModel(this);
+            var form = new AddProceduresView(vm);
+            form.Owner = _mainForm;
+            form.Show();
+        }
+
+        internal void ShowAddProceduresView(Procedure procedure)
+        {
+            var vm = new AddProceduresViewModel(this);
+            vm.SetPrcedure(procedure);
             var form = new AddProceduresView(vm);
             form.Owner = _mainForm;
             form.Show();

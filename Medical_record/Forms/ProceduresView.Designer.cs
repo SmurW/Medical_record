@@ -34,8 +34,11 @@
             this._buttonRemove = new System.Windows.Forms.Button();
             this._buttonUpdate = new System.Windows.Forms.Button();
             this._buttonAdd = new System.Windows.Forms.Button();
-            this._dataGridViewProcedures = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this._dataGridViewProcedures = new System.Windows.Forms.DataGridView();
+            this._columnOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._columnDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewProcedures)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,12 +46,15 @@
             // 
             this._textBoxSearch.Location = new System.Drawing.Point(388, 16);
             this._textBoxSearch.Name = "_textBoxSearch";
-            this._textBoxSearch.Size = new System.Drawing.Size(233, 20);
+            this._textBoxSearch.Size = new System.Drawing.Size(224, 20);
             this._textBoxSearch.TabIndex = 15;
             // 
             // _comboBoxSort
             // 
             this._comboBoxSort.FormattingEnabled = true;
+            this._comboBoxSort.Items.AddRange(new object[] {
+            "По Наименованию",
+            "По Описанию"});
             this._comboBoxSort.Location = new System.Drawing.Point(110, 16);
             this._comboBoxSort.Name = "_comboBoxSort";
             this._comboBoxSort.Size = new System.Drawing.Size(121, 21);
@@ -90,14 +96,6 @@
             this._buttonAdd.Text = "Добавить";
             this._buttonAdd.UseVisualStyleBackColor = true;
             // 
-            // _dataGridViewProcedures
-            // 
-            this._dataGridViewProcedures.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._dataGridViewProcedures.Location = new System.Drawing.Point(41, 49);
-            this._dataGridViewProcedures.Name = "_dataGridViewProcedures";
-            this._dataGridViewProcedures.Size = new System.Drawing.Size(580, 251);
-            this._dataGridViewProcedures.TabIndex = 8;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -107,11 +105,49 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Поиск по наименованию:";
             // 
+            // _dataGridViewProcedures
+            // 
+            this._dataGridViewProcedures.AllowUserToAddRows = false;
+            this._dataGridViewProcedures.AllowUserToDeleteRows = false;
+            this._dataGridViewProcedures.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._dataGridViewProcedures.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._columnOrderNumber,
+            this._columnName,
+            this._columnDescr});
+            this._dataGridViewProcedures.Location = new System.Drawing.Point(32, 48);
+            this._dataGridViewProcedures.Name = "_dataGridViewProcedures";
+            this._dataGridViewProcedures.ReadOnly = true;
+            this._dataGridViewProcedures.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._dataGridViewProcedures.Size = new System.Drawing.Size(580, 251);
+            this._dataGridViewProcedures.TabIndex = 17;
+            // 
+            // _columnOrderNumber
+            // 
+            this._columnOrderNumber.HeaderText = "Н/П";
+            this._columnOrderNumber.Name = "_columnOrderNumber";
+            this._columnOrderNumber.ReadOnly = true;
+            this._columnOrderNumber.Width = 50;
+            // 
+            // _columnName
+            // 
+            this._columnName.HeaderText = "Наименование";
+            this._columnName.Name = "_columnName";
+            this._columnName.ReadOnly = true;
+            this._columnName.Width = 170;
+            // 
+            // _columnDescr
+            // 
+            this._columnDescr.HeaderText = "Описание";
+            this._columnDescr.Name = "_columnDescr";
+            this._columnDescr.ReadOnly = true;
+            this._columnDescr.Width = 300;
+            // 
             // ProceduresView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 346);
+            this.Controls.Add(this._dataGridViewProcedures);
             this.Controls.Add(this.label2);
             this.Controls.Add(this._textBoxSearch);
             this.Controls.Add(this._comboBoxSort);
@@ -119,7 +155,6 @@
             this.Controls.Add(this._buttonRemove);
             this.Controls.Add(this._buttonUpdate);
             this.Controls.Add(this._buttonAdd);
-            this.Controls.Add(this._dataGridViewProcedures);
             this.Name = "ProceduresView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр процедур";
@@ -137,7 +172,10 @@
         private System.Windows.Forms.Button _buttonRemove;
         private System.Windows.Forms.Button _buttonUpdate;
         private System.Windows.Forms.Button _buttonAdd;
-        private System.Windows.Forms.DataGridView _dataGridViewProcedures;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView _dataGridViewProcedures;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _columnOrderNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _columnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _columnDescr;
     }
 }

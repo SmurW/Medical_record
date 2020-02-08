@@ -34,7 +34,7 @@
             this._columnDescr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._buttonAdd = new System.Windows.Forms.Button();
             this._buttonUpdate = new System.Windows.Forms.Button();
-            this._buttonRemoveDiagnosis = new System.Windows.Forms.Button();
+            this._buttonRemove = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this._comboBoxSelectSort = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -99,12 +99,12 @@
             // 
             // _buttonRemoveDiagnosis
             // 
-            this._buttonRemoveDiagnosis.Location = new System.Drawing.Point(299, 306);
-            this._buttonRemoveDiagnosis.Name = "_buttonRemoveDiagnosis";
-            this._buttonRemoveDiagnosis.Size = new System.Drawing.Size(75, 23);
-            this._buttonRemoveDiagnosis.TabIndex = 3;
-            this._buttonRemoveDiagnosis.Text = "Удалить";
-            this._buttonRemoveDiagnosis.UseVisualStyleBackColor = true;
+            this._buttonRemove.Location = new System.Drawing.Point(299, 306);
+            this._buttonRemove.Name = "_buttonRemoveDiagnosis";
+            this._buttonRemove.Size = new System.Drawing.Size(75, 23);
+            this._buttonRemove.TabIndex = 3;
+            this._buttonRemove.Text = "Удалить";
+            this._buttonRemove.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -151,7 +151,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this._comboBoxSelectSort);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this._buttonRemoveDiagnosis);
+            this.Controls.Add(this._buttonRemove);
             this.Controls.Add(this._buttonUpdate);
             this.Controls.Add(this._buttonAdd);
             this.Controls.Add(this._dataGridViewDiagnoses);
@@ -169,7 +169,7 @@
         private System.Windows.Forms.DataGridView _dataGridViewDiagnoses;
         private System.Windows.Forms.Button _buttonAdd;
         private System.Windows.Forms.Button _buttonUpdate;
-        private System.Windows.Forms.Button _buttonRemoveDiagnosis;
+        private System.Windows.Forms.Button _buttonRemove;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox _comboBoxSelectSort;
         private System.Windows.Forms.Label label2;
