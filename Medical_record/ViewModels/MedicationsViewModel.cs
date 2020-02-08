@@ -20,7 +20,7 @@ namespace Medical_record.ViewModels
 
         internal void ShowAddMedicationsView()
         {
-            _appController.ShowAddMedicationsView();
+            _appController.ShowMedicationsView();
         }
 
         public List<Medications> Medications { get; set; } = new List<Medications>();
