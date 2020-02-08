@@ -8,6 +8,8 @@ namespace Medical_record.Data.Models
 {
    public class Medications
     {
+        public int Id { get; set; }
+        public int OrderNumber { get; set; }
         public string Name { get; set; }
         public DateTime ArrivalDate { get; set; } = DateTime.Now;
         public string ArrivalPackages { get; set; }

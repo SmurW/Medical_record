@@ -17,5 +17,11 @@ namespace Medical_record.Abstractions
         Task<Result<string>> RemoveDiagnosisAsync(int id);
         Task<Result<List<Diagnosis>>> GetDiagnosesOrderByAsync(string key);
         Task<Result<List<Diagnosis>>> GetDiagnosesLikeAsync(string value);
+        Task<Result<List<Medications>>> GetMedicationsAsync();
+        Task<Result<string>> AddMedicationsAsync(Medications medications);
+        Task<Result<string>> UpdateMedicationsAsync(Medications medications);
+        Task<Result<string>> RemoveMedicationsAsync(int id);
+        Task<Result<List<Medications>>> GetMedicationsOrderByAsync(string key);
+        Task<Result<List<Medications>>> GetMedicationsLikeAsync(string value);
     }
 }

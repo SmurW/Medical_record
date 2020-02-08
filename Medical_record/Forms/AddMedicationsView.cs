@@ -36,7 +36,7 @@ namespace Medical_record.Forms
 
             _comboBoxName.DataBindings.Add("Text", _addMedicationsViewModel, nameof(_addMedicationsViewModel.Name));
 
-            _buttonAddMedecine.Click += (s, e) => _addMedicationsViewModel.AddMedicine();
+            _buttonAddMedecine.Click += (s, e) => _addMedicationsViewModel.SaveMedications();
         }
 
         
