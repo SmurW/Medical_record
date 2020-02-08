@@ -22,33 +22,19 @@ namespace Medical_record
             _medicationsViewModel = medicationsViewModel ??
                 throw new ArgumentNullException(nameof(medicationsViewModel));
 
-            AddColumnsInDGV();
+            _bsMedications = new BindingSource();
+            _bsMedications.DataSource = typeof(List<Medication>);
+            _dataGridViewDiagnoses.AutoGenerateColumns = false;
+            _dataGridViewDiagnoses.DataSource = _bsDiagnoses;
+            _columnOrderNumber.DataPropertyName = nameof(Diagnosis.OrderNumber);
+            _columnName.DataPropertyName = nameof(Diagnosis.Name);
+            _columnDescr.DataPropertyName = nameof(Diagnosis.Description);
 
             _buttonAddMedication.Click += (s, e) => _medicationsViewModel.ShowAddMedicationsView();
             _buttonUpdateMedication.Click += (s, e) => _medicationsViewModel.ShowAddMedicationsView();
-        }
 
-        /// <summary>
-        /// Дабовление столбцов в датагридвью
-        /// </summary>
-        private void AddColumnsInDGV()
-        {
-            _dataGridViewMedicat.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Name", HeaderText = "Наименование" });
-            _dataGridViewMedicat.Columns.Add(new DataGridViewTextBoxColumn() { Name = "ArrivalDate", HeaderText = "Дата прихода" });
-            _dataGridViewMedicat.Columns.Add(new DataGridViewTextBoxColumn() { Name = "ArrivalPackages", HeaderText = "Приход упаковок" });
-            _dataGridViewMedicat.Columns.Add(new DataGridViewTextBoxColumn() { Name = "ShelfLife", HeaderText = "Срок годности" });
-            _dataGridViewMedicat.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Description", HeaderText = "Описание" });
-            _dataGridViewMedicat.Columns.Add(new DataGridViewTextBoxColumn() { Name = "QuantityPackage", HeaderText = "Количество в упаковке" });
-            _dataGridViewMedicat.Columns.Add(new DataGridViewTextBoxColumn() { Name = "RestPackages", HeaderText = "Остаток упаковок" });
-            _dataGridViewMedicat.Columns.Add(new DataGridViewTextBoxColumn() { Name = "RemainedUnits", HeaderText = "Остаток едениц" });
-        }
-
-        /// <summary>
-        /// Установка привязок у датагридвью
-        /// </summary>
-        private void SetDataGridViewBindings()
-        {
 
         }
+
     }
 }

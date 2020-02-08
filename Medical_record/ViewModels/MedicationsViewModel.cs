@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Medical_record.Data.Models;
 
 namespace Medical_record.ViewModels
 {
@@ -20,6 +21,6 @@ namespace Medical_record.ViewModels
             _appController.ShowAddMedicationsView();
         }
 
-        
+        public List<Medications> Medications { get; set; } = new List<Medications>();
     }
 }
