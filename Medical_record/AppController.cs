@@ -3,10 +3,6 @@ using Medical_record.Data.Models;
 using Medical_record.Forms;
 using Medical_record.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Medical_record
@@ -89,6 +85,15 @@ namespace Medical_record
         internal void ShowDiagnosisView()
         {
             var vm = new DiagnosisViewModel(this);
+            var form = new DiagnosisView(vm);
+            form.Owner = _mainForm;
+            form.Show();
+        }
+
+        internal void ShowDiagnosisView(Diagnosis diagnosis)
+        {
+            var vm = new DiagnosisViewModel(this);
+            vm.SetDiagnosis(diagnosis);
             var form = new DiagnosisView(vm);
             form.Owner = _mainForm;
             form.Show();

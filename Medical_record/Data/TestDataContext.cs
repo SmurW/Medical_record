@@ -11,10 +11,47 @@ namespace Medical_record.Data
     class TestDataContext : IDataContext
     {
         private readonly List<Patient> _patients = new List<Patient>();
+        private readonly List<Diagnosis> _diagnoses = new List<Diagnosis>();
 
         public TestDataContext()
         {
             SetPatients();
+            SetDiagnoses();
+        }
+
+        private void SetDiagnoses()
+        {
+            var d = new Diagnosis
+            {
+                Id = 1,
+                Name = "Грипп",
+                Description = "Острое инфекционное заболевание дыхательных путей, " +
+                "вызываемое вирусом гриппа. Входит в группу острых респираторных" +
+                " вирусных инфекций (ОРВИ). Периодически распространяется в виде эпидемий."
+            };
+            _diagnoses.Add(d);
+
+            d = new Diagnosis
+            {
+                Id = 2,
+                Name = "Просту́да",
+                Description = "Острая респираторная инфекция общей (невыясненной) этиологии" +
+                " с воспалением верхних дыхательных путей, затрагивающая преимущественно нос." +
+                " В воспаление могут быть также вовлечены горло, гортань и пазухи." +
+                " Термин используется наряду с фарингитом, ларингитом, трахеитом и другими."
+            };
+            _diagnoses.Add(d);
+
+            d = new Diagnosis
+            {
+                Id = 3,
+                Name = "Диаре́я",
+                Description = "Патологическое состояние, при котором у больного наблюдается учащённая" +
+                " (более 3 раз в сутки) дефекация, при этом стул становится водянистым," +
+                " имеет объём более 200 мл и часто сопровождается болевыми ощущениями в области живота," +
+                " экстренными позывами и анальным недержанием"
+            };
+            _diagnoses.Add(d);
         }
 
         private void SetPatients()
@@ -77,7 +114,7 @@ namespace Medical_record.Data
             _patients.Add(p);
         }
 
-        public Task<Result<List<Patient>>> GetAllPatientsAsync()
+        public Task<Result<List<Patient>>> GetPatientsAsync()
         {
             return Task.FromResult(new Result<List<Patient>>(_patients));
         }
@@ -126,6 +163,67 @@ namespace Medical_record.Data
 
             _patients.Remove(pt);
             return Task.FromResult(new Result<string>("Успешно удален", String.Empty));
+        }
+
+        public Task<Result<List<Diagnosis>>> GetDiagnosesAsync()
+        {
+            return Task.FromResult(new Result<List<Diagnosis>>(_diagnoses));
+        }
+
+        public Task<Result<string>> AddDiagnosisAsync(Diagnosis diagnosis)
+        {
+            diagnosis.Id = 1;
+            if (_diagnoses.Count > 0)
+            {
+                diagnosis.Id = _diagnoses.Max(d => d.Id) + 1;
+            }
+            _diagnoses.Add(diagnosis);
+            return Task.FromResult(new Result<string>(
+                $"Успешно сохранен {diagnosis.Name}", String.Empty));
+        }
+
+        public Task<Result<string>> UpdateDiagnosisAsync(Diagnosis diagnosis)
+        {
+            var dg = _diagnoses.FirstOrDefault(d => d.Id == diagnosis.Id);
+            if (dg == null)
+                return Task.FromResult(new Result<string>("Не удалось обновить"));
+
+            dg.Name = diagnosis.Name;
+            dg.Description = diagnosis.Description;
+            return Task.FromResult(new Result<string>("Успешно обновлен", String.Empty));
+        }
+
+        public Task<Result<string>> RemoveDiagnosisAsync(int id)
+        {
+            var dg = _diagnoses.FirstOrDefault(d => d.Id == id);
+            if (dg == null)
+                return Task.FromResult(new Result<string>("Не удалось удалить"));
+
+            _diagnoses.Remove(dg);
+            return Task.FromResult(new Result<string>("Успешно удален", String.Empty));
+        }
+
+        public Task<Result<List<Diagnosis>>> GetDiagnosesOrderByAsync(string key)
+        {
+            if (key.Equals("Name"))
+            {
+                return Task.FromResult(
+                    new Result<List<Diagnosis>>(
+                        _diagnoses.OrderBy(d => d.Name).ToList()));
+            }
+            else
+            {
+                return Task.FromResult(
+                    new Result<List<Diagnosis>>(
+                        _diagnoses.OrderBy(d => d.Description).ToList()));
+            }
+        }
+
+        public Task<Result<List<Diagnosis>>> GetDiagnosesLikeAsync(string value)
+        {
+            return Task.FromResult(
+                    new Result<List<Diagnosis>>(
+                        _diagnoses.Where(d => d.Name.Contains(value)).ToList()));
         }
     }
 }

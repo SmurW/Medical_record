@@ -32,7 +32,7 @@ namespace Medical_record.Forms
             _buttonUpdatePatient.Click +=
                 (s, e) => _cardViewModel.ShowRegistrationView(_bsPatients.Current as Patient);
             _buttonRemovePatient.Click += 
-                (s, e) => _cardViewModel.RemovePainter(_bsPatients.Current as Patient);
+                (s, e) => _cardViewModel.RemovePatient(_bsPatients.Current as Patient);
             _buttonNextPatient.Click += (s, e) => _bsPatients.MoveNext();
             _buttonPrevPatient.Click += (s, e) => _bsPatients.MovePrevious();
 
