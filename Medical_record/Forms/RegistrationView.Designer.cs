@@ -63,8 +63,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.add_Observation1 = new Medical_record.UseControl.Add_Observation();
-            this.add_Information_Hospitalization1 = new Medical_record.UseControl.Add_Information_Hospitalization();
             this.SuspendLayout();
             // 
             // label1
@@ -291,7 +289,7 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(489, 683);
+            this.button5.Location = new System.Drawing.Point(489, 331);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(219, 23);
             this.button5.TabIndex = 34;
@@ -301,7 +299,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(264, 683);
+            this.button4.Location = new System.Drawing.Point(264, 331);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(219, 23);
             this.button4.TabIndex = 33;
@@ -311,7 +309,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(39, 683);
+            this.button2.Location = new System.Drawing.Point(39, 331);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(219, 23);
             this.button2.TabIndex = 31;
@@ -321,7 +319,7 @@
             // _buttonSavePatient
             // 
             this._buttonSavePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._buttonSavePatient.Location = new System.Drawing.Point(264, 712);
+            this._buttonSavePatient.Location = new System.Drawing.Point(264, 360);
             this._buttonSavePatient.Name = "_buttonSavePatient";
             this._buttonSavePatient.Size = new System.Drawing.Size(219, 23);
             this._buttonSavePatient.TabIndex = 13;
@@ -361,29 +359,11 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Гражданство";
             // 
-            // add_Observation1
-            // 
-            this.add_Observation1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.add_Observation1.Location = new System.Drawing.Point(15, 476);
-            this.add_Observation1.Name = "add_Observation1";
-            this.add_Observation1.Size = new System.Drawing.Size(431, 145);
-            this.add_Observation1.TabIndex = 38;
-            // 
-            // add_Information_Hospitalization1
-            // 
-            this.add_Information_Hospitalization1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.add_Information_Hospitalization1.Location = new System.Drawing.Point(15, 296);
-            this.add_Information_Hospitalization1.Name = "add_Information_Hospitalization1";
-            this.add_Information_Hospitalization1.Size = new System.Drawing.Size(470, 174);
-            this.add_Information_Hospitalization1.TabIndex = 37;
-            // 
             // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 741);
-            this.Controls.Add(this.add_Observation1);
-            this.Controls.Add(this.add_Information_Hospitalization1);
+            this.ClientSize = new System.Drawing.Size(738, 399);
             this.Controls.Add(this._buttonSavePatient);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -461,8 +441,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button _buttonSavePatient;
-        private UseControl.Add_Information_Hospitalization add_Information_Hospitalization1;
-        private UseControl.Add_Observation add_Observation1;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox2;

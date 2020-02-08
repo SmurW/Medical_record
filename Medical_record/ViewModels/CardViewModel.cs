@@ -38,7 +38,7 @@ namespace Medical_record.ViewModels
         /// <returns></returns>
         internal async Task LoadDataAsync()
         {
-            var result = await _appController.DataContext.GetAllPatientsAsync();
+            var result = await _appController.DataContext.GetPatientsAsync();
             if (result.HasValue)
             {
                 Patients = result.Value;
@@ -52,14 +52,14 @@ namespace Medical_record.ViewModels
         /// <summary>
         /// Удаление пациента
         /// </summary>
-        internal async void RemovePainter(Patient patient)
+        internal async void RemovePatient(Patient patient)
         {
             var message = $"Вы согласны удалить запись о пациенте с картой №{patient.CardNumber}?";
             bool agreeRemove = MessagesService.GetAgree(message);
             if (!agreeRemove)
                 return;
 
-            Result<string> result = await _appController.DataContext.RemovePatientAsync(patient.Id);
+            var result = await _appController.DataContext.RemovePatientAsync(patient.Id);
             if (result.HasValue)
             {
                 MessagesService.ShowInfoMessage(result.Value);

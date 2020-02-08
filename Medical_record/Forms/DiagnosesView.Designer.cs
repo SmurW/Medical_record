@@ -54,6 +54,7 @@
             this._dataGridViewDiagnoses.Location = new System.Drawing.Point(44, 49);
             this._dataGridViewDiagnoses.Name = "_dataGridViewDiagnoses";
             this._dataGridViewDiagnoses.ReadOnly = true;
+            this._dataGridViewDiagnoses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._dataGridViewDiagnoses.Size = new System.Drawing.Size(580, 251);
             this._dataGridViewDiagnoses.TabIndex = 0;
             // 
@@ -96,6 +97,9 @@
             // _comboBoxSelectSort
             // 
             this._comboBoxSelectSort.FormattingEnabled = true;
+            this._comboBoxSelectSort.Items.AddRange(new object[] {
+            "По Наименованию",
+            "По Описанию"});
             this._comboBoxSelectSort.Location = new System.Drawing.Point(113, 16);
             this._comboBoxSelectSort.Name = "_comboBoxSelectSort";
             this._comboBoxSelectSort.Size = new System.Drawing.Size(121, 21);
@@ -126,7 +130,7 @@
             // 
             // _columnName
             // 
-            this._columnName.HeaderText = "Название";
+            this._columnName.HeaderText = "Наименование";
             this._columnName.Name = "_columnName";
             this._columnName.ReadOnly = true;
             this._columnName.Width = 170;
@@ -152,6 +156,7 @@
             this.Controls.Add(this._buttonAdd);
             this.Controls.Add(this._dataGridViewDiagnoses);
             this.Name = "DiagnosesView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр диагназов";
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewDiagnoses)).EndInit();
             this.ResumeLayout(false);

@@ -13,12 +13,19 @@ namespace Medical_record.Forms
 {
     public partial class DiagnosisView : Form
     {
-        private DiagnosisViewModel _diagnosisViewModel;
+        private DiagnosisViewModel _viewModel;
 
         public DiagnosisView(DiagnosisViewModel diagnosisViewModel)
         {
             InitializeComponent();
-            _diagnosisViewModel = diagnosisViewModel;
+            _viewModel = diagnosisViewModel;
+
+            _textBoxDescr.DataBindings.Add("Text", _viewModel,
+                nameof(_viewModel.Description), true, DataSourceUpdateMode.OnPropertyChanged);
+            _textBoxName.DataBindings.Add("Text", _viewModel,
+                nameof(_viewModel.Name), true, DataSourceUpdateMode.OnPropertyChanged);
+
+            _buttonSave.Click += (s, e) => _viewModel.SaveDiagnosis();
         }
     }
 }

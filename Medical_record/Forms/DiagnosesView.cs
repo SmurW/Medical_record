@@ -30,10 +30,17 @@ namespace Medical_record.Forms
             _columnOrderNumber.DataPropertyName = nameof(Diagnosis.OrderNumber);
             _columnName.DataPropertyName = nameof(Diagnosis.Name);
             _columnDescr.DataPropertyName = nameof(Diagnosis.Description);
+            _textBoxSearchByName.DataBindings.Add("Text",
+                _viewModel, nameof(_viewModel.FindInput), true, DataSourceUpdateMode.OnPropertyChanged);
 
             _buttonAdd.Click += (s, e) => _viewModel.ShowDiagnosisView();
-            _buttonUpdate.Click += (s, e) => _viewModel.ShowDiagnosisView();
+            _buttonUpdate.Click += (s, e)
+                => _viewModel.ShowDiagnosisView(_bsDiagnoses.Current as Diagnosis);
+            _buttonRemoveDiagnosis.Click += (s, e)
+                => _viewModel.RemoveDiagnosis(_bsDiagnoses.Current as Diagnosis);
 
+            _viewModel.DiagnosesChanged += ViewModel_DiagnosesChanged;
+            _comboBoxSelectSort.SelectedValueChanged += ComboBoxSelectSort_SelectedValueChanged;
             this.Activated += DiagnosesView_Activated;
         }
 
@@ -44,11 +51,43 @@ namespace Medical_record.Forms
         /// <param name="e"></param>
         private async void DiagnosesView_Activated(object sender, EventArgs e)
         {
+            _comboBoxSelectSort.Text = String.Empty;
             await _viewModel.LoadDataAsync();
-            if (_bsDiagnoses.Count != 0)
-            {
-                _bsDiagnoses.Clear();
-            }
+            ReloadBindingSource();
+        }
+
+        /// <summary>
+        /// Сортировка диагнозов после выбора в комбобоксе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void ComboBoxSelectSort_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var cb = sender as ComboBox;
+            if (String.IsNullOrEmpty(cb.Text))
+                return;
+
+            await _viewModel.LoadDataSortedByAsync(cb.Text);
+            ReloadBindingSource();
+        }
+
+        /// <summary>
+        /// Обновление источника данных после поиска
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ViewModel_DiagnosesChanged(object sender, EventArgs e)
+        {
+            _comboBoxSelectSort.Text = String.Empty;
+            ReloadBindingSource();
+        }
+
+        /// <summary>
+        /// Перезагрузка данных в источник данных для DGV
+        /// </summary>
+        private void ReloadBindingSource()
+        {
+            _bsDiagnoses.Clear();
             _viewModel.Diagnoses.ForEach(d => _bsDiagnoses.Add(d));
         }
     }
