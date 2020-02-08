@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this._textBoxName = new System.Windows.Forms.TextBox();
+            this._textBoxDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this._buttonAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -44,25 +44,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Наименование процедуры";
             // 
-            // textBox1
+            // _textBoxName
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this._textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(159, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 20);
-            this.textBox1.TabIndex = 1;
+            this._textBoxName.Location = new System.Drawing.Point(159, 16);
+            this._textBoxName.Name = "_textBoxName";
+            this._textBoxName.Size = new System.Drawing.Size(217, 20);
+            this._textBoxName.TabIndex = 1;
             // 
-            // textBox2
+            // _textBoxDescription
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this._textBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(75, 42);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(301, 79);
-            this.textBox2.TabIndex = 3;
+            this._textBoxDescription.Location = new System.Drawing.Point(75, 42);
+            this._textBoxDescription.Multiline = true;
+            this._textBoxDescription.Name = "_textBoxDescription";
+            this._textBoxDescription.Size = new System.Drawing.Size(301, 79);
+            this._textBoxDescription.TabIndex = 3;
             // 
             // label2
             // 
@@ -73,28 +73,28 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Описание";
             // 
-            // button1
+            // _buttonAdd
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this._buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(121, 127);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Добавить процедуру";
-            this.button1.UseVisualStyleBackColor = true;
+            this._buttonAdd.Location = new System.Drawing.Point(121, 127);
+            this._buttonAdd.Name = "_buttonAdd";
+            this._buttonAdd.Size = new System.Drawing.Size(142, 23);
+            this._buttonAdd.TabIndex = 4;
+            this._buttonAdd.Text = "Добавить процедуру";
+            this._buttonAdd.UseVisualStyleBackColor = true;
             // 
-            // List_Procedures
+            // AddProceduresView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 155);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this._buttonAdd);
+            this.Controls.Add(this._textBoxDescription);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._textBoxName);
             this.Controls.Add(this.label1);
-            this.Name = "List_Procedures";
+            this.Name = "AddProceduresView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление процедур";
             this.ResumeLayout(false);
@@ -105,9 +105,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox _textBoxName;
+        private System.Windows.Forms.TextBox _textBoxDescription;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button _buttonAdd;
     }
 }

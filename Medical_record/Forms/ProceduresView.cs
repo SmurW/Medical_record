@@ -21,8 +21,8 @@ namespace Medical_record
             _proceduresViewModel = proceduresViewModel ??
                 throw new ArgumentNullException(nameof(proceduresViewModel));
 
-            _buttonAddProcedure.Click += (s, e) => _proceduresViewModel.ShowAddProceduresView();
-            _buttonUpdateProcedure.Click += (s, e) => _proceduresViewModel.ShowAddProceduresView();
+            _buttonAdd.Click += (s, e) => _proceduresViewModel.ShowAddProceduresView();
+            _buttonUpdate.Click += (s, e) => _proceduresViewModel.ShowAddProceduresView();
         }
     }
 }
