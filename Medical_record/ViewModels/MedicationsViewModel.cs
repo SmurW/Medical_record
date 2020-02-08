@@ -19,5 +19,7 @@ namespace Medical_record.ViewModels
         {
             _appController.ShowAddMedicationsView();
         }
+
+        
     }
 }

@@ -15,5 +15,20 @@ namespace Medical_record.ViewModels
             _appController = appController ??
                 throw new ArgumentNullException(nameof(appController));
         }
+
+        public string Name { get; set; }
+        public DateTime ArrivalDate { get; set; } = DateTime.Now;
+        public string ArrivalPackages { get; set; }
+        public DateTime ShelfLife { get; set; } = DateTime.Now;
+        public string Description { get; set; }
+        public string QuantityPackage { get; set; }
+        public string RestPackages { get; set; }
+        public string RemainedUnits { get; set; }
+
+        public void AddMedicine()
+        {
+
+        }
+
     }
 }

@@ -34,9 +34,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this._buttonUpdateMedication = new System.Windows.Forms.Button();
             this._buttonAddMedication = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this._dataGridViewMedicat = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._dataGridViewMedicat)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -65,38 +65,39 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(306, 307);
+            this.button3.Location = new System.Drawing.Point(639, 307);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(164, 23);
             this.button3.TabIndex = 11;
             this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // _buttonUpdateMedication
             // 
-            this._buttonUpdateMedication.Location = new System.Drawing.Point(215, 307);
+            this._buttonUpdateMedication.Location = new System.Drawing.Point(347, 307);
             this._buttonUpdateMedication.Name = "_buttonUpdateMedication";
-            this._buttonUpdateMedication.Size = new System.Drawing.Size(75, 23);
+            this._buttonUpdateMedication.Size = new System.Drawing.Size(164, 23);
             this._buttonUpdateMedication.TabIndex = 10;
             this._buttonUpdateMedication.Text = "Изменить";
             this._buttonUpdateMedication.UseVisualStyleBackColor = true;
             // 
             // _buttonAddMedication
             // 
-            this._buttonAddMedication.Location = new System.Drawing.Point(124, 307);
+            this._buttonAddMedication.Location = new System.Drawing.Point(44, 307);
             this._buttonAddMedication.Name = "_buttonAddMedication";
-            this._buttonAddMedication.Size = new System.Drawing.Size(75, 23);
+            this._buttonAddMedication.Size = new System.Drawing.Size(164, 23);
             this._buttonAddMedication.TabIndex = 9;
             this._buttonAddMedication.Text = "Добавить";
             this._buttonAddMedication.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // _dataGridViewMedicat
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 50);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(580, 251);
-            this.dataGridView1.TabIndex = 8;
+            this._dataGridViewMedicat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._dataGridViewMedicat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._dataGridViewMedicat.Location = new System.Drawing.Point(12, 50);
+            this._dataGridViewMedicat.Name = "_dataGridViewMedicat";
+            this._dataGridViewMedicat.Size = new System.Drawing.Size(842, 251);
+            this._dataGridViewMedicat.TabIndex = 8;
             // 
             // label2
             // 
@@ -111,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 340);
+            this.ClientSize = new System.Drawing.Size(869, 340);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
@@ -119,12 +120,12 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this._buttonUpdateMedication);
             this.Controls.Add(this._buttonAddMedication);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this._dataGridViewMedicat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MedicationsView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр лекарств";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._dataGridViewMedicat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,7 +139,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button _buttonUpdateMedication;
         private System.Windows.Forms.Button _buttonAddMedication;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView _dataGridViewMedicat;
         private System.Windows.Forms.Label label2;
     }
 }
