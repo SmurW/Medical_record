@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Medical_record.Data.Models;
+﻿using Medical_record.Data.Models;
 using Medical_record.Utils;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Medical_record.ViewModels
 {
@@ -20,13 +18,17 @@ namespace Medical_record.ViewModels
 
         internal void ShowAddMedicationsView()
         {
-            _appController.ShowMedicationsView();
+            _appController.ShowAddMedicationsView();
         }
 
+        /// <summary>
+        /// Коллекция лекарств
+        /// </summary>
         public List<Medications> Medications { get; set; } = new List<Medications>();
 
+
         /// <summary>
-        /// Коллекция диагнозов изменилась
+        /// Коллекция лекарств изменилась
         /// </summary>
         public event EventHandler MedicationsChanged;
 
@@ -70,9 +72,6 @@ namespace Medical_record.ViewModels
             MedicationsChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        /// <summary>
-        /// Переход к форме ввода лекарств
-        /// </summary>
         
 
         /// <summary>
@@ -98,7 +97,7 @@ namespace Medical_record.ViewModels
         /// <param name="medications"></param>
         internal async void RemoveMedications(Medications medications)
         {
-            var message = $"Вы согласны удалить диагноз {medications.Name}?";
+            var message = $"Вы согласны удалить лекарство {medications.Name}?";
             bool agreeRemove = MessagesService.GetAgree(message);
             if (!agreeRemove)
                 return;
@@ -143,7 +142,7 @@ namespace Medical_record.ViewModels
         }
 
         /// <summary>
-        /// Присвоение и пронумеровывание диагнозов
+        /// Присвоение и пронумеровывание лекарств
         /// </summary>
         /// <param name="result"></param>
         private void SetAndOrderMedications(Result<List<Medications>> result)

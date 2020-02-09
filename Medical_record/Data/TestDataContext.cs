@@ -12,13 +12,42 @@ namespace Medical_record.Data
     {
         private readonly List<Patient> _patients = new List<Patient>();
         private readonly List<Diagnosis> _diagnoses = new List<Diagnosis>();
+        private readonly List<Procedure> _procedures = new List<Procedure>();
         private readonly List<Medications> _medications = new List<Medications>();
 
         public TestDataContext()
         {
+            SetProcedures();
             SetPatients();
             SetDiagnoses();
             SetMedications();
+        }
+
+        private void SetProcedures()
+        {
+            var p = new Procedure
+            {
+                Id = 1,
+                Name = "Процедура 1",
+                Description = "Описание процедуры 1"
+            };
+            _procedures.Add(p);
+
+            p = new Procedure
+            {
+                Id = 2,
+                Name = "Процедура 2",
+                Description = "Описание процедуры 2"
+            };
+            _procedures.Add(p);
+
+            p = new Procedure
+            {
+                Id = 3,
+                Name = "Процедура 3",
+                Description = "Описание процедуры 3"
+            };
+            _procedures.Add(p);
         }
 
         private void SetMedications()
@@ -26,11 +55,39 @@ namespace Medical_record.Data
             var m = new Medications
             {
                 Id = 1,
-                Name = "",
-                Description = "",
+                Name = "Арбидол",
+                Description = "Капсулы твердые желатиновые, размер №0, белого цвета",
                 ArrivalDate = DateTime.Parse("23.03.1984"),
-                ArrivalPackages = "",
-                ShelfLife = DateTime.Parse("23.03.1984"),
+                ArrivalPackages = "капсулы 200 мг: 20 шт.",
+                ShelfLife = DateTime.Parse("23.03.1986"),
+                QuantityPackage = "",
+                RestPackages = "",
+                RemainedUnits = "",
+            };
+            _medications.Add(m);
+
+            m = new Medications
+            {
+                Id = 2,
+                Name = "Глюкофаж",
+                Description = "Таблетки белые, круглые, двояковыпуклые, покрытые пленочной оболочкой",
+                ArrivalDate = DateTime.Parse("20.06.1987"),
+                ArrivalPackages = "Таблетки 500 и 850 мг",
+                ShelfLife = DateTime.Parse("13.01.1989"),
+                QuantityPackage = "",
+                RestPackages = "",
+                RemainedUnits = "",
+            };
+            _medications.Add(m);
+
+            m = new Medications
+            {
+                Id = 3,
+                Name = "Пирацетам",
+                Description = "Ноотропное средство. Оказывает положительное влияние на обменные процессы и кровообращение мозга.",
+                ArrivalDate = DateTime.Parse("13.05.1987"),
+                ArrivalPackages = "Таблетки, покрытые пленочной оболочкой",
+                ShelfLife = DateTime.Parse("13.09.1989"),
                 QuantityPackage = "",
                 RestPackages = "",
                 RemainedUnits = "",
@@ -243,6 +300,67 @@ namespace Medical_record.Data
             return Task.FromResult(
                     new Result<List<Diagnosis>>(
                         _diagnoses.Where(d => d.Name.Contains(value)).ToList()));
+        }
+
+        public Task<Result<List<Procedure>>> GetProceduresAsync()
+        {
+            return Task.FromResult(new Result<List<Procedure>>(_procedures));
+        }
+
+        public Task<Result<string>> AddProcedureAsync(Procedure proc)
+        {
+            proc.Id = 1;
+            if (_procedures.Count > 0)
+            {
+                proc.Id = _procedures.Max(p => p.Id) + 1;
+            }
+            _procedures.Add(proc);
+            return Task.FromResult(new Result<string>(
+                $"Успешно сохранена {proc.Name}", String.Empty));
+        }
+
+        public Task<Result<string>> UpdateProcedureAsync(Procedure proc)
+        {
+            var pr = _procedures.FirstOrDefault(p => p.Id == proc.Id);
+            if (pr == null)
+                return Task.FromResult(new Result<string>("Не удалось обновить"));
+
+            pr.Name = proc.Name;
+            pr.Description = proc.Description;
+            return Task.FromResult(new Result<string>("Успешно обновлена", String.Empty));
+        }
+
+        public Task<Result<List<Procedure>>> GetProceduresLikeAsync(string value)
+        {
+            return Task.FromResult(
+                    new Result<List<Procedure>>(
+                        _procedures.Where(d => d.Name.Contains(value)).ToList()));
+        }
+
+        public Task<Result<List<Procedure>>> GetProceduresOrderByAsync(string key)
+        {
+            if (key.Equals("Name"))
+            {
+                return Task.FromResult(
+                    new Result<List<Procedure>>(
+                        _procedures.OrderBy(d => d.Name).ToList()));
+            }
+            else
+            {
+                return Task.FromResult(
+                    new Result<List<Procedure>>(
+                        _procedures.OrderBy(d => d.Description).ToList()));
+            }
+        }
+
+        public Task<Result<string>> RemoveProcedureAsync(int id)
+        {
+            var pr = _procedures.FirstOrDefault(d => d.Id == id);
+            if (pr == null)
+                return Task.FromResult(new Result<string>("Не удалось удалить"));
+
+            _procedures.Remove(pr);
+            return Task.FromResult(new Result<string>("Успешно удалена", String.Empty));
         }
 
         public Task<Result<List<Medications>>> GetMedicationsAsync()

@@ -1,10 +1,6 @@
 ﻿using Medical_record.Data.Models;
 using Medical_record.Utils;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medical_record.ViewModels
 {
@@ -44,16 +40,15 @@ namespace Medical_record.ViewModels
         internal async void SaveMedications()
         {
             Result<string> result = new Result<string>("Error");
+            var medications = GetMedications();
             if (Id == 0)
             {
                 //запоминаем
-                var medications = GetMedications();
                 result = await _appController.DataContext.AddMedicationsAsync(medications);
             }
             else
             {
                 //обновляем
-                var medications = GetMedications();
                 result = await _appController.DataContext.UpdateMedicationsAsync(medications);
             }
 

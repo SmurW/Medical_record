@@ -14,13 +14,13 @@ namespace Medical_record
 {
     public partial class MedicationsView : Form
     {
-        private readonly MedicationsViewModel _medicationsViewModel;
+        private readonly MedicationsViewModel _viewModel;
         private readonly BindingSource _bsMedications;
 
         public MedicationsView(MedicationsViewModel medicationsViewModel)
         {
             InitializeComponent();
-            _medicationsViewModel = medicationsViewModel ??
+            _viewModel = medicationsViewModel ??
                 throw new ArgumentNullException(nameof(medicationsViewModel));
 
             _bsMedications = new BindingSource();
@@ -37,13 +37,15 @@ namespace Medical_record
             _columnRestPackage.DataPropertyName = nameof(Medications.RestPackages);
             _columnRemainedUnits.DataPropertyName = nameof(Medications.RemainedUnits);
             _textBoxSearchByName.DataBindings.Add("Text",
-               _medicationsViewModel, nameof(_medicationsViewModel.FindInput), true, DataSourceUpdateMode.OnPropertyChanged);
+               _viewModel, nameof(_viewModel.FindInput), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            _buttonAddMedication.Click += (s, e) => _medicationsViewModel.ShowAddMedicationsView();
-            _buttonUpdateMedication.Click += (s, e) => _medicationsViewModel.ShowAddMedicationsView();
-            _buttonDeleteMedication.Click += (s, e) => _medicationsViewModel.ShowAddMedicationsView();
+            _buttonAdd.Click += (s, e) => _viewModel.ShowAddMedicationsView();
+            _buttonUpdate.Click += (s, e)
+                => _viewModel.ShowAddMedicationsView(_bsMedications.Current as Medications);
+            _buttonDelete.Click += (s, e)
+                => _viewModel.RemoveMedications(_bsMedications.Current as Medications);
 
-            _medicationsViewModel.MedicationsChanged += MedicationsViewModel_MedicationsChanged;
+            _viewModel.MedicationsChanged += MedicationsViewModel_MedicationsChanged;
             _comboBoxSelectSort.SelectedValueChanged += ComboBoxSelectSort_SelectedValueChanged;
             this.Activated += MedicationsView_Activated;
         }
@@ -56,7 +58,7 @@ namespace Medical_record
         private async void MedicationsView_Activated(object sender, EventArgs e)
         {
             _comboBoxSelectSort.Text = String.Empty;
-            await _medicationsViewModel.LoadDataAsync();
+            await _viewModel.LoadDataAsync();
             ReloadBindingSource();
         }
 
@@ -71,7 +73,7 @@ namespace Medical_record
             if (String.IsNullOrEmpty(cb.Text))
                 return;
 
-            await _medicationsViewModel.LoadDataSortedByAsync(cb.Text);
+            await _viewModel.LoadDataSortedByAsync(cb.Text);
             ReloadBindingSource();
         }
 
@@ -92,7 +94,7 @@ namespace Medical_record
         private void ReloadBindingSource()
         {
             _bsMedications.Clear();
-            _medicationsViewModel.Medications.ForEach(m => _bsMedications.Add(m));
+            _viewModel.Medications.ForEach(m => _bsMedications.Add(m));
         }
     }
 }

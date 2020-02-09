@@ -27,17 +27,16 @@ namespace Medical_record.ViewModels
 
         internal async void SaveDiagnosis()
         {
-            Result<string> result = new Result<string>("Error");
+            var result = new Result<string>("Error");
+            var diagnosis = GetDiagnosis();
             if (Id == 0)
             {
                 //запоминаем
-                var diagnosis = GetDiagnosis();
                 result = await _appController.DataContext.AddDiagnosisAsync(diagnosis);
             }
             else
             {
                 //обновляем
-                var diagnosis = GetDiagnosis();
                 result = await _appController.DataContext.UpdateDiagnosisAsync(diagnosis);
             }
 

@@ -107,9 +107,27 @@ namespace Medical_record
             form.Show();
         }
 
+        internal void ShowAddMedicationsView(Medications medications)
+        {
+            var vm = new AddMedicationsViewModel(this);
+            vm.SetMedications(medications);
+            var form = new AddMedicationsView(vm);
+            form.Owner = _mainForm;
+            form.Show();
+        }
+
         internal void ShowAddProceduresView()
         {
             var vm = new AddProceduresViewModel(this);
+            var form = new AddProceduresView(vm);
+            form.Owner = _mainForm;
+            form.Show();
+        }
+
+        internal void ShowAddProceduresView(Procedure procedure)
+        {
+            var vm = new AddProceduresViewModel(this);
+            vm.SetPrcedure(procedure);
             var form = new AddProceduresView(vm);
             form.Owner = _mainForm;
             form.Show();

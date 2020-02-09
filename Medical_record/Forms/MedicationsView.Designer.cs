@@ -31,9 +31,9 @@
             this._textBoxSearchByName = new System.Windows.Forms.TextBox();
             this._comboBoxSelectSort = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this._buttonDeleteMedication = new System.Windows.Forms.Button();
-            this._buttonUpdateMedication = new System.Windows.Forms.Button();
-            this._buttonAddMedication = new System.Windows.Forms.Button();
+            this._buttonDelete = new System.Windows.Forms.Button();
+            this._buttonUpdate = new System.Windows.Forms.Button();
+            this._buttonAdd = new System.Windows.Forms.Button();
             this._dataGridViewMedicat = new System.Windows.Forms.DataGridView();
             this._columnOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,30 +77,30 @@
             // 
             // _buttonDeleteMedication
             // 
-            this._buttonDeleteMedication.Location = new System.Drawing.Point(639, 307);
-            this._buttonDeleteMedication.Name = "_buttonDeleteMedication";
-            this._buttonDeleteMedication.Size = new System.Drawing.Size(164, 23);
-            this._buttonDeleteMedication.TabIndex = 11;
-            this._buttonDeleteMedication.Text = "Удалить";
-            this._buttonDeleteMedication.UseVisualStyleBackColor = true;
+            this._buttonDelete.Location = new System.Drawing.Point(639, 307);
+            this._buttonDelete.Name = "_buttonDeleteMedication";
+            this._buttonDelete.Size = new System.Drawing.Size(164, 23);
+            this._buttonDelete.TabIndex = 11;
+            this._buttonDelete.Text = "Удалить";
+            this._buttonDelete.UseVisualStyleBackColor = true;
             // 
             // _buttonUpdateMedication
             // 
-            this._buttonUpdateMedication.Location = new System.Drawing.Point(347, 307);
-            this._buttonUpdateMedication.Name = "_buttonUpdateMedication";
-            this._buttonUpdateMedication.Size = new System.Drawing.Size(164, 23);
-            this._buttonUpdateMedication.TabIndex = 10;
-            this._buttonUpdateMedication.Text = "Изменить";
-            this._buttonUpdateMedication.UseVisualStyleBackColor = true;
+            this._buttonUpdate.Location = new System.Drawing.Point(347, 307);
+            this._buttonUpdate.Name = "_buttonUpdateMedication";
+            this._buttonUpdate.Size = new System.Drawing.Size(164, 23);
+            this._buttonUpdate.TabIndex = 10;
+            this._buttonUpdate.Text = "Изменить";
+            this._buttonUpdate.UseVisualStyleBackColor = true;
             // 
             // _buttonAddMedication
             // 
-            this._buttonAddMedication.Location = new System.Drawing.Point(44, 307);
-            this._buttonAddMedication.Name = "_buttonAddMedication";
-            this._buttonAddMedication.Size = new System.Drawing.Size(164, 23);
-            this._buttonAddMedication.TabIndex = 9;
-            this._buttonAddMedication.Text = "Добавить";
-            this._buttonAddMedication.UseVisualStyleBackColor = true;
+            this._buttonAdd.Location = new System.Drawing.Point(44, 307);
+            this._buttonAdd.Name = "_buttonAddMedication";
+            this._buttonAdd.Size = new System.Drawing.Size(164, 23);
+            this._buttonAdd.TabIndex = 9;
+            this._buttonAdd.Text = "Добавить";
+            this._buttonAdd.UseVisualStyleBackColor = true;
             // 
             // _dataGridViewMedicat
             // 
@@ -188,9 +188,9 @@
             this.Controls.Add(this._textBoxSearchByName);
             this.Controls.Add(this._comboBoxSelectSort);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this._buttonDeleteMedication);
-            this.Controls.Add(this._buttonUpdateMedication);
-            this.Controls.Add(this._buttonAddMedication);
+            this.Controls.Add(this._buttonDelete);
+            this.Controls.Add(this._buttonUpdate);
+            this.Controls.Add(this._buttonAdd);
             this.Controls.Add(this._dataGridViewMedicat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MedicationsView";
@@ -207,9 +207,9 @@
         private System.Windows.Forms.TextBox _textBoxSearchByName;
         private System.Windows.Forms.ComboBox _comboBoxSelectSort;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button _buttonDeleteMedication;
-        private System.Windows.Forms.Button _buttonUpdateMedication;
-        private System.Windows.Forms.Button _buttonAddMedication;
+        private System.Windows.Forms.Button _buttonDelete;
+        private System.Windows.Forms.Button _buttonUpdate;
+        private System.Windows.Forms.Button _buttonAdd;
         private System.Windows.Forms.DataGridView _dataGridViewMedicat;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn _columnOrderNumber;

@@ -27,6 +27,11 @@ namespace Medical_record.Data
             throw new NotImplementedException();
         }
 
+        public Task<Result<string>> AddProcedureAsync(Procedure proc)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Result<List<Diagnosis>>> GetDiagnosesAsync()
         {
             throw new NotImplementedException();
@@ -62,6 +67,21 @@ namespace Medical_record.Data
             throw new NotImplementedException();
         }
 
+        public Task<Result<List<Procedure>>> GetProceduresAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<List<Procedure>>> GetProceduresLikeAsync(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<List<Procedure>>> GetProceduresOrderByAsync(string key)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Result<string>> RemoveDiagnosisAsync(int id)
         {
             throw new NotImplementedException();
@@ -77,6 +97,11 @@ namespace Medical_record.Data
             throw new NotImplementedException();
         }
 
+        public Task<Result<string>> RemoveProcedureAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<Result<string>> UpdateDiagnosisAsync(Diagnosis diagnosis)
         {
             throw new NotImplementedException();
@@ -88,6 +113,11 @@ namespace Medical_record.Data
         }
 
         public Task<Result<string>> UpdatePatientAsync(Patient patient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<string>> UpdateProcedureAsync(Procedure proc)
         {
             throw new NotImplementedException();
         }
