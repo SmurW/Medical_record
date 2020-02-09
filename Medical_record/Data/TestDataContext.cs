@@ -60,8 +60,8 @@ namespace Medical_record.Data
                 ArrivalDate = DateTime.Parse("23.03.1984"),
                 ArrivalPackages = "капсулы 200 мг: 20 шт.",
                 ShelfLife = DateTime.Parse("23.03.1986"),
-                QuantityPackage = "",
-                RestPackages = "",
+                QuantityPackage = 105,
+                RestPackages = 30,
                 RemainedUnits = "",
             };
             _medications.Add(m);
@@ -74,8 +74,8 @@ namespace Medical_record.Data
                 ArrivalDate = DateTime.Parse("20.06.1987"),
                 ArrivalPackages = "Таблетки 500 и 850 мг",
                 ShelfLife = DateTime.Parse("13.01.1989"),
-                QuantityPackage = "",
-                RestPackages = "",
+                QuantityPackage = 67,
+                RestPackages = 28,
                 RemainedUnits = "",
             };
             _medications.Add(m);
@@ -88,8 +88,8 @@ namespace Medical_record.Data
                 ArrivalDate = DateTime.Parse("13.05.1987"),
                 ArrivalPackages = "Таблетки, покрытые пленочной оболочкой",
                 ShelfLife = DateTime.Parse("13.09.1989"),
-                QuantityPackage = "",
-                RestPackages = "",
+                QuantityPackage = 34,
+                RestPackages = 23,
                 RemainedUnits = "",
             };
             _medications.Add(m);
