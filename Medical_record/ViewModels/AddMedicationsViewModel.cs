@@ -20,9 +20,9 @@ namespace Medical_record.ViewModels
         public string ArrivalPackages { get; set; }
         public DateTime ShelfLife { get; set; } = DateTime.Now;
         public string Description { get; set; }
-        public string QuantityPackage { get; set; }
+        public int QuantityPackage { get; set; }
         public string RestPackages { get; set; }
-        public string RemainedUnits { get; set; }
+        public int RemainedUnits { get; set; }
 
         internal void SetMedications(Medications medications)
         {

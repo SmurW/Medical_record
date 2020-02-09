@@ -35,7 +35,7 @@ namespace Medical_record.Forms
 
             _buttonAdd.Click += (s, e) => _viewModel.ShowDiagnosisView();
             _buttonUpdate.Click += (s, e)
-                => _viewModel.ShowDiagnosisView(_bsDiagnoses.Current as Diagnosis);
+                => _viewModel.ShowDiagnosisView(_bsDiagnoses.Current as Diagnosis); 
             _buttonRemove.Click += (s, e)
                 => _viewModel.RemoveDiagnosis(_bsDiagnoses.Current as Diagnosis);
 
