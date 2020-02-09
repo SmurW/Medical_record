@@ -63,6 +63,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this._panel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -289,7 +290,7 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(489, 331);
+            this.button5.Location = new System.Drawing.Point(489, 346);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(219, 23);
             this.button5.TabIndex = 34;
@@ -299,7 +300,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(264, 331);
+            this.button4.Location = new System.Drawing.Point(264, 346);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(219, 23);
             this.button4.TabIndex = 33;
@@ -309,7 +310,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(39, 331);
+            this.button2.Location = new System.Drawing.Point(39, 346);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(219, 23);
             this.button2.TabIndex = 31;
@@ -319,7 +320,7 @@
             // _buttonSavePatient
             // 
             this._buttonSavePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._buttonSavePatient.Location = new System.Drawing.Point(264, 360);
+            this._buttonSavePatient.Location = new System.Drawing.Point(264, 375);
             this._buttonSavePatient.Name = "_buttonSavePatient";
             this._buttonSavePatient.Size = new System.Drawing.Size(219, 23);
             this._buttonSavePatient.TabIndex = 13;
@@ -359,11 +360,22 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Гражданство";
             // 
+            // _panel
+            // 
+            this._panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._panel.Location = new System.Drawing.Point(30, 309);
+            this._panel.Name = "_panel";
+            this._panel.Size = new System.Drawing.Size(678, 23);
+            this._panel.TabIndex = 35;
+            // 
             // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 399);
+            this.ClientSize = new System.Drawing.Size(738, 414);
+            this.Controls.Add(this._panel);
             this.Controls.Add(this._buttonSavePatient);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -400,6 +412,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RegistrationView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Регистрация пациентов";
@@ -445,5 +459,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel _panel;
     }
 }

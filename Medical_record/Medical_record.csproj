@@ -104,23 +104,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UseControl\Add_Information_Hospitalization.cs">
+    <Compile Include="UseControl\AddHospitalizationUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UseControl\Add_Information_Hospitalization.Designer.cs">
-      <DependentUpon>Add_Information_Hospitalization.cs</DependentUpon>
+    <Compile Include="UseControl\AddHospitalizationUC.Designer.cs">
+      <DependentUpon>AddHospitalizationUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="UseControl\Add_Observation.cs">
+    <Compile Include="UseControl\AddObservationUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UseControl\Add_Observation.Designer.cs">
-      <DependentUpon>Add_Observation.cs</DependentUpon>
+    <Compile Include="UseControl\AddObservationUC.Designer.cs">
+      <DependentUpon>AddObservationUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="UseControl\Add_Records_Doctors.cs">
+    <Compile Include="UseControl\AddDoctorsUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UseControl\Add_Records_Doctors.Designer.cs">
-      <DependentUpon>Add_Records_Doctors.cs</DependentUpon>
+    <Compile Include="UseControl\AddDoctorsUC.Designer.cs">
+      <DependentUpon>AddDoctorsUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MedicationsView.cs">
       <SubType>Form</SubType>
@@ -185,14 +185,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UseControl\Add_Information_Hospitalization.resx">
-      <DependentUpon>Add_Information_Hospitalization.cs</DependentUpon>
+    <EmbeddedResource Include="UseControl\AddHospitalizationUC.resx">
+      <DependentUpon>AddHospitalizationUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UseControl\Add_Observation.resx">
-      <DependentUpon>Add_Observation.cs</DependentUpon>
+    <EmbeddedResource Include="UseControl\AddObservationUC.resx">
+      <DependentUpon>AddObservationUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UseControl\Add_Records_Doctors.resx">
-      <DependentUpon>Add_Records_Doctors.cs</DependentUpon>
+    <EmbeddedResource Include="UseControl\AddDoctorsUC.resx">
+      <DependentUpon>AddDoctorsUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

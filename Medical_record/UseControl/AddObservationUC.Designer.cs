@@ -1,6 +1,6 @@
 ﻿namespace Medical_record.UseControl
 {
-    partial class Add_Observation
+    partial class AddObservationUC
     {
         /// <summary>
         /// Required designer variable.

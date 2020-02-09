@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Medical_record.UseControl
 {
-    public partial class Add_Observation : UserControl
+    public partial class AddDoctorsUC : UserControl
     {
-        public Add_Observation()
+        public AddDoctorsUC()
         {
             InitializeComponent();
         }

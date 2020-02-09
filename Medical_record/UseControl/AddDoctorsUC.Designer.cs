@@ -1,6 +1,6 @@
 ﻿namespace Medical_record.UseControl
 {
-    partial class Add_Records_Doctors
+    partial class AddDoctorsUC
     {
         /// <summary>
         /// Required designer variable.
