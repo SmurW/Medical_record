@@ -16,10 +16,12 @@ namespace Medical_record.ViewModels
                 throw new ArgumentNullException(nameof(appController));
         }
 
-        internal void ShowAddMedicationsView()
-        {
-            _appController.ShowAddMedicationsView();
-        }
+        /// <summary>
+        /// Переход к форме ввода процедуры
+        /// </summary>
+        internal void ShowAddMedicationsView() => _appController.ShowAddMedicationsView();
+        internal void ShowAddMedicationsView(Medications medications)
+            => _appController.ShowAddMedicationsView(medications);
 
         /// <summary>
         /// Коллекция лекарств

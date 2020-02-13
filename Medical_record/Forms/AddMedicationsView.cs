@@ -38,7 +38,5 @@ namespace Medical_record.Forms
 
             _buttonAddMedecine.Click += (s, e) => _addMedicationsViewModel.SaveMedications();
         }
-
-        
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Medical_record.Abstractions
 {
+    
     public interface IDataContext
     {
         Task<Result<List<Patient>>> GetPatientsAsync();
@@ -20,14 +21,22 @@ namespace Medical_record.Abstractions
         Task<Result<List<Procedure>>> GetProceduresAsync();
         Task<Result<string>> AddProcedureAsync(Procedure proc);
         Task<Result<string>> UpdateProcedureAsync(Procedure proc);
+        Task<Result<string>> RemoveProcedureAsync(int id);
         Task<Result<List<Procedure>>> GetProceduresLikeAsync(string value);
         Task<Result<List<Procedure>>> GetProceduresOrderByAsync(string key);
-        Task<Result<string>> RemoveProcedureAsync(int id);
         Task<Result<List<Medications>>> GetMedicationsAsync();
         Task<Result<string>> AddMedicationsAsync(Medications medications);
         Task<Result<string>> UpdateMedicationsAsync(Medications medications);
         Task<Result<string>> RemoveMedicationsAsync(int id);
         Task<Result<List<Medications>>> GetMedicationsOrderByAsync(string key);
         Task<Result<List<Medications>>> GetMedicationsLikeAsync(string value);
+        Task<Result<List<Doctor>>> GetDoctorsAsync();
+        Task<Result<string>> AddDoctorsAsync(Doctor doctor);
+        Task<Result<string>> UpdateDoctorsAsync(Doctor medications);
+        Task<Result<string>> RemoveDoctorsAsync(int id);
+        Task<Result<List<Doctor>>> GetDoctorsOrderByAsync(string key);
+        Task<Result<List<Doctor>>> GetDoctorsLikeAsync(string value);
+        
     }
+   
 }

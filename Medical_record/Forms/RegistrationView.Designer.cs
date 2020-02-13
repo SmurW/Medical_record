@@ -59,10 +59,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this._buttonSavePatient = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -167,7 +163,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(27, 273);
+            this.label13.Location = new System.Drawing.Point(27, 203);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(102, 13);
             this.label13.TabIndex = 12;
@@ -176,7 +172,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(27, 242);
+            this.label15.Location = new System.Drawing.Point(27, 172);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(100, 13);
             this.label15.TabIndex = 14;
@@ -274,14 +270,14 @@
             // 
             // _dateTimePickerRegistrationDate
             // 
-            this._dateTimePickerRegistrationDate.Location = new System.Drawing.Point(139, 236);
+            this._dateTimePickerRegistrationDate.Location = new System.Drawing.Point(139, 166);
             this._dateTimePickerRegistrationDate.Name = "_dateTimePickerRegistrationDate";
             this._dateTimePickerRegistrationDate.Size = new System.Drawing.Size(140, 20);
             this._dateTimePickerRegistrationDate.TabIndex = 6;
             // 
             // _textBoxResidence
             // 
-            this._textBoxResidence.Location = new System.Drawing.Point(139, 270);
+            this._textBoxResidence.Location = new System.Drawing.Point(139, 200);
             this._textBoxResidence.Name = "_textBoxResidence";
             this._textBoxResidence.Size = new System.Drawing.Size(140, 20);
             this._textBoxResidence.TabIndex = 7;
@@ -289,7 +285,7 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(489, 331);
+            this.button5.Location = new System.Drawing.Point(489, 259);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(219, 23);
             this.button5.TabIndex = 34;
@@ -299,7 +295,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(264, 331);
+            this.button4.Location = new System.Drawing.Point(264, 259);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(219, 23);
             this.button4.TabIndex = 33;
@@ -309,7 +305,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(39, 331);
+            this.button2.Location = new System.Drawing.Point(39, 259);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(219, 23);
             this.button2.TabIndex = 31;
@@ -319,59 +315,24 @@
             // _buttonSavePatient
             // 
             this._buttonSavePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._buttonSavePatient.Location = new System.Drawing.Point(264, 360);
+            this._buttonSavePatient.Location = new System.Drawing.Point(264, 288);
             this._buttonSavePatient.Name = "_buttonSavePatient";
             this._buttonSavePatient.Size = new System.Drawing.Size(219, 23);
             this._buttonSavePatient.TabIndex = 13;
             this._buttonSavePatient.Text = "Сохранить все данные";
             this._buttonSavePatient.UseVisualStyleBackColor = true;
             // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(139, 167);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(140, 20);
-            this.textBox9.TabIndex = 6;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(27, 170);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 13);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Место регистрации";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(139, 201);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(140, 21);
-            this.comboBox2.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 204);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Гражданство";
-            // 
             // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 399);
+            this.ClientSize = new System.Drawing.Size(738, 327);
             this.Controls.Add(this._buttonSavePatient);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this._textBoxResidence);
             this.Controls.Add(this._dateTimePickerRegistrationDate);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox9);
             this.Controls.Add(this._textBoxPassportDepCode);
             this.Controls.Add(this._dateTimePickerPassportIssueDate);
             this.Controls.Add(this._textBoxPassportUFMS);
@@ -385,7 +346,6 @@
             this.Controls.Add(this._textBoxLastName);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -393,7 +353,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -441,9 +400,5 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button _buttonSavePatient;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label6;
     }
 }

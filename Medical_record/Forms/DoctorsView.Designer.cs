@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._textBoxMiddleName = new System.Windows.Forms.TextBox();
+            this._textBoxFirstName = new System.Windows.Forms.TextBox();
+            this._textBoxLastName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this._buttonAddDoctors = new System.Windows.Forms.Button();
+            this._comboBoxSpecialization = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // textBox4
+            // _textBoxMiddleName
             // 
-            this.textBox4.Location = new System.Drawing.Point(101, 61);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 20);
-            this.textBox4.TabIndex = 25;
+            this._textBoxMiddleName.Location = new System.Drawing.Point(101, 61);
+            this._textBoxMiddleName.Name = "_textBoxMiddleName";
+            this._textBoxMiddleName.Size = new System.Drawing.Size(146, 20);
+            this._textBoxMiddleName.TabIndex = 25;
             // 
-            // textBox3
+            // _textBoxFirstName
             // 
-            this.textBox3.Location = new System.Drawing.Point(101, 35);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 20);
-            this.textBox3.TabIndex = 24;
+            this._textBoxFirstName.Location = new System.Drawing.Point(101, 35);
+            this._textBoxFirstName.Name = "_textBoxFirstName";
+            this._textBoxFirstName.Size = new System.Drawing.Size(146, 20);
+            this._textBoxFirstName.TabIndex = 24;
             // 
-            // textBox1
+            // _textBoxLastName
             // 
-            this.textBox1.Location = new System.Drawing.Point(101, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 23;
+            this._textBoxLastName.Location = new System.Drawing.Point(101, 9);
+            this._textBoxLastName.Name = "_textBoxLastName";
+            this._textBoxLastName.Size = new System.Drawing.Size(146, 20);
+            this._textBoxLastName.TabIndex = 23;
             // 
             // label3
             // 
@@ -87,13 +87,6 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Фамилия";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(101, 87);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 20);
-            this.textBox2.TabIndex = 27;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -103,26 +96,34 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "Специализация";
             // 
-            // button1
+            // _buttonAddDoctors
             // 
-            this.button1.Location = new System.Drawing.Point(48, 116);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Добавить врача";
-            this.button1.UseVisualStyleBackColor = true;
+            this._buttonAddDoctors.Location = new System.Drawing.Point(48, 116);
+            this._buttonAddDoctors.Name = "_buttonAddDoctors";
+            this._buttonAddDoctors.Size = new System.Drawing.Size(146, 23);
+            this._buttonAddDoctors.TabIndex = 28;
+            this._buttonAddDoctors.Text = "Добавить врача";
+            this._buttonAddDoctors.UseVisualStyleBackColor = true;
+            // 
+            // _comboBoxSpecialization
+            // 
+            this._comboBoxSpecialization.FormattingEnabled = true;
+            this._comboBoxSpecialization.Location = new System.Drawing.Point(101, 87);
+            this._comboBoxSpecialization.Name = "_comboBoxSpecialization";
+            this._comboBoxSpecialization.Size = new System.Drawing.Size(146, 21);
+            this._comboBoxSpecialization.TabIndex = 29;
             // 
             // DoctorsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(256, 151);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this._comboBoxSpecialization);
+            this.Controls.Add(this._buttonAddDoctors);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._textBoxMiddleName);
+            this.Controls.Add(this._textBoxFirstName);
+            this.Controls.Add(this._textBoxLastName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -136,14 +137,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox _textBoxMiddleName;
+        private System.Windows.Forms.TextBox _textBoxFirstName;
+        private System.Windows.Forms.TextBox _textBoxLastName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button _buttonAddDoctors;
+        private System.Windows.Forms.ComboBox _comboBoxSpecialization;
     }
 }

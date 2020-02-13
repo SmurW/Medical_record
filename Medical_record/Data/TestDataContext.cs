@@ -14,6 +14,7 @@ namespace Medical_record.Data
         private readonly List<Diagnosis> _diagnoses = new List<Diagnosis>();
         private readonly List<Procedure> _procedures = new List<Procedure>();
         private readonly List<Medications> _medications = new List<Medications>();
+        private readonly List<Doctor> _doctors = new List<Doctor>();
 
         public TestDataContext()
         {
@@ -21,6 +22,40 @@ namespace Medical_record.Data
             SetPatients();
             SetDiagnoses();
             SetMedications();
+            SetDoctors();
+        }
+
+        private void SetDoctors()
+        {
+            var d = new Doctor
+            {
+                Id = 1,
+                LastName = "Петров",
+                FirstName = "Андрей",
+                MiddleName = "Семенович",
+                SpecializationId = 1
+            };
+            _doctors.Add(d);
+
+             d = new Doctor
+            {
+                Id = 2,
+                LastName = "Лукашенко",
+                FirstName = "Дмитрий",
+                MiddleName = "Сергеевич",
+                SpecializationId = 2
+            };
+            _doctors.Add(d);
+
+             d = new Doctor
+            {
+                Id = 3,
+                LastName = "Пиражков",
+                FirstName = "Леонид",
+                MiddleName = "Эдуардович",
+                SpecializationId = 3
+            };
+            _doctors.Add(d);
         }
 
         private void SetProcedures()
@@ -188,6 +223,52 @@ namespace Medical_record.Data
                 Sex = "Мужской"
             };
             _patients.Add(p);
+        }
+
+        public Task<Result<List<Doctor>>> GetDoctorsAsync()
+        {
+            return Task.FromResult(new Result<List<Doctor>>(_doctors));
+        }
+
+        public Task<Result<string>> AddDoctorsAsync(Doctor doctors)
+        {
+            doctors.Id = 1;
+            if (_doctors.Count > 0)
+            {
+                doctors.Id = _doctors.Max(d => d.Id) + 1;
+            }
+            _doctors.Add(doctors);
+            return Task.FromResult(new Result<string>(
+                $"Успешно сохранен {doctors.LastName + doctors.FirstName + doctors.MiddleName}", String.Empty));
+        }
+
+        public Task<Result<List<Doctor>>> GetDoctorsOrderByAsync(string key)
+        {
+            if (key.Equals("LastName"))
+            {
+                return Task.FromResult(
+                    new Result<List<Doctor>>(
+                        _doctors.OrderBy(d => d.LastName).ToList()));
+            }
+            if (key.Equals("FirstName"))
+            {
+                return Task.FromResult(
+                    new Result<List<Doctor>>(
+                        _doctors.OrderBy(d => d.FirstName).ToList()));
+            }
+            else
+            {
+                return Task.FromResult(
+                    new Result<List<Doctor>>(
+                        _doctors.OrderBy(d => d.MiddleName).ToList()));
+            }
+        }
+
+        public Task<Result<List<Doctor>>> GetDoctorsLikeAsync(string value)
+        {
+            return Task.FromResult(
+                    new Result<List<Doctor>>(
+                        _doctors.Where(d => d.FirstName.Contains(value)).ToList()));
         }
 
         public Task<Result<List<Patient>>> GetPatientsAsync()
@@ -422,6 +503,21 @@ namespace Medical_record.Data
             return Task.FromResult(
                     new Result<List<Medications>>(
                         _medications.Where(d => d.Name.Contains(value)).ToList()));
+        }
+
+        public Task<Result<string>> UpdateDoctorsAsync(Medications medications)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<string>> RemoveDoctorsAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<string>> UpdateDoctorsAsync(Doctor medications)
+        {
+            throw new NotImplementedException();
         }
     }
 }

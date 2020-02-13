@@ -35,10 +35,10 @@
             this._buttonDoctors = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // _buttonMedicalRecord
+            // _buttonCard
             // 
             this._buttonCard.Location = new System.Drawing.Point(21, 39);
-            this._buttonCard.Name = "_buttonMedicalRecord";
+            this._buttonCard.Name = "_buttonCard";
             this._buttonCard.Size = new System.Drawing.Size(193, 23);
             this._buttonCard.TabIndex = 0;
             this._buttonCard.Text = "Создать карту пациента";
@@ -50,7 +50,7 @@
             this._buttonDiagnoses.Name = "_buttonDiagnoses";
             this._buttonDiagnoses.Size = new System.Drawing.Size(193, 23);
             this._buttonDiagnoses.TabIndex = 1;
-            this._buttonDiagnoses.Text = "Список диагназов";
+            this._buttonDiagnoses.Text = "Список диагнозов";
             this._buttonDiagnoses.UseVisualStyleBackColor = true;
             // 
             // _buttonMedications

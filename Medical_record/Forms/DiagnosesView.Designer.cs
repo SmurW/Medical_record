@@ -97,10 +97,10 @@
             this._buttonUpdate.Text = "Изменить";
             this._buttonUpdate.UseVisualStyleBackColor = true;
             // 
-            // _buttonRemoveDiagnosis
+            // _buttonRemove
             // 
             this._buttonRemove.Location = new System.Drawing.Point(299, 306);
-            this._buttonRemove.Name = "_buttonRemoveDiagnosis";
+            this._buttonRemove.Name = "_buttonRemove";
             this._buttonRemove.Size = new System.Drawing.Size(75, 23);
             this._buttonRemove.TabIndex = 3;
             this._buttonRemove.Text = "Удалить";
@@ -157,7 +157,7 @@
             this.Controls.Add(this._dataGridViewDiagnoses);
             this.Name = "DiagnosesView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Просмотр диагназов";
+            this.Text = "Просмотр диагнозов";
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewDiagnoses)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
