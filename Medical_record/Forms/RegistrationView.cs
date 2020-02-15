@@ -81,7 +81,7 @@ namespace Medical_record.Forms
         /// <param name="e"></param>
         private async void ButtonAddDoctor_Click(object sender, EventArgs e)
         {
-            _userControl = await _viewModel.GetUcView("Dc");
+            _userControl = await _viewModel.GetUcView("Ex");
             ShowUcView();
         }
 

@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Medical_record.UseControl
 {
-    public partial class AddDoctorsView : UserControl
+    public partial class AddExaminationView : UserControl
     {
-        public AddDoctorsViewModel ViewModel { get; }
+        public AddExaminationViewModel ViewModel { get; }
 
-        public AddDoctorsView(AddDoctorsViewModel viewModel)
+        public AddExaminationView(AddExaminationViewModel viewModel)
         {
             InitializeComponent();
             ViewModel = viewModel;

@@ -30,15 +30,15 @@ namespace Medical_record
 
         private void SetUserControls()
         {
-            var vmO = new AddObservationViewModel(this);
+            var vmO = new AddObservationViewModel();
             var ucO = new AddObservationView(vmO);
             _uControls.Add("Ob", ucO);
 
-            var vmD = new AddDoctorsViewModel();
-            var ucD = new AddDoctorsView(vmD);
-            _uControls.Add("Dc", ucD);
+            var vmD = new AddExaminationViewModel();
+            var ucD = new AddExaminationView(vmD);
+            _uControls.Add("Ex", ucD);
 
-            var vmH = new AddHospitalizationViewModel(this);
+            var vmH = new AddHospitalizationViewModel();
             var ucH = new AddHospitalizationView(vmH);
             _uControls.Add("Ho", ucH);
         }

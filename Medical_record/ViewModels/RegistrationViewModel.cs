@@ -10,7 +10,7 @@ namespace Medical_record.ViewModels
     public class RegistrationViewModel
     {
         private readonly AppController _appController;
-        private AddDoctorsViewModel _doctorsVM;
+        private AddExaminationViewModel _examinationVM;
         private AddHospitalizationViewModel _hospitalizationVM;
         private AddObservationViewModel _observationVM;
 
@@ -87,11 +87,10 @@ namespace Medical_record.ViewModels
                 await SaveHospitalizationAsync();
             }
 
-            if (_doctorsVM != null)
+            if (_examinationVM != null)
             {
-                //await SaveDoctorsAsync();
+                await SaveExaminationAsync();
             }
-            
         }
 
 
@@ -133,7 +132,7 @@ namespace Medical_record.ViewModels
         /// Сохранение записи врачей
         /// </summary>
         /// <returns></returns>
-        private Task SaveDoctorsAsync()
+        private Task SaveExaminationAsync()
         {
             throw new NotImplementedException();
         }
@@ -202,21 +201,21 @@ namespace Medical_record.ViewModels
                     if (_observationVM == null)
                     {
                         _observationVM = uc.ViewModel;
-                        await SetupCurrentObservationUc(); 
+                        await SetupObservationUc(); 
                     }
                     break;
-                case "Dc":
-                    if (_doctorsVM == null)
+                case "Ex":
+                    if (_examinationVM == null)
                     {
-                        _doctorsVM = uc.ViewModel;
-                        await SetupCurrentDoctorUc(); 
+                        _examinationVM = uc.ViewModel;
+                        await SetupExaminationUc(); 
                     }
                     break;
                 case "Ho":
                     if (_hospitalizationVM == null)
                     {
                         _hospitalizationVM = uc.ViewModel;
-                        await SetupCurrentHospitalizationUc(); 
+                        await SetupHospitalizationUc(); 
                     }
                     break;
                 default:
@@ -230,7 +229,7 @@ namespace Medical_record.ViewModels
         /// Подгрузка данных в AddObservationViewModel
         /// </summary>
         /// <returns></returns>
-        private async Task SetupCurrentObservationUc()
+        private async Task SetupObservationUc()
         {
             //Получаем количество наблюдений для текущего пациента
             if (Id == 0)
@@ -265,19 +264,28 @@ namespace Medical_record.ViewModels
         }
 
         /// <summary>
-        /// Подгрузка данных в AddDoctorsViewModel
+        /// Подгрузка данных в AddExaminationViewModel
         /// </summary>
         /// <returns></returns>
-        private Task SetupCurrentDoctorUc()
+        private Task SetupExaminationUc()
         {
-            throw new NotImplementedException();
+            if (Id == 0)
+            {
+                _examinationVM.Count = "1";
+            }
+            else
+            {
+
+            }
+
+            return Task.FromResult(0);
         }
 
         /// <summary>
         /// Подгрузка данных в AddHospitalizationViewModel
         /// </summary>
         /// <returns></returns>
-        private async Task SetupCurrentHospitalizationUc()
+        private async Task SetupHospitalizationUc()
         {
             //Получаем количество наблюдений для текущего пациента
             if (Id == 0)

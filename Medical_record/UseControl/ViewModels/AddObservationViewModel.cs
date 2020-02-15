@@ -10,13 +10,8 @@ namespace Medical_record.UseControl.ViewModels
 {
     public class AddObservationViewModel
     {
-        private readonly AppController _appController;
-
-        public AddObservationViewModel(AppController appController)
-        {
-            _appController = appController ??
-                throw new ArgumentNullException(nameof(appController));
-        }
+        public AddObservationViewModel()
+        { }
 
         /// <summary>
         /// Диагнозы

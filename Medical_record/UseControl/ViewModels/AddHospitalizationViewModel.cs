@@ -9,13 +9,8 @@ namespace Medical_record.UseControl.ViewModels
 {
     public class AddHospitalizationViewModel
     {
-        private readonly AppController _appController;
-
-        public AddHospitalizationViewModel(AppController appController)
-        {
-            _appController = appController ??
-                throw new ArgumentNullException(nameof(appController));
-        }
+        public AddHospitalizationViewModel()
+        { }
 
         public int Id { get; set; }
         public int PatientId { get; set; }

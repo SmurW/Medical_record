@@ -1,6 +1,6 @@
 ﻿namespace Medical_record.UseControl
 {
-    partial class AddDoctorsView
+    partial class AddExaminationView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this._dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this._comboBoxDiagnosis = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this._comboBoxHealthGroup = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this._comboBoxDoctor = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this._labelCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // _dateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(139, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(169, 20);
-            this.dateTimePicker1.TabIndex = 27;
+            this._dateTimePicker.Location = new System.Drawing.Point(139, 4);
+            this._dateTimePicker.Name = "_dateTimePicker";
+            this._dateTimePicker.Size = new System.Drawing.Size(169, 20);
+            this._dateTimePicker.TabIndex = 27;
             // 
             // label5
             // 
@@ -55,13 +56,13 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "Дата осмотра\r\n";
             // 
-            // comboBox4
+            // _comboBoxDiagnosis
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(196, 43);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(231, 21);
-            this.comboBox4.TabIndex = 33;
+            this._comboBoxDiagnosis.FormattingEnabled = true;
+            this._comboBoxDiagnosis.Location = new System.Drawing.Point(196, 43);
+            this._comboBoxDiagnosis.Name = "_comboBoxDiagnosis";
+            this._comboBoxDiagnosis.Size = new System.Drawing.Size(231, 21);
+            this._comboBoxDiagnosis.TabIndex = 33;
             // 
             // label4
             // 
@@ -72,13 +73,13 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Диагноз основного заболевания";
             // 
-            // comboBox5
+            // _comboBoxHealthGroup
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(140, 77);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(286, 21);
-            this.comboBox5.TabIndex = 41;
+            this._comboBoxHealthGroup.FormattingEnabled = true;
+            this._comboBoxHealthGroup.Location = new System.Drawing.Point(140, 77);
+            this._comboBoxHealthGroup.Name = "_comboBoxHealthGroup";
+            this._comboBoxHealthGroup.Size = new System.Drawing.Size(286, 21);
+            this._comboBoxHealthGroup.TabIndex = 41;
             // 
             // label9
             // 
@@ -89,13 +90,13 @@
             this.label9.TabIndex = 40;
             this.label9.Text = "Группа здаровья";
             // 
-            // comboBox6
+            // _comboBoxDoctor
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(86, 113);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(340, 21);
-            this.comboBox6.TabIndex = 43;
+            this._comboBoxDoctor.FormattingEnabled = true;
+            this._comboBoxDoctor.Location = new System.Drawing.Point(86, 113);
+            this._comboBoxDoctor.Name = "_comboBoxDoctor";
+            this._comboBoxDoctor.Size = new System.Drawing.Size(340, 21);
+            this._comboBoxDoctor.TabIndex = 43;
             // 
             // label10
             // 
@@ -111,25 +112,35 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(357, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 44;
-            this.label6.Text = "Записей 0/0";
+            this.label6.Text = "Записей";
             // 
-            // Add_Records_Doctors
+            // _labelCount
+            // 
+            this._labelCount.AutoSize = true;
+            this._labelCount.Location = new System.Drawing.Point(413, 11);
+            this._labelCount.Name = "_labelCount";
+            this._labelCount.Size = new System.Drawing.Size(24, 13);
+            this._labelCount.TabIndex = 44;
+            this._labelCount.Text = "0/0";
+            // 
+            // AddDoctorsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this._labelCount);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this._comboBoxDoctor);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this._comboBoxHealthGroup);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this._comboBoxDiagnosis);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this._dateTimePicker);
             this.Controls.Add(this.label5);
-            this.Name = "Add_Records_Doctors";
+            this.Name = "AddDoctorsView";
             this.Size = new System.Drawing.Size(447, 142);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,14 +148,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker _dateTimePicker;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox _comboBoxDiagnosis;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox _comboBoxHealthGroup;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox _comboBoxDoctor;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label _labelCount;
     }
 }

@@ -215,11 +215,11 @@
     <Compile Include="UseControl\AddObservationView.Designer.cs">
       <DependentUpon>AddObservationView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UseControl\AddDoctorsView.cs">
+    <Compile Include="UseControl\AddExaminationView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UseControl\AddDoctorsView.Designer.cs">
-      <DependentUpon>AddDoctorsView.cs</DependentUpon>
+    <Compile Include="UseControl\AddExaminationView.Designer.cs">
+      <DependentUpon>AddExaminationView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MedicationsView.cs">
       <SubType>Form</SubType>
@@ -233,7 +233,7 @@
     <Compile Include="Forms\ProceduresView.Designer.cs">
       <DependentUpon>ProceduresView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UseControl\ViewModels\AddDoctorsViewModel.cs" />
+    <Compile Include="UseControl\ViewModels\AddExaminationViewModel.cs" />
     <Compile Include="UseControl\ViewModels\AddHospitalizationViewModel.cs" />
     <Compile Include="UseControl\ViewModels\AddObservationViewModel.cs" />
     <Compile Include="Utils\MessagesService.cs" />
@@ -293,8 +293,8 @@
     <EmbeddedResource Include="UseControl\AddObservationView.resx">
       <DependentUpon>AddObservationView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UseControl\AddDoctorsView.resx">
-      <DependentUpon>AddDoctorsView.cs</DependentUpon>
+    <EmbeddedResource Include="UseControl\AddExaminationView.resx">
+      <DependentUpon>AddExaminationView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
