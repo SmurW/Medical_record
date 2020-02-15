@@ -14,6 +14,8 @@ namespace Medical_record.Data
         private readonly List<Diagnosis> _diagnoses = new List<Diagnosis>();
         private readonly List<Procedure> _procedures = new List<Procedure>();
         private readonly List<Medications> _medications = new List<Medications>();
+        private readonly List<Observation> _observations = new List<Observation>();
+        private readonly List<Hospitalization> _hospitalizations = new List<Hospitalization>();
 
         public TestDataContext()
         {
@@ -21,6 +23,8 @@ namespace Medical_record.Data
             SetPatients();
             SetDiagnoses();
             SetMedications();
+            SetObservations();
+            SetHospitalizations();
         }
 
         private void SetProcedures()
@@ -188,6 +192,67 @@ namespace Medical_record.Data
                 Sex = "Мужской"
             };
             _patients.Add(p);
+        }
+
+        private void SetHospitalizations()
+        {
+            var h = new Hospitalization
+            {
+                Id = 1,
+                StartHospitalizationDate = DateTime.Parse("12.03.2014"),
+                EndHospitalizationDate = DateTime.Parse("20.03.2014"),
+                PatientId = 2,
+                MedicalOrganization = "Мед.уч. № 1",
+                DefinitiveDiagnosis = "Оконч.диагноз 1",
+            };
+            _hospitalizations.Add(h);
+
+            h = new Hospitalization
+            {
+                Id = 2,
+                StartHospitalizationDate = DateTime.Parse("03.05.2017"),
+                EndHospitalizationDate = DateTime.Parse("17.05.2017"),
+                PatientId = 1,
+                MedicalOrganization = "Мед.уч. № 2",
+                DefinitiveDiagnosis = "Оконч.диагноз 2",
+            };
+            _hospitalizations.Add(h);
+
+            h = new Hospitalization
+            {
+                Id = 3,
+                StartHospitalizationDate = DateTime.Parse("13.07.2017"),
+                EndHospitalizationDate = DateTime.Parse("21.07.2017"),
+                PatientId = 2,
+                MedicalOrganization = "Мед.уч. № 1",
+                DefinitiveDiagnosis = "Оконч.диагноз 1",
+            };
+            _hospitalizations.Add(h);
+        }
+
+        private void SetObservations()
+        {
+            var o = new Observation
+            {
+                Id = 1,
+                StartObservationDate = DateTime.Parse("12.03.2014"),
+                EndObservationDate = DateTime.Parse("12.03.2015"),
+                PatientId = 2,
+                DiagnosisId = 2,
+                DoctorId = 1
+            };
+            _observations.Add(o);
+
+            o = new Observation
+            {
+                Id = 2,
+                StartObservationDate = DateTime.Parse("22.09.2016"),
+                EndObservationDate = DateTime.Parse("12.10.2016"),
+                PatientId = 1,
+                DiagnosisId = 2,
+                DoctorId = 1
+            };
+            _observations.Add(o);
         }
 
         public Task<Result<List<Patient>>> GetPatientsAsync()
@@ -422,6 +487,47 @@ namespace Medical_record.Data
             return Task.FromResult(
                     new Result<List<Medications>>(
                         _medications.Where(d => d.Name.Contains(value)).ToList()));
+        }
+
+        public Task<Result<int>> GetLastAddedPatientIdAsync()
+        {
+            return Task.FromResult(new Result<int>(_patients.Last().Id));
+        }
+
+        public Task<Result<string>> AddObservationAsync(Observation observation)
+        {
+            observation.Id = 1;
+            if (_observations.Count > 0)
+            {
+                observation.Id = _observations.Max(o => o.Id) + 1;
+            }
+            _observations.Add(observation);
+            return Task.FromResult(new Result<string>(
+                $"Успешно сохранено {observation.Id}", String.Empty));
+        }
+
+        public Task<Result<int>> GetCountObservationsByPatientIdAsync(int id)
+        {
+            var count = _observations.Where(o => o.PatientId == id).Count();
+            return Task.FromResult(new Result<int>(count));
+        }
+
+        public Task<Result<int>> GetCountHospitalizationsByPatientIdAsync(int id)
+        {
+            var count = _hospitalizations.Where(o => o.PatientId == id).Count();
+            return Task.FromResult(new Result<int>(count));
+        }
+
+        public Task<Result<string>> AddHospitalizationAsync(Hospitalization hosp)
+        {
+            hosp.Id = 1;
+            if (_hospitalizations.Count > 0)
+            {
+                hosp.Id = _hospitalizations.Max(h => h.Id) + 1;
+            }
+            _hospitalizations.Add(hosp);
+            return Task.FromResult(new Result<string>(
+                $"Успешно сохранена {hosp.Id}", String.Empty));
         }
     }
 }

@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,7 +65,9 @@
     <Compile Include="AppController.cs" />
     <Compile Include="Data\DbDataContext.cs" />
     <Compile Include="Data\Models\Diagnosis.cs" />
+    <Compile Include="Data\Models\Hospitalization.cs" />
     <Compile Include="Data\Models\Medications.cs" />
+    <Compile Include="Data\Models\Observation.cs" />
     <Compile Include="Data\Models\Patient.cs" />
     <Compile Include="Data\Models\Procedure.cs" />
     <Compile Include="Data\TestDataContext.cs" />
@@ -104,23 +121,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UseControl\AddHospitalizationUC.cs">
+    <Compile Include="UseControl\AddHospitalizationView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UseControl\AddHospitalizationUC.Designer.cs">
-      <DependentUpon>AddHospitalizationUC.cs</DependentUpon>
+    <Compile Include="UseControl\AddHospitalizationView.Designer.cs">
+      <DependentUpon>AddHospitalizationView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UseControl\AddObservationUC.cs">
+    <Compile Include="UseControl\AddObservationView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UseControl\AddObservationUC.Designer.cs">
-      <DependentUpon>AddObservationUC.cs</DependentUpon>
+    <Compile Include="UseControl\AddObservationView.Designer.cs">
+      <DependentUpon>AddObservationView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UseControl\AddDoctorsUC.cs">
+    <Compile Include="UseControl\AddDoctorsView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UseControl\AddDoctorsUC.Designer.cs">
-      <DependentUpon>AddDoctorsUC.cs</DependentUpon>
+    <Compile Include="UseControl\AddDoctorsView.Designer.cs">
+      <DependentUpon>AddDoctorsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MedicationsView.cs">
       <SubType>Form</SubType>
@@ -134,6 +151,9 @@
     <Compile Include="Forms\ProceduresView.Designer.cs">
       <DependentUpon>ProceduresView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UseControl\ViewModels\AddDoctorsViewModel.cs" />
+    <Compile Include="UseControl\ViewModels\AddHospitalizationViewModel.cs" />
+    <Compile Include="UseControl\ViewModels\AddObservationViewModel.cs" />
     <Compile Include="Utils\MessagesService.cs" />
     <Compile Include="Utils\Result.cs" />
     <Compile Include="ViewModels\AddMedicationsViewModel.cs" />
@@ -185,14 +205,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UseControl\AddHospitalizationUC.resx">
-      <DependentUpon>AddHospitalizationUC.cs</DependentUpon>
+    <EmbeddedResource Include="UseControl\AddHospitalizationView.resx">
+      <DependentUpon>AddHospitalizationView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UseControl\AddObservationUC.resx">
-      <DependentUpon>AddObservationUC.cs</DependentUpon>
+    <EmbeddedResource Include="UseControl\AddObservationView.resx">
+      <DependentUpon>AddObservationView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UseControl\AddDoctorsUC.resx">
-      <DependentUpon>AddDoctorsUC.cs</DependentUpon>
+    <EmbeddedResource Include="UseControl\AddDoctorsView.resx">
+      <DependentUpon>AddDoctorsView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -207,6 +227,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

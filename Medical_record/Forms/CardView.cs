@@ -14,13 +14,13 @@ namespace Medical_record.Forms
 {
     public partial class CardView : Form
     {
-        private readonly CardViewModel _cardViewModel;
+        private readonly CardViewModel _viewModel;
         private readonly BindingSource _bsPatients;
 
         public CardView(CardViewModel cardViewModel)
         {
             InitializeComponent();
-            _cardViewModel = cardViewModel ??
+            _viewModel = cardViewModel ??
                 throw new ArgumentNullException(nameof(cardViewModel));
 
             _bsPatients = new BindingSource();
@@ -28,11 +28,11 @@ namespace Medical_record.Forms
             SetTextBindings();
             SetDatesBindings();
 
-            _buttonAddPatient.Click += (s, e) => _cardViewModel.ShowRegistrationView();
+            _buttonAddPatient.Click += (s, e) => _viewModel.ShowRegistrationView();
             _buttonUpdatePatient.Click +=
-                (s, e) => _cardViewModel.ShowRegistrationView(_bsPatients.Current as Patient);
+                (s, e) => _viewModel.ShowRegistrationView(_bsPatients.Current as Patient);
             _buttonRemovePatient.Click += 
-                (s, e) => _cardViewModel.RemovePatient(_bsPatients.Current as Patient);
+                (s, e) => _viewModel.RemovePatient(_bsPatients.Current as Patient);
             _buttonNextPatient.Click += (s, e) => _bsPatients.MoveNext();
             _buttonPrevPatient.Click += (s, e) => _bsPatients.MovePrevious();
 
@@ -83,7 +83,7 @@ namespace Medical_record.Forms
         /// <param name="e"></param>
         private async void CardView_Activated(object sender, EventArgs e)
         {
-            await _cardViewModel.LoadDataAsync();
+            await _viewModel.LoadDataAsync();
             if (_bsPatients.Count != 0)
             {
                 ClearDatesBindings();
@@ -91,7 +91,7 @@ namespace Medical_record.Forms
                 SetDatesBindings();
             }
             
-            _cardViewModel.Patients.ForEach(p => _bsPatients.Add(p));
+            _viewModel.Patients.ForEach(p => _bsPatients.Add(p));
         }
 
         

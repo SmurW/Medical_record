@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Medical_record.UseControl.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,14 @@ using System.Windows.Forms;
 
 namespace Medical_record.UseControl
 {
-    public partial class AddObservationUC : UserControl
+    public partial class AddDoctorsView : UserControl
     {
-        public AddObservationUC()
+        public AddDoctorsViewModel ViewModel { get; }
+
+        public AddDoctorsView(AddDoctorsViewModel viewModel)
         {
             InitializeComponent();
+            ViewModel = viewModel;
         }
     }
 }
