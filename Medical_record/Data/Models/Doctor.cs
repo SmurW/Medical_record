@@ -1,5 +1,4 @@
-﻿
-namespace Medical_record.Data.Models
+﻿namespace Medical_record.Data.Models
 {
    public class Doctor
     {
@@ -9,5 +8,7 @@ namespace Medical_record.Data.Models
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public int SpecializationId { get; set; }
+        public Specialization Specialization { get; set; }
+        public string SpecializationName => Specialization?.Name;
     }
 }

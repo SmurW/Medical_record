@@ -17,6 +17,7 @@ namespace Medical_record.Data
         private readonly List<Doctor> _doctors = new List<Doctor>();
         private readonly List<Observation> _observations = new List<Observation>();
         private readonly List<Hospitalization> _hospitalizations = new List<Hospitalization>();
+        private readonly List<Specialization> _specializations = new List<Specialization>();
 
         public TestDataContext()
         {
@@ -27,6 +28,31 @@ namespace Medical_record.Data
             SetDoctors();
             SetObservations();
             SetHospitalizations();
+            SetSpecializations();
+        }
+
+        private void SetSpecializations()
+        {
+            var s = new Specialization
+            {
+                Id = 1,
+                Name = "ЛОР",
+            };
+            _specializations.Add(s);
+
+            s = new Specialization
+            {
+                Id = 2,
+                Name = "Терапевт",
+            };
+            _specializations.Add(s);
+
+            s = new Specialization
+            {
+                Id = 3,
+                Name = "Хирург",
+            };
+            _specializations.Add(s);
         }
 
         private void SetDoctors()
@@ -293,19 +319,26 @@ namespace Medical_record.Data
 
         public Task<Result<List<Doctor>>> GetDoctorsAsync()
         {
+            _doctors.ForEach(d => d.Specialization = GetDoctorSpecialization(d.SpecializationId));
+
             return Task.FromResult(new Result<List<Doctor>>(_doctors));
         }
 
-        public Task<Result<string>> AddDoctorsAsync(Doctor doctors)
+        private Specialization GetDoctorSpecialization(int specializationId)
         {
-            doctors.Id = 1;
+            return _specializations.FirstOrDefault(s => s.Id == specializationId);
+        }
+
+        public Task<Result<string>> AddDoctorAsync(Doctor doctor)
+        {
+            doctor.Id = 1;
             if (_doctors.Count > 0)
             {
-                doctors.Id = _doctors.Max(d => d.Id) + 1;
+                doctor.Id = _doctors.Max(d => d.Id) + 1;
             }
-            _doctors.Add(doctors);
+            _doctors.Add(doctor);
             return Task.FromResult(new Result<string>(
-                $"Успешно сохранен {doctors.LastName + doctors.FirstName + doctors.MiddleName}", String.Empty));
+                $"Успешно сохранен {doctor.LastName} {doctor.FirstName} {doctor.MiddleName}", String.Empty));
         }
 
         public Task<Result<List<Doctor>>> GetDoctorsOrderByAsync(string key)
@@ -612,19 +645,9 @@ namespace Medical_record.Data
                 $"Успешно сохранена {hosp.Id}", String.Empty));
         }
 
-        public Task<Result<string>> UpdateDoctorsAsync(Medications medications)
+        public Task<Result<List<Specialization>>> GetSpecializationsAsync()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<Result<string>> RemoveDoctorsAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Result<string>> UpdateDoctorsAsync(Doctor medications)
-        {
-            throw new NotImplementedException();
+            return Task.FromResult(new Result<List<Specialization>>(_specializations));
         }
     }
 }
