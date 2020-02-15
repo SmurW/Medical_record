@@ -1,6 +1,6 @@
 ﻿namespace Medical_record.UseControl
 {
-    partial class Add_Observation
+    partial class AddObservationView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this._dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this._dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this._comboBoxDiagnosis = new System.Windows.Forms.ComboBox();
+            this._comboBoxDoctor = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this._labelCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // _dateTimePickerStart
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(190, 8);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(140, 20);
-            this.dateTimePicker1.TabIndex = 23;
+            this._dateTimePickerStart.Location = new System.Drawing.Point(190, 8);
+            this._dateTimePickerStart.Name = "_dateTimePickerStart";
+            this._dateTimePickerStart.Size = new System.Drawing.Size(140, 20);
+            this._dateTimePickerStart.TabIndex = 23;
             // 
             // label5
             // 
@@ -55,12 +56,12 @@
             this.label5.TabIndex = 22;
             this.label5.Text = "Дата начала наблюдения";
             // 
-            // dateTimePicker2
+            // _dateTimePickerEnd
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(190, 40);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(140, 20);
-            this.dateTimePicker2.TabIndex = 25;
+            this._dateTimePickerEnd.Location = new System.Drawing.Point(190, 40);
+            this._dateTimePickerEnd.Name = "_dateTimePickerEnd";
+            this._dateTimePickerEnd.Size = new System.Drawing.Size(140, 20);
+            this._dateTimePickerEnd.TabIndex = 25;
             // 
             // label2
             // 
@@ -80,21 +81,21 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Диагноз";
             // 
-            // comboBox2
+            // _comboBoxDiagnosis
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(72, 77);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(340, 21);
-            this.comboBox2.TabIndex = 27;
+            this._comboBoxDiagnosis.FormattingEnabled = true;
+            this._comboBoxDiagnosis.Location = new System.Drawing.Point(72, 77);
+            this._comboBoxDiagnosis.Name = "_comboBoxDiagnosis";
+            this._comboBoxDiagnosis.Size = new System.Drawing.Size(340, 21);
+            this._comboBoxDiagnosis.TabIndex = 27;
             // 
-            // comboBox3
+            // _comboBoxDoctor
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(72, 110);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(340, 21);
-            this.comboBox3.TabIndex = 29;
+            this._comboBoxDoctor.FormattingEnabled = true;
+            this._comboBoxDoctor.Location = new System.Drawing.Point(72, 110);
+            this._comboBoxDoctor.Name = "_comboBoxDoctor";
+            this._comboBoxDoctor.Size = new System.Drawing.Size(340, 21);
+            this._comboBoxDoctor.TabIndex = 29;
             // 
             // label4
             // 
@@ -110,25 +111,35 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(342, 8);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 13);
+            this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 30;
-            this.label6.Text = "Записей 0/0";
+            this.label6.Text = "Записей";
             // 
-            // Add_Observation
+            // _labelCount
+            // 
+            this._labelCount.AutoSize = true;
+            this._labelCount.Location = new System.Drawing.Point(391, 8);
+            this._labelCount.Name = "_labelCount";
+            this._labelCount.Size = new System.Drawing.Size(27, 13);
+            this._labelCount.TabIndex = 31;
+            this._labelCount.Text = " 0/0";
+            // 
+            // AddObservationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this._labelCount);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this._comboBoxDoctor);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this._comboBoxDiagnosis);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this._dateTimePickerEnd);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this._dateTimePickerStart);
             this.Controls.Add(this.label5);
-            this.Name = "Add_Observation";
+            this.Name = "AddObservationView";
             this.Size = new System.Drawing.Size(429, 143);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,14 +147,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker _dateTimePickerStart;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker _dateTimePickerEnd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox _comboBoxDiagnosis;
+        private System.Windows.Forms.ComboBox _comboBoxDoctor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label _labelCount;
     }
 }

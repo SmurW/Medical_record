@@ -1,4 +1,6 @@
-﻿using Medical_record.ViewModels;
+﻿using Medical_record.UseControl;
+using Medical_record.UseControl.ViewModels;
+using Medical_record.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace Medical_record.Forms
     public partial class RegistrationView : Form
     {
         private readonly RegistrationViewModel _viewModel;
+        private UserControl _userControl;
 
         public RegistrationView(RegistrationViewModel registrationViewModel)
         {
@@ -21,8 +24,21 @@ namespace Medical_record.Forms
             _viewModel = registrationViewModel ??
                 throw new ArgumentNullException(nameof(registrationViewModel));
 
+            SetBindings();
+
+            _buttonSavePatient.Click += (s, e) => _viewModel.SavePatient();
+            _buttonAddObserv.Click += ButtonAddObserv_Click;
+            _buttonAddDoctor.Click += ButtonAddDoctor_Click;
+            _buttonAddHospital.Click += ButtonAddHospital_Click;
+        }
+
+        /// <summary>
+        /// Привязки
+        /// </summary>
+        private void SetBindings()
+        {
             _textBoxCardNumber.DataBindings.Add("Text", _viewModel, nameof(_viewModel.CardNumber),
-                true, DataSourceUpdateMode.OnPropertyChanged);
+                            true, DataSourceUpdateMode.OnPropertyChanged);
             _textBoxFirstName.DataBindings.Add("Text", _viewModel, nameof(_viewModel.FirstName),
                 true, DataSourceUpdateMode.OnPropertyChanged);
             _textBoxLastName.DataBindings.Add("Text", _viewModel, nameof(_viewModel.LastName),
@@ -45,8 +61,63 @@ namespace Medical_record.Forms
             _dateTimePickerRegistrationDate.DataBindings.Add("Value", _viewModel, nameof(_viewModel.RegistrationDate));
 
             _comboBoxSex.DataBindings.Add("Text", _viewModel, nameof(_viewModel.Sex));
-
-            _buttonSavePatient.Click += (s, e) => _viewModel.SavePatient();
         }
+
+        /// <summary>
+        /// Отображение uc ввода данных по госпитализации
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void ButtonAddHospital_Click(object sender, EventArgs e)
+        {
+            _userControl = await _viewModel.GetUcView("Ho");
+            ShowUcView();
+        }
+
+        /// <summary>
+        /// Отображение uc ввода осмотра врачем
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void ButtonAddDoctor_Click(object sender, EventArgs e)
+        {
+            _userControl = await _viewModel.GetUcView("Dc");
+            ShowUcView();
+        }
+
+        /// <summary>
+        /// Отображение формы ввода Обследований
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void ButtonAddObserv_Click(object sender, EventArgs e)
+        {
+            //получаем нужную uc
+            _userControl = await _viewModel.GetUcView("Ob");
+            //отображаем
+            ShowUcView();
+        }
+
+        /// <summary>
+        /// Отображение (с замещением) нужной UserControl
+        /// </summary>
+        private void ShowUcView()
+        {
+            if (_panel.Controls.Count == 0)
+            {
+                this.Height += _userControl.Height;
+            }
+            else
+            {
+                var oldUc = _panel.Controls.OfType<UserControl>().First();
+                this.Height -= oldUc.Height;
+                this.Height += _userControl.Height;
+                _panel.Controls.Clear();
+            }
+
+            _panel.Controls.Add(_userControl);
+        }
+
+        
     }
 }

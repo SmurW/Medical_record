@@ -1,27 +1,55 @@
 ﻿using Medical_record.Abstractions;
 using Medical_record.Data.Models;
 using Medical_record.Forms;
+using Medical_record.UseControl;
+using Medical_record.UseControl.ViewModels;
 using Medical_record.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Medical_record
 {
     public class AppController
     {
-        private MainForm_MedicalRecord _mainForm;
+        private readonly MainForm_MedicalRecord _mainForm;
+        private readonly Dictionary<string, UserControl> _uControls;
         public IDataContext DataContext { get; }
 
         public AppController(IDataContext dataContext)
         {
             DataContext = dataContext ??
                 throw new ArgumentNullException(nameof(dataContext));
+
+            var vm = new MainViewModel(this);
+            _mainForm = new MainForm_MedicalRecord(vm);
+
+            _uControls = new Dictionary<string, UserControl>();
+            SetUserControls();
+        }
+
+        private void SetUserControls()
+        {
+            var vmO = new AddObservationViewModel(this);
+            var ucO = new AddObservationView(vmO);
+            _uControls.Add("Ob", ucO);
+
+            var vmD = new AddDoctorsViewModel();
+            var ucD = new AddDoctorsView(vmD);
+            _uControls.Add("Dc", ucD);
+
+            var vmH = new AddHospitalizationViewModel(this);
+            var ucH = new AddHospitalizationView(vmH);
+            _uControls.Add("Ho", ucH);
+        }
+
+        internal UserControl GetUcView(string key)
+        {
+            return _uControls[key];
         }
 
         internal Form GetMainForm()
         {
-            var vm = new MainViewModel(this);
-            _mainForm = new MainForm_MedicalRecord(vm);
             return _mainForm;
         }
 
