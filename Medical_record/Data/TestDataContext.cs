@@ -25,6 +25,8 @@ namespace Medical_record.Data
             SetDiagnoses();
             SetMedications();
             SetDoctors();
+            SetObservations();
+            SetHospitalizations();
         }
 
         private void SetDoctors()
@@ -58,8 +60,7 @@ namespace Medical_record.Data
                 SpecializationId = 3
             };
             _doctors.Add(d);
-            SetObservations();
-            SetHospitalizations();
+            
         }
 
         private void SetProcedures()
@@ -229,45 +230,6 @@ namespace Medical_record.Data
             _patients.Add(p);
         }
 
-        public Task<Result<List<Doctor>>> GetDoctorsAsync()
-        {
-            return Task.FromResult(new Result<List<Doctor>>(_doctors));
-        }
-
-        public Task<Result<string>> AddDoctorsAsync(Doctor doctors)
-        {
-            doctors.Id = 1;
-            if (_doctors.Count > 0)
-            {
-                doctors.Id = _doctors.Max(d => d.Id) + 1;
-            }
-            _doctors.Add(doctors);
-            return Task.FromResult(new Result<string>(
-                $"Успешно сохранен {doctors.LastName + doctors.FirstName + doctors.MiddleName}", String.Empty));
-        }
-
-        public Task<Result<List<Doctor>>> GetDoctorsOrderByAsync(string key)
-        {
-            if (key.Equals("LastName"))
-            {
-                return Task.FromResult(
-                    new Result<List<Doctor>>(
-                        _doctors.OrderBy(d => d.LastName).ToList()));
-            }
-            if (key.Equals("FirstName"))
-            {
-                return Task.FromResult(
-                    new Result<List<Doctor>>(
-                        _doctors.OrderBy(d => d.FirstName).ToList()));
-            }
-            else
-            {
-                return Task.FromResult(
-                    new Result<List<Doctor>>(
-                        _doctors.OrderBy(d => d.MiddleName).ToList()));
-            }
-        }
-
         private void SetHospitalizations()
         {
             var h = new Hospitalization
@@ -327,6 +289,45 @@ namespace Medical_record.Data
                 DoctorId = 1
             };
             _observations.Add(o);
+        }
+
+        public Task<Result<List<Doctor>>> GetDoctorsAsync()
+        {
+            return Task.FromResult(new Result<List<Doctor>>(_doctors));
+        }
+
+        public Task<Result<string>> AddDoctorsAsync(Doctor doctors)
+        {
+            doctors.Id = 1;
+            if (_doctors.Count > 0)
+            {
+                doctors.Id = _doctors.Max(d => d.Id) + 1;
+            }
+            _doctors.Add(doctors);
+            return Task.FromResult(new Result<string>(
+                $"Успешно сохранен {doctors.LastName + doctors.FirstName + doctors.MiddleName}", String.Empty));
+        }
+
+        public Task<Result<List<Doctor>>> GetDoctorsOrderByAsync(string key)
+        {
+            if (key.Equals("LastName"))
+            {
+                return Task.FromResult(
+                    new Result<List<Doctor>>(
+                        _doctors.OrderBy(d => d.LastName).ToList()));
+            }
+            if (key.Equals("FirstName"))
+            {
+                return Task.FromResult(
+                    new Result<List<Doctor>>(
+                        _doctors.OrderBy(d => d.FirstName).ToList()));
+            }
+            else
+            {
+                return Task.FromResult(
+                    new Result<List<Doctor>>(
+                        _doctors.OrderBy(d => d.MiddleName).ToList()));
+            }
         }
 
         public Task<Result<List<Doctor>>> GetDoctorsLikeAsync(string value)
