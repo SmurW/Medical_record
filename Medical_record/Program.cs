@@ -23,12 +23,12 @@ namespace Medical_record
 
             IDataContext dataContext = new TestDataContext();
             var appController = new AppController(dataContext);
-            var mainForm = appController.GetMainForm();
+            //var mainForm = appController.GetMainForm();
 
-            //var vm = new RegistrationViewModel(appController);
-            //var form = new RegistrationView(vm);
+            var vm = new RegistrationViewModel(appController);
+            var form = new RegistrationView(vm);
 
-            Application.Run(mainForm);
+            Application.Run(form);
         }
     }
 }

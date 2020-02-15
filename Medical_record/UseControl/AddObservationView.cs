@@ -30,8 +30,15 @@ namespace Medical_record.UseControl
 
             _comboBoxDiagnosis.DataSource = ViewModel.Diagnoses;
             _comboBoxDiagnosis.DisplayMember = nameof(Diagnosis.Name);
-            _comboBoxDiagnosis.DataBindings.Add("SelectedItem",
-                ViewModel, nameof(ViewModel.SelectedDiagnosis));
+            _comboBoxDiagnosis.ValueMember = nameof(Diagnosis.Id);
+            _comboBoxDiagnosis.DataBindings.Add(nameof(_comboBoxDiagnosis.SelectedValue),
+                ViewModel, nameof(ViewModel.DiagnosisId));
+
+            _comboBoxDoctor.DataSource = ViewModel.Doctors;
+            _comboBoxDoctor.DisplayMember = nameof(Doctor.SpecAndFio);
+            _comboBoxDoctor.ValueMember = nameof(Doctor.Id);
+            _comboBoxDoctor.DataBindings.Add(nameof(_comboBoxDoctor.SelectedValue),
+                ViewModel, nameof(ViewModel.DoctorId));
 
             _labelCount.DataBindings.Add("Text", ViewModel, nameof(ViewModel.Count));
         }

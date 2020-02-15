@@ -18,11 +18,16 @@ namespace Medical_record.UseControl.ViewModels
                 throw new ArgumentNullException(nameof(appController));
         }
 
+        /// <summary>
+        /// Диагнозы
+        /// </summary>
         public BindingList<Diagnosis> Diagnoses { get; set; } = new BindingList<Diagnosis>();
-        public object SelectedDiagnosis { get; set; }
 
+        /// <summary>
+        /// Доктора
+        /// </summary>
+        public BindingList<Doctor> Doctors { get; set; } = new BindingList<Doctor>();
 
-        public int Id { get; set; }
         public DateTime StartObservationDate { get; set; } = DateTime.Now.AddDays(-1);
         public DateTime EndObservationDate { get; set; } = DateTime.Now;
         public int DiagnosisId { get; set; }
@@ -39,7 +44,8 @@ namespace Medical_record.UseControl.ViewModels
             {
                 StartObservationDate = StartObservationDate,
                 EndObservationDate = EndObservationDate,
-                DiagnosisId = (SelectedDiagnosis as Diagnosis).Id
+                DiagnosisId = DiagnosisId,
+                DoctorId = DoctorId
             };
         }
     }

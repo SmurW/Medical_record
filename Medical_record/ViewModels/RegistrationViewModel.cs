@@ -248,13 +248,20 @@ namespace Medical_record.ViewModels
             }
 
             //Получаем диагнозы
-            var result = await _appController.DataContext.GetDiagnosesAsync();
-            if (result.HasValue)
+            var diags = await _appController.DataContext.GetDiagnosesAsync();
+            if (diags.HasValue)
             {
                 _observationVM.Diagnoses.Clear();
-                result.Value.ForEach(d => _observationVM.Diagnoses.Add(d));
+                diags.Value.ForEach(d => _observationVM.Diagnoses.Add(d));
             }
-            // TODO: еще нужно получить докторов
+
+            //Получаем докторов
+            var docs = await _appController.DataContext.GetDoctorsAsync();
+            if (docs.HasValue)
+            {
+                _observationVM.Doctors.Clear();
+                docs.Value.ForEach(d => _observationVM.Doctors.Add(d));
+            }
         }
 
         /// <summary>
@@ -280,7 +287,7 @@ namespace Medical_record.ViewModels
             }
             else
             {
-                Result<int> count = await _appController.DataContext
+                var count = await _appController.DataContext
                     .GetCountHospitalizationsByPatientIdAsync(Id);
                 if (count.HasValue)
                 {
