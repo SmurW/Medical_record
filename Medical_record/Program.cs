@@ -1,6 +1,7 @@
 ﻿using Medical_record.Abstractions;
 using Medical_record.Data;
 using Medical_record.Forms;
+using Medical_record.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,9 @@ namespace Medical_record
             IDataContext dataContext = new TestDataContext();
             var appController = new AppController(dataContext);
             var mainForm = appController.GetMainForm();
+
+            //var vm = new RegistrationViewModel(appController);
+            //var form = new RegistrationView(vm);
 
             Application.Run(mainForm);
         }

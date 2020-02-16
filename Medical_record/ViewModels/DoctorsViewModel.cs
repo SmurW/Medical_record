@@ -1,10 +1,6 @@
 ﻿using Medical_record.Data.Models;
 using Medical_record.Utils;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Medical_record.ViewModels
@@ -18,8 +14,6 @@ namespace Medical_record.ViewModels
             _appController = appController;
         }
 
-        public int Id { get; set; }
-        public int SpecializationId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
@@ -27,44 +21,28 @@ namespace Medical_record.ViewModels
         /// <summary>
         /// Коллекция докторов
         /// </summary>
-        public List<Doctor> Doctors { get; set; } = new List<Doctor>();
+        public BindingList<Doctor> Doctors { get; set; } = new BindingList<Doctor>();
 
         /// <summary>
         /// Коллекция специализации
         /// </summary>
         public BindingList<Specialization> Specializations { get; set; } = new BindingList<Specialization>();
-        public object SelectedSpecializations { get; set; }
 
-        private Doctor SetDoctors(Doctor doctor)
-        {
-            return new Doctor
-            {
-                Id = Id,
-                LastName = LastName,
-                FirstName = FirstName,
-                MiddleName = MiddleName,
-                SpecializationId = doctor.SpecializationId,
-            };
-        }
-
-        internal async void SaveDoctors()
+        /// <summary>
+        /// Сохранение Доктора
+        /// </summary>
+        /// <param name="specObj"></param>
+        internal async void SaveDoctor(object specObj)
         {
             var result = new Result<string>("Error");
-            var doctors = GetDoctors();
-            if (Id == 0)
-            {
-                //запоминаем
-                result = await _appController.DataContext.AddDoctorsAsync(doctors);
-            }
-            else
-            {
-                //обновляем
-                result = await _appController.DataContext.UpdateDoctorsAsync(doctors);
-            }
+            var doctor = GetDoctor((specObj as Specialization).Id);
+            //запоминаем
+            result = await _appController.DataContext.AddDoctorAsync(doctor);
 
             if (result.HasValue)
             {
                 MessagesService.ShowInfoMessage(result.Value);
+                await LoadDataAsync();
             }
             else
             {
@@ -72,17 +50,49 @@ namespace Medical_record.ViewModels
             }
         }
 
-            private Doctor GetDoctors()
+        /// <summary>
+        /// Загрузка Докторов и Специализаций
+        /// </summary>
+        /// <returns></returns>
+        internal async Task LoadDataAsync()
+        {
+            //доктора
+            Doctors.Clear();
+            var doctors = await _appController.DataContext.GetDoctorsAsync();
+            if (doctors.HasValue)
             {
-                return new Doctor
+                int num = 0;
+                doctors.Value.ForEach(d =>
                 {
-                    Id = Id,
-                    LastName = LastName,
-                    FirstName = FirstName,
-                    MiddleName = MiddleName,
-                    SpecializationId = SpecializationId,
-                };
+                    d.OrderNumber = ++num;
+                    Doctors.Add(d);
+                });
             }
-        
+
+            //специализации
+            var specs = await _appController.DataContext.GetSpecializationsAsync();
+            if (specs.HasValue)
+            {
+                Specializations.Clear();
+                specs.Value.ForEach(s => Specializations.Add(s));
+            }
+        }
+
+        /// <summary>
+        /// Получение Доктора из текущ.значений
+        /// </summary>
+        /// <param name="specId">Id специализации доктора</param>
+        /// <returns></returns>
+        private Doctor GetDoctor(int specId)
+        {
+            return new Doctor
+            {
+                LastName = LastName,
+                FirstName = FirstName,
+                MiddleName = MiddleName,
+                SpecializationId = specId,
+            };
+        }
+
     }
 }

@@ -14,26 +14,51 @@ namespace Medical_record.Forms
 {
     public partial class DoctorsView : Form
     {
-        private DoctorsViewModel _doctorsViewModel;
+        private DoctorsViewModel _viewModel;
 
         public DoctorsView(DoctorsViewModel doctorsViewModel)
         {
             InitializeComponent();
-            _doctorsViewModel = doctorsViewModel;
+            _viewModel = doctorsViewModel;
+
+            //DGV
+            _dataGridViewDoctors.AutoGenerateColumns = false;
+            _dataGridViewDoctors.DataSource = _viewModel.Doctors;
+            _columnOrderNumber.DataPropertyName = nameof(Doctor.OrderNumber);
+            _columnFirstName.DataPropertyName = nameof(Doctor.FirstName);
+            _columnLastName.DataPropertyName = nameof(Doctor.LastName);
+            _columnMiddleName.DataPropertyName = nameof(Doctor.MiddleName);
+            _columnSpec.DataPropertyName = nameof(Doctor.SpecializationName);
 
             //привязка текстбоксов
-            _textBoxLastName.DataBindings.Add("Text", _doctorsViewModel,
-                nameof(_doctorsViewModel.Doctors), true, DataSourceUpdateMode.OnPropertyChanged);
-            _textBoxFirstName.DataBindings.Add("Text", _doctorsViewModel,
-                nameof(_doctorsViewModel.Doctors), true, DataSourceUpdateMode.OnPropertyChanged);
-            _textBoxMiddleName.DataBindings.Add("Text", _doctorsViewModel,
-                nameof(_doctorsViewModel.Doctors), true, DataSourceUpdateMode.OnPropertyChanged);
+            _textBoxLastName.DataBindings.Add("Text", _viewModel,
+                nameof(_viewModel.LastName), true, DataSourceUpdateMode.OnPropertyChanged);
+            _textBoxFirstName.DataBindings.Add("Text", _viewModel,
+                nameof(_viewModel.FirstName), true, DataSourceUpdateMode.OnPropertyChanged);
+            _textBoxMiddleName.DataBindings.Add("Text", _viewModel,
+                nameof(_viewModel.MiddleName), true, DataSourceUpdateMode.OnPropertyChanged);
 
-            //привязка сомбобокса
-            _comboBoxSpecialization.DataSource = _doctorsViewModel.Specializations;
+            //привязка комбобокса
+            _comboBoxSpecialization.DataSource = _viewModel.Specializations;
             _comboBoxSpecialization.DisplayMember = nameof(Specialization.Name);
-            _comboBoxSpecialization.DataBindings.Add("SelectedItem", _doctorsViewModel, nameof(_doctorsViewModel.SelectedSpecializations));
+
+            _buttonSave.Click += ButtonSave_Click;
+            this.Load += DoctorsView_Load;
         }
-        
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            _viewModel.SaveDoctor(_comboBoxSpecialization.SelectedItem);
+
+            _textBoxFirstName.Text = String.Empty;
+            _textBoxLastName.Text = String.Empty;
+            _textBoxMiddleName.Text = String.Empty;
+            _textBoxLastName.Focus();
+        }
+
+        private async void DoctorsView_Load(object sender, EventArgs e)
+        {
+            await _viewModel.LoadDataAsync();
+        }
     }
 }

@@ -17,12 +17,22 @@ namespace Medical_record.Data
             throw new NotImplementedException();
         }
 
-        public Task<Result<string>> AddDoctorsAsync(Doctor doctor)
+        public Task<Result<string>> AddHospitalizationAsync(Hospitalization hosp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<string>> AddDoctorAsync(Doctor doctor)
         {
             throw new NotImplementedException();
         }
 
         public Task<Result<string>> AddMedicationsAsync(Medications diagnosis)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<string>> AddObservationAsync(Observation ob)
         {
             throw new NotImplementedException();
         }
@@ -33,6 +43,16 @@ namespace Medical_record.Data
         }
 
         public Task<Result<string>> AddProcedureAsync(Procedure proc)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<int>> GetCountHospitalizationsByPatientIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<int>> GetCountObservationsByPatientIdAsync(int id)
         {
             throw new NotImplementedException();
         }
@@ -57,12 +77,7 @@ namespace Medical_record.Data
             throw new NotImplementedException();
         }
 
-        public Task<Result<List<Doctor>>> GetDoctorsLikeAsync(string value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Result<List<Doctor>>> GetDoctorsOrderByAsync(string key)
+        public Task<Result<int>> GetLastAddedPatientIdAsync()
         {
             throw new NotImplementedException();
         }
@@ -107,11 +122,6 @@ namespace Medical_record.Data
             throw new NotImplementedException();
         }
 
-        public Task<Result<string>> RemoveDoctorsAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<Result<string>> RemoveMedicationsAsync(int id)
         {
             throw new NotImplementedException();
@@ -132,16 +142,6 @@ namespace Medical_record.Data
             throw new NotImplementedException();
         }
 
-        public Task<Result<string>> UpdateDoctorsAsync(Medications medications)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Result<string>> UpdateDoctorsAsync(Doctor medications)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<Result<string>> UpdateMedicationsAsync(Medications diagnosis)
         {
             throw new NotImplementedException();
@@ -153,6 +153,11 @@ namespace Medical_record.Data
         }
 
         public Task<Result<string>> UpdateProcedureAsync(Procedure proc)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<List<Specialization>>> GetSpecializationsAsync()
         {
             throw new NotImplementedException();
         }

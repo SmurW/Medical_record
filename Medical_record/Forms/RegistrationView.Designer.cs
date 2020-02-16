@@ -55,10 +55,15 @@
             this._textBoxPassportDepCode = new System.Windows.Forms.TextBox();
             this._dateTimePickerRegistrationDate = new System.Windows.Forms.DateTimePicker();
             this._textBoxResidence = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this._buttonAddHospital = new System.Windows.Forms.Button();
+            this._buttonAddDoctor = new System.Windows.Forms.Button();
+            this._buttonAddObserv = new System.Windows.Forms.Button();
             this._buttonSavePatient = new System.Windows.Forms.Button();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this._panel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -282,55 +287,99 @@
             this._textBoxResidence.Size = new System.Drawing.Size(140, 20);
             this._textBoxResidence.TabIndex = 7;
             // 
-            // button5
+            // _buttonAddHospital
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.Location = new System.Drawing.Point(489, 259);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(219, 23);
-            this.button5.TabIndex = 34;
-            this.button5.Text = "Добавить сведения о госпитализации";
-            this.button5.UseVisualStyleBackColor = true;
+            this._buttonAddHospital.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._buttonAddHospital.Location = new System.Drawing.Point(489, 346);
+            this._buttonAddHospital.Name = "_buttonAddHospital";
+            this._buttonAddHospital.Size = new System.Drawing.Size(219, 23);
+            this._buttonAddHospital.TabIndex = 34;
+            this._buttonAddHospital.Text = "Добавить сведения о госпитализации";
+            this._buttonAddHospital.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // _buttonAddDoctor
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(264, 259);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(219, 23);
-            this.button4.TabIndex = 33;
-            this.button4.Text = "Добавить запись врачей";
-            this.button4.UseVisualStyleBackColor = true;
+            this._buttonAddDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._buttonAddDoctor.Location = new System.Drawing.Point(264, 346);
+            this._buttonAddDoctor.Name = "_buttonAddDoctor";
+            this._buttonAddDoctor.Size = new System.Drawing.Size(219, 23);
+            this._buttonAddDoctor.TabIndex = 33;
+            this._buttonAddDoctor.Text = "Добавить запись врачей";
+            this._buttonAddDoctor.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // _buttonAddObserv
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(39, 259);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(219, 23);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "Добавить наблюдение";
-            this.button2.UseVisualStyleBackColor = true;
+            this._buttonAddObserv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._buttonAddObserv.Location = new System.Drawing.Point(39, 346);
+            this._buttonAddObserv.Name = "_buttonAddObserv";
+            this._buttonAddObserv.Size = new System.Drawing.Size(219, 23);
+            this._buttonAddObserv.TabIndex = 31;
+            this._buttonAddObserv.Text = "Добавить наблюдение";
+            this._buttonAddObserv.UseVisualStyleBackColor = true;
             // 
             // _buttonSavePatient
             // 
             this._buttonSavePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._buttonSavePatient.Location = new System.Drawing.Point(264, 288);
+            this._buttonSavePatient.Location = new System.Drawing.Point(264, 375);
             this._buttonSavePatient.Name = "_buttonSavePatient";
             this._buttonSavePatient.Size = new System.Drawing.Size(219, 23);
             this._buttonSavePatient.TabIndex = 13;
             this._buttonSavePatient.Text = "Сохранить все данные";
             this._buttonSavePatient.UseVisualStyleBackColor = true;
             // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(139, 167);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(140, 20);
+            this.textBox9.TabIndex = 6;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(27, 170);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(106, 13);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "Место регистрации";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(139, 201);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(140, 21);
+            this.comboBox2.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(27, 204);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Гражданство";
+            // 
+            // _panel
+            // 
+            this._panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._panel.Location = new System.Drawing.Point(30, 309);
+            this._panel.Name = "_panel";
+            this._panel.Size = new System.Drawing.Size(678, 23);
+            this._panel.TabIndex = 35;
+            // 
             // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 327);
+            this.ClientSize = new System.Drawing.Size(738, 414);
+            this.Controls.Add(this._panel);
             this.Controls.Add(this._buttonSavePatient);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this._buttonAddHospital);
+            this.Controls.Add(this._buttonAddDoctor);
+            this.Controls.Add(this._buttonAddObserv);
             this.Controls.Add(this._textBoxResidence);
             this.Controls.Add(this._dateTimePickerRegistrationDate);
             this.Controls.Add(this._textBoxPassportDepCode);
@@ -359,6 +408,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RegistrationView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Регистрация пациентов";
@@ -396,9 +447,14 @@
         private System.Windows.Forms.TextBox _textBoxPassportDepCode;
         private System.Windows.Forms.DateTimePicker _dateTimePickerRegistrationDate;
         private System.Windows.Forms.TextBox _textBoxResidence;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button _buttonAddHospital;
+        private System.Windows.Forms.Button _buttonAddDoctor;
+        private System.Windows.Forms.Button _buttonAddObserv;
         private System.Windows.Forms.Button _buttonSavePatient;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel _panel;
     }
 }
