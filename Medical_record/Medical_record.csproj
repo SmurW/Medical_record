@@ -145,6 +145,7 @@
     <Compile Include="AppController.cs" />
     <Compile Include="Data\DbDataContext.cs" />
     <Compile Include="Data\Models\Diagnosis.cs" />
+    <Compile Include="Data\Models\DoctorsNotes.cs" />
     <Compile Include="Data\Models\Hospitalization.cs" />
     <Compile Include="Data\Models\Doctor.cs" />
     <Compile Include="Data\Models\Medications.cs" />

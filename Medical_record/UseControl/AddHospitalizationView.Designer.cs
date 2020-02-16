@@ -39,6 +39,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this._labelCount = new System.Windows.Forms.Label();
+            this._buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -132,11 +133,21 @@
             this._labelCount.TabIndex = 9;
             this._labelCount.Text = "0/0";
             // 
+            // _buttonSave
+            // 
+            this._buttonSave.Location = new System.Drawing.Point(344, 166);
+            this._buttonSave.Name = "_buttonSave";
+            this._buttonSave.Size = new System.Drawing.Size(112, 23);
+            this._buttonSave.TabIndex = 10;
+            this._buttonSave.Text = "Сохранить";
+            this._buttonSave.UseVisualStyleBackColor = true;
+            // 
             // AddHospitalizationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this._buttonSave);
             this.Controls.Add(this._labelCount);
             this.Controls.Add(this.label6);
             this.Controls.Add(this._textBoxDiag);
@@ -149,7 +160,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddHospitalizationView";
-            this.Size = new System.Drawing.Size(468, 172);
+            this.Size = new System.Drawing.Size(468, 193);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +179,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label _labelCount;
+        private System.Windows.Forms.Button _buttonSave;
     }
 }

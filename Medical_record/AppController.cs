@@ -34,7 +34,7 @@ namespace Medical_record
             var ucO = new AddObservationView(vmO);
             _uControls.Add("Ob", ucO);
 
-            var vmD = new AddDoctorsViewModel();
+            var vmD = new AddDoctorsViewModel(this);
             var ucD = new AddDoctorsView(vmD);
             _uControls.Add("Dc", ucD);
 

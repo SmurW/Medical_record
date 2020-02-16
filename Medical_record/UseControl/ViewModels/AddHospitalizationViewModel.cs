@@ -35,5 +35,14 @@ namespace Medical_record.UseControl.ViewModels
                 DefinitiveDiagnosis = DefinitiveDiagnosis,
             };
         }
+
+        /// <summary>
+        /// Сохранение сведений о госпитализации
+        /// </summary>
+        /// <returns></returns>
+        internal async void SaveHospitalization()
+        {
+
+        }
     }
 }

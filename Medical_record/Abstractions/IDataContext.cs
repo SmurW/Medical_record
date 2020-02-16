@@ -37,6 +37,8 @@ namespace Medical_record.Abstractions
         Task<Result<int>> GetCountHospitalizationsByPatientIdAsync(int id);
         Task<Result<string>> AddHospitalizationAsync(Hospitalization hosp);
         Task<Result<List<Specialization>>> GetSpecializationsAsync();
+        Task<Result<string>> AddDoctorsNotesAsync(DoctorsNotes dn);
+        Task<Result<int>> GetCountDoctorsNotesIdAsync(int id);
     }
    
 }

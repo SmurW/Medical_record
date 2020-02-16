@@ -1,4 +1,5 @@
-﻿using Medical_record.UseControl.ViewModels;
+﻿using Medical_record.Data.Models;
+using Medical_record.UseControl.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,20 @@ namespace Medical_record.UseControl
         {
             InitializeComponent();
             ViewModel = viewModel;
+
+            _dateTimePickerDateInspection.DataBindings.Add("Value",
+                ViewModel, nameof(ViewModel.DateInspection),
+                true, DataSourceUpdateMode.OnPropertyChanged);
+
+            _comboBoxDiagnosisDisease.DataSource = ViewModel.Diagnoses;
+            _comboBoxDiagnosisDisease.DisplayMember = nameof(Diagnosis.Name);
+            _comboBoxDiagnosisDisease.DataBindings.Add("SelectedItem",
+                ViewModel, nameof(ViewModel.SelectedDiagnosis));
+            _comboBoxHealthGroup.DataBindings.Add("Text", ViewModel, nameof(ViewModel.HealtGroup));
+
+            _labelCount.DataBindings.Add("Text", ViewModel, nameof(ViewModel.Count));
+
+            _buttonSaveDoctors.Click += (s, e) => ViewModel.SaveDoctorNotes();
         }
     }
 }

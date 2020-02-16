@@ -28,6 +28,8 @@ namespace Medical_record.UseControl
                 true, DataSourceUpdateMode.OnPropertyChanged);
 
             _labelCount.DataBindings.Add("Text", ViewModel, nameof(ViewModel.Count));
+
+            _buttonSave.Click += (s, e) => ViewModel.SaveHospitalization();
         }
     }
 }

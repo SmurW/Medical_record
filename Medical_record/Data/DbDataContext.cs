@@ -161,5 +161,15 @@ namespace Medical_record.Data
         {
             throw new NotImplementedException();
         }
+
+        public Task<Result<string>> AddDoctorsNotesAsync(DoctorsNotes dn)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<int>> GetCountDoctorsNotesIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

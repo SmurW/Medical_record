@@ -34,6 +34,8 @@ namespace Medical_record.UseControl
                 ViewModel, nameof(ViewModel.SelectedDiagnosis));
 
             _labelCount.DataBindings.Add("Text", ViewModel, nameof(ViewModel.Count));
+
+            _buttonSave.Click += (s, e) => ViewModel.SaveObservation();
         }
 
     }

@@ -42,5 +42,14 @@ namespace Medical_record.UseControl.ViewModels
                 DiagnosisId = (SelectedDiagnosis as Diagnosis).Id
             };
         }
+
+        /// <summary>
+        /// Сохранение наблюдения
+        /// </summary>
+        /// <returns></returns>
+        internal async void SaveObservation()
+        {
+
+        }
     }
 }

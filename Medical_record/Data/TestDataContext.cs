@@ -649,5 +649,15 @@ namespace Medical_record.Data
         {
             return Task.FromResult(new Result<List<Specialization>>(_specializations));
         }
+
+        public Task<Result<string>> AddDoctorsNotesAsync(DoctorsNotes dn)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<int>> GetCountDoctorsNotesIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

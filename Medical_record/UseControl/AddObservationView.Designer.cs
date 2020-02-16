@@ -38,6 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this._labelCount = new System.Windows.Forms.Label();
+            this._buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _dateTimePickerStart
@@ -124,11 +125,21 @@
             this._labelCount.TabIndex = 31;
             this._labelCount.Text = " 0/0";
             // 
+            // _buttonSave
+            // 
+            this._buttonSave.Location = new System.Drawing.Point(295, 137);
+            this._buttonSave.Name = "_buttonSave";
+            this._buttonSave.Size = new System.Drawing.Size(117, 23);
+            this._buttonSave.TabIndex = 32;
+            this._buttonSave.Text = "Сохранить";
+            this._buttonSave.UseVisualStyleBackColor = true;
+            // 
             // AddObservationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this._buttonSave);
             this.Controls.Add(this._labelCount);
             this.Controls.Add(this.label6);
             this.Controls.Add(this._comboBoxDoctor);
@@ -140,7 +151,7 @@
             this.Controls.Add(this._dateTimePickerStart);
             this.Controls.Add(this.label5);
             this.Name = "AddObservationView";
-            this.Size = new System.Drawing.Size(429, 143);
+            this.Size = new System.Drawing.Size(429, 164);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +168,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label _labelCount;
+        private System.Windows.Forms.Button _buttonSave;
     }
 }
