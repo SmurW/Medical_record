@@ -161,5 +161,20 @@ namespace Medical_record.Data
         {
             throw new NotImplementedException();
         }
+
+        public Task<Result<List<HealthGroup>>> GetHealthGroupsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<int>> GetCountExaminationsByPatientIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<string>> AddExaminationAsync(Examination exam)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

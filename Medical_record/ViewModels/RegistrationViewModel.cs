@@ -2,6 +2,7 @@
 using Medical_record.UseControl.ViewModels;
 using Medical_record.Utils;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -93,7 +94,6 @@ namespace Medical_record.ViewModels
             }
         }
 
-
         /// <summary>
         /// Сохранение наблюдения
         /// </summary>
@@ -120,21 +120,26 @@ namespace Medical_record.ViewModels
         {
             var hosp = _hospitalizationVM.GetHospitalization();
             hosp.PatientId = Id;
-            Result<string> result = await _appController.DataContext.AddHospitalizationAsync(hosp);
+            var result = await _appController.DataContext.AddHospitalizationAsync(hosp);
             if (!result.HasValue)
             {
                 MessagesService.ShowErrorMessage(result.Error);
             }
-            
         }
 
         /// <summary>
-        /// Сохранение записи врачей
+        /// Сохранение записи врачебного осмотра
         /// </summary>
         /// <returns></returns>
-        private Task SaveExaminationAsync()
+        private async Task SaveExaminationAsync()
         {
-            throw new NotImplementedException();
+            var exam = _examinationVM.GetExamination();
+            exam.PatientId = Id;
+            Result<string> result = await _appController.DataContext.AddExaminationAsync(exam);
+            if (!result.HasValue)
+            {
+                MessagesService.ShowErrorMessage(result.Error);
+            }
         }
 
         /// <summary>
@@ -267,7 +272,7 @@ namespace Medical_record.ViewModels
         /// Подгрузка данных в AddExaminationViewModel
         /// </summary>
         /// <returns></returns>
-        private Task SetupExaminationUc()
+        private async Task SetupExaminationUc()
         {
             if (Id == 0)
             {
@@ -275,10 +280,37 @@ namespace Medical_record.ViewModels
             }
             else
             {
-
+                var count = await _appController.DataContext
+                    .GetCountExaminationsByPatientIdAsync(Id);
+                if (count.HasValue)
+                {
+                    _examinationVM.Count = $"{count.Value + 1}";
+                }
             }
 
-            return Task.FromResult(0);
+            //Получаем диагнозы
+            var diags = await _appController.DataContext.GetDiagnosesAsync();
+            if (diags.HasValue)
+            {
+                _examinationVM.Diagnoses.Clear();
+                diags.Value.ForEach(d => _examinationVM.Diagnoses.Add(d));
+            }
+
+            //Получаем докторов
+            var docs = await _appController.DataContext.GetDoctorsAsync();
+            if (docs.HasValue)
+            {
+                _examinationVM.Doctors.Clear();
+                docs.Value.ForEach(d => _examinationVM.Doctors.Add(d));
+            }
+
+            //Получаем группы здоровья
+            var groups = await _appController.DataContext.GetHealthGroupsAsync();
+            if (groups.HasValue)
+            {
+                _examinationVM.HealthGroups.Clear();
+                groups.Value.ForEach(g => _examinationVM.HealthGroups.Add(g));
+            }
         }
 
         /// <summary>

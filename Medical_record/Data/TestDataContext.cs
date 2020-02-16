@@ -18,6 +18,8 @@ namespace Medical_record.Data
         private readonly List<Observation> _observations = new List<Observation>();
         private readonly List<Hospitalization> _hospitalizations = new List<Hospitalization>();
         private readonly List<Specialization> _specializations = new List<Specialization>();
+        private readonly List<HealthGroup> _healthGroups = new List<HealthGroup>();
+        private readonly List<Examination> _examinations = new List<Examination>();
 
         public TestDataContext()
         {
@@ -29,6 +31,79 @@ namespace Medical_record.Data
             SetObservations();
             SetHospitalizations();
             SetSpecializations();
+            SetHealthGroupus();
+            SetExaminations();
+        }
+
+        private void SetExaminations()
+        {
+            var ex = new Examination
+            {
+                Id = 1,
+                ExaminationDate = DateTime.Parse("12.04.2014"),
+                DiagnosisId = 2,
+                HealthGroupId = 1,
+                PatientId = 2,
+                DoctorId = 2
+            };
+            _examinations.Add(ex);
+
+            ex = new Examination
+            {
+                Id = 2,
+                ExaminationDate = DateTime.Parse("02.02.2016"),
+                DiagnosisId = 1,
+                HealthGroupId = 2,
+                PatientId = 3,
+                DoctorId = 1
+            };
+            _examinations.Add(ex);
+
+            ex = new Examination
+            {
+                Id = 3,
+                ExaminationDate = DateTime.Parse("11.10.2017"),
+                DiagnosisId = 3,
+                HealthGroupId = 3,
+                PatientId = 1,
+                DoctorId = 3
+            };
+            _examinations.Add(ex);
+        }
+
+        private void SetHealthGroupus()
+        {
+            var hg = new HealthGroup
+            {
+                Id = 1,
+                Title = "Первая группа",
+                Description = "К этой группе относят практически здоровых людей," +
+                " не имеющих каких-либо отклонений в состоянии организма," +
+                " не страдающих хроническими заболеваниями.",
+            };
+            _healthGroups.Add(hg);
+
+            hg = new HealthGroup
+            {
+                Id = 2,
+                Title = "Вторая группа",
+                Description = "Пациенты с хроническими заболеваниями, которые не оказывают влияния" +
+                " на общее самочувствие, не снижающими работоспособность человека."
+
+            };
+            _healthGroups.Add(hg);
+
+            hg = new HealthGroup
+            {
+                Id = 3,
+                Title = "Третья группа",
+                Description = "Пациенты , имеющие хронические заболевания," +
+                " сопровождающиеся частыми обострениями. Вследствие этого пациенты данной " +
+                "группы часто теряют трудоспособность на определенное время" +
+                " (короткое или продолжительное)."
+
+            };
+            _healthGroups.Add(hg);
         }
 
         private void SetSpecializations()
@@ -648,6 +723,29 @@ namespace Medical_record.Data
         public Task<Result<List<Specialization>>> GetSpecializationsAsync()
         {
             return Task.FromResult(new Result<List<Specialization>>(_specializations));
+        }
+
+        public Task<Result<List<HealthGroup>>> GetHealthGroupsAsync()
+        {
+            return Task.FromResult(new Result<List<HealthGroup>>(_healthGroups));
+        }
+
+        public Task<Result<int>> GetCountExaminationsByPatientIdAsync(int id)
+        {
+            var count = _examinations.Where(e => e.PatientId == id).Count();
+            return Task.FromResult(new Result<int>(count));
+        }
+
+        public Task<Result<string>> AddExaminationAsync(Examination exam)
+        {
+            exam.Id = 1;
+            if (_examinations.Count > 0)
+            {
+                exam.Id = _examinations.Max(h => h.Id) + 1;
+            }
+            _examinations.Add(exam);
+            return Task.FromResult(new Result<string>(
+                $"Успешно сохранен {exam.Id}", String.Empty));
         }
     }
 }
