@@ -10,13 +10,8 @@ namespace Medical_record.UseControl.ViewModels
 {
     public class ExaminationViewModel
     {
-        private readonly AppController _appController;
-
-        public AddDoctorsViewModel(AppController appController)
-        {
-            _appController = appController ??
-                throw new ArgumentNullException(nameof(appController));
-        }
+        public ExaminationViewModel()
+        { }
 
         public BindingList<Diagnosis> Diagnoses { get; set; } = new BindingList<Diagnosis>();
         public object SelectedDiagnosis { get; set; }
@@ -30,23 +25,5 @@ namespace Medical_record.UseControl.ViewModels
         public int DoctorId { get; set; }
         public string Count { get; set; }
 
-        internal DoctorsNotes GetDoctorsNotes()
-        {
-            return new DoctorsNotes
-            {
-                DateInspection = DateInspection,
-                DiagnisisDisease = DiagnisisDisease,
-                HealtGroup = HealtGroup,
-            };
-        }
-
-        /// <summary>
-        /// Сохранение записей доктора
-        /// </summary>
-        /// <returns></returns>
-        internal async void SaveDoctorNotes()
-        {
-
-        }
     }
 }
