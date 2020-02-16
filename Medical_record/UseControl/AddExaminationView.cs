@@ -12,21 +12,17 @@ using System.Windows.Forms;
 
 namespace Medical_record.UseControl
 {
-    public partial class AddObservationView : UserControl
+    public partial class AddExaminationView : UserControl
     {
-        public AddObservationViewModel ViewModel { get; }
+        public AddExaminationViewModel ViewModel { get; }
 
-        public AddObservationView(AddObservationViewModel viewModel)
+        public AddExaminationView(AddExaminationViewModel viewModel)
         {
             InitializeComponent();
             ViewModel = viewModel;
 
-            _dateTimePickerStart.DataBindings.Add("Value",
-                ViewModel, nameof(ViewModel.StartObservationDate),
-                true, DataSourceUpdateMode.OnPropertyChanged);
-            _dateTimePickerEnd.DataBindings.Add("Value",
-                ViewModel, nameof(ViewModel.EndObservationDate),
-                true, DataSourceUpdateMode.OnPropertyChanged);
+            _dateTimePicker.DataBindings.Add("Value", ViewModel, nameof(ViewModel.ExaminationDate));
+            _labelCount.DataBindings.Add("Text", ViewModel, nameof(ViewModel.Count));
 
             _comboBoxDiagnosis.DataSource = ViewModel.Diagnoses;
             _comboBoxDiagnosis.DisplayMember = nameof(Diagnosis.Name);
@@ -34,16 +30,17 @@ namespace Medical_record.UseControl
             _comboBoxDiagnosis.DataBindings.Add(nameof(_comboBoxDiagnosis.SelectedValue),
                 ViewModel, nameof(ViewModel.DiagnosisId));
 
+            _comboBoxHealthGroup.DataSource = ViewModel.HealthGroups;
+            _comboBoxHealthGroup.DisplayMember = nameof(HealthGroup.Title);
+            _comboBoxHealthGroup.ValueMember = nameof(HealthGroup.Id);
+            _comboBoxHealthGroup.DataBindings.Add(nameof(_comboBoxHealthGroup.SelectedValue),
+                ViewModel, nameof(ViewModel.HealthGroupId));
+
             _comboBoxDoctor.DataSource = ViewModel.Doctors;
             _comboBoxDoctor.DisplayMember = nameof(Doctor.SpecAndFio);
             _comboBoxDoctor.ValueMember = nameof(Doctor.Id);
             _comboBoxDoctor.DataBindings.Add(nameof(_comboBoxDoctor.SelectedValue),
                 ViewModel, nameof(ViewModel.DoctorId));
-
-            _labelCount.DataBindings.Add("Text", ViewModel, nameof(ViewModel.Count));
-
-            _buttonSave.Click += (s, e) => ViewModel.SaveObservation();
         }
-
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Medical_record.UseControl.ViewModels
 {
-    public class AddDoctorsViewModel
+    public class ExaminationViewModel
     {
         private readonly AppController _appController;
 

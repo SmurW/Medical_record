@@ -9,13 +9,8 @@ namespace Medical_record.UseControl.ViewModels
 {
     public class AddHospitalizationViewModel
     {
-        private readonly AppController _appController;
-
-        public AddHospitalizationViewModel(AppController appController)
-        {
-            _appController = appController ??
-                throw new ArgumentNullException(nameof(appController));
-        }
+        public AddHospitalizationViewModel()
+        { }
 
         public int Id { get; set; }
         public int PatientId { get; set; }
@@ -25,6 +20,10 @@ namespace Medical_record.UseControl.ViewModels
         public string DefinitiveDiagnosis { get; set; }
         public string Count { get; set; }
 
+        /// <summary>
+        /// Получение экз.госпитализации
+        /// </summary>
+        /// <returns></returns>
         internal Hospitalization GetHospitalization()
         {
             return new Hospitalization

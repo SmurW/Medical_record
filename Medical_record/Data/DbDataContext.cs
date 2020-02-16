@@ -162,12 +162,32 @@ namespace Medical_record.Data
             throw new NotImplementedException();
         }
 
-        public Task<Result<string>> AddDoctorsNotesAsync(DoctorsNotes dn)
+        public Task<Result<List<HealthGroup>>> GetHealthGroupsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Result<int>> GetCountDoctorsNotesIdAsync(int id)
+        public Task<Result<int>> GetCountExaminationsByPatientIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<string>> AddExaminationAsync(Examination exam)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<List<Observation>>> GetObservationsByPatientIdAsync(int currentPatientId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<Diagnosis>> GetDiagnosisByIdAsync(int diagnosisId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<Doctor>> GetDoctorByIdAsync(int doctorId)
         {
             throw new NotImplementedException();
         }
