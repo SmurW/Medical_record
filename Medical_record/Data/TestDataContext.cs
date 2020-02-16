@@ -375,8 +375,8 @@ namespace Medical_record.Data
                 StartObservationDate = DateTime.Parse("12.03.2014"),
                 EndObservationDate = DateTime.Parse("12.03.2015"),
                 PatientId = 2,
-                DiagnosisId = 2,
-                DoctorId = 1
+                DiagnosisId = 3,
+                DoctorId = 2
             };
             _observations.Add(o);
 
@@ -386,7 +386,18 @@ namespace Medical_record.Data
                 StartObservationDate = DateTime.Parse("22.09.2016"),
                 EndObservationDate = DateTime.Parse("12.10.2016"),
                 PatientId = 1,
-                DiagnosisId = 2,
+                DiagnosisId = 1,
+                DoctorId = 3
+            };
+            _observations.Add(o);
+
+            o = new Observation
+            {
+                Id = 3,
+                StartObservationDate = DateTime.Parse("10.10.2007"),
+                EndObservationDate = DateTime.Parse("12.10.2017"),
+                PatientId = 3,
+                DiagnosisId = 3,
                 DoctorId = 1
             };
             _observations.Add(o);
@@ -746,6 +757,36 @@ namespace Medical_record.Data
             _examinations.Add(exam);
             return Task.FromResult(new Result<string>(
                 $"Успешно сохранен {exam.Id}", String.Empty));
+        }
+
+        public Task<Result<List<Observation>>> GetObservationsByPatientIdAsync(int currentPatientId)
+        {
+            var obs = _observations.Where(o => o.PatientId == currentPatientId).ToList();
+            return Task.FromResult(new Result<List<Observation>>(obs));
+        }
+
+        public Task<Result<Diagnosis>> GetDiagnosisByIdAsync(int diagnosisId)
+        {
+            var diag = _diagnoses.FirstOrDefault(d => d.Id == diagnosisId);
+            if (diag == null)
+            {
+                return Task.FromResult(new Result<Diagnosis>("Диагноз не найден."));
+            }
+
+            return Task.FromResult(new Result<Diagnosis>(diag));
+        }
+
+        public Task<Result<Doctor>> GetDoctorByIdAsync(int doctorId)
+        {
+            var doc = _doctors.FirstOrDefault(d => d.Id == doctorId);
+            if (doc == null)
+            {
+                return Task.FromResult(new Result<Doctor>("Доктор не найден."));
+            }
+
+            doc.Specialization = GetDoctorSpecialization(doc.SpecializationId);
+
+            return Task.FromResult(new Result<Doctor>(doc));
         }
     }
 }

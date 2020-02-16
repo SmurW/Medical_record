@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace Medical_record.Forms
     {
         private readonly CardViewModel _viewModel;
         private readonly BindingSource _bsPatients;
+        private UserControl _userControl;
 
         public CardView(CardViewModel cardViewModel)
         {
@@ -33,10 +35,77 @@ namespace Medical_record.Forms
                 (s, e) => _viewModel.ShowRegistrationView(_bsPatients.Current as Patient);
             _buttonRemovePatient.Click += 
                 (s, e) => _viewModel.RemovePatient(_bsPatients.Current as Patient);
-            _buttonNextPatient.Click += (s, e) => _bsPatients.MoveNext();
-            _buttonPrevPatient.Click += (s, e) => _bsPatients.MovePrevious();
+            _buttonNextPatient.Click += ButtonNextPatient_Click;
+            _buttonPrevPatient.Click += ButtonPrevPatient_Click;
 
+
+            _radioButtonNo.Click += RadioButtonAdditions_Click;
+            _radioButtonHospitalizations.Click += RadioButtonAdditions_Click;
+            _radioButtonExaminations.Click += RadioButtonAdditions_Click;
+            _radioButtonObservations.Click += RadioButtonAdditions_Click;
             this.Activated += CardView_Activated;
+        }
+
+        /// <summary>
+        /// Переход к след. пациенту
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonPrevPatient_Click(object sender, EventArgs e)
+        {
+            _radioButtonNo.Checked = true;
+            RadioButtonAdditions_Click(_radioButtonNo, EventArgs.Empty);
+            _bsPatients.MovePrevious();
+            _viewModel.SetCurrentPatientId((_bsPatients.Current as Patient).Id);
+        }
+
+        /// <summary>
+        /// Переход к предыдущ. пациенту
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonNextPatient_Click(object sender, EventArgs e)
+        {
+            _radioButtonNo.Checked = true;
+            RadioButtonAdditions_Click(_radioButtonNo, EventArgs.Empty);
+            _bsPatients.MoveNext();
+            _viewModel.SetCurrentPatientId((_bsPatients.Current as Patient).Id);
+        }
+
+        /// <summary>
+        /// Радиокнопки отображения доп. записей о пациенте
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void RadioButtonAdditions_Click(object sender, EventArgs e)
+        {
+            var rb = sender as RadioButton;
+            var name = rb.Name.Substring(12, 1);
+            switch (name)
+            {
+                case "N":
+                    if (_userControl != null)
+                    {
+                        this.Height -= _userControl.Height;
+                        _panelAdditions.Controls.Remove(_userControl);
+                        _userControl = null;
+                    }
+                    break;
+                case "H":
+                    _userControl = await _viewModel.GetUcViewAsync("Ho");
+                    ShowUcView();
+                    break;
+                case "E":
+                    _userControl = await _viewModel.GetUcViewAsync("Ex");
+                    ShowUcView();
+                    break;
+                case "O":
+                    _userControl = await _viewModel.GetUcViewAsync("Ob");
+                    ShowUcView();
+                    break;
+                default:
+                    throw new Exception("Ошибка в определении радиокнопки");
+            }
         }
 
         /// <summary>
@@ -94,6 +163,24 @@ namespace Medical_record.Forms
             _viewModel.Patients.ForEach(p => _bsPatients.Add(p));
         }
 
-        
+        /// <summary>
+        /// Отображение (с замещением) нужной UserControl
+        /// </summary>
+        private void ShowUcView()
+        {
+            var oldUc = _panelAdditions.Controls.OfType<UserControl>().FirstOrDefault();
+            if (oldUc == null)
+            {
+                this.Height += _userControl.Height;
+            }
+            else
+            {
+                this.Height -= oldUc.Height;
+                this.Height += _userControl.Height;
+                _panelAdditions.Controls.Remove(oldUc);
+            }
+
+            _panelAdditions.Controls.Add(_userControl);
+        }
     }
 }

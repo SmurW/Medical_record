@@ -176,5 +176,20 @@ namespace Medical_record.Data
         {
             throw new NotImplementedException();
         }
+
+        public Task<Result<List<Observation>>> GetObservationsByPatientIdAsync(int currentPatientId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<Diagnosis>> GetDiagnosisByIdAsync(int diagnosisId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<Doctor>> GetDoctorByIdAsync(int doctorId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

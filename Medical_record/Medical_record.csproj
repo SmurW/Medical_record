@@ -235,9 +235,30 @@
     <Compile Include="Forms\ProceduresView.Designer.cs">
       <DependentUpon>ProceduresView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UseControl\ExaminationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UseControl\ExaminationView.Designer.cs">
+      <DependentUpon>ExaminationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UseControl\HospitalizationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UseControl\HospitalizationView.Designer.cs">
+      <DependentUpon>HospitalizationView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UseControl\ViewModels\AddExaminationViewModel.cs" />
     <Compile Include="UseControl\ViewModels\AddHospitalizationViewModel.cs" />
     <Compile Include="UseControl\ViewModels\AddObservationViewModel.cs" />
+    <Compile Include="UseControl\ObservationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UseControl\ObservationView.Designer.cs">
+      <DependentUpon>ObservationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UseControl\ViewModels\ExaminationViewModel.cs" />
+    <Compile Include="UseControl\ViewModels\HospitalizationViewModel.cs" />
+    <Compile Include="UseControl\ViewModels\ObservationViewModel.cs" />
     <Compile Include="Utils\MessagesService.cs" />
     <Compile Include="Utils\Result.cs" />
     <Compile Include="ViewModels\AddMedicationsViewModel.cs" />
@@ -297,6 +318,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UseControl\AddExaminationView.resx">
       <DependentUpon>AddExaminationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UseControl\ExaminationView.resx">
+      <DependentUpon>ExaminationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UseControl\HospitalizationView.resx">
+      <DependentUpon>HospitalizationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UseControl\ObservationView.resx">
+      <DependentUpon>ObservationView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

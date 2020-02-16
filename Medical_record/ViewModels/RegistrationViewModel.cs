@@ -32,10 +32,10 @@ namespace Medical_record.ViewModels
         public string Residence { get; set; }
         public string PassportNumber { get; set; }
         public string PassportSeries { get; set; }
+
         public string PassportUFMS { get; set; }
         public DateTime PassportIssueDate { get; set; } = DateTime.Now;
         public string PassportDepCode { get; set; }
-
 
         /// <summary>
         /// Сохранение в БД пацента
@@ -196,10 +196,10 @@ namespace Medical_record.ViewModels
         /// </summary>
         /// <param name="key">ключ (см. AppController) связанный с uc</param>
         /// <returns></returns>
-        internal async Task<UserControl> GetUcView(string key)
+        internal async Task<UserControl> GetUcViewAsync(string key)
         {
             //получаем экземпляр
-            dynamic uc = _appController.GetUcView(key);
+            dynamic uc = _appController.GetUcViewInput(key);
             switch (key)
             {
                 case "Ob":

@@ -65,15 +65,21 @@
             this._buttonAddPatient = new System.Windows.Forms.Button();
             this._buttonUpdatePatient = new System.Windows.Forms.Button();
             this._buttonRemovePatient = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._panelAdditions = new System.Windows.Forms.Panel();
+            this._buttonPrevAddition = new System.Windows.Forms.Button();
+            this._buttonNextAddition = new System.Windows.Forms.Button();
+            this._radioButtonFio = new System.Windows.Forms.RadioButton();
+            this._radioButtonCard = new System.Windows.Forms.RadioButton();
+            this._textBoxInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this._groupBoxAdditions = new System.Windows.Forms.GroupBox();
+            this._radioButtonObservations = new System.Windows.Forms.RadioButton();
+            this._radioButtonExaminations = new System.Windows.Forms.RadioButton();
+            this._radioButtonHospitalizations = new System.Windows.Forms.RadioButton();
+            this._radioButtonNo = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this._panelAdditions.SuspendLayout();
+            this._groupBoxAdditions.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -432,63 +438,65 @@
             this._buttonRemovePatient.Text = "Удалить запись";
             this._buttonRemovePatient.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // _panelAdditions
             // 
-            this.panel2.AutoScroll = true;
-            this.panel2.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Location = new System.Drawing.Point(12, 356);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(711, 68);
-            this.panel2.TabIndex = 10;
+            this._panelAdditions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this._panelAdditions.AutoScroll = true;
+            this._panelAdditions.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this._panelAdditions.Controls.Add(this._buttonPrevAddition);
+            this._panelAdditions.Controls.Add(this._buttonNextAddition);
+            this._panelAdditions.Location = new System.Drawing.Point(12, 356);
+            this._panelAdditions.Name = "_panelAdditions";
+            this._panelAdditions.Size = new System.Drawing.Size(711, 68);
+            this._panelAdditions.TabIndex = 10;
             // 
-            // button6
+            // _buttonPrevAddition
             // 
-            this.button6.Location = new System.Drawing.Point(561, 9);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(127, 23);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "Предыдущая запись";
-            this.button6.UseVisualStyleBackColor = true;
+            this._buttonPrevAddition.Location = new System.Drawing.Point(561, 9);
+            this._buttonPrevAddition.Name = "_buttonPrevAddition";
+            this._buttonPrevAddition.Size = new System.Drawing.Size(127, 23);
+            this._buttonPrevAddition.TabIndex = 12;
+            this._buttonPrevAddition.Text = "Предыдущая запись";
+            this._buttonPrevAddition.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // _buttonNextAddition
             // 
-            this.button7.Location = new System.Drawing.Point(561, 38);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(127, 23);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Следующий запись";
-            this.button7.UseVisualStyleBackColor = true;
+            this._buttonNextAddition.Location = new System.Drawing.Point(561, 38);
+            this._buttonNextAddition.Name = "_buttonNextAddition";
+            this._buttonNextAddition.Size = new System.Drawing.Size(127, 23);
+            this._buttonNextAddition.TabIndex = 11;
+            this._buttonNextAddition.Text = "Следующий запись";
+            this._buttonNextAddition.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // _radioButtonFio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(161, 21);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(52, 17);
-            this.radioButton2.TabIndex = 16;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "ФИО";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this._radioButtonFio.AutoSize = true;
+            this._radioButtonFio.Location = new System.Drawing.Point(161, 21);
+            this._radioButtonFio.Name = "_radioButtonFio";
+            this._radioButtonFio.Size = new System.Drawing.Size(52, 17);
+            this._radioButtonFio.TabIndex = 16;
+            this._radioButtonFio.TabStop = true;
+            this._radioButtonFio.Text = "ФИО";
+            this._radioButtonFio.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // _radioButtonCard
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(85, 21);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(70, 17);
-            this.radioButton1.TabIndex = 15;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "№ карты";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this._radioButtonCard.AutoSize = true;
+            this._radioButtonCard.Location = new System.Drawing.Point(85, 21);
+            this._radioButtonCard.Name = "_radioButtonCard";
+            this._radioButtonCard.Size = new System.Drawing.Size(70, 17);
+            this._radioButtonCard.TabIndex = 15;
+            this._radioButtonCard.TabStop = true;
+            this._radioButtonCard.Text = "№ карты";
+            this._radioButtonCard.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // _textBoxInput
             // 
-            this.textBox1.Location = new System.Drawing.Point(219, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 20);
-            this.textBox1.TabIndex = 14;
+            this._textBoxInput.Location = new System.Drawing.Point(219, 21);
+            this._textBoxInput.Name = "_textBoxInput";
+            this._textBoxInput.Size = new System.Drawing.Size(189, 20);
+            this._textBoxInput.TabIndex = 14;
             // 
             // label2
             // 
@@ -499,16 +507,75 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Поиск по:";
             // 
+            // _groupBoxAdditions
+            // 
+            this._groupBoxAdditions.Controls.Add(this._radioButtonObservations);
+            this._groupBoxAdditions.Controls.Add(this._radioButtonExaminations);
+            this._groupBoxAdditions.Controls.Add(this._radioButtonHospitalizations);
+            this._groupBoxAdditions.Controls.Add(this._radioButtonNo);
+            this._groupBoxAdditions.Location = new System.Drawing.Point(742, 302);
+            this._groupBoxAdditions.Name = "_groupBoxAdditions";
+            this._groupBoxAdditions.Size = new System.Drawing.Size(248, 119);
+            this._groupBoxAdditions.TabIndex = 17;
+            this._groupBoxAdditions.TabStop = false;
+            this._groupBoxAdditions.Text = "Тип записи о пациенте";
+            // 
+            // _radioButtonObservations
+            // 
+            this._radioButtonObservations.AutoSize = true;
+            this._radioButtonObservations.Location = new System.Drawing.Point(17, 90);
+            this._radioButtonObservations.Name = "_radioButtonObservations";
+            this._radioButtonObservations.Size = new System.Drawing.Size(89, 17);
+            this._radioButtonObservations.TabIndex = 3;
+            this._radioButtonObservations.TabStop = true;
+            this._radioButtonObservations.Text = "Наблюдения";
+            this._radioButtonObservations.UseVisualStyleBackColor = true;
+            // 
+            // _radioButtonExaminations
+            // 
+            this._radioButtonExaminations.AutoSize = true;
+            this._radioButtonExaminations.Location = new System.Drawing.Point(17, 66);
+            this._radioButtonExaminations.Name = "_radioButtonExaminations";
+            this._radioButtonExaminations.Size = new System.Drawing.Size(75, 17);
+            this._radioButtonExaminations.TabIndex = 2;
+            this._radioButtonExaminations.TabStop = true;
+            this._radioButtonExaminations.Text = " Осмотры";
+            this._radioButtonExaminations.UseVisualStyleBackColor = true;
+            // 
+            // _radioButtonHospitalizations
+            // 
+            this._radioButtonHospitalizations.AutoSize = true;
+            this._radioButtonHospitalizations.Location = new System.Drawing.Point(17, 42);
+            this._radioButtonHospitalizations.Name = "_radioButtonHospitalizations";
+            this._radioButtonHospitalizations.Size = new System.Drawing.Size(108, 17);
+            this._radioButtonHospitalizations.TabIndex = 1;
+            this._radioButtonHospitalizations.TabStop = true;
+            this._radioButtonHospitalizations.Text = "Госпитализации";
+            this._radioButtonHospitalizations.UseVisualStyleBackColor = true;
+            // 
+            // _radioButtonNo
+            // 
+            this._radioButtonNo.AutoSize = true;
+            this._radioButtonNo.Checked = true;
+            this._radioButtonNo.Location = new System.Drawing.Point(17, 19);
+            this._radioButtonNo.Name = "_radioButtonNo";
+            this._radioButtonNo.Size = new System.Drawing.Size(102, 17);
+            this._radioButtonNo.TabIndex = 0;
+            this._radioButtonNo.TabStop = true;
+            this._radioButtonNo.Text = "Не отображать";
+            this._radioButtonNo.UseVisualStyleBackColor = true;
+            // 
             // CardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 443);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._groupBoxAdditions);
+            this.Controls.Add(this._radioButtonFio);
+            this.Controls.Add(this._radioButtonCard);
+            this.Controls.Add(this._textBoxInput);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this._panelAdditions);
             this.Controls.Add(this._buttonRemovePatient);
             this.Controls.Add(this._buttonUpdatePatient);
             this.Controls.Add(this._buttonAddPatient);
@@ -520,7 +587,9 @@
             this.Text = "Карта Пациента";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this._panelAdditions.ResumeLayout(false);
+            this._groupBoxAdditions.ResumeLayout(false);
+            this._groupBoxAdditions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,12 +634,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel _panelAdditions;
+        private System.Windows.Forms.Button _buttonPrevAddition;
+        private System.Windows.Forms.Button _buttonNextAddition;
+        private System.Windows.Forms.RadioButton _radioButtonFio;
+        private System.Windows.Forms.RadioButton _radioButtonCard;
+        private System.Windows.Forms.TextBox _textBoxInput;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox _groupBoxAdditions;
+        private System.Windows.Forms.RadioButton _radioButtonExaminations;
+        private System.Windows.Forms.RadioButton _radioButtonHospitalizations;
+        private System.Windows.Forms.RadioButton _radioButtonNo;
+        private System.Windows.Forms.RadioButton _radioButtonObservations;
     }
 }

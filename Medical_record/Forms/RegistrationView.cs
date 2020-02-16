@@ -28,7 +28,7 @@ namespace Medical_record.Forms
 
             _buttonSavePatient.Click += (s, e) => _viewModel.SavePatient();
             _buttonAddObserv.Click += ButtonAddObserv_Click;
-            _buttonAddDoctor.Click += ButtonAddDoctor_Click;
+            _buttonAddDoctor.Click += ButtonAddExam_Click;
             _buttonAddHospital.Click += ButtonAddHospital_Click;
         }
 
@@ -70,7 +70,7 @@ namespace Medical_record.Forms
         /// <param name="e"></param>
         private async void ButtonAddHospital_Click(object sender, EventArgs e)
         {
-            _userControl = await _viewModel.GetUcView("Ho");
+            _userControl = await _viewModel.GetUcViewAsync("Ho");
             ShowUcView();
         }
 
@@ -79,9 +79,9 @@ namespace Medical_record.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void ButtonAddDoctor_Click(object sender, EventArgs e)
+        private async void ButtonAddExam_Click(object sender, EventArgs e)
         {
-            _userControl = await _viewModel.GetUcView("Ex");
+            _userControl = await _viewModel.GetUcViewAsync("Ex");
             ShowUcView();
         }
 
@@ -93,7 +93,7 @@ namespace Medical_record.Forms
         private async void ButtonAddObserv_Click(object sender, EventArgs e)
         {
             //получаем нужную uc
-            _userControl = await _viewModel.GetUcView("Ob");
+            _userControl = await _viewModel.GetUcViewAsync("Ob");
             //отображаем
             ShowUcView();
         }
@@ -112,12 +112,11 @@ namespace Medical_record.Forms
                 var oldUc = _panel.Controls.OfType<UserControl>().First();
                 this.Height -= oldUc.Height;
                 this.Height += _userControl.Height;
-                _panel.Controls.Clear();
+                _panel.Controls.Remove(oldUc);
             }
 
             _panel.Controls.Add(_userControl);
         }
 
-        
     }
 }

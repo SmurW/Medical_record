@@ -5,7 +5,6 @@ using Medical_record.UseControl;
 using Medical_record.UseControl.ViewModels;
 using Medical_record.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Medical_record
@@ -13,7 +12,6 @@ namespace Medical_record
     public class AppController
     {
         private readonly MainForm_MedicalRecord _mainForm;
-        private readonly Dictionary<string, UserControl> _uControls;
         public IDataContext DataContext { get; }
 
         public AppController(IDataContext dataContext)
@@ -23,34 +21,53 @@ namespace Medical_record
 
             var vm = new MainViewModel(this);
             _mainForm = new MainForm_MedicalRecord(vm);
-
-            _uControls = new Dictionary<string, UserControl>();
-            SetUserControls();
-        }
-
-        private void SetUserControls()
-        {
-            var vmO = new AddObservationViewModel();
-            var ucO = new AddObservationView(vmO);
-            _uControls.Add("Ob", ucO);
-
-            var vmD = new AddExaminationViewModel();
-            var ucD = new AddExaminationView(vmD);
-            _uControls.Add("Ex", ucD);
-
-            var vmH = new AddHospitalizationViewModel();
-            var ucH = new AddHospitalizationView(vmH);
-            _uControls.Add("Ho", ucH);
-        }
-
-        internal UserControl GetUcView(string key)
-        {
-            return _uControls[key];
         }
 
         internal Form GetMainForm()
         {
             return _mainForm;
+        }
+
+        internal UserControl GetUcViewInput(string key)
+        {
+            switch (key)
+            {
+                case "Ob":
+                    var vmO = new AddObservationViewModel();
+                    var ucO = new AddObservationView(vmO);
+                    return ucO;
+                case "Ex":
+                    var vmE = new AddExaminationViewModel();
+                    var ucE = new AddExaminationView(vmE);
+                    return ucE;
+                case "Ho":
+                    var vmH = new AddHospitalizationViewModel();
+                    var ucH = new AddHospitalizationView(vmH);
+                    return ucH;
+                default:
+                    throw new ArgumentException(nameof(key));
+            }
+        }
+
+        internal UserControl GetUcViewOutput(string key)
+        {
+            switch (key)
+            {
+                case "Ob":
+                    var vmO = new ObservationViewModel();
+                    var ucO = new ObservationView(vmO);
+                    return ucO;
+                case "Ex":
+                    var vmE = new ExaminationViewModel();
+                    var ucE = new ExaminationView(vmE);
+                    return ucE;
+                case "Ho":
+                    var vmH = new HospitalizationViewModel();
+                    var ucH = new HospitalizationView(vmH);
+                    return ucH;
+                default:
+                    throw new ArgumentException(nameof(key));
+            }
         }
 
         internal void ShowCardView()

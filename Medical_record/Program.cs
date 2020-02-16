@@ -21,14 +21,15 @@ namespace Medical_record
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //тестовые данные
             IDataContext dataContext = new TestDataContext();
+            //БД
+            //IDataContext dataContext = new DbDataContext();
+
             var appController = new AppController(dataContext);
-            //var mainForm = appController.GetMainForm();
+            var mainForm = appController.GetMainForm();
 
-            var vm = new RegistrationViewModel(appController);
-            var form = new RegistrationView(vm);
-
-            Application.Run(form);
+            Application.Run(mainForm);
         }
     }
 }
