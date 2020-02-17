@@ -393,6 +393,28 @@ namespace Medical_record.Data
 
             o = new Observation
             {
+                Id = 4,
+                StartObservationDate = DateTime.Parse("01.01.2017"),
+                EndObservationDate = DateTime.Parse("13.01.2017"),
+                PatientId = 1,
+                DiagnosisId = 1,
+                DoctorId = 1
+            };
+            _observations.Add(o);
+
+            o = new Observation
+            {
+                Id = 5,
+                StartObservationDate = DateTime.Parse("25.09.2018"),
+                EndObservationDate = DateTime.Parse("07.10.2018"),
+                PatientId = 1,
+                DiagnosisId = 3,
+                DoctorId = 2
+            };
+            _observations.Add(o);
+
+            o = new Observation
+            {
                 Id = 3,
                 StartObservationDate = DateTime.Parse("10.10.2007"),
                 EndObservationDate = DateTime.Parse("12.10.2017"),
