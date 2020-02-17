@@ -466,7 +466,7 @@
             this._buttonNextAddition.Name = "_buttonNextAddition";
             this._buttonNextAddition.Size = new System.Drawing.Size(127, 23);
             this._buttonNextAddition.TabIndex = 11;
-            this._buttonNextAddition.Text = "Следующий запись";
+            this._buttonNextAddition.Text = "Следующая запись";
             this._buttonNextAddition.UseVisualStyleBackColor = true;
             // 
             // _radioButtonFio

@@ -69,6 +69,28 @@ namespace Medical_record.Data
                 DoctorId = 3
             };
             _examinations.Add(ex);
+
+            ex = new Examination
+            {
+                Id = 4,
+                ExaminationDate = DateTime.Parse("01.01.2018"),
+                DiagnosisId = 1,
+                HealthGroupId = 3,
+                PatientId = 1,
+                DoctorId = 2
+            };
+            _examinations.Add(ex);
+
+            ex = new Examination
+            {
+                Id = 5,
+                ExaminationDate = DateTime.Parse("14.11.2019"),
+                DiagnosisId = 3,
+                HealthGroupId = 3,
+                PatientId = 1,
+                DoctorId = 1
+            };
+            _examinations.Add(ex);
         }
 
         private void SetHealthGroupus()
@@ -357,6 +379,17 @@ namespace Medical_record.Data
 
             h = new Hospitalization
             {
+                Id = 4,
+                StartHospitalizationDate = DateTime.Parse("13.03.2018"),
+                EndHospitalizationDate = DateTime.Parse("27.03.2018"),
+                PatientId = 1,
+                MedicalOrganization = "Мед.уч. № 100",
+                DefinitiveDiagnosis = "Оконч.диагноз 1001",
+            };
+            _hospitalizations.Add(h);
+
+            h = new Hospitalization
+            {
                 Id = 3,
                 StartHospitalizationDate = DateTime.Parse("13.07.2017"),
                 EndHospitalizationDate = DateTime.Parse("21.07.2017"),
@@ -388,6 +421,28 @@ namespace Medical_record.Data
                 PatientId = 1,
                 DiagnosisId = 1,
                 DoctorId = 3
+            };
+            _observations.Add(o);
+
+            o = new Observation
+            {
+                Id = 4,
+                StartObservationDate = DateTime.Parse("01.01.2017"),
+                EndObservationDate = DateTime.Parse("13.01.2017"),
+                PatientId = 1,
+                DiagnosisId = 1,
+                DoctorId = 1
+            };
+            _observations.Add(o);
+
+            o = new Observation
+            {
+                Id = 5,
+                StartObservationDate = DateTime.Parse("25.09.2018"),
+                EndObservationDate = DateTime.Parse("07.10.2018"),
+                PatientId = 1,
+                DiagnosisId = 3,
+                DoctorId = 2
             };
             _observations.Add(o);
 
@@ -787,6 +842,29 @@ namespace Medical_record.Data
             doc.Specialization = GetDoctorSpecialization(doc.SpecializationId);
 
             return Task.FromResult(new Result<Doctor>(doc));
+        }
+
+        public Task<Result<List<Examination>>> GetExaminationsByPatientIdAsync(int currentPatientId)
+        {
+            var exams = _examinations.Where(e => e.PatientId == currentPatientId).ToList();
+            return Task.FromResult(new Result<List<Examination>>(exams));
+        }
+
+        public Task<Result<HealthGroup>> GetHealthGroupByIdAsync(int healthGroupId)
+        {
+            var hg = _healthGroups.FirstOrDefault(g => g.Id == healthGroupId);
+            if (hg == null)
+            {
+                return Task.FromResult(new Result<HealthGroup>("Группа не найдена."));
+            }
+
+            return Task.FromResult(new Result<HealthGroup>(hg));
+        }
+
+        public Task<Result<List<Hospitalization>>> GetHospitalizationsByPatientIdAsync(int currentPatientId)
+        {
+            var hosps = _hospitalizations.Where(h => h.PatientId == currentPatientId).ToList();
+            return Task.FromResult(new Result<List<Hospitalization>>(hosps));
         }
     }
 }
