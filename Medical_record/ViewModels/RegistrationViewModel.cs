@@ -2,6 +2,7 @@
 using Medical_record.UseControl.ViewModels;
 using Medical_record.Utils;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,7 +11,7 @@ namespace Medical_record.ViewModels
     public class RegistrationViewModel
     {
         private readonly AppController _appController;
-        private AddDoctorsViewModel _doctorsVM;
+        private AddExaminationViewModel _examinationVM;
         private AddHospitalizationViewModel _hospitalizationVM;
         private AddObservationViewModel _observationVM;
 
@@ -31,10 +32,10 @@ namespace Medical_record.ViewModels
         public string Residence { get; set; }
         public string PassportNumber { get; set; }
         public string PassportSeries { get; set; }
+
         public string PassportUFMS { get; set; }
         public DateTime PassportIssueDate { get; set; } = DateTime.Now;
         public string PassportDepCode { get; set; }
-
 
         /// <summary>
         /// Сохранение в БД пацента
@@ -87,13 +88,11 @@ namespace Medical_record.ViewModels
                 await SaveHospitalizationAsync();
             }
 
-            if (_doctorsVM != null)
+            if (_examinationVM != null)
             {
-                //await SaveDoctorsAsync();
+                await SaveExaminationAsync();
             }
-            
         }
-
 
         /// <summary>
         /// Сохранение наблюдения
@@ -121,21 +120,26 @@ namespace Medical_record.ViewModels
         {
             var hosp = _hospitalizationVM.GetHospitalization();
             hosp.PatientId = Id;
-            Result<string> result = await _appController.DataContext.AddHospitalizationAsync(hosp);
+            var result = await _appController.DataContext.AddHospitalizationAsync(hosp);
             if (!result.HasValue)
             {
                 MessagesService.ShowErrorMessage(result.Error);
             }
-            
         }
 
         /// <summary>
-        /// Сохранение записи врачей
+        /// Сохранение записи врачебного осмотра
         /// </summary>
         /// <returns></returns>
-        private Task SaveDoctorsAsync()
+        private async Task SaveExaminationAsync()
         {
-            throw new NotImplementedException();
+            var exam = _examinationVM.GetExamination();
+            exam.PatientId = Id;
+            Result<string> result = await _appController.DataContext.AddExaminationAsync(exam);
+            if (!result.HasValue)
+            {
+                MessagesService.ShowErrorMessage(result.Error);
+            }
         }
 
         /// <summary>
@@ -192,31 +196,31 @@ namespace Medical_record.ViewModels
         /// </summary>
         /// <param name="key">ключ (см. AppController) связанный с uc</param>
         /// <returns></returns>
-        internal async Task<UserControl> GetUcView(string key)
+        internal async Task<UserControl> GetUcViewAsync(string key)
         {
             //получаем экземпляр
-            dynamic uc = _appController.GetUcView(key);
+            dynamic uc = _appController.GetUcViewInput(key);
             switch (key)
             {
                 case "Ob":
                     if (_observationVM == null)
                     {
                         _observationVM = uc.ViewModel;
-                        await SetupCurrentObservationUc(); 
+                        await SetupObservationUc(); 
                     }
                     break;
-                case "Dc":
-                    if (_doctorsVM == null)
+                case "Ex":
+                    if (_examinationVM == null)
                     {
-                        _doctorsVM = uc.ViewModel;
-                        await SetupCurrentDoctorUc(); 
+                        _examinationVM = uc.ViewModel;
+                        await SetupExaminationUc(); 
                     }
                     break;
                 case "Ho":
                     if (_hospitalizationVM == null)
                     {
                         _hospitalizationVM = uc.ViewModel;
-                        await SetupCurrentHospitalizationUc(); 
+                        await SetupHospitalizationUc(); 
                     }
                     break;
                 default:
@@ -230,7 +234,7 @@ namespace Medical_record.ViewModels
         /// Подгрузка данных в AddObservationViewModel
         /// </summary>
         /// <returns></returns>
-        private async Task SetupCurrentObservationUc()
+        private async Task SetupObservationUc()
         {
             //Получаем количество наблюдений для текущего пациента
             if (Id == 0)
@@ -248,29 +252,72 @@ namespace Medical_record.ViewModels
             }
 
             //Получаем диагнозы
-            var result = await _appController.DataContext.GetDiagnosesAsync();
-            if (result.HasValue)
+            var diags = await _appController.DataContext.GetDiagnosesAsync();
+            if (diags.HasValue)
             {
                 _observationVM.Diagnoses.Clear();
-                result.Value.ForEach(d => _observationVM.Diagnoses.Add(d));
+                diags.Value.ForEach(d => _observationVM.Diagnoses.Add(d));
             }
-            // TODO: еще нужно получить докторов
+
+            //Получаем докторов
+            var docs = await _appController.DataContext.GetDoctorsAsync();
+            if (docs.HasValue)
+            {
+                _observationVM.Doctors.Clear();
+                docs.Value.ForEach(d => _observationVM.Doctors.Add(d));
+            }
         }
 
         /// <summary>
-        /// Подгрузка данных в AddDoctorsViewModel
+        /// Подгрузка данных в AddExaminationViewModel
         /// </summary>
         /// <returns></returns>
-        private Task SetupCurrentDoctorUc()
+        private async Task SetupExaminationUc()
         {
-            throw new NotImplementedException();
+            if (Id == 0)
+            {
+                _examinationVM.Count = "1";
+            }
+            else
+            {
+                var count = await _appController.DataContext
+                    .GetCountExaminationsByPatientIdAsync(Id);
+                if (count.HasValue)
+                {
+                    _examinationVM.Count = $"{count.Value + 1}";
+                }
+            }
+
+            //Получаем диагнозы
+            var diags = await _appController.DataContext.GetDiagnosesAsync();
+            if (diags.HasValue)
+            {
+                _examinationVM.Diagnoses.Clear();
+                diags.Value.ForEach(d => _examinationVM.Diagnoses.Add(d));
+            }
+
+            //Получаем докторов
+            var docs = await _appController.DataContext.GetDoctorsAsync();
+            if (docs.HasValue)
+            {
+                _examinationVM.Doctors.Clear();
+                docs.Value.ForEach(d => _examinationVM.Doctors.Add(d));
+            }
+
+            //Получаем группы здоровья
+            var groups = await _appController.DataContext.GetHealthGroupsAsync();
+            if (groups.HasValue)
+            {
+                _examinationVM.HealthGroups.Clear();
+                groups.Value.ForEach(g => _examinationVM.HealthGroups.Add(g));
+            }
         }
 
         /// <summary>
         /// Подгрузка данных в AddHospitalizationViewModel
         /// </summary>
         /// <returns></returns>
-        private async Task SetupCurrentHospitalizationUc()
+        private async Task SetupHospitalizationUc()
         {
             //Получаем количество наблюдений для текущего пациента
             if (Id == 0)
@@ -280,7 +327,7 @@ namespace Medical_record.ViewModels
             }
             else
             {
-                Result<int> count = await _appController.DataContext
+                var count = await _appController.DataContext
                     .GetCountHospitalizationsByPatientIdAsync(Id);
                 if (count.HasValue)
                 {
