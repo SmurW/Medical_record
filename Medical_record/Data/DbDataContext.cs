@@ -201,5 +201,10 @@ namespace Medical_record.Data
         {
             throw new NotImplementedException();
         }
+
+        public Task<Result<List<Hospitalization>>> GetHospitalizationsByPatientIdAsync(int currentPatientId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

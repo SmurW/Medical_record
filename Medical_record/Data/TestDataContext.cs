@@ -379,6 +379,17 @@ namespace Medical_record.Data
 
             h = new Hospitalization
             {
+                Id = 4,
+                StartHospitalizationDate = DateTime.Parse("13.03.2018"),
+                EndHospitalizationDate = DateTime.Parse("27.03.2018"),
+                PatientId = 1,
+                MedicalOrganization = "Мед.уч. № 100",
+                DefinitiveDiagnosis = "Оконч.диагноз 1001",
+            };
+            _hospitalizations.Add(h);
+
+            h = new Hospitalization
+            {
                 Id = 3,
                 StartHospitalizationDate = DateTime.Parse("13.07.2017"),
                 EndHospitalizationDate = DateTime.Parse("21.07.2017"),
@@ -850,5 +861,10 @@ namespace Medical_record.Data
             return Task.FromResult(new Result<HealthGroup>(hg));
         }
 
+        public Task<Result<List<Hospitalization>>> GetHospitalizationsByPatientIdAsync(int currentPatientId)
+        {
+            var hosps = _hospitalizations.Where(h => h.PatientId == currentPatientId).ToList();
+            return Task.FromResult(new Result<List<Hospitalization>>(hosps));
+        }
     }
 }

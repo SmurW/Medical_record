@@ -113,13 +113,35 @@ namespace Medical_record.ViewModels
                     break;
                 case "Ho":
                     _hospitalizationVM = uc.ViewModel;
-                    //await SetupHospitalizationVM();
+                    await SetupHospitalizationVM();
                     break;
                 default:
                     throw new ArgumentException(nameof(key));
             }
 
             return uc as UserControl;
+        }
+
+        /// <summary>
+        /// Подгрузка данных для Госпитализаций
+        /// </summary>
+        /// <returns></returns>
+        private async Task SetupHospitalizationVM()
+        {
+            if (_currentPatientId < 1)
+                return;
+
+            //загружаем из БД Госпитализации для текущ.пациента
+            var hosps = await _appController
+                .DataContext.GetHospitalizationsByPatientIdAsync(_currentPatientId);
+            if (!hosps.HasValue)
+                return;
+
+            //передаем данные во вьюмодель
+            _hospitalizationVM.SetHospitalizations(hosps.Value);
+            //ссылки на переходы
+            _showNext = _hospitalizationVM.ShowNext;
+            _showPrev = _hospitalizationVM.ShowPrevious;
         }
 
         /// <summary>

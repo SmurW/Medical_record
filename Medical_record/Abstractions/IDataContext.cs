@@ -45,6 +45,7 @@ namespace Medical_record.Abstractions
         Task<Result<Doctor>> GetDoctorByIdAsync(int doctorId);
         Task<Result<List<Examination>>> GetExaminationsByPatientIdAsync(int currentPatientId);
         Task<Result<HealthGroup>> GetHealthGroupByIdAsync(int healthGroupId);
+        Task<Result<List<Hospitalization>>> GetHospitalizationsByPatientIdAsync(int currentPatientId);
     }
    
 }
