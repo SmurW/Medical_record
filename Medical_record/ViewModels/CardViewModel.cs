@@ -15,6 +15,8 @@ namespace Medical_record.ViewModels
         private HospitalizationViewModel _hospitalizationVM;
         private ObservationViewModel _observationVM;
         private int _currentPatientId;
+        private Action _showNext;
+        private Action _showPrev;
 
         public CardViewModel(AppController appController)
         {
@@ -129,24 +131,38 @@ namespace Medical_record.ViewModels
             if (_currentPatientId < 1)
                 return;
 
+            //загружаем из БД Наблюдения для текущ.пациента
             var obs = await _appController
                 .DataContext.GetObservationsByPatientIdAsync(_currentPatientId);
-            if (obs.HasValue)
-            {
-                foreach (Observation ob in obs.Value)
-                {
-                    var diag = await _appController.DataContext.GetDiagnosisByIdAsync(ob.DiagnosisId);
-                    if (diag.HasValue)
-                        ob.Diagnosis = diag.Value;
+            if (!obs.HasValue)
+                return;
 
-                    var doc = await _appController.DataContext.GetDoctorByIdAsync(ob.DoctorId);
-                    if (doc.HasValue)
-                        ob.Doctor = doc.Value;
-                }
-                _observationVM.SetObservations(obs.Value);
+            //подгрузка доп.данных из БД
+            foreach (Observation ob in obs.Value)
+            {
+                var diag = await _appController.DataContext.GetDiagnosisByIdAsync(ob.DiagnosisId);
+                if (diag.HasValue)
+                    ob.Diagnosis = diag.Value;
+
+                var doc = await _appController.DataContext.GetDoctorByIdAsync(ob.DoctorId);
+                if (doc.HasValue)
+                    ob.Doctor = doc.Value;
             }
+            _observationVM.SetObservations(obs.Value);
+
+            //ссылки на переходы
+            _showNext = _observationVM.ShowNext;
+            _showPrev = _observationVM.ShowPrevious;
         }
 
+        /// <summary>
+        /// Переход к предыд. наблюдению, осмотру, госпитализации
+        /// </summary>
+        internal void PrevAddition() => _showPrev?.Invoke();
 
+        /// <summary>
+        /// Переход к след. наблюдению, осмотру, госпитализации
+        /// </summary>
+        internal void NextAddition() => _showNext?.Invoke();
     }
 }

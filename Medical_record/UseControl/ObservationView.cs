@@ -32,6 +32,9 @@ namespace Medical_record.UseControl
                 _bsObs, nameof(Observation.EndObservationDate), true);
             _textBoxDiagnosis.DataBindings.Add("Text", _bsObs, nameof(Observation.DiagnosisName));
             _textBoxDoctor.DataBindings.Add("Text", _bsObs, nameof(Observation.DoctorFio));
+
+            ViewModel.NextClicked += (s, e) => _bsObs.MoveNext();
+            ViewModel.PreviousClicked += (s, e) => _bsObs.MovePrevious();
         }
     }
 }

@@ -38,11 +38,14 @@ namespace Medical_record.Forms
             _buttonNextPatient.Click += ButtonNextPatient_Click;
             _buttonPrevPatient.Click += ButtonPrevPatient_Click;
 
-
             _radioButtonNo.Click += RadioButtonAdditions_Click;
             _radioButtonHospitalizations.Click += RadioButtonAdditions_Click;
             _radioButtonExaminations.Click += RadioButtonAdditions_Click;
             _radioButtonObservations.Click += RadioButtonAdditions_Click;
+
+            _buttonNextAddition.Click += (s, e) => _viewModel.NextAddition();
+            _buttonPrevAddition.Click += (s, e) => _viewModel.PrevAddition();
+
             this.Activated += CardView_Activated;
         }
 

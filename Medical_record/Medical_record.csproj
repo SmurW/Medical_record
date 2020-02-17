@@ -258,6 +258,7 @@
     </Compile>
     <Compile Include="UseControl\ViewModels\ExaminationViewModel.cs" />
     <Compile Include="UseControl\ViewModels\HospitalizationViewModel.cs" />
+    <Compile Include="Abstractions\IUcViewModel.cs" />
     <Compile Include="UseControl\ViewModels\ObservationViewModel.cs" />
     <Compile Include="Utils\MessagesService.cs" />
     <Compile Include="Utils\Result.cs" />
