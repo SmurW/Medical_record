@@ -33,8 +33,20 @@ namespace Medical_record.UseControl
             _textBoxDiagnosis.DataBindings.Add("Text", _bsObs, nameof(Observation.DiagnosisName));
             _textBoxDoctor.DataBindings.Add("Text", _bsObs, nameof(Observation.DoctorFio));
 
+            _bsObs.CurrentItemChanged += _bsObs_CurrentItemChanged;
             ViewModel.NextClicked += (s, e) => _bsObs.MoveNext();
             ViewModel.PreviousClicked += (s, e) => _bsObs.MovePrevious();
+            this.Load += ObservationView_Load;
+        }
+
+        private void ObservationView_Load(object sender, EventArgs e)
+        {
+            _labelCount.Text = $"1/{_bsObs.Count}";
+        }
+
+        private void _bsObs_CurrentItemChanged(object sender, EventArgs e)
+        {
+            _labelCount.Text = $"{_bsObs.IndexOf(_bsObs.Current) + 1}/{_bsObs.Count}";
         }
     }
 }
