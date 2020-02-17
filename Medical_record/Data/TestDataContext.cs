@@ -69,6 +69,28 @@ namespace Medical_record.Data
                 DoctorId = 3
             };
             _examinations.Add(ex);
+
+            ex = new Examination
+            {
+                Id = 4,
+                ExaminationDate = DateTime.Parse("01.01.2018"),
+                DiagnosisId = 1,
+                HealthGroupId = 3,
+                PatientId = 1,
+                DoctorId = 2
+            };
+            _examinations.Add(ex);
+
+            ex = new Examination
+            {
+                Id = 5,
+                ExaminationDate = DateTime.Parse("14.11.2019"),
+                DiagnosisId = 3,
+                HealthGroupId = 3,
+                PatientId = 1,
+                DoctorId = 1
+            };
+            _examinations.Add(ex);
         }
 
         private void SetHealthGroupus()
@@ -810,5 +832,23 @@ namespace Medical_record.Data
 
             return Task.FromResult(new Result<Doctor>(doc));
         }
+
+        public Task<Result<List<Examination>>> GetExaminationsByPatientIdAsync(int currentPatientId)
+        {
+            var exams = _examinations.Where(e => e.PatientId == currentPatientId).ToList();
+            return Task.FromResult(new Result<List<Examination>>(exams));
+        }
+
+        public Task<Result<HealthGroup>> GetHealthGroupByIdAsync(int healthGroupId)
+        {
+            var hg = _healthGroups.FirstOrDefault(g => g.Id == healthGroupId);
+            if (hg == null)
+            {
+                return Task.FromResult(new Result<HealthGroup>("Группа не найдена."));
+            }
+
+            return Task.FromResult(new Result<HealthGroup>(hg));
+        }
+
     }
 }

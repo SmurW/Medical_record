@@ -3,9 +3,6 @@ using Medical_record.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medical_record.UseControl.ViewModels
 {
@@ -14,7 +11,8 @@ namespace Medical_record.UseControl.ViewModels
         public event EventHandler NextClicked;
         public event EventHandler PreviousClicked;
 
-        public BindingList<Observation> Observations { get; private set; } = new BindingList<Observation>();
+        public BindingList<Observation> Observations { get; private set; }
+            = new BindingList<Observation>();
 
         internal void SetObservations(List<Observation> observations)
         {

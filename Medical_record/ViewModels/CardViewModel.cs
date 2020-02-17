@@ -109,7 +109,7 @@ namespace Medical_record.ViewModels
                     break;
                 case "Ex":
                     _examinationVM = uc.ViewModel;
-                    //await SetupExaminationVM();
+                    await SetupExaminationVM();
                     break;
                 case "Ho":
                     _hospitalizationVM = uc.ViewModel;
@@ -120,6 +120,43 @@ namespace Medical_record.ViewModels
             }
 
             return uc as UserControl;
+        }
+
+        /// <summary>
+        /// Подгрузка данных для Осмотров
+        /// </summary>
+        /// <returns></returns>
+        private async Task SetupExaminationVM()
+        {
+            if (_currentPatientId < 1)
+                return;
+
+            //загружаем осмотры из БД
+            Result<List<Examination>> exams = await _appController
+                .DataContext.GetExaminationsByPatientIdAsync(_currentPatientId);
+            if (!exams.HasValue)
+                return;
+
+            //загрузка доп.данных из БД
+            foreach (Examination exam in exams.Value)
+            {
+                var diag = await _appController.DataContext.GetDiagnosisByIdAsync(exam.DiagnosisId);
+                if (diag.HasValue)
+                    exam.Diagnosis = diag.Value;
+
+                var doc = await _appController.DataContext.GetDoctorByIdAsync(exam.DoctorId);
+                if (doc.HasValue)
+                    exam.Doctor = doc.Value;
+
+                var hg = await _appController.DataContext.GetHealthGroupByIdAsync(exam.HealthGroupId);
+                if (hg.HasValue)
+                    exam.HealthGroup = hg.Value;
+            }
+            //передаем данные во вьюмодель
+            _examinationVM.SetDiagnoses(exams.Value);
+            //ссылки на переходы
+            _showNext = _examinationVM.ShowNext;
+            _showPrev = _examinationVM.ShowPrevious;
         }
 
         /// <summary>
@@ -148,8 +185,8 @@ namespace Medical_record.ViewModels
                 if (doc.HasValue)
                     ob.Doctor = doc.Value;
             }
+            //передаем данные во вьюмодель
             _observationVM.SetObservations(obs.Value);
-
             //ссылки на переходы
             _showNext = _observationVM.ShowNext;
             _showPrev = _observationVM.ShowPrevious;

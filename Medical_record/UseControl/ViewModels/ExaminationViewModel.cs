@@ -1,29 +1,26 @@
-﻿using Medical_record.Data.Models;
+﻿using Medical_record.Abstractions;
+using Medical_record.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medical_record.UseControl.ViewModels
 {
-    public class ExaminationViewModel
+    public class ExaminationViewModel : IUcViewModel
     {
-        public ExaminationViewModel()
-        { }
+        public event EventHandler NextClicked;
+        public event EventHandler PreviousClicked;
 
-        public BindingList<Diagnosis> Diagnoses { get; set; } = new BindingList<Diagnosis>();
-        public object SelectedDiagnosis { get; set; }
+        public BindingList<Examination> Examinations { get; private set; }
+            = new BindingList<Examination>();
 
-        public int Id { get; set; }
-        public int PatientId { get; set; }
-        public DateTime DateInspection { get; set; } = DateTime.Now;
-        public string DiagnisisDisease { get; set; }
-        public string HealtGroup { get; set; }
-        public int DiagnosisId { get; set; }
-        public int DoctorId { get; set; }
-        public string Count { get; set; }
+        internal void SetDiagnoses(List<Examination> exams)
+        {
+            Examinations.Clear();
+            exams.ForEach(d => Examinations.Add(d));
+        }
 
+        public void ShowNext() => NextClicked?.Invoke(this, EventArgs.Empty);
+        public void ShowPrevious() => PreviousClicked?.Invoke(this, EventArgs.Empty);
     }
 }
