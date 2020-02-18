@@ -206,5 +206,15 @@ namespace Medical_record.Data
         {
             throw new NotImplementedException();
         }
+
+        public Task<Result<List<Patient>>> GetPatientsByLastNameAsync(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Result<List<Patient>>> GetPatientsByCardNumberAsync(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

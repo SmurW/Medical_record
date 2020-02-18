@@ -26,6 +26,8 @@ namespace Medical_record.UseControl
             _dateTimePickerEnd.DataBindings.Add("Value",
                 ViewModel, nameof(ViewModel.EndHospitalizationDate),
                 true, DataSourceUpdateMode.OnPropertyChanged);
+            _textBoxDiag.DataBindings.Add("Text", ViewModel, nameof(ViewModel.DefinitiveDiagnosis));
+            _textBoxMedOrg.DataBindings.Add("Text", ViewModel, nameof(ViewModel.MedicalOrganization));
 
             _labelCount.DataBindings.Add("Text", ViewModel, nameof(ViewModel.Count));
 

@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace Medical_record.UseControl.ViewModels
 {
-    public class ExaminationViewModel : IUcViewModel
+    public class ExaminationViewModel : IOutputUcViewModel
     {
         public event EventHandler NextClicked;
         public event EventHandler PreviousClicked;

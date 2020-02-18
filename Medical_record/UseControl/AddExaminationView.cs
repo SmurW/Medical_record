@@ -41,6 +41,8 @@ namespace Medical_record.UseControl
             _comboBoxDoctor.ValueMember = nameof(Doctor.Id);
             _comboBoxDoctor.DataBindings.Add(nameof(_comboBoxDoctor.SelectedValue),
                 ViewModel, nameof(ViewModel.DoctorId));
+
+            _buttonSave.Click += (s, e) => ViewModel.SaveExamination();
         }
     }
 }

@@ -2,7 +2,9 @@
 using Medical_record.UseControl.ViewModels;
 using Medical_record.Utils;
 using System;
+using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,10 +26,81 @@ namespace Medical_record.ViewModels
                 ?? throw new ArgumentNullException(nameof(appController));
         }
 
+        public event EventHandler DataLoading;
+        public event EventHandler DataLoaded;
+
         /// <summary>
         /// Коллекция пациентов
         /// </summary>
-        public List<Patient> Patients { get; private set; } = new List<Patient>();
+        public BindingList<Patient> Patients { get; private set; } = new BindingList<Patient>();
+
+        /// <summary>
+        /// Ключ поиска по Фамилии
+        /// </summary>
+        private bool _LastNameChecked = true;
+        public bool LastNameChecked
+        {
+            get => _LastNameChecked;
+            set
+            {
+                _LastNameChecked = value;
+                InputSearch = String.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Значение строки поиска
+        /// </summary>
+        private string _InputSearch;
+        public string InputSearch
+        {
+            get => _InputSearch;
+            set
+            {
+                _InputSearch = value;
+                InputSearchChanged();
+            }
+        }
+
+        /// <summary>
+        /// Строка поиска изменилась
+        /// </summary>
+        private async void InputSearchChanged()
+        {
+            if (String.IsNullOrWhiteSpace(InputSearch))
+            {
+                await LoadDataAsync();
+            }
+            else
+            {
+                await SearchAndLoadDataAsync();
+            }
+        }
+
+        /// <summary>
+        /// Поиск и загрузка данных о пациентах
+        /// </summary>
+        /// <returns></returns>
+        private async Task SearchAndLoadDataAsync()
+        {
+            DataLoading?.Invoke(this, EventArgs.Empty);
+            Patients.Clear();
+
+            Result<List<Patient>> result = null;
+            if (LastNameChecked)
+            {
+                result = await _appController.DataContext
+                    .GetPatientsByLastNameAsync(InputSearch.Trim());
+            }
+            else
+            {
+                result = await _appController.DataContext
+                    .GetPatientsByCardNumberAsync(InputSearch.Trim());
+            }
+            LoadPatients(result);
+
+            DataLoaded?.Invoke(this, EventArgs.Empty);
+        }
 
         /// <summary>
         /// Переход к созданию нового пациента
@@ -47,15 +120,38 @@ namespace Medical_record.ViewModels
         /// <returns></returns>
         internal async Task LoadDataAsync()
         {
+            DataLoading?.Invoke(this, EventArgs.Empty);
+            Patients.Clear();
+
             var result = await _appController.DataContext.GetPatientsAsync();
+            LoadPatients(result);
+
+            DataLoaded?.Invoke(this, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// Заполнение коллекции Пациентов
+        /// полученным результатом из БД
+        /// </summary>
+        /// <param name="result"></param>
+        private void LoadPatients(Result<List<Patient>> result)
+        {
             if (result.HasValue)
             {
-                Patients = result.Value;
-                _currentPatientId = 1;
+                if (result.Value.Count > 0)
+                {
+                    result.Value.ForEach(p => Patients.Add(p));
+                    _currentPatientId = result.Value.First().Id;
+                }
+                else
+                {
+                    _currentPatientId = 0;
+                }
             }
             else
             {
                 MessagesService.ShowErrorMessage(result.Error);
+                _currentPatientId = 0;
             }
         }
 

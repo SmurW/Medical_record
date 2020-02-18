@@ -866,5 +866,17 @@ namespace Medical_record.Data
             var hosps = _hospitalizations.Where(h => h.PatientId == currentPatientId).ToList();
             return Task.FromResult(new Result<List<Hospitalization>>(hosps));
         }
+
+        public Task<Result<List<Patient>>> GetPatientsByLastNameAsync(string lastName)
+        {
+            var patients = _patients.Where(p => p.LastName.StartsWith(lastName)).ToList();
+            return Task.FromResult(new Result<List<Patient>>(patients));
+        }
+
+        public Task<Result<List<Patient>>> GetPatientsByCardNumberAsync(string cardNumber)
+        {
+            var patients = _patients.Where(p => p.CardNumber.StartsWith(cardNumber)).ToList();
+            return Task.FromResult(new Result<List<Patient>>(patients));
+        }
     }
 }
