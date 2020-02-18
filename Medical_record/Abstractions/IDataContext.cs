@@ -39,8 +39,10 @@ namespace Medical_record.Abstractions
         Task<Result<List<Specialization>>> GetSpecializationsAsync();
         Task<Result<List<HealthGroup>>> GetHealthGroupsAsync();
         Task<Result<int>> GetCountExaminationsByPatientIdAsync(int id);
+        Task<Result<List<Patient>>> GetPatientsByLastNameAsync(string v);
         Task<Result<string>> AddExaminationAsync(Examination exam);
         Task<Result<List<Observation>>> GetObservationsByPatientIdAsync(int currentPatientId);
+        Task<Result<List<Patient>>> GetPatientsByCardNumberAsync(string v);
         Task<Result<Diagnosis>> GetDiagnosisByIdAsync(int diagnosisId);
         Task<Result<Doctor>> GetDoctorByIdAsync(int doctorId);
         Task<Result<List<Examination>>> GetExaminationsByPatientIdAsync(int currentPatientId);
