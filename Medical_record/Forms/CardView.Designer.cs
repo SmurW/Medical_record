@@ -78,6 +78,12 @@
             this._groupBoxSearch = new System.Windows.Forms.GroupBox();
             this._radioButtonLastName = new System.Windows.Forms.RadioButton();
             this._radioButtonCard = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this._textBoxPatientsCount = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this._labelPatientCurrentNumber = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this._labelPatientsCount = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this._panelAdditions.SuspendLayout();
             this._groupBoxAdditions.SuspendLayout();
@@ -575,11 +581,70 @@
             this._radioButtonCard.Text = "№ карты";
             this._radioButtonCard.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(481, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Всего пациентов:";
+            // 
+            // _textBoxPatientsCount
+            // 
+            this._textBoxPatientsCount.Location = new System.Drawing.Point(581, 20);
+            this._textBoxPatientsCount.Name = "_textBoxPatientsCount";
+            this._textBoxPatientsCount.ReadOnly = true;
+            this._textBoxPatientsCount.Size = new System.Drawing.Size(100, 20);
+            this._textBoxPatientsCount.TabIndex = 20;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(739, 24);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.TabIndex = 21;
+            this.label19.Text = "Пациент";
+            // 
+            // _labelPatientCurrentNumber
+            // 
+            this._labelPatientCurrentNumber.AutoSize = true;
+            this._labelPatientCurrentNumber.Location = new System.Drawing.Point(795, 24);
+            this._labelPatientCurrentNumber.Name = "_labelPatientCurrentNumber";
+            this._labelPatientCurrentNumber.Size = new System.Drawing.Size(13, 13);
+            this._labelPatientCurrentNumber.TabIndex = 22;
+            this._labelPatientCurrentNumber.Text = "0";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(842, 24);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(19, 13);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "из";
+            // 
+            // _labelPatientsCount
+            // 
+            this._labelPatientsCount.AutoSize = true;
+            this._labelPatientsCount.Location = new System.Drawing.Point(867, 24);
+            this._labelPatientsCount.Name = "_labelPatientsCount";
+            this._labelPatientsCount.Size = new System.Drawing.Size(13, 13);
+            this._labelPatientsCount.TabIndex = 24;
+            this._labelPatientsCount.Text = "0";
+            // 
             // CardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 443);
+            this.Controls.Add(this._labelPatientsCount);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this._labelPatientCurrentNumber);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this._textBoxPatientsCount);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this._groupBoxSearch);
             this.Controls.Add(this._groupBoxAdditions);
             this.Controls.Add(this._textBoxInputSearch);
@@ -658,5 +723,11 @@
         private System.Windows.Forms.GroupBox _groupBoxSearch;
         private System.Windows.Forms.RadioButton _radioButtonLastName;
         private System.Windows.Forms.RadioButton _radioButtonCard;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox _textBoxPatientsCount;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label _labelPatientCurrentNumber;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label _labelPatientsCount;
     }
 }
