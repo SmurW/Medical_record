@@ -1,18 +1,12 @@
-﻿using Medical_record.Data.Models;
+﻿using Medical_record.Abstractions;
+using Medical_record.Data.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medical_record.UseControl.ViewModels
 {
-    public class AddObservationViewModel
+    public class AddObservationViewModel : IInputUcViewModel
     {
-        public AddObservationViewModel()
-        { }
-
         /// <summary>
         /// Диагнозы
         /// </summary>
@@ -28,6 +22,10 @@ namespace Medical_record.UseControl.ViewModels
         public int DiagnosisId { get; set; }
         public int DoctorId { get; set; }
         public string Count { get; set; }
+
+        //реализация интерфейса
+        public event EventHandler ButtonSaveClicked;
+        public string Tag => "Ob";
 
         /// <summary>
         /// Получение экз. Наблюдения
@@ -46,11 +44,10 @@ namespace Medical_record.UseControl.ViewModels
 
         /// <summary>
         /// Сохранение наблюдения
+        /// вызывает событие на кот. подписана RegistrationViewModel
         /// </summary>
         /// <returns></returns>
-        internal async void SaveObservation()
-        {
-
-        }
+        internal void SaveObservation() => ButtonSaveClicked?.Invoke(this, EventArgs.Empty);
+        
     }
 }

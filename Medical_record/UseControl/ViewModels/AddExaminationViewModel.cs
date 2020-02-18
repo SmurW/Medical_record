@@ -1,18 +1,12 @@
-﻿using Medical_record.Data.Models;
+﻿using Medical_record.Abstractions;
+using Medical_record.Data.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medical_record.UseControl.ViewModels
 {
-    public class AddExaminationViewModel
+    public class AddExaminationViewModel : IInputUcViewModel
     {
-        public AddExaminationViewModel()
-        { }
-
         /// <summary>
         /// Диагнозы
         /// </summary>
@@ -34,6 +28,10 @@ namespace Medical_record.UseControl.ViewModels
         public int DoctorId { get; set; }
         public string Count { get; set; }
 
+        //реализация интерфейса
+        public event EventHandler ButtonSaveClicked;
+        public string Tag => "Ex";
+
         internal Examination GetExamination()
         {
             return new Examination
@@ -44,5 +42,11 @@ namespace Medical_record.UseControl.ViewModels
                 DoctorId = DoctorId,
             };
         }
+
+        /// <summary>
+        /// Сохранение сведений об Осмотре
+        /// </summary>
+        /// <returns></returns>
+        internal void SaveExamination() => ButtonSaveClicked?.Invoke(this, EventArgs.Empty);
     }
 }

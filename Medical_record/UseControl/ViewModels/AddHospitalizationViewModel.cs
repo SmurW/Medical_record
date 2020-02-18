@@ -1,17 +1,11 @@
-﻿using Medical_record.Data.Models;
+﻿using Medical_record.Abstractions;
+using Medical_record.Data.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medical_record.UseControl.ViewModels
 {
-    public class AddHospitalizationViewModel
+    public class AddHospitalizationViewModel : IInputUcViewModel
     {
-        public AddHospitalizationViewModel()
-        { }
-
         public int Id { get; set; }
         public int PatientId { get; set; }
         public DateTime StartHospitalizationDate { get; set; } = DateTime.Now.AddDays(-1);
@@ -19,6 +13,10 @@ namespace Medical_record.UseControl.ViewModels
         public string MedicalOrganization { get; set; }
         public string DefinitiveDiagnosis { get; set; }
         public string Count { get; set; }
+
+        //реализация интерфейса
+        public event EventHandler ButtonSaveClicked;
+        public string Tag => "Ho";
 
         /// <summary>
         /// Получение экз.госпитализации
@@ -39,9 +37,7 @@ namespace Medical_record.UseControl.ViewModels
         /// Сохранение сведений о госпитализации
         /// </summary>
         /// <returns></returns>
-        internal async void SaveHospitalization()
-        {
+        internal void SaveHospitalization() => ButtonSaveClicked?.Invoke(this, EventArgs.Empty);
 
-        }
     }
 }

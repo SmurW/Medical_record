@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Medical_record.Abstractions
 {
+    /// <summary>
+    /// Источник данных приложения
+    /// </summary>
     public interface IDataContext
     {
         Task<Result<List<Patient>>> GetPatientsAsync();

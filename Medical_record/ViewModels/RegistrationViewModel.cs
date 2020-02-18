@@ -1,4 +1,5 @@
-﻿using Medical_record.Data.Models;
+﻿using Medical_record.Abstractions;
+using Medical_record.Data.Models;
 using Medical_record.UseControl.ViewModels;
 using Medical_record.Utils;
 using System;
@@ -32,7 +33,6 @@ namespace Medical_record.ViewModels
         public string Residence { get; set; }
         public string PassportNumber { get; set; }
         public string PassportSeries { get; set; }
-
         public string PassportUFMS { get; set; }
         public DateTime PassportIssueDate { get; set; } = DateTime.Now;
         public string PassportDepCode { get; set; }
@@ -76,22 +76,6 @@ namespace Medical_record.ViewModels
                 }
             }
             MessagesService.ShowInfoMessage(result.Value);
-
-            // проверка открытых VM, сохранение данных
-            if (_observationVM != null)
-            {
-                await SaveObservationAsync();
-            }
-
-            if (_hospitalizationVM != null)
-            {
-                await SaveHospitalizationAsync();
-            }
-
-            if (_examinationVM != null)
-            {
-                await SaveExaminationAsync();
-            }
         }
 
         /// <summary>
@@ -106,7 +90,11 @@ namespace Medical_record.ViewModels
             ob.PatientId = Id;
             //сохраняем в БД
             var result = await _appController.DataContext.AddObservationAsync(ob);
-            if (!result.HasValue)
+            if (result.HasValue)
+            {
+                MessagesService.ShowInfoMessage(result.Value);
+            }
+            else
             {
                 MessagesService.ShowErrorMessage(result.Error);
             }
@@ -121,7 +109,11 @@ namespace Medical_record.ViewModels
             var hosp = _hospitalizationVM.GetHospitalization();
             hosp.PatientId = Id;
             var result = await _appController.DataContext.AddHospitalizationAsync(hosp);
-            if (!result.HasValue)
+            if (result.HasValue)
+            {
+                MessagesService.ShowInfoMessage(result.Value);
+            }
+            else
             {
                 MessagesService.ShowErrorMessage(result.Error);
             }
@@ -136,7 +128,11 @@ namespace Medical_record.ViewModels
             var exam = _examinationVM.GetExamination();
             exam.PatientId = Id;
             Result<string> result = await _appController.DataContext.AddExaminationAsync(exam);
-            if (!result.HasValue)
+            if (result.HasValue)
+            {
+                MessagesService.ShowInfoMessage(result.Value);
+            }
+            else
             {
                 MessagesService.ShowErrorMessage(result.Error);
             }
@@ -203,31 +199,55 @@ namespace Medical_record.ViewModels
             switch (key)
             {
                 case "Ob":
-                    if (_observationVM == null)
-                    {
-                        _observationVM = uc.ViewModel;
-                        await SetupObservationUc(); 
-                    }
+                    _observationVM = uc.ViewModel;
+                    _observationVM.ButtonSaveClicked += AddVM_ButtonSaveClicked;
+                    await SetupObservationUc();
                     break;
                 case "Ex":
-                    if (_examinationVM == null)
-                    {
-                        _examinationVM = uc.ViewModel;
-                        await SetupExaminationUc(); 
-                    }
+                    _examinationVM = uc.ViewModel;
+                    _examinationVM.ButtonSaveClicked += AddVM_ButtonSaveClicked;
+                    await SetupExaminationUc();
                     break;
                 case "Ho":
-                    if (_hospitalizationVM == null)
-                    {
-                        _hospitalizationVM = uc.ViewModel;
-                        await SetupHospitalizationUc(); 
-                    }
+                    _hospitalizationVM = uc.ViewModel;
+                    _hospitalizationVM.ButtonSaveClicked += AddVM_ButtonSaveClicked;
+                    await SetupHospitalizationUc();
                     break;
                 default:
                     throw new ArgumentException(nameof(key));
             }
             
             return uc as UserControl;
+        }
+
+        /// <summary>
+        /// В Осмотре, Наблюдении или Госпитализации нажали кнопку сохранить
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void AddVM_ButtonSaveClicked(object sender, EventArgs e)
+        {
+            if (Id == 0)
+            {
+                var message = "Необходимо сначала сохранить данные о пациенте!";
+                MessagesService.ShowInfoMessage(message);
+                return;
+            }
+
+            switch ((sender as IInputUcViewModel).Tag)
+            {
+                case "Ob":
+                    await SaveObservationAsync();
+                    break;
+                case "Ex":
+                    await SaveExaminationAsync();
+                    break;
+                case "Ho":
+                    await SaveHospitalizationAsync();
+                    break;
+                default:
+                    throw new Exception("Не удалось определить вьюмодель для сохранения.");
+            }
         }
 
         /// <summary>
