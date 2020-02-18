@@ -184,7 +184,6 @@ namespace Medical_record.Forms
 
             //кол-во пациентов
             _textBoxPatientsCount.Text = _bsPatients.Count.ToString();
-            _labelPatientsCount.Text = _textBoxPatientsCount.Text;
             _currentPatientNumber = 1;
             _labelPatientCurrentNumber.Text = _currentPatientNumber.ToString();
         }
