@@ -142,7 +142,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstractions\IDataContext.cs" />
+    <Compile Include="Abstractions\IDiagnosisDataContext.cs" />
+    <Compile Include="Abstractions\IDoctorDataContext.cs" />
+    <Compile Include="Abstractions\IExaminationDataContext.cs" />
+    <Compile Include="Abstractions\IHealthGroupDataContext.cs" />
+    <Compile Include="Abstractions\IHospitalizationDataContext.cs" />
     <Compile Include="Abstractions\IInputUcViewModel.cs" />
+    <Compile Include="Abstractions\IMedicationsDataContext.cs" />
+    <Compile Include="Abstractions\IObservationDataContext.cs" />
+    <Compile Include="Abstractions\IPatientDataContext.cs" />
+    <Compile Include="Abstractions\IProcedureDataContext.cs" />
+    <Compile Include="Abstractions\ISpecializationDataContext.cs" />
     <Compile Include="AppController.cs" />
     <Compile Include="Data\DbDataContext.cs" />
     <Compile Include="Data\Models\Diagnosis.cs" />
