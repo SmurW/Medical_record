@@ -1,10 +1,6 @@
 ﻿using Medical_record.Data.Models;
 using Medical_record.Utils;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Medical_record.ViewModels
 {
@@ -36,12 +32,14 @@ namespace Medical_record.ViewModels
             if (Id == 0)
             {
                 //запоминаем
-                result = await _appController.DataContext.AddProcedureAsync(proc);
+                result = await _appController.DataContext
+                    .Procedures.AddProcedureAsync(proc);
             }
             else
             {
                 //обновляем
-                result = await _appController.DataContext.UpdateProcedureAsync(proc);
+                result = await _appController.DataContext
+                    .Procedures.UpdateProcedureAsync(proc);
             }
 
             if (result.HasValue)

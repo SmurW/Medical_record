@@ -47,12 +47,14 @@ namespace Medical_record.ViewModels
             if (Id == 0)
             {
                 //запоминаем нового
-                result = await _appController.DataContext.AddPatientAsync(patient);
+                result = await _appController.DataContext
+                    .Patients.AddPatientAsync(patient);
             }
             else
             {
                 //обновляем уже существующего
-                result = await _appController.DataContext.UpdatePatientAsync(patient);
+                result = await _appController.DataContext
+                    .Patients.UpdatePatientAsync(patient);
             }
 
             if (!result.HasValue)
@@ -64,7 +66,8 @@ namespace Medical_record.ViewModels
             if (Id == 0)
             {
                 //получаем Id пациента
-                var resultId = await _appController.DataContext.GetLastAddedPatientIdAsync();
+                var resultId = await _appController.DataContext
+                    .Patients.GetLastAddedPatientIdAsync();
                 if (resultId.HasValue)
                 {
                     Id = resultId.Value;
@@ -89,7 +92,8 @@ namespace Medical_record.ViewModels
             //присваиваем Id текущего пациента
             ob.PatientId = Id;
             //сохраняем в БД
-            var result = await _appController.DataContext.AddObservationAsync(ob);
+            var result = await _appController.DataContext
+                .Observations.AddObservationAsync(ob);
             if (result.HasValue)
             {
                 MessagesService.ShowInfoMessage(result.Value);
@@ -108,7 +112,8 @@ namespace Medical_record.ViewModels
         {
             var hosp = _hospitalizationVM.GetHospitalization();
             hosp.PatientId = Id;
-            var result = await _appController.DataContext.AddHospitalizationAsync(hosp);
+            var result = await _appController.DataContext
+                .Hospitalizations.AddHospitalizationAsync(hosp);
             if (result.HasValue)
             {
                 MessagesService.ShowInfoMessage(result.Value);
@@ -127,7 +132,8 @@ namespace Medical_record.ViewModels
         {
             var exam = _examinationVM.GetExamination();
             exam.PatientId = Id;
-            Result<string> result = await _appController.DataContext.AddExaminationAsync(exam);
+            Result<string> result = await _appController.DataContext
+                .Examinations.AddExaminationAsync(exam);
             if (result.HasValue)
             {
                 MessagesService.ShowInfoMessage(result.Value);
@@ -264,7 +270,8 @@ namespace Medical_record.ViewModels
             }
             else
             {
-                var count = await _appController.DataContext.GetCountObservationsByPatientIdAsync(Id);
+                var count = await _appController.DataContext
+                    .Observations.GetCountObservationsByPatientIdAsync(Id);
                 if (count.HasValue)
                 {
                     _observationVM.Count = $"{count.Value + 1}";
@@ -272,7 +279,7 @@ namespace Medical_record.ViewModels
             }
 
             //Получаем диагнозы
-            var diags = await _appController.DataContext.GetDiagnosesAsync();
+            var diags = await _appController.DataContext.Diagnoses.GetDiagnosesAsync();
             if (diags.HasValue)
             {
                 _observationVM.Diagnoses.Clear();
@@ -280,7 +287,7 @@ namespace Medical_record.ViewModels
             }
 
             //Получаем докторов
-            var docs = await _appController.DataContext.GetDoctorsAsync();
+            var docs = await _appController.DataContext.Doctors.GetDoctorsAsync();
             if (docs.HasValue)
             {
                 _observationVM.Doctors.Clear();
@@ -301,7 +308,7 @@ namespace Medical_record.ViewModels
             else
             {
                 var count = await _appController.DataContext
-                    .GetCountExaminationsByPatientIdAsync(Id);
+                    .Examinations.GetCountExaminationsByPatientIdAsync(Id);
                 if (count.HasValue)
                 {
                     _examinationVM.Count = $"{count.Value + 1}";
@@ -309,7 +316,8 @@ namespace Medical_record.ViewModels
             }
 
             //Получаем диагнозы
-            var diags = await _appController.DataContext.GetDiagnosesAsync();
+            var diags = await _appController.DataContext
+                .Diagnoses.GetDiagnosesAsync();
             if (diags.HasValue)
             {
                 _examinationVM.Diagnoses.Clear();
@@ -317,7 +325,7 @@ namespace Medical_record.ViewModels
             }
 
             //Получаем докторов
-            var docs = await _appController.DataContext.GetDoctorsAsync();
+            var docs = await _appController.DataContext.Doctors.GetDoctorsAsync();
             if (docs.HasValue)
             {
                 _examinationVM.Doctors.Clear();
@@ -325,7 +333,8 @@ namespace Medical_record.ViewModels
             }
 
             //Получаем группы здоровья
-            var groups = await _appController.DataContext.GetHealthGroupsAsync();
+            var groups = await _appController.DataContext
+                .HealthGroups.GetHealthGroupsAsync();
             if (groups.HasValue)
             {
                 _examinationVM.HealthGroups.Clear();
@@ -348,7 +357,7 @@ namespace Medical_record.ViewModels
             else
             {
                 var count = await _appController.DataContext
-                    .GetCountHospitalizationsByPatientIdAsync(Id);
+                    .Hospitalizations.GetCountHospitalizationsByPatientIdAsync(Id);
                 if (count.HasValue)
                 {
                     _hospitalizationVM.Count = $"{count.Value + 1}";

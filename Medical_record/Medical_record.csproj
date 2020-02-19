@@ -142,7 +142,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstractions\IDataContext.cs" />
+    <Compile Include="Abstractions\IDiagnosisDataContext.cs" />
+    <Compile Include="Abstractions\IDoctorDataContext.cs" />
+    <Compile Include="Abstractions\IExaminationDataContext.cs" />
+    <Compile Include="Abstractions\IHealthGroupDataContext.cs" />
+    <Compile Include="Abstractions\IHospitalizationDataContext.cs" />
     <Compile Include="Abstractions\IInputUcViewModel.cs" />
+    <Compile Include="Abstractions\IMedicationsDataContext.cs" />
+    <Compile Include="Abstractions\IObservationDataContext.cs" />
+    <Compile Include="Abstractions\IPatientDataContext.cs" />
+    <Compile Include="Abstractions\IProcedureDataContext.cs" />
+    <Compile Include="Abstractions\ISpecializationDataContext.cs" />
     <Compile Include="AppController.cs" />
     <Compile Include="Data\DbDataContext.cs" />
     <Compile Include="Data\Models\Diagnosis.cs" />
@@ -156,6 +166,17 @@
     <Compile Include="Data\Models\Procedure.cs" />
     <Compile Include="Data\Models\Specialization.cs" />
     <Compile Include="Data\TestDataContext.cs" />
+    <Compile Include="Data\TestData\DataSource.cs" />
+    <Compile Include="Data\TestData\TestDiagnosesDataContext.cs" />
+    <Compile Include="Data\TestData\TestDoctorDataContext.cs" />
+    <Compile Include="Data\TestData\TestExaminationDataContext.cs" />
+    <Compile Include="Data\TestData\TestHealthGroupDataContext.cs" />
+    <Compile Include="Data\TestData\TestHospitalizationDataContext.cs" />
+    <Compile Include="Data\TestData\TestMedicationsDataContext.cs" />
+    <Compile Include="Data\TestData\TestObservationDataContext.cs" />
+    <Compile Include="Data\TestData\TestPatientDataContext.cs" />
+    <Compile Include="Data\TestData\TestProcedureDataContext.cs" />
+    <Compile Include="Data\TestData\TestSpecializationDataContext.cs" />
     <Compile Include="Forms\DoctorsView.cs">
       <SubType>Form</SubType>
     </Compile>

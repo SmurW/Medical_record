@@ -2,9 +2,6 @@
 using Medical_record.Utils;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Medical_record.ViewModels
@@ -54,7 +51,7 @@ namespace Medical_record.ViewModels
             else
             {
                 var result = await _appController.DataContext
-                                         .GetProceduresLikeAsync(_FindInput.Trim());
+                                         .Procedures.GetProceduresLikeAsync(_FindInput.Trim());
                 if (result.HasValue)
                 {
                     SetAndOrderProcedures(result);
@@ -75,7 +72,8 @@ namespace Medical_record.ViewModels
             if (!agreeRemove)
                 return;
 
-            var result = await _appController.DataContext.RemoveProcedureAsync(procedure.Id);
+            var result = await _appController.DataContext
+                .Procedures.RemoveProcedureAsync(procedure.Id);
             if (result.HasValue)
             {
                 MessagesService.ShowInfoMessage(result.Value);
@@ -105,7 +103,8 @@ namespace Medical_record.ViewModels
                 key = "Description";
             }
 
-            var result = await _appController.DataContext.GetProceduresOrderByAsync(key);
+            var result = await _appController.DataContext
+                .Procedures.GetProceduresOrderByAsync(key);
             if (result.HasValue)
             {
                 SetAndOrderProcedures(result);
@@ -122,7 +121,7 @@ namespace Medical_record.ViewModels
         /// <returns></returns>
         internal async Task LoadDataAsync()
         {
-            var result = await _appController.DataContext.GetProceduresAsync();
+            var result = await _appController.DataContext.Procedures.GetProceduresAsync();
             if (result.HasValue)
             {
                 SetAndOrderProcedures(result);

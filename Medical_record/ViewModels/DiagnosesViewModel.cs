@@ -2,8 +2,6 @@
 using Medical_record.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Medical_record.ViewModels
@@ -54,7 +52,7 @@ namespace Medical_record.ViewModels
             else
             {
                 var result = await _appController.DataContext
-                                         .GetDiagnosesLikeAsync(_FindInput.Trim());
+                                         .Diagnoses.GetDiagnosesLikeAsync(_FindInput.Trim());
                 if (result.HasValue)
                 {
                     SetAndOrderDiagnoses(result);
@@ -81,7 +79,7 @@ namespace Medical_record.ViewModels
         /// <returns></returns>
         internal async Task LoadDataAsync()
         {
-            var result = await _appController.DataContext.GetDiagnosesAsync();
+            var result = await _appController.DataContext.Diagnoses.GetDiagnosesAsync();
             if (result.HasValue)
             {
                 SetAndOrderDiagnoses(result);
@@ -103,7 +101,7 @@ namespace Medical_record.ViewModels
             if (!agreeRemove)
                 return;
 
-            var result = await _appController.DataContext.RemoveDiagnosisAsync(diagnosis.Id);
+            var result = await _appController.DataContext.Diagnoses.RemoveDiagnosisAsync(diagnosis.Id);
             if (result.HasValue)
             {
                 MessagesService.ShowInfoMessage(result.Value);
@@ -131,7 +129,7 @@ namespace Medical_record.ViewModels
                 key = "Description";
             }
 
-            var result = await _appController.DataContext.GetDiagnosesOrderByAsync(key);
+            var result = await _appController.DataContext.Diagnoses.GetDiagnosesOrderByAsync(key);
             if (result.HasValue)
             {
                 SetAndOrderDiagnoses(result);

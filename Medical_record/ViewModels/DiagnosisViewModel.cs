@@ -32,12 +32,12 @@ namespace Medical_record.ViewModels
             if (Id == 0)
             {
                 //запоминаем
-                result = await _appController.DataContext.AddDiagnosisAsync(diagnosis);
+                result = await _appController.DataContext.Diagnoses.AddDiagnosisAsync(diagnosis);
             }
             else
             {
                 //обновляем
-                result = await _appController.DataContext.UpdateDiagnosisAsync(diagnosis);
+                result = await _appController.DataContext.Diagnoses.UpdateDiagnosisAsync(diagnosis);
             }
 
             if (result.HasValue)
