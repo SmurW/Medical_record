@@ -167,7 +167,7 @@
             this._columnSpec.HeaderText = "Специализация";
             this._columnSpec.Name = "_columnSpec";
             this._columnSpec.ReadOnly = true;
-            this._columnSpec.Width = 120;
+            this._columnSpec.Width = 150;
             // 
             // DoctorsView
             // 

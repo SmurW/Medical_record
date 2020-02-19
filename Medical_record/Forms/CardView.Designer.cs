@@ -32,8 +32,6 @@
             this._labelCardNumber = new System.Windows.Forms.Label();
             this._textBoxResidence = new System.Windows.Forms.TextBox();
             this._dateTimePickerRegistrationDate = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this._textBoxPassportDepCode = new System.Windows.Forms.TextBox();
             this._dateTimePickerPassportIssueDate = new System.Windows.Forms.DateTimePicker();
             this._textBoxPassportUFMS = new System.Windows.Forms.TextBox();
@@ -46,7 +44,6 @@
             this._textBoxLastName = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,7 +51,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,8 +90,6 @@
             this.panel1.Controls.Add(this._labelCardNumber);
             this.panel1.Controls.Add(this._textBoxResidence);
             this.panel1.Controls.Add(this._dateTimePickerRegistrationDate);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.textBox9);
             this.panel1.Controls.Add(this._textBoxPassportDepCode);
             this.panel1.Controls.Add(this._dateTimePickerPassportIssueDate);
             this.panel1.Controls.Add(this._textBoxPassportUFMS);
@@ -108,7 +102,6 @@
             this.panel1.Controls.Add(this._textBoxLastName);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
@@ -116,7 +109,6 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -138,37 +130,24 @@
             // 
             // _textBoxResidence
             // 
-            this._textBoxResidence.Location = new System.Drawing.Point(403, 225);
+            this._textBoxResidence.Location = new System.Drawing.Point(127, 187);
             this._textBoxResidence.Name = "_textBoxResidence";
+            this._textBoxResidence.ReadOnly = true;
             this._textBoxResidence.Size = new System.Drawing.Size(140, 20);
             this._textBoxResidence.TabIndex = 61;
             // 
             // _dateTimePickerRegistrationDate
             // 
-            this._dateTimePickerRegistrationDate.Location = new System.Drawing.Point(127, 226);
+            this._dateTimePickerRegistrationDate.Location = new System.Drawing.Point(127, 155);
             this._dateTimePickerRegistrationDate.Name = "_dateTimePickerRegistrationDate";
             this._dateTimePickerRegistrationDate.Size = new System.Drawing.Size(140, 20);
             this._dateTimePickerRegistrationDate.TabIndex = 60;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(127, 191);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(140, 21);
-            this.comboBox2.TabIndex = 59;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(127, 157);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(140, 20);
-            this.textBox9.TabIndex = 58;
             // 
             // _textBoxPassportDepCode
             // 
             this._textBoxPassportDepCode.Location = new System.Drawing.Point(627, 187);
             this._textBoxPassportDepCode.Name = "_textBoxPassportDepCode";
+            this._textBoxPassportDepCode.ReadOnly = true;
             this._textBoxPassportDepCode.Size = new System.Drawing.Size(72, 20);
             this._textBoxPassportDepCode.TabIndex = 57;
             // 
@@ -183,6 +162,7 @@
             // 
             this._textBoxPassportUFMS.Location = new System.Drawing.Point(365, 157);
             this._textBoxPassportUFMS.Name = "_textBoxPassportUFMS";
+            this._textBoxPassportUFMS.ReadOnly = true;
             this._textBoxPassportUFMS.Size = new System.Drawing.Size(291, 20);
             this._textBoxPassportUFMS.TabIndex = 55;
             // 
@@ -190,6 +170,7 @@
             // 
             this._textBoxPassportSeries.Location = new System.Drawing.Point(454, 125);
             this._textBoxPassportSeries.Name = "_textBoxPassportSeries";
+            this._textBoxPassportSeries.ReadOnly = true;
             this._textBoxPassportSeries.Size = new System.Drawing.Size(84, 20);
             this._textBoxPassportSeries.TabIndex = 54;
             // 
@@ -197,6 +178,7 @@
             // 
             this._textBoxPassportNumber.Location = new System.Drawing.Point(320, 125);
             this._textBoxPassportNumber.Name = "_textBoxPassportNumber";
+            this._textBoxPassportNumber.ReadOnly = true;
             this._textBoxPassportNumber.Size = new System.Drawing.Size(84, 20);
             this._textBoxPassportNumber.TabIndex = 53;
             // 
@@ -220,6 +202,7 @@
             this._textBoxMiddleName.BackColor = System.Drawing.SystemColors.MenuBar;
             this._textBoxMiddleName.Location = new System.Drawing.Point(529, 54);
             this._textBoxMiddleName.Name = "_textBoxMiddleName";
+            this._textBoxMiddleName.ReadOnly = true; 
             this._textBoxMiddleName.Size = new System.Drawing.Size(140, 20);
             this._textBoxMiddleName.TabIndex = 50;
             // 
@@ -228,6 +211,7 @@
             this._textBoxFirstName.BackColor = System.Drawing.SystemColors.MenuBar;
             this._textBoxFirstName.Location = new System.Drawing.Point(307, 54);
             this._textBoxFirstName.Name = "_textBoxFirstName";
+            this._textBoxFirstName.ReadOnly = true;
             this._textBoxFirstName.Size = new System.Drawing.Size(140, 20);
             this._textBoxFirstName.TabIndex = 49;
             // 
@@ -236,6 +220,7 @@
             this._textBoxLastName.BackColor = System.Drawing.SystemColors.MenuBar;
             this._textBoxLastName.Location = new System.Drawing.Point(127, 54);
             this._textBoxLastName.Name = "_textBoxLastName";
+            this._textBoxLastName.ReadOnly = true;
             this._textBoxLastName.Size = new System.Drawing.Size(140, 20);
             this._textBoxLastName.TabIndex = 47;
             // 
@@ -253,27 +238,17 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(5, 232);
+            this.label15.Location = new System.Drawing.Point(5, 161);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(116, 13);
             this.label15.TabIndex = 45;
             this.label15.Text = "Дата регистрации";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(5, 160);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(123, 13);
-            this.label14.TabIndex = 44;
-            this.label14.Text = "Место регистрации";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(279, 228);
+            this.label13.Location = new System.Drawing.Point(3, 190);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(118, 13);
             this.label13.TabIndex = 43;
@@ -338,16 +313,6 @@
             this.label7.Size = new System.Drawing.Size(117, 13);
             this.label7.TabIndex = 37;
             this.label7.Text = "Данные паспорта:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(5, 194);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "Гражданство";
             // 
             // label5
             // 
@@ -660,8 +625,6 @@
         private System.Windows.Forms.Label _labelCardNumber;
         private System.Windows.Forms.TextBox _textBoxResidence;
         private System.Windows.Forms.DateTimePicker _dateTimePickerRegistrationDate;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox _textBoxPassportDepCode;
         private System.Windows.Forms.DateTimePicker _dateTimePickerPassportIssueDate;
         private System.Windows.Forms.TextBox _textBoxPassportUFMS;
@@ -674,7 +637,6 @@
         private System.Windows.Forms.TextBox _textBoxLastName;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -682,7 +644,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
