@@ -2,9 +2,9 @@
 using Medical_record.UseControl.ViewModels;
 using Medical_record.Utils;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -90,12 +90,12 @@ namespace Medical_record.ViewModels
             if (LastNameChecked)
             {
                 result = await _appController.DataContext
-                    .GetPatientsByLastNameAsync(InputSearch.Trim());
+                    .Patients.GetPatientsByLastNameAsync(InputSearch.Trim());
             }
             else
             {
                 result = await _appController.DataContext
-                    .GetPatientsByCardNumberAsync(InputSearch.Trim());
+                    .Patients.GetPatientsByCardNumberAsync(InputSearch.Trim());
             }
             LoadPatients(result);
 
@@ -123,7 +123,7 @@ namespace Medical_record.ViewModels
             DataLoading?.Invoke(this, EventArgs.Empty);
             Patients.Clear();
 
-            var result = await _appController.DataContext.GetPatientsAsync();
+            var result = await _appController.DataContext.Patients.GetPatientsAsync();
             LoadPatients(result);
 
             DataLoaded?.Invoke(this, EventArgs.Empty);
@@ -165,7 +165,8 @@ namespace Medical_record.ViewModels
             if (!agreeRemove)
                 return;
 
-            var result = await _appController.DataContext.RemovePatientAsync(patient.Id);
+            var result = await _appController.DataContext
+                .Patients.RemovePatientAsync(patient.Id);
             if (result.HasValue)
             {
                 MessagesService.ShowInfoMessage(result.Value);
@@ -229,7 +230,7 @@ namespace Medical_record.ViewModels
 
             //загружаем из БД Госпитализации для текущ.пациента
             var hosps = await _appController
-                .DataContext.GetHospitalizationsByPatientIdAsync(_currentPatientId);
+                .DataContext.Hospitalizations.GetHospitalizationsByPatientIdAsync(_currentPatientId);
             if (!hosps.HasValue)
                 return;
 
@@ -251,22 +252,25 @@ namespace Medical_record.ViewModels
 
             //загружаем осмотры из БД
             Result<List<Examination>> exams = await _appController
-                .DataContext.GetExaminationsByPatientIdAsync(_currentPatientId);
+                .DataContext.Examinations.GetExaminationsByPatientIdAsync(_currentPatientId);
             if (!exams.HasValue)
                 return;
 
             //загрузка доп.данных из БД
             foreach (Examination exam in exams.Value)
             {
-                var diag = await _appController.DataContext.GetDiagnosisByIdAsync(exam.DiagnosisId);
+                var diag = await _appController.DataContext
+                    .Diagnoses.GetDiagnosisByIdAsync(exam.DiagnosisId);
                 if (diag.HasValue)
                     exam.Diagnosis = diag.Value;
 
-                var doc = await _appController.DataContext.GetDoctorByIdAsync(exam.DoctorId);
+                var doc = await _appController.DataContext
+                    .Doctors.GetDoctorByIdAsync(exam.DoctorId);
                 if (doc.HasValue)
                     exam.Doctor = doc.Value;
 
-                var hg = await _appController.DataContext.GetHealthGroupByIdAsync(exam.HealthGroupId);
+                var hg = await _appController.DataContext
+                    .HealthGroups.GetHealthGroupByIdAsync(exam.HealthGroupId);
                 if (hg.HasValue)
                     exam.HealthGroup = hg.Value;
             }
@@ -288,18 +292,20 @@ namespace Medical_record.ViewModels
 
             //загружаем из БД Наблюдения для текущ.пациента
             var obs = await _appController
-                .DataContext.GetObservationsByPatientIdAsync(_currentPatientId);
+                .DataContext.Observations.GetObservationsByPatientIdAsync(_currentPatientId);
             if (!obs.HasValue)
                 return;
 
             //подгрузка доп.данных из БД
             foreach (Observation ob in obs.Value)
             {
-                var diag = await _appController.DataContext.GetDiagnosisByIdAsync(ob.DiagnosisId);
+                var diag = await _appController.DataContext
+                    .Diagnoses.GetDiagnosisByIdAsync(ob.DiagnosisId);
                 if (diag.HasValue)
                     ob.Diagnosis = diag.Value;
 
-                var doc = await _appController.DataContext.GetDoctorByIdAsync(ob.DoctorId);
+                var doc = await _appController.DataContext
+                    .Doctors.GetDoctorByIdAsync(ob.DoctorId);
                 if (doc.HasValue)
                     ob.Doctor = doc.Value;
             }

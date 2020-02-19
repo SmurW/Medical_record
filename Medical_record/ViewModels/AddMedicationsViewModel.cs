@@ -44,12 +44,14 @@ namespace Medical_record.ViewModels
             if (Id == 0)
             {
                 //запоминаем
-                result = await _appController.DataContext.AddMedicationsAsync(medications);
+                result = await _appController.DataContext
+                    .Medications.AddMedicationsAsync(medications);
             }
             else
             {
                 //обновляем
-                result = await _appController.DataContext.UpdateMedicationsAsync(medications);
+                result = await _appController.DataContext
+                    .Medications.UpdateMedicationsAsync(medications);
             }
 
             if (result.HasValue)

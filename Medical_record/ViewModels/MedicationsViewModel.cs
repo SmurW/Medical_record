@@ -60,7 +60,7 @@ namespace Medical_record.ViewModels
             else
             {
                 var result = await _appController.DataContext
-                                         .GetMedicationsLikeAsync(_FindInput.Trim());
+                                         .Medications.GetMedicationsLikeAsync(_FindInput.Trim());
                 if (result.HasValue)
                 {
                     SetAndOrderMedications(result);
@@ -82,7 +82,7 @@ namespace Medical_record.ViewModels
         /// <returns></returns>
         internal async Task LoadDataAsync()
         {
-            var result = await _appController.DataContext.GetMedicationsAsync();
+            var result = await _appController.DataContext.Medications.GetMedicationsAsync();
             if (result.HasValue)
             {
                 SetAndOrderMedications(result);
@@ -104,7 +104,8 @@ namespace Medical_record.ViewModels
             if (!agreeRemove)
                 return;
 
-            var result = await _appController.DataContext.RemoveMedicationsAsync(medications.Id);
+            var result = await _appController.DataContext
+                .Medications.RemoveMedicationsAsync(medications.Id);
             if (result.HasValue)
             {
                 MessagesService.ShowInfoMessage(result.Value);
@@ -132,7 +133,8 @@ namespace Medical_record.ViewModels
                 key = "Description";
             }
 
-            var result = await _appController.DataContext.GetMedicationsOrderByAsync(key);
+            var result = await _appController.DataContext
+                .Medications.GetMedicationsOrderByAsync(key);
             if (result.HasValue)
             {
                 SetAndOrderMedications(result);

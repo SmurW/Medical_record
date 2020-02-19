@@ -7,7 +7,7 @@ namespace Medical_record.Abstractions
 {
     public interface IObservationDataContext
     {
-        Task<Result<string>> AddObservationAsync(Observation ob);
+        Task<Result<string>> AddObservationAsync(Observation observation);
         Task<Result<int>> GetCountObservationsByPatientIdAsync(int id);
         Task<Result<List<Observation>>> GetObservationsByPatientIdAsync(int patientId);
     }

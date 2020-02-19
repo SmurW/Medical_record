@@ -37,7 +37,7 @@ namespace Medical_record.ViewModels
             var result = new Result<string>("Error");
             var doctor = GetDoctor((specObj as Specialization).Id);
             //запоминаем
-            result = await _appController.DataContext.AddDoctorAsync(doctor);
+            result = await _appController.DataContext.Doctors.AddDoctorAsync(doctor);
 
             if (result.HasValue)
             {
@@ -58,7 +58,7 @@ namespace Medical_record.ViewModels
         {
             //доктора
             Doctors.Clear();
-            var doctors = await _appController.DataContext.GetDoctorsAsync();
+            var doctors = await _appController.DataContext.Doctors.GetDoctorsAsync();
             if (doctors.HasValue)
             {
                 int num = 0;
@@ -70,7 +70,7 @@ namespace Medical_record.ViewModels
             }
 
             //специализации
-            var specs = await _appController.DataContext.GetSpecializationsAsync();
+            var specs = await _appController.DataContext.Specializations.GetSpecializationsAsync();
             if (specs.HasValue)
             {
                 Specializations.Clear();

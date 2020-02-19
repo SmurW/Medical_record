@@ -166,6 +166,17 @@
     <Compile Include="Data\Models\Procedure.cs" />
     <Compile Include="Data\Models\Specialization.cs" />
     <Compile Include="Data\TestDataContext.cs" />
+    <Compile Include="Data\TestData\DataSource.cs" />
+    <Compile Include="Data\TestData\TestDiagnosesDataContext.cs" />
+    <Compile Include="Data\TestData\TestDoctorDataContext.cs" />
+    <Compile Include="Data\TestData\TestExaminationDataContext.cs" />
+    <Compile Include="Data\TestData\TestHealthGroupDataContext.cs" />
+    <Compile Include="Data\TestData\TestHospitalizationDataContext.cs" />
+    <Compile Include="Data\TestData\TestMedicationsDataContext.cs" />
+    <Compile Include="Data\TestData\TestObservationDataContext.cs" />
+    <Compile Include="Data\TestData\TestPatientDataContext.cs" />
+    <Compile Include="Data\TestData\TestProcedureDataContext.cs" />
+    <Compile Include="Data\TestData\TestSpecializationDataContext.cs" />
     <Compile Include="Forms\DoctorsView.cs">
       <SubType>Form</SubType>
     </Compile>
