@@ -1,9 +1,9 @@
 ﻿using Medical_record.Abstractions;
-using Medical_record.Data.SQLServerData;
+using Medical_record.Data.MsSqlData;
 
 namespace Medical_record.Data
 {
-    public class SqlServerDataContext : IDataContext
+    public class MsSqlDataContext : IDataContext
     {
         private readonly ConnectionService _connectionService;
         public IDiagnosisDataContext Diagnoses { get; }
@@ -17,7 +17,7 @@ namespace Medical_record.Data
         public IProcedureDataContext Procedures { get; }
         public ISpecializationDataContext Specializations { get; }
 
-        public SqlServerDataContext()
+        public MsSqlDataContext()
         {
             _connectionService = new ConnectionService();
 

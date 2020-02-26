@@ -154,7 +154,7 @@
     <Compile Include="Abstractions\IProcedureDataContext.cs" />
     <Compile Include="Abstractions\ISpecializationDataContext.cs" />
     <Compile Include="AppController.cs" />
-    <Compile Include="Data\SqlServerDataContext.cs" />
+    <Compile Include="Data\MsSqlDataContext.cs" />
     <Compile Include="Data\Models\Diagnosis.cs" />
     <Compile Include="Data\Models\Examination.cs" />
     <Compile Include="Data\Models\HealthGroup.cs" />
@@ -165,8 +165,8 @@
     <Compile Include="Data\Models\Patient.cs" />
     <Compile Include="Data\Models\Procedure.cs" />
     <Compile Include="Data\Models\Specialization.cs" />
-    <Compile Include="Data\SQLServerData\ConnectionService.cs" />
-    <Compile Include="Data\SQLServerData\SqlServerDiagnoses.cs" />
+    <Compile Include="Data\MsSqlData\ConnectionService.cs" />
+    <Compile Include="Data\MsSqlData\SqlServerDiagnoses.cs" />
     <Compile Include="Data\TestDataContext.cs" />
     <Compile Include="Data\TestData\DataSource.cs" />
     <Compile Include="Data\TestData\TestDiagnosesDataContext.cs" />

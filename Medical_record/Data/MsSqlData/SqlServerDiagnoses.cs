@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Medical_record.Data.SQLServerData
+namespace Medical_record.Data.MsSqlData
 {
     public class SqlServerDiagnoses : IDiagnosisDataContext
     {
