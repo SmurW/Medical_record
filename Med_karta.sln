@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CDF09049
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerDataContext.Tests", "SqlServerDataContext.Tests\SqlServerDataContext.Tests.csproj", "{B1F42C02-7B13-4A2D-B117-992545CD7FA0}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MedicalRecord.DataBase", "MedicalRecord.DataBase\MedicalRecord.DataBase.sqlproj", "{14943DFA-CD1F-42A6-AB35-B029B2E8E695}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,24 @@ Global
 		{B1F42C02-7B13-4A2D-B117-992545CD7FA0}.Release|x64.Build.0 = Release|Any CPU
 		{B1F42C02-7B13-4A2D-B117-992545CD7FA0}.Release|x86.ActiveCfg = Release|Any CPU
 		{B1F42C02-7B13-4A2D-B117-992545CD7FA0}.Release|x86.Build.0 = Release|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Debug|x64.Build.0 = Debug|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Debug|x86.Build.0 = Debug|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Release|x64.ActiveCfg = Release|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Release|x64.Build.0 = Release|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Release|x64.Deploy.0 = Release|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Release|x86.ActiveCfg = Release|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Release|x86.Build.0 = Release|Any CPU
+		{14943DFA-CD1F-42A6-AB35-B029B2E8E695}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
