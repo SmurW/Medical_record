@@ -165,6 +165,7 @@
     <Compile Include="Data\Models\Patient.cs" />
     <Compile Include="Data\Models\Procedure.cs" />
     <Compile Include="Data\Models\Specialization.cs" />
+    <Compile Include="Data\SQLServerData\ConnectionService.cs" />
     <Compile Include="Data\SQLServerData\SqlServerDiagnoses.cs" />
     <Compile Include="Data\TestDataContext.cs" />
     <Compile Include="Data\TestData\DataSource.cs" />

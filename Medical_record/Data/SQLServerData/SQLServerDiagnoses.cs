@@ -6,11 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Medical_record.Data.SQLServerData
 {
     public class SqlServerDiagnoses : IDiagnosisDataContext
     {
+        private readonly ConnectionService _conService;
+
+        public SqlServerDiagnoses(ConnectionService connectionService)
+        {
+            _conService = connectionService;
+        }
+
         public Task<Result<List<Diagnosis>>> GetDiagnosesAsync()
         {
             throw new NotImplementedException();
