@@ -65,10 +65,16 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Diagnoses.sql" />
     <Build Include="dbo\StoredProcedures\spDiagnoses_GetAll.sql" />
+    <Build Include="dbo\StoredProcedures\spDiagnoses_GetAllWithOrder.sql" />
+    <Build Include="dbo\StoredProcedures\spDiagnoses_GetLike.sql" />
+    <Build Include="dbo\StoredProcedures\spDiagnoses_GetById.sql" />
+    <None Include="TestScripts\DiagnosesQueries.sql" />
+    <Build Include="dbo\StoredProcedures\spDiagnoses_Update.sql" />
+    <Build Include="dbo\StoredProcedures\spDiagnoses_Remove.sql" />
+    <Build Include="dbo\StoredProcedures\spDiagnoses_Add.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MedicalRecord.DataBase.publish.xml" />
     <None Include="TestData\Diagnoses.sql" />
-    <None Include="TestData\DiagnosesQueries.sql" />
   </ItemGroup>
 </Project>

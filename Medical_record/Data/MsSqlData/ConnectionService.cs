@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Medical_record.Data.MsSqlData
 {
     public class ConnectionService
     {
-        public SqlConnection GetConnection()
+        private readonly string _connectionString = @"Data Source=(localdb)\MSSQLLocalDB;" +
+            "Initial Catalog=MedicalRecord;" +
+            "Integrated Security=True;" +
+            "Connect Timeout=60;Encrypt=False;" +
+            "TrustServerCertificate=False;" +
+            "ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        public ConnectionService()
         {
-            throw new NotImplementedException();
+            //Для работы без тестов
+            //_connectionString = ConfigurationManager.
+            //    ConnectionStrings["MsSqlData"].ToString();
         }
+
+        public SqlConnection GetConnection() => new SqlConnection(_connectionString);
     }
 }

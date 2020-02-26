@@ -20,19 +20,137 @@ namespace Medical_record.Data.MsSqlData
             _conService = connectionService;
         }
 
-        public Task<Result<List<Diagnosis>>> GetDiagnosesAsync()
+        public async Task<Result<List<Diagnosis>>> GetDiagnosesAsync()
         {
-            throw new NotImplementedException();
+            var diagnoses = new List<Diagnosis>();
+            var nameProc = @"[dbo].[spDiagnoses_GetAll]";
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var d = new Diagnosis
+                                {
+                                    Id = reader.GetInt32(0),
+                                    Name = reader.GetString(1),
+                                    Description = reader.GetString(2),
+                                };
+                                diagnoses.Add(d);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<List<Diagnosis>>(ex.Message);
+            }
+
+            return new Result<List<Diagnosis>>(diagnoses);
         }
 
-        public Task<Result<List<Diagnosis>>> GetDiagnosesLikeAsync(string value)
+        public async Task<Result<List<Diagnosis>>> GetDiagnosesLikeAsync(string value)
         {
-            throw new NotImplementedException();
+            if (String.IsNullOrWhiteSpace(value))
+            {
+                return await GetDiagnosesAsync();
+            }
+
+            var diagnoses = new List<Diagnosis>();
+            var nameProc = @"[dbo].[spDiagnoses_GetLike]";
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    var param = new SqlParameter();
+                    param.ParameterName = "@value";
+                    param.SqlDbType = SqlDbType.NVarChar;
+                    param.Value = value;
+
+                    cmd.Parameters.Add(param);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var d = new Diagnosis
+                                {
+                                    Id = reader.GetInt32(0),
+                                    Name = reader.GetString(1),
+                                    Description = reader.GetString(2),
+                                };
+                                diagnoses.Add(d);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<List<Diagnosis>>(ex.Message);
+            }
+
+            return new Result<List<Diagnosis>>(diagnoses);
         }
 
-        public Task<Result<List<Diagnosis>>> GetDiagnosesOrderByAsync(string key)
+        public async Task<Result<List<Diagnosis>>> GetDiagnosesOrderByAsync(string key)
         {
-            throw new NotImplementedException();
+            if (String.IsNullOrWhiteSpace(key))
+            {
+                return await GetDiagnosesAsync();
+            }
+
+            var diagnoses = new List<Diagnosis>();
+            var nameProc = @"[dbo].[spDiagnoses_GetAllWithOrder]";
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    var param = new SqlParameter();
+                    param.ParameterName = "@key";
+                    param.SqlDbType = SqlDbType.VarChar;
+                    param.Value = key;
+
+                    cmd.Parameters.Add(param);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var d = new Diagnosis
+                                {
+                                    Id = reader.GetInt32(0),
+                                    Name = reader.GetString(1),
+                                    Description = reader.GetString(2),
+                                };
+                                diagnoses.Add(d);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<List<Diagnosis>>(ex.Message);
+            }
+
+            return new Result<List<Diagnosis>>(diagnoses);
         }
 
         public Task<Result<Diagnosis>> GetDiagnosisByIdAsync(int diagnosisId)
