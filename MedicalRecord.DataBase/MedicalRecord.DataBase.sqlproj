@@ -59,8 +59,16 @@
     <Folder Include="dbo" />
     <Folder Include="TestData" />
     <Folder Include="TestScripts" />
-    <Folder Include="Publish" />
     <Folder Include="dbo\Tables" />
     <Folder Include="dbo\StoredProcedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Diagnoses.sql" />
+    <Build Include="dbo\StoredProcedures\spDiagnoses_GetAll.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MedicalRecord.DataBase.publish.xml" />
+    <None Include="TestData\Diagnoses.sql" />
+    <None Include="TestData\DiagnosesQueries.sql" />
   </ItemGroup>
 </Project>
