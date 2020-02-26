@@ -9,4 +9,5 @@ BEGIN
 	VALUES
 		(@name, @desc);
 
+	SELECT SCOPE_IDENTITY(); --возвращает Id только что вставленного
 END

@@ -15,7 +15,7 @@ namespace Medical_record.Utils
 
         //ctors
         /// <summary>
-        /// В случае результата
+        /// В случае результата, кроме типа string
         /// </summary>
         /// <param name="value"></param>
         public Result(T value)
@@ -35,7 +35,7 @@ namespace Medical_record.Utils
             Error = error;
         }
         /// <summary>
-        /// В случае Result<string>
+        /// В случае Result типа string
         /// </summary>
         /// <param name="valueString">строковый результат</param>
         /// <param name="errorEmpty">должен быть String.Empty</param>
