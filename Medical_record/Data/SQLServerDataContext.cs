@@ -2,7 +2,7 @@
 
 namespace Medical_record.Data
 {
-    class DbDataContext : IDataContext
+    public class SqlServerDataContext : IDataContext
     {
         public IDiagnosisDataContext Diagnoses { get; }
         public IDoctorDataContext Doctors { get; }
