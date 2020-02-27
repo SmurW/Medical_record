@@ -129,6 +129,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -154,7 +155,7 @@
     <Compile Include="Abstractions\IProcedureDataContext.cs" />
     <Compile Include="Abstractions\ISpecializationDataContext.cs" />
     <Compile Include="AppController.cs" />
-    <Compile Include="Data\DbDataContext.cs" />
+    <Compile Include="Data\MsSqlDataContext.cs" />
     <Compile Include="Data\Models\Diagnosis.cs" />
     <Compile Include="Data\Models\Examination.cs" />
     <Compile Include="Data\Models\HealthGroup.cs" />
@@ -165,6 +166,8 @@
     <Compile Include="Data\Models\Patient.cs" />
     <Compile Include="Data\Models\Procedure.cs" />
     <Compile Include="Data\Models\Specialization.cs" />
+    <Compile Include="Data\MsSqlData\ConnectionService.cs" />
+    <Compile Include="Data\MsSqlData\SqlServerDiagnoses.cs" />
     <Compile Include="Data\TestDataContext.cs" />
     <Compile Include="Data\TestData\DataSource.cs" />
     <Compile Include="Data\TestData\TestDiagnosesDataContext.cs" />
@@ -391,5 +394,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
