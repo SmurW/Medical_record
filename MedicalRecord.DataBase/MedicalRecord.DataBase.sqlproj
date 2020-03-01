@@ -74,7 +74,7 @@
     <Build Include="dbo\StoredProcedures\spDiagnoses_Add.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MedicalRecord.DataBase.publish.xml" />
     <None Include="TestData\Diagnoses.sql" />
+    <None Include="MedicalRecord.DataBase.publish.xml" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,6 @@ using Medical_record.Data.Models;
 using Medical_record.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SqlServerDataContext.Tests
