@@ -50,8 +50,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SqlServerDiagnosesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerDiagnosesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
