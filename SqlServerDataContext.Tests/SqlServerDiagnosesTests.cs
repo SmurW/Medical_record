@@ -118,8 +118,8 @@ namespace SqlServerDataContext.Tests
             var diag = new Diagnosis
             {
                 Id = 1,
-                Name = "Новый диагноз из теста",
-                Description = "Новое описание из теста"
+                Name = "Новый 1 диагноз из теста",
+                Description = "Новое 1 описание из теста"
             };
             IDataContext sut = new MsSqlDataContext();
 
