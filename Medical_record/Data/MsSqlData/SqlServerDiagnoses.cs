@@ -3,11 +3,9 @@ using Medical_record.Data.Models;
 using Medical_record.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace Medical_record.Data.MsSqlData
 {
@@ -30,7 +28,7 @@ namespace Medical_record.Data.MsSqlData
                 using (var cmd = new SqlCommand(nameProc, con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    con.Open();
+                    await con.OpenAsync();
                     using (var reader = await cmd.ExecuteReaderAsync())
                     {
                         if (reader.HasRows)
@@ -78,7 +76,7 @@ namespace Medical_record.Data.MsSqlData
 
                     cmd.Parameters.Add(param);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    con.Open();
+                    await con.OpenAsync();
                     using (var reader = await cmd.ExecuteReaderAsync())
                     {
                         if (reader.HasRows)
@@ -126,7 +124,7 @@ namespace Medical_record.Data.MsSqlData
 
                     cmd.Parameters.Add(param);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    con.Open();
+                    await con.OpenAsync();
                     using (var reader = await cmd.ExecuteReaderAsync())
                     {
                         if (reader.HasRows)
@@ -174,7 +172,7 @@ namespace Medical_record.Data.MsSqlData
 
                     cmd.Parameters.Add(param);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    con.Open();
+                    await con.OpenAsync();
                     using (var reader = await cmd.ExecuteReaderAsync())
                     {
                         if (await reader.ReadAsync())
@@ -229,7 +227,7 @@ namespace Medical_record.Data.MsSqlData
                     cmd.Parameters.Add(paramDesc);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    con.Open();
+                    await con.OpenAsync();
                     res = await cmd.ExecuteScalarAsync();
                 }
             }
@@ -262,7 +260,7 @@ namespace Medical_record.Data.MsSqlData
                     cmd.Parameters.Add(paramId);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    con.Open();
+                    await con.OpenAsync();
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
@@ -312,7 +310,7 @@ namespace Medical_record.Data.MsSqlData
                     cmd.Parameters.Add(paramDesc);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    con.Open();
+                    await con.OpenAsync();
                     await cmd.ExecuteNonQueryAsync();
                 }
             }
