@@ -2,10 +2,10 @@
 USE [MedicalRecord]
 GO
 
-SET IDENTITY_INSERT dbo.Diagnoses ON;
+SET IDENTITY_INSERT [dbo].[Diagnoses] ON;
 GO
 
-INSERT INTO dbo.Diagnoses
+INSERT INTO [dbo].[Diagnoses]
 	(Id, Name, Description, IsDeleted)
 VALUES
 	(1, N'Грипп', N'Острое инфекционное заболевание дыхательных путей, вызываемое вирусом гриппа. Входит в группу острых респираторных вирусных инфекций (ОРВИ). Периодически распространяется в виде эпидемий.', 0),
@@ -14,5 +14,5 @@ VALUES
 	(4, N'Диаре́я', N'Патологическое состояние, при котором у больного наблюдается учащённая (более 3 раз в сутки) дефекация, при этом стул становится водянистым, имеет объём более 200 мл и часто сопровождается болевыми ощущениями в области живота, экстренными позывами и анальным недержанием.', 0);
 GO
 
-SET IDENTITY_INSERT dbo.Diagnoses OFF;
+SET IDENTITY_INSERT [dbo].[Diagnoses] OFF;
 GO
