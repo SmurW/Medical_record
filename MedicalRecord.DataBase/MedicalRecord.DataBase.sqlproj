@@ -80,11 +80,13 @@
     <Build Include="dbo\StoredProcedures\spProcedures_GetLike.sql" />
     <Build Include="dbo\StoredProcedures\spProcedures_Remove.sql" />
     <Build Include="dbo\StoredProcedures\spProcedures_Update.sql" />
+    <Build Include="dbo\Tables\Medications.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MedicalRecord.DataBase.publish.xml" />
     <None Include="TestData\Procedures.sql" />
     <None Include="TestScripts\ProceduresQueries.sql" />
     <None Include="TestData\Diagnoses.sql" />
+    <None Include="TestData\Medications.sql" />
   </ItemGroup>
 </Project>
