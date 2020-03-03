@@ -23,6 +23,7 @@ namespace Medical_record.Data
 
             Diagnoses = new SqlServerDiagnoses(_connectionService);
             Procedures = new SqlServerProcedures(_connectionService);
+            Medications = new SqlServerMedications(_connectionService);
         }
     }
 }

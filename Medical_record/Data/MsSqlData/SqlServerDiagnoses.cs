@@ -15,7 +15,8 @@ namespace Medical_record.Data.MsSqlData
 
         public SqlServerDiagnoses(ConnectionService connectionService)
         {
-            _conService = connectionService;
+            _conService = connectionService ??
+                throw new ArgumentNullException(nameof(connectionService));
         }
 
         public async Task<Result<List<Diagnosis>>> GetDiagnosesAsync()

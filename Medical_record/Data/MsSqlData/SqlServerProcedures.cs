@@ -15,7 +15,8 @@ namespace Medical_record.Data.MsSqlData
 
         public SqlServerProcedures(ConnectionService connectionService)
         {
-            _conService = connectionService;
+            _conService = connectionService ??
+                throw new ArgumentNullException(nameof(connectionService));
         }
 
         public async Task<Result<string>> AddProcedureAsync(Procedure procedure)

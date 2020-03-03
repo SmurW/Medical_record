@@ -61,8 +61,8 @@ namespace SqlServerDataContext.Tests
             Result<List<Diagnosis>> result = await sut.Diagnoses.GetDiagnosesLikeAsync(value);
 
             Assert.IsTrue(result.HasValue);
-            Assert.IsTrue(result.Value.Count == 1);
-            Assert.AreEqual(name, result.Value[0].Name);
+            Assert.IsTrue(result.Value.Count > 0);
+            Assert.IsTrue(result.Value[0].Name.Contains(name));
         }
 
         [TestMethod]
