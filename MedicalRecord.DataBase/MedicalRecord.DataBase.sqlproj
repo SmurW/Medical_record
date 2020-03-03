@@ -81,6 +81,12 @@
     <Build Include="dbo\StoredProcedures\spProcedures_Remove.sql" />
     <Build Include="dbo\StoredProcedures\spProcedures_Update.sql" />
     <Build Include="dbo\Tables\Medications.sql" />
+    <Build Include="dbo\StoredProcedures\spMedications_GetAll.sql" />
+    <Build Include="dbo\StoredProcedures\spMedications_GetAllWithOrder.sql" />
+    <Build Include="dbo\StoredProcedures\spMedications_GetLike.sql" />
+    <Build Include="dbo\StoredProcedures\spMedications_Update.sql" />
+    <Build Include="dbo\StoredProcedures\spMedications_Remove.sql" />
+    <Build Include="dbo\StoredProcedures\spMedications_Add.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MedicalRecord.DataBase.publish.xml" />
@@ -88,5 +94,6 @@
     <None Include="TestScripts\ProceduresQueries.sql" />
     <None Include="TestData\Diagnoses.sql" />
     <None Include="TestData\Medications.sql" />
+    <None Include="TestScripts\MedicationsQueries.sql" />
   </ItemGroup>
 </Project>
