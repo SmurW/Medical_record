@@ -217,11 +217,11 @@ namespace Medical_record.Data.TestData
                 Name = "Арбидол",
                 Description = "Капсулы твердые желатиновые, размер №0, белого цвета",
                 ArrivalDate = DateTime.Parse("23.03.1984"),
-                ArrivalPackages = "капсулы 200 мг: 20 шт.",
                 ShelfLife = DateTime.Parse("23.03.1986"),
-                QuantityPackage = 105,
-                RestPackages = 30,
-                RemainedUnits = "",
+                ArrivalPackages = 200,
+                RestPackages = 100,
+                QuantityPackage = 50,
+                RemainedUnits = 5,
             };
             Medications.Add(m);
 
@@ -231,11 +231,11 @@ namespace Medical_record.Data.TestData
                 Name = "Глюкофаж",
                 Description = "Таблетки белые, круглые, двояковыпуклые, покрытые пленочной оболочкой",
                 ArrivalDate = DateTime.Parse("20.06.1987"),
-                ArrivalPackages = "Таблетки 500 и 850 мг",
                 ShelfLife = DateTime.Parse("13.01.1989"),
-                QuantityPackage = 67,
-                RestPackages = 28,
-                RemainedUnits = "",
+                ArrivalPackages = 200,
+                RestPackages = 100,
+                QuantityPackage = 50,
+                RemainedUnits = 5,
             };
             Medications.Add(m);
 
@@ -245,11 +245,11 @@ namespace Medical_record.Data.TestData
                 Name = "Пирацетам",
                 Description = "Ноотропное средство. Оказывает положительное влияние на обменные процессы и кровообращение мозга.",
                 ArrivalDate = DateTime.Parse("13.05.1987"),
-                ArrivalPackages = "Таблетки, покрытые пленочной оболочкой",
                 ShelfLife = DateTime.Parse("13.09.1989"),
-                QuantityPackage = 34,
-                RestPackages = 23,
-                RemainedUnits = "",
+                ArrivalPackages = 200,
+                RestPackages = 100,
+                QuantityPackage = 50,
+                RemainedUnits = 5,
             };
             Medications.Add(m);
         }
