@@ -65,34 +65,6 @@ namespace SqlServerDataContext.Tests
             Assert.AreEqual(name, result.Value[0].Name);
         }
 
-        //[TestMethod]
-        //[Description("Получение процедуры по cуществующему Id")]
-        //public async Task GetProceduresByIdAsync_WhenValidId_ReturnsProcedures()
-        //{
-        //    var id = 1;
-        //    IDataContext sut = new MsSqlDataContext();
-
-        //    Result<Procedure> result = await sut.Procedures.GetProceduresByIdAsync(id);
-
-        //    Assert.IsTrue(result.HasValue);
-        //    Assert.AreEqual(id, result.Value.Id);
-        //    Assert.IsFalse(string.IsNullOrEmpty(result.Value.Name));
-        //    Assert.IsFalse(string.IsNullOrEmpty(result.Value.Description));
-        //}
-
-        //[TestMethod]
-        //[Description("Получение процедуры по не существ. Id приводит к возвр.ошибки")]
-        //public async Task GetProceduresByIdAsync_WhenNotValidId_ReturnsError()
-        //{
-        //    var id = 1000;
-        //    IDataContext sut = new MsSqlDataContext();
-
-        //    Result<Procedure> result = await sut.Procedures.GetProceduresByIdAsync(id);
-
-        //    Assert.IsFalse(result.HasValue);
-        //    Assert.IsFalse(string.IsNullOrEmpty(result.Error));
-        //}
-
         [TestMethod]
         [Description("Добавление новой процедуры с корректными свойствами успешно")]
         [Ignore("Требуется отдельный запуск")]

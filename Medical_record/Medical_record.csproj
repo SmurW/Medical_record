@@ -156,8 +156,10 @@
     <Compile Include="Data\Models\Specialization.cs" />
     <Compile Include="Data\MsSqlData\ConnectionService.cs" />
     <Compile Include="Data\MsSqlData\SqlServerDiagnoses.cs" />
+    <Compile Include="Data\MsSqlData\SqlServerHealthGroups.cs" />
     <Compile Include="Data\MsSqlData\SqlServerMedications.cs" />
     <Compile Include="Data\MsSqlData\SqlServerProcedures.cs" />
+    <Compile Include="Data\MsSqlData\SqlServerSpecializations.cs" />
     <Compile Include="Data\TestDataContext.cs" />
     <Compile Include="Data\TestData\DataSource.cs" />
     <Compile Include="Data\TestData\TestDiagnosesDataContext.cs" />

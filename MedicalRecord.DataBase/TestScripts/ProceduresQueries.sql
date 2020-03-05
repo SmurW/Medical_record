@@ -22,7 +22,7 @@ GO
 --GO
 
 --процедура GetLike
---EXEC dbo.spProcedures_GetLike N'Диа';
+--EXEC dbo.spProcedures_GetLike N'Про';
 --GO
 
 --процедура GetById

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Specializations]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(50) NOT NULL UNIQUE, 
+    [IsDeleted] BIT NOT NULL DEFAULT 0
+)
