@@ -44,11 +44,11 @@ namespace Medical_record.ViewModels
 
             if (result.HasValue)
             {
-                MessagesService.ShowInfoMessage(result.Value);
+                _appController.MessageService.ShowInfoMessage(result.Value);
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 

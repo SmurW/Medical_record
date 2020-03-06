@@ -1,11 +1,7 @@
 ﻿using Medical_record.Abstractions;
 using Medical_record.Data;
-using Medical_record.Forms;
-using Medical_record.ViewModels;
+using Medical_record.Utils;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Medical_record
@@ -26,7 +22,12 @@ namespace Medical_record
             //БД
             //IDataContext dataContext = new DbDataContext();
 
-            var appController = new AppController(dataContext);
+            //сервис сообщений
+            IMessageService messageService = new MessagesService();
+
+            //контроллер приложения
+            var appController = new AppController(dataContext, messageService);
+            //получаем гл.форму
             var mainForm = appController.GetMainForm();
 
             Application.Run(mainForm);
