@@ -59,7 +59,7 @@ namespace Medical_record.ViewModels
 
             if (!result.HasValue)
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
                 return;
             }
 
@@ -74,11 +74,11 @@ namespace Medical_record.ViewModels
                 }
                 else
                 {
-                    MessagesService.ShowErrorMessage(resultId.Error);
+                    _appController.MessageService.ShowErrorMessage(resultId.Error);
                     return;
                 }
             }
-            MessagesService.ShowInfoMessage(result.Value);
+            _appController.MessageService.ShowInfoMessage(result.Value);
         }
 
         /// <summary>
@@ -96,11 +96,11 @@ namespace Medical_record.ViewModels
                 .Observations.AddObservationAsync(ob);
             if (result.HasValue)
             {
-                MessagesService.ShowInfoMessage(result.Value);
+                _appController.MessageService.ShowInfoMessage(result.Value);
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 
@@ -116,11 +116,11 @@ namespace Medical_record.ViewModels
                 .Hospitalizations.AddHospitalizationAsync(hosp);
             if (result.HasValue)
             {
-                MessagesService.ShowInfoMessage(result.Value);
+                _appController.MessageService.ShowInfoMessage(result.Value);
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 
@@ -136,11 +136,11 @@ namespace Medical_record.ViewModels
                 .Examinations.AddExaminationAsync(exam);
             if (result.HasValue)
             {
-                MessagesService.ShowInfoMessage(result.Value);
+                _appController.MessageService.ShowInfoMessage(result.Value);
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 
@@ -236,7 +236,7 @@ namespace Medical_record.ViewModels
             if (Id == 0)
             {
                 var message = "Необходимо сначала сохранить данные о пациенте!";
-                MessagesService.ShowInfoMessage(message);
+                _appController.MessageService.ShowInfoMessage(message);
                 return;
             }
 

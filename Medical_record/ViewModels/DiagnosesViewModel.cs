@@ -59,7 +59,7 @@ namespace Medical_record.ViewModels
                 }
                 else
                 {
-                    MessagesService.ShowErrorMessage(result.Error);
+                    _appController.MessageService.ShowErrorMessage(result.Error);
                 }
             }
 
@@ -86,7 +86,7 @@ namespace Medical_record.ViewModels
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 
@@ -97,18 +97,18 @@ namespace Medical_record.ViewModels
         internal async void RemoveDiagnosis(Diagnosis diagnosis)
         {
             var message = $"Вы согласны удалить диагноз {diagnosis.Name}?";
-            bool agreeRemove = MessagesService.GetAgree(message);
+            bool agreeRemove = _appController.MessageService.GetAgree(message);
             if (!agreeRemove)
                 return;
 
             var result = await _appController.DataContext.Diagnoses.RemoveDiagnosisAsync(diagnosis.Id);
             if (result.HasValue)
             {
-                MessagesService.ShowInfoMessage(result.Value);
+                _appController.MessageService.ShowInfoMessage(result.Value);
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 
@@ -136,7 +136,7 @@ namespace Medical_record.ViewModels
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 

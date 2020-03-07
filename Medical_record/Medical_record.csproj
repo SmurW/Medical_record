@@ -138,6 +138,7 @@
     <Compile Include="Abstractions\IHospitalizationDataContext.cs" />
     <Compile Include="Abstractions\IInputUcViewModel.cs" />
     <Compile Include="Abstractions\IMedicationsDataContext.cs" />
+    <Compile Include="Abstractions\IMessageService.cs" />
     <Compile Include="Abstractions\IObservationDataContext.cs" />
     <Compile Include="Abstractions\IPatientDataContext.cs" />
     <Compile Include="Abstractions\IProcedureDataContext.cs" />
