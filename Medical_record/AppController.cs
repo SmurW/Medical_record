@@ -13,14 +13,11 @@ namespace Medical_record
     {
         private readonly MainForm_MedicalRecord _mainForm;
         public IDataContext DataContext { get; }
-        public IMessageService MessageService { get; }
 
-        public AppController(IDataContext dataContext, IMessageService messageService)
+        public AppController(IDataContext dataContext)
         {
             DataContext = dataContext ??
                 throw new ArgumentNullException(nameof(dataContext));
-            MessageService = messageService ??
-                throw new ArgumentNullException(nameof(messageService));
 
             var vm = new MainViewModel(this);
             _mainForm = new MainForm_MedicalRecord(vm);

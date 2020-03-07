@@ -150,7 +150,7 @@ namespace Medical_record.ViewModels
             }
             else
             {
-                _appController.MessageService.ShowErrorMessage(result.Error);
+                MessagesService.ShowErrorMessage(result.Error);
                 _currentPatientId = 0;
             }
         }
@@ -161,7 +161,7 @@ namespace Medical_record.ViewModels
         internal async void RemovePatient(Patient patient)
         {
             var message = $"Вы согласны удалить запись о пациенте с картой №{patient.CardNumber}?";
-            bool agreeRemove = _appController.MessageService.GetAgree(message);
+            bool agreeRemove = MessagesService.GetAgree(message);
             if (!agreeRemove)
                 return;
 
@@ -169,11 +169,11 @@ namespace Medical_record.ViewModels
                 .Patients.RemovePatientAsync(patient.Id);
             if (result.HasValue)
             {
-                _appController.MessageService.ShowInfoMessage(result.Value);
+                MessagesService.ShowInfoMessage(result.Value);
             }
             else
             {
-                _appController.MessageService.ShowErrorMessage(result.Error);
+                MessagesService.ShowErrorMessage(result.Error);
             }
         }
 

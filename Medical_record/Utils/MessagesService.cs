@@ -1,21 +1,21 @@
-﻿using Medical_record.Abstractions;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Medical_record.Utils
 {
-    public class MessagesService : IMessageService
+    static class MessagesService
     {
-        public void ShowInfoMessage(string message)
+        internal static void ShowInfoMessage(string message)
         {
             MessageBox.Show(message, "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void ShowErrorMessage(string message)
+        internal static void ShowErrorMessage(string message)
         {
             MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public bool GetAgree(string message)
+        internal static bool GetAgree(string message)
         {
             var result = MessageBox.Show(message, "Вопрос",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);

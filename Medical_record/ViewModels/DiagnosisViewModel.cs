@@ -42,11 +42,11 @@ namespace Medical_record.ViewModels
 
             if (result.HasValue)
             {
-                _appController.MessageService.ShowInfoMessage(result.Value);
+                MessagesService.ShowInfoMessage(result.Value);
             }
             else
             {
-                _appController.MessageService.ShowErrorMessage(result.Error);
+                MessagesService.ShowErrorMessage(result.Error);
             }
         }
 
