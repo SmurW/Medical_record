@@ -67,7 +67,7 @@ namespace Medical_record.ViewModels
                 }
                 else
                 {
-                    MessagesService.ShowErrorMessage(result.Error);
+                    _appController.MessageService.ShowErrorMessage(result.Error);
                 }
             }
 
@@ -89,7 +89,7 @@ namespace Medical_record.ViewModels
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 
@@ -100,7 +100,7 @@ namespace Medical_record.ViewModels
         internal async void RemoveMedications(Medications medications)
         {
             var message = $"Вы согласны удалить лекарство {medications.Name}?";
-            bool agreeRemove = MessagesService.GetAgree(message);
+            bool agreeRemove = _appController.MessageService.GetAgree(message);
             if (!agreeRemove)
                 return;
 
@@ -108,11 +108,11 @@ namespace Medical_record.ViewModels
                 .Medications.RemoveMedicationsAsync(medications.Id);
             if (result.HasValue)
             {
-                MessagesService.ShowInfoMessage(result.Value);
+                _appController.MessageService.ShowInfoMessage(result.Value);
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 
@@ -141,7 +141,7 @@ namespace Medical_record.ViewModels
             }
             else
             {
-                MessagesService.ShowErrorMessage(result.Error);
+                _appController.MessageService.ShowErrorMessage(result.Error);
             }
         }
 
