@@ -5,8 +5,8 @@ BEGIN
 	
 	SELECT
 		[Id],
-		[Title],
-		[Description]
+		[Title]
 	FROM [dbo].[HealthGroups]
-	WHERE [IsDeleted] = 0; --исключаем из выборки удаленные группы здаровья
+	WHERE [IsDeleted] = 0; --исключаем из выборки удаленные группы помощи
+
 END

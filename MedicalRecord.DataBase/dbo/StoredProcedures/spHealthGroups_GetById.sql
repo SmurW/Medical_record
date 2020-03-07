@@ -5,8 +5,7 @@ BEGIN
 	
 	SELECT
 		[Id],
-		[Title],
-		[Description]
+		[Title]
 	FROM [dbo].[HealthGroups]
 	WHERE [Id] = @id;
 

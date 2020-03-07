@@ -35,7 +35,6 @@ namespace SqlServerDataContext.Tests
             Assert.IsTrue(result.HasValue);
             Assert.AreEqual(id, result.Value.Id);
             Assert.IsFalse(string.IsNullOrEmpty(result.Value.Title));
-            Assert.IsFalse(string.IsNullOrEmpty(result.Value.Description));
         }
 
         [TestMethod]

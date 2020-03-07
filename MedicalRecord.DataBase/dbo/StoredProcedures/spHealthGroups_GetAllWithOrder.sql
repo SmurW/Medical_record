@@ -6,20 +6,9 @@ BEGIN
 		BEGIN
 			SELECT
 				[Id],
-				[Title],
-				[Description]
+				[Title]
 			FROM [dbo].[HealthGroups]
 			WHERE [IsDeleted] = 0
 			ORDER By [Title]
-		END
-	ELSE
-		BEGIN
-			SELECT
-				[Id],
-				[Title],
-				[Description]
-			FROM [dbo].[HealthGroups]
-			WHERE [IsDeleted] = 0
-			ORDER By [Description]
 		END
 END

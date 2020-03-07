@@ -88,7 +88,6 @@
     <Build Include="dbo\StoredProcedures\spMedications_Remove.sql" />
     <Build Include="dbo\StoredProcedures\spMedications_Add.sql" />
     <Build Include="dbo\Tables\Specializations.sql" />
-    <Build Include="dbo\Tables\HealthGroups.sql" />
     <Build Include="dbo\StoredProcedures\spSpecializations_Add.sql" />
     <Build Include="dbo\StoredProcedures\spSpecializations_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spSpecializations_GetAllWithOrder.sql" />
@@ -96,6 +95,7 @@
     <Build Include="dbo\StoredProcedures\spSpecializations_GetLike.sql" />
     <Build Include="dbo\StoredProcedures\spSpecializations_Remove.sql" />
     <Build Include="dbo\StoredProcedures\spSpecializations_Update.sql" />
+    <Build Include="dbo\Tables\HealthGroups.sql" />
     <Build Include="dbo\StoredProcedures\spHealthGroups_Add.sql" />
     <Build Include="dbo\StoredProcedures\spHealthGroups_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spHealthGroups_GetAllWithOrder.sql" />
@@ -105,15 +105,15 @@
     <Build Include="dbo\StoredProcedures\spHealthGroups_Update.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MedicalRecord.DataBase.publish.xml" />
     <None Include="TestData\Procedures.sql" />
     <None Include="TestScripts\ProceduresQueries.sql" />
     <None Include="TestData\Diagnoses.sql" />
     <None Include="TestData\Medications.sql" />
     <None Include="TestScripts\MedicationsQueries.sql" />
     <None Include="TestData\Specializations.sql" />
-    <None Include="TestData\HealthGroups.sql" />
     <None Include="TestScripts\SpecializationsQueries.sql" />
+    <None Include="MedicalRecord.DataBase.publish.xml" />
+    <None Include="TestData\HealthGroups.sql" />
     <None Include="TestScripts\HealthGroupsQueries.sql" />
   </ItemGroup>
 </Project>

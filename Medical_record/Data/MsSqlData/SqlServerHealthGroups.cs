@@ -47,7 +47,6 @@ namespace Medical_record.Data.MsSqlData
                         {
                             healthGroup.Id = reader.GetInt32(0);
                             healthGroup.Title = reader.GetString(1);
-                            healthGroup.Description = reader.GetString(2);
                         }
                     }
                 }
@@ -88,7 +87,6 @@ namespace Medical_record.Data.MsSqlData
                                 {
                                     Id = reader.GetInt32(0),
                                     Title = reader.GetString(1),
-                                    Description = reader.GetString(2),
                                 };
                                 healthGroups.Add(d);
                             }

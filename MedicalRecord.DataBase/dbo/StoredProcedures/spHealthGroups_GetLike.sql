@@ -4,8 +4,7 @@ AS
 BEGIN
 	SELECT
 		[Id],
-		[Title],
-		[Description]
+		[Title]
 	FROM [dbo].[HealthGroups]
 	WHERE [Title] LIKE CONCAT(@value, '%') AND [IsDeleted] = 0;
 END

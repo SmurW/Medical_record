@@ -1,15 +1,14 @@
-﻿-- Тестовые запросы к таблице Группа здаровья
+﻿-- Тестовые запросы к таблице Группы здаровья
 USE [MedicalRecord]
 GO
 
 --очистка таблицы
---TRUNCATE TABLE dbo.HealthGroups;
+--TRUNCATE TABLE dbo.HealtGroups;
 --GO
 
 --SELECT
 --	[Id],
---	[Title],
---	[Description],
+--	[Title]
 --	[IsDeleted]
 --FROM dbo.HealthGroups;
 
@@ -17,29 +16,6 @@ GO
 EXEC dbo.spHealthGroups_GetAll;
 GO
 
---процедура GetAllWithOrder
---EXEC dbo.spHealthGroups_GetAllWithOrder 'Title';
---GO
-
---процедура GetLike
---EXEC dbo.spHealthGroups_GetLike N'Гру';
---GO
-
 --процедура GetById
 --EXEC dbo.spHealthGroups_GetById 2;
---GO
-
---процедура Update
---EXEC dbo.spHealthGroups_Update 1, N'Новый', N'Новое описание';
---EXEC dbo.spHealthGroups_GetAll;
---GO
-
---процедура Remove
---EXEC dbo.spHealthGroups_Remove 1;
---EXEC dbo.spHealthGroups_GetAll;
---GO
-
---процедура Add
---EXEC dbo.spHealthGroups_Add N'Новый', N'Новое описание';
---EXEC dbo.spHealthGroups_GetAll;
 --GO

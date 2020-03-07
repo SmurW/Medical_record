@@ -1,7 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spHealthGroups_Update]
 	@id int = 0,
-	@title nvarchar(50),
-	@desc nvarchar(500)
+	@title nvarchar(50)
 AS
 BEGIN
 
