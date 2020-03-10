@@ -20,13 +20,12 @@ namespace Medical_record
             //тестовые данные
             IDataContext dataContext = new TestDataContext();
             //БД
-            //IDataContext dataContext = new DbDataContext();
+            //IDataContext dataContext = new MsSqlDataContext();
 
             //сервис сообщений
             IMessageService messageService = new MessagesService();
-
             //контроллер приложения
-            var appController = new AppController(dataContext, messageService);
+            IAppController appController = new AppController(dataContext, messageService);
             //получаем гл.форму
             var mainForm = appController.GetMainForm();
 
