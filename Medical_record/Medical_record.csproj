@@ -221,6 +221,7 @@
     <Compile Include="Forms\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abstractions\IAppController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UseControl\AddHospitalizationView.cs">

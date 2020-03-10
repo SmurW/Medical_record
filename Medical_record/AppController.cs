@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Medical_record
 {
-    public class AppController
+    public class AppController : IAppController
     {
         private readonly MainForm_MedicalRecord _mainForm;
         public IDataContext DataContext { get; }
@@ -26,12 +26,12 @@ namespace Medical_record
             _mainForm = new MainForm_MedicalRecord(vm);
         }
 
-        internal Form GetMainForm()
+        public Form GetMainForm()
         {
             return _mainForm;
         }
 
-        internal UserControl GetUcViewInput(string key)
+        public UserControl GetUcViewInput(string key)
         {
             switch (key)
             {
@@ -52,7 +52,7 @@ namespace Medical_record
             }
         }
 
-        internal UserControl GetUcViewOutput(string key)
+        public UserControl GetUcViewOutput(string key)
         {
             switch (key)
             {
@@ -73,7 +73,7 @@ namespace Medical_record
             }
         }
 
-        internal void ShowCardView()
+        public void ShowCardView()
         {
             var vm = new CardViewModel(this);
             var form = new CardView(vm);
@@ -81,7 +81,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowDiagnosesView()
+        public void ShowDiagnosesView()
         {
             var vm = new DiagnosesViewModel(this);
             var form = new DiagnosesView(vm);
@@ -89,7 +89,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowMedicationsView()
+        public void ShowMedicationsView()
         {
             var vm = new MedicationsViewModel(this);
             var form = new MedicationsView(vm);
@@ -97,7 +97,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowProceduresView()
+        public void ShowProceduresView()
         {
             var vm = new ProceduresViewModel(this);
             var form = new ProceduresView(vm);
@@ -105,7 +105,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowDoctorsView()
+        public void ShowDoctorsView()
         {
             var vm = new DoctorsViewModel(this);
             var form = new DoctorsView(vm);
@@ -113,7 +113,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowRegistrationView()
+        public void ShowRegistrationView()
         {
             var vm = new RegistrationViewModel(this);
             var form = new RegistrationView(vm);
@@ -121,7 +121,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowRegistrationView(Patient patient)
+        public void ShowRegistrationView(Patient patient)
         {
             var vm = new RegistrationViewModel(this);
             vm.SetPatient(patient);
@@ -130,7 +130,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowDiagnosisView()
+        public void ShowDiagnosisView()
         {
             var vm = new DiagnosisViewModel(this);
             var form = new DiagnosisView(vm);
@@ -138,7 +138,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowDiagnosisView(Diagnosis diagnosis)
+        public void ShowDiagnosisView(Diagnosis diagnosis)
         {
             var vm = new DiagnosisViewModel(this);
             vm.SetDiagnosis(diagnosis);
@@ -147,7 +147,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowAddMedicationsView()
+        public void ShowAddMedicationsView()
         {
             var vm = new AddMedicationsViewModel(this);
             var form = new AddMedicationsView(vm);
@@ -155,7 +155,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowAddMedicationsView(Medications medications)
+        public void ShowAddMedicationsView(Medications medications)
         {
             var vm = new AddMedicationsViewModel(this);
             vm.SetMedications(medications);
@@ -164,7 +164,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowAddProceduresView()
+        public void ShowAddProceduresView()
         {
             var vm = new AddProceduresViewModel(this);
             var form = new AddProceduresView(vm);
@@ -172,7 +172,7 @@ namespace Medical_record
             form.Show();
         }
 
-        internal void ShowAddProceduresView(Procedure procedure)
+        public void ShowAddProceduresView(Procedure procedure)
         {
             var vm = new AddProceduresViewModel(this);
             vm.SetPrcedure(procedure);
