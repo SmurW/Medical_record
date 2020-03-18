@@ -33,8 +33,8 @@ EXEC dbo.spDoctors_GetAll;
 GO
 
 --процедура GetById
-EXEC dbo.spDoctors_GetById 1;
-GO
+--EXEC dbo.spDoctors_GetById 1;
+--GO
 
 --процедура Add
 --EXEC dbo.spDoctors_Add N'Иванов', N'Иван', N'Иванович', 4;
