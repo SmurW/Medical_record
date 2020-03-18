@@ -93,6 +93,10 @@
     <Build Include="dbo\StoredProcedures\spHealthGroups_Add.sql" />
     <Build Include="dbo\StoredProcedures\spHealthGroups_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spHealthGroups_GetById.sql" />
+    <Build Include="dbo\Tables\Doctors.sql" />
+    <Build Include="dbo\StoredProcedures\spDoctors_GetAll.sql" />
+    <Build Include="dbo\StoredProcedures\spDoctors_Add.sql" />
+    <Build Include="dbo\StoredProcedures\spDoctors_GetById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\Procedures.sql" />
@@ -105,5 +109,7 @@
     <None Include="MedicalRecord.DataBase.publish.xml" />
     <None Include="TestData\HealthGroups.sql" />
     <None Include="TestScripts\HealthGroupsQueries.sql" />
+    <None Include="TestData\Doctors.sql" />
+    <None Include="TestScripts\DoctorsQueries.sql" />
   </ItemGroup>
 </Project>
