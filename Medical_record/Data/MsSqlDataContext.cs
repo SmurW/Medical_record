@@ -27,6 +27,7 @@ namespace Medical_record.Data
             Specializations = new SqlServerSpecializations(_connectionService);
             HealthGroups = new SqlServerHealthGroups(_connectionService);
             Doctors = new SqlServerDoctors(_connectionService);
+            Hospitalizations = new SqlServerHospitalization(_connectionService);
         }
     }
 }

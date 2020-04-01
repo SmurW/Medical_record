@@ -159,6 +159,7 @@
     <Compile Include="Data\MsSqlData\SqlServerDiagnoses.cs" />
     <Compile Include="Data\MsSqlData\SqlServerDoctors.cs" />
     <Compile Include="Data\MsSqlData\SqlServerHealthGroups.cs" />
+    <Compile Include="Data\MsSqlData\SqlServerHospitalization.cs" />
     <Compile Include="Data\MsSqlData\SqlServerMedications.cs" />
     <Compile Include="Data\MsSqlData\SqlServerProcedures.cs" />
     <Compile Include="Data\MsSqlData\SqlServerSpecializations.cs" />
