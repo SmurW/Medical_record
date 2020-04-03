@@ -2,10 +2,13 @@
 	@patientId int,
 	@startd datetime,
 	@endd datetime,
-	@medorg nvarchar(50),
-	@diag nvarchar(50)
+	@medorg nvarchar(100),
+	@diag nvarchar(150)
 AS
 BEGIN
+
+	--TODO: в таблицу Госпитализаций надо добавить внешн.ключ для связи с таб. Пациенты
+
 	INSERT INTO dbo.Hospitalizations
 		(PatientId, StartHospitalizationDate, EndHospitalizationDate, MedicalOrganization, DefinitiveDiagnosis)
 	VALUES

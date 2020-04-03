@@ -30,9 +30,9 @@ namespace Medical_record.Data.TestData
                 $"Успешно сохранена {hospitalization.Id}", String.Empty));
         }
 
-        public Task<Result<int>> GetCountHospitalizationsByPatientIdAsync(int id)
+        public Task<Result<int>> GetCountHospitalizationsByPatientIdAsync(int patientId)
         {
-            var count = _dataSource.Hospitalizations.Where(o => o.PatientId == id).Count();
+            var count = _dataSource.Hospitalizations.Where(o => o.PatientId == patientId).Count();
             return Task.FromResult(new Result<int>(count));
         }
 
