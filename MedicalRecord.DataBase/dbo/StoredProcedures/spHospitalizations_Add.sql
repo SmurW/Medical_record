@@ -1,14 +1,15 @@
 ﻿CREATE PROCEDURE [dbo].[spHospitalizations_Add]
-	@sd datetime,
-	@ed datetime,
-	@mo nvarchar(50),
-	@dd nvarchar(50)
+	@patientId int,
+	@startd datetime,
+	@endd datetime,
+	@medorg nvarchar(50),
+	@diag nvarchar(50)
 AS
 BEGIN
 	INSERT INTO dbo.Hospitalizations
-		(StartHospitalizationDate, EndHospitalizationDate, MedicalOrganization, DefinitiveDiagnosis)
+		(PatientId, StartHospitalizationDate, EndHospitalizationDate, MedicalOrganization, DefinitiveDiagnosis)
 	VALUES
-		(@sd, @ed, @mo, @dd);
+		(@patientId, @startd, @endd, @medorg, @diag);
 
 	SELECT SCOPE_IDENTITY(); --возвращает Id только что вставленного
 END

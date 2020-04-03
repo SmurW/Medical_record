@@ -6,25 +6,25 @@ GO
 --TRUNCATE TABLE dbo.Hospitalizations;
 --GO
 
---SELECT
---	  [Id]
---	, [PatientId]
---	, [StartHospitalizationDate]
---	, [EndHospitalizationDate]
---	, [MedicalOrganization]
---	, [DefinitiveDiagnosis]
---	, [IsDeleted]
---FROM dbo.Hospitalizations;
+SELECT
+	  [Id]
+	, [PatientId]
+	, [StartHospitalizationDate]
+	, [EndHospitalizationDate]
+	, [MedicalOrganization]
+	, [DefinitiveDiagnosis]
+	, [IsDeleted]
+FROM dbo.Hospitalizations;
 
 
---процедура GetCountById
-EXEC dbo.sp_Hospitalizations_GetCountById 1;
-GO
+--процедура GetCountByPatientId
+--EXEC dbo.spHospitalizations_GetCountByPatientId 1;
+--GO
 
---процедура GetById
---EXEC dbo.spHospitalizations_GetById 2;
+--процедура GetByPatientId
+--EXEC dbo.spHospitalizations_GetByPatientId 1;
 --GO
 
 --процедура Add
---EXEC dbo.spHospitalizations_Add '20180202', '20180712', N'Городская больница №2', N'Нез. диагноз 3';
+--EXEC dbo.spHospitalizations_Add 1, '20180202', '20180712', N'Городская больница №2', N'Нез. диагноз 3';
 --GO
