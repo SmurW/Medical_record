@@ -10,7 +10,7 @@ namespace Medical_record.Abstractions
         Task<Result<List<Patient>>> GetPatientsAsync();
         Task<Result<string>> UpdatePatientAsync(Patient patient);
         Task<Result<string>> AddPatientAsync(Patient patient);
-        Task<Result<string>> RemovePatientAsync(int id);
+        Task<Result<string>> RemovePatientAsync(int patientId);
         Task<Result<int>> GetLastAddedPatientIdAsync();
         Task<Result<List<Patient>>> GetPatientsByLastNameAsync(string lastName);
         Task<Result<List<Patient>>> GetPatientsByCardNumberAsync(string cardNumber);
