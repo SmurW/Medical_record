@@ -7,7 +7,7 @@ namespace Medical_record.Abstractions
 {
     public interface IExaminationDataContext
     {
-        Task<Result<int>> GetCountExaminationsByPatientIdAsync(int id);
+        Task<Result<int>> GetCountExaminationsByPatientIdAsync(int patientId);
         Task<Result<string>> AddExaminationAsync(Examination examination);
         Task<Result<List<Examination>>> GetExaminationsByPatientIdAsync(int patientId);
     }

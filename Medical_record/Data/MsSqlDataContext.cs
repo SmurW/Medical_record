@@ -10,7 +10,7 @@ namespace Medical_record.Data
         public IDoctorDataContext Doctors { get; } //+
         public IExaminationDataContext Examinations { get; } //-
         public IHealthGroupDataContext HealthGroups { get; } //+
-        public IHospitalizationDataContext Hospitalizations { get; } //-
+        public IHospitalizationDataContext Hospitalizations { get; } //+
         public IMedicationsDataContext Medications { get; } //+
         public IObservationDataContext Observations { get; } //-
         public IPatientDataContext Patients { get; } //-

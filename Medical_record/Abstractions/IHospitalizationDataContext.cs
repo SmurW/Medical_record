@@ -7,7 +7,7 @@ namespace Medical_record.Abstractions
 {
     public interface IHospitalizationDataContext
     {
-        Task<Result<int>> GetCountHospitalizationsByPatientIdAsync(int id);
+        Task<Result<int>> GetCountHospitalizationsByPatientIdAsync(int patientId);
         Task<Result<string>> AddHospitalizationAsync(Hospitalization hospitalization);
         Task<Result<List<Hospitalization>>> GetHospitalizationsByPatientIdAsync(int patientId);
     }

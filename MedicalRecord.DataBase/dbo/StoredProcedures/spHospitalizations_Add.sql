@@ -1,14 +1,18 @@
 ﻿CREATE PROCEDURE [dbo].[spHospitalizations_Add]
-	@sd datetime,
-	@ed datetime,
-	@mo nvarchar(50),
-	@dd nvarchar(50)
+	@patientId int,
+	@startd datetime,
+	@endd datetime,
+	@medorg nvarchar(100),
+	@diag nvarchar(150)
 AS
 BEGIN
+
+	--TODO: в таблицу Госпитализаций надо добавить внешн.ключ для связи с таб. Пациенты
+
 	INSERT INTO dbo.Hospitalizations
-		(StartHospitalizationDate, EndHospitalizationDate, MedicalOrganization, DefinitiveDiagnosis)
+		(PatientId, StartHospitalizationDate, EndHospitalizationDate, MedicalOrganization, DefinitiveDiagnosis)
 	VALUES
-		(@sd, @ed, @mo, @dd);
+		(@patientId, @startd, @endd, @medorg, @diag);
 
 	SELECT SCOPE_IDENTITY(); --возвращает Id только что вставленного
 END
