@@ -101,6 +101,14 @@
     <Build Include="dbo\StoredProcedures\spHospitalizations_GetCountByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spHospitalizations_GetByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spHospitalizations_Add.sql" />
+    <Build Include="dbo\Tables\Patients.sql" />
+    <Build Include="dbo\StoredProcedures\spPatients_GetAll.sql" />
+    <Build Include="dbo\StoredProcedures\spPatients_Remove.sql" />
+    <Build Include="dbo\StoredProcedures\spPatients_GetPatientId.sql" />
+    <Build Include="dbo\StoredProcedures\spPatients_Add.sql" />
+    <Build Include="dbo\StoredProcedures\spPatients_GetByCardNumber.sql" />
+    <Build Include="dbo\StoredProcedures\spPatients_GetByLastName.sql" />
+    <Build Include="dbo\StoredProcedures\spPatients_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\Procedures.sql" />
@@ -117,5 +125,7 @@
     <None Include="TestScripts\DoctorsQueries.sql" />
     <None Include="TestData\Hospitalizations.sql" />
     <None Include="TestScripts\HospitalizationsQueries.sql" />
+    <None Include="TestData\Patients.sql" />
+    <None Include="TestScripts\PatientsQueries.sql" />
   </ItemGroup>
 </Project>
