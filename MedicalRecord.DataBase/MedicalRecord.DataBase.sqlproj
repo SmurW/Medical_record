@@ -109,6 +109,7 @@
     <Build Include="dbo\StoredProcedures\spPatients_GetByLastName.sql" />
     <Build Include="dbo\StoredProcedures\spPatients_Update.sql" />
     <Build Include="dbo\Tables\Patients.sql" />
+    <Build Include="dbo\Tables\Observations.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\Procedures.sql" />
@@ -127,5 +128,7 @@
     <None Include="TestScripts\HospitalizationsQueries.sql" />
     <None Include="TestData\Patients.sql" />
     <None Include="TestScripts\PatientsQueries.sql" />
+    <None Include="TestData\Observations.sql" />
+    <None Include="TestScripts\ObservationsQueries.sql" />
   </ItemGroup>
 </Project>
