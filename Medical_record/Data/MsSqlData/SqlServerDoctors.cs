@@ -125,7 +125,7 @@ namespace Medical_record.Data.MsSqlData
                 return new Result<string>(ex.Message);
             }
 
-            return new Result<string>($"Успешно сохранен новый диагноз {res}.", string.Empty);
+            return new Result<string>($"Успешно сохранен новый доктор {res}.", string.Empty);
         }
 
         private Doctor GetDoctorFromReader(SqlDataReader reader)

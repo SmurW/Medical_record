@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Medical_record.Data.MsSqlData
@@ -24,14 +22,117 @@ namespace Medical_record.Data.MsSqlData
                 throw new ArgumentNullException(nameof(dataContext));
         }
 
-        public Task<Result<string>> AddObservationAsync(Observation observation)
+        public async Task<Result<string>> AddObservationAsync(Observation observation)
         {
-            throw new NotImplementedException();
+            if (observation == null)
+            {
+                return new Result<string>("Пустое значение параметра");
+            }
+            if (observation.PatientId <= 0)
+            {
+                return new Result<string>("Id пациента не может быть меньше или равен 0");
+            }
+            if (observation.DiagnosisId <= 0)
+            {
+                return new Result<string>("Id диагноза не может быть меньше или равен 0");
+            }
+            if (observation.DoctorId <= 0)
+            {
+                return new Result<string>("Id доктора не может быть меньше или равен 0");
+            }
+
+            object res = null;
+            try
+            {
+                SqlParameter[] parameters = GetSqlParametersFromObservation(observation);
+
+                using (var con = _conService.GetConnection())
+                using (var cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = "[dbo].[spObservations_Add]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddRange(parameters);
+
+                    await con.OpenAsync();
+                    res = await cmd.ExecuteScalarAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<string>(ex.Message);
+            }
+
+            return new Result<string>($"Успешно сохранено новое наблюдение {res}.", string.Empty);
         }
 
-        public Task<Result<int>> GetCountObservationsByPatientIdAsync(int patientId)
+        private SqlParameter[] GetSqlParametersFromObservation(Observation observation)
         {
-            throw new NotImplementedException();
+            var result = new List<SqlParameter>();
+
+            var paramPatient = new SqlParameter();
+            paramPatient.ParameterName = "@patientId";
+            paramPatient.SqlDbType = SqlDbType.Int;
+            paramPatient.Value = observation.PatientId;
+
+            var paramDiagnosis = new SqlParameter();
+            paramDiagnosis.ParameterName = "@diagnosisId";
+            paramDiagnosis.SqlDbType = SqlDbType.Int;
+            paramDiagnosis.Value = observation.DiagnosisId;
+
+            var paramDoctor = new SqlParameter();
+            paramDoctor.ParameterName = "@doctorId";
+            paramDoctor.SqlDbType = SqlDbType.Int;
+            paramDoctor.Value = observation.DoctorId;
+
+            var paramStart = new SqlParameter();
+            paramStart.ParameterName = "@startDate";
+            paramStart.SqlDbType = SqlDbType.Date;
+            paramStart.Value = observation.StartObservationDate;
+
+            var paramEnd = new SqlParameter();
+            paramEnd.ParameterName = "@endDate";
+            paramEnd.SqlDbType = SqlDbType.Date;
+            paramEnd.Value = observation.EndObservationDate;
+
+            result.Add(paramPatient);
+            result.Add(paramDiagnosis);
+            result.Add(paramDoctor);
+            result.Add(paramStart);
+            result.Add(paramEnd);
+            return result.ToArray();
+        }
+
+        public async Task<Result<int>> GetCountObservationsByPatientIdAsync(int patientId)
+        {
+            if (patientId <= 0)
+            {
+                return new Result<int>("Id пациента не может быть меньшим или равным 0");
+            }
+
+            int result = 0;
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = "[dbo].[spObservations_GetCountByPatientId]";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    var param = new SqlParameter();
+                    param.ParameterName = "@patientId";
+                    param.SqlDbType = SqlDbType.Int;
+                    param.Value = patientId;
+                    cmd.Parameters.Add(param);
+
+                    await con.OpenAsync();
+                    result = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<int>(ex.Message);
+            }
+
+            return new Result<int>(result);
         }
 
         public async Task<Result<List<Observation>>> GetObservationsByPatientIdAsync(int patientId)
@@ -73,26 +174,26 @@ namespace Medical_record.Data.MsSqlData
                         }
                     }
                     //<<<
-
-                    //>>>Диагнозы
-                    foreach (Observation obs in result)
-                    {
-                        await GetDiagnosisForObservationAsync(obs);
-                    }
-                    //<<<
-
-                    //>>>Доктора
-                    foreach (Observation obs in result)
-                    {
-                        await GetDoctorForObservationAsync(obs);
-                    }
-                    //<<<
                 }
             }
             catch (Exception ex)
             {
                 return new Result<List<Observation>>(ex.Message);
             }
+
+            //>>>Диагнозы
+            foreach (Observation obs in result)
+            {
+                await GetDiagnosisForObservationAsync(obs);
+            }
+            //<<<
+
+            //>>>Доктора
+            foreach (Observation obs in result)
+            {
+                await GetDoctorForObservationAsync(obs);
+            }
+            //<<<
 
             return new Result<List<Observation>>(result);
         }
