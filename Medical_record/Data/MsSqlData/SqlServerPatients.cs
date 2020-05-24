@@ -73,7 +73,6 @@ namespace Medical_record.Data.MsSqlData
 
         public async Task<Result<int>> GetLastAddedPatientIdAsync()
         {
-            var patients = new List<Patient>();
             var nameProc = @"[dbo].[spPatients_GetLastAddedPatientId]";
             int result = 0;
             try
@@ -84,18 +83,6 @@ namespace Medical_record.Data.MsSqlData
                     cmd.CommandType = CommandType.StoredProcedure;
                     await con.OpenAsync();
                     result = Convert.ToInt32(await cmd.ExecuteScalarAsync());
-
-                    using (var reader = await cmd.ExecuteReaderAsync())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                var m = GetPatientsFromReader(reader);
-                                patients.Add(m);
-                            }
-                        }
-                    }
                 }
             }
             catch (Exception ex)
