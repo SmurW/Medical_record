@@ -26,8 +26,8 @@ namespace Medical_record.Data.MsSqlData
             {
                 Id = reader.GetInt32(0),
                 CardNumber = reader.GetString(1),
-                FirstName = reader.GetString(2),
-                LastName = reader.GetString(3),
+                LastName = reader.GetString(2),
+                FirstName = reader.GetString(3),
                 MiddleName = reader.GetString(4),
                 Sex = reader.GetString(5),
                 Residence = reader.GetString(6),
@@ -43,66 +43,392 @@ namespace Medical_record.Data.MsSqlData
 
         public async Task<Result<string>> AddPatientAsync(Patient patient)
         {
-            //var patients = new List<Patient>();
-            //var nameProc = "@[dbo].[spPatients_GetAll]";
-            //try
-            //{
-            //    using (var con = _conService.GetConnection())
-            //    using (var cmd = new SqlCommand(nameProc, con))
-            //    {
-            //        cmd.CommandType = CommandType.StoredProcedure;
-            //        await con.OpenAsync();
-            //        using (var raider = await cmd.ExecuteReaderAsync())
-            //        {
-            //            if (raider.HasRows)
-            //            {
-            //                while (await raider.ReadAsync())
-            //                {
-            //                    var p = GetPatientsFromReader(raider);
-            //                    patients.Add(p);
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    return new Result<List<Patient>>(ex.Message);
-            //}
-            //return new Result<List<Patient>>(patients);
-            throw new NotImplementedException();
+            if (patient == null)
+            {
+                return new Result<string>("Пустое значение параметра");
+            }
+
+            var parameters = GetParametersFromPatients(patient);
+            var nameProc = @"[dbo].[spPatients_Add]";
+            object res = null;
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    parameters.ForEach(p => cmd.Parameters.Add(p));
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    await con.OpenAsync();
+                    res = await cmd.ExecuteScalarAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<string>(ex.Message);
+            }
+
+            return new Result<string>($"Успешно сохранен новый пациент {res}.", string.Empty);
         }
 
-            public Task<Result<int>> GetLastAddedPatientIdAsync()
+        public async Task<Result<int>> GetLastAddedPatientIdAsync()
         {
-            throw new NotImplementedException();
+            var patients = new List<Patient>();
+            var nameProc = @"[dbo].[spPatients_GetLastAddedPatientId]";
+            int result = 0;
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    await con.OpenAsync();
+                    result = Convert.ToInt32(await cmd.ExecuteScalarAsync());
+
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var m = GetPatientsFromReader(reader);
+                                patients.Add(m);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<int>(ex.Message);
+            }
+
+            return new Result<int>(result);
         }
 
-        public Task<Result<List<Patient>>> GetPatientsAsync()
+        public async Task<Result<List<Patient>>> GetPatientsAsync()
         {
-            throw new NotImplementedException();
+            var patients = new List<Patient>();
+            var nameProc = @"[dbo].[spPatients_GetAll]";
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    await con.OpenAsync();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var m = GetPatientsFromReader(reader);
+                                patients.Add(m);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<List<Patient>>(ex.Message);
+            }
+
+            return new Result<List<Patient>>(patients);
         }
 
-        public Task<Result<List<Patient>>> GetPatientsByCardNumberAsync(string cardNumber)
+        public async Task<Result<List<Patient>>> GetPatientsByCardNumberAsync(string cardNumber)
         {
-            throw new NotImplementedException();
+             if (String.IsNullOrWhiteSpace(cardNumber))
+            {
+                return await GetPatientsAsync();
+            }
+
+            var patients = new List<Patient>();
+            var nameProc = @"[dbo].[spPatients_GetByCardNumber]";
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    var param = new SqlParameter();
+                    param.ParameterName = "@cardn";
+                    param.SqlDbType = SqlDbType.NVarChar;
+                    param.Value = cardNumber;
+
+                    cmd.Parameters.Add(param);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    await con.OpenAsync();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var d = new Patient
+                                {
+                                    Id = reader.GetInt32(0),
+                                    CardNumber = reader.GetString(1),
+                                    LastName = reader.GetString(2),
+                                    FirstName = reader.GetString(3),
+                                    MiddleName = reader.GetString(4),
+                                    Sex = reader.GetString(5),
+                                    Residence = reader.GetString(6),
+                                    PassportNumber = reader.GetString(7),
+                                    PassportSeries = reader.GetString(8),
+                                    PassportUFMS = reader.GetString(9),
+                                    PassportDepCode = reader.GetString(10),
+                                    PassportIssueDate = reader.GetDateTime(11),
+                                    Birthdate = reader.GetDateTime(12),
+                                    RegistrationDate = reader.GetDateTime(13)
+                                };
+                                patients.Add(d);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<List<Patient>>(ex.Message);
+            }
+
+            return new Result<List<Patient>>(patients);
         }
 
-        public Task<Result<List<Patient>>> GetPatientsByLastNameAsync(string lastName)
+        public async Task<Result<List<Patient>>> GetPatientsByLastNameAsync(string lastName)
         {
-            throw new NotImplementedException();
+            if (String.IsNullOrWhiteSpace(lastName))
+            {
+                return await GetPatientsAsync();
+            }
+
+            var patients = new List<Patient>();
+            var nameProc = @"[dbo].[spPatients_GetByLastName]";
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    var param = new SqlParameter();
+                    param.ParameterName = "@lname";
+                    param.SqlDbType = SqlDbType.NVarChar;
+                    param.Value = lastName;
+
+                    cmd.Parameters.Add(param);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    await con.OpenAsync();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var d = new Patient
+                                {
+                                    Id = reader.GetInt32(0),
+                                    CardNumber = reader.GetString(1),
+                                    LastName = reader.GetString(2),
+                                    FirstName = reader.GetString(3),
+                                    MiddleName = reader.GetString(4),
+                                    Sex = reader.GetString(5),
+                                    Residence = reader.GetString(6),
+                                    PassportNumber = reader.GetString(7),
+                                    PassportSeries = reader.GetString(8),
+                                    PassportUFMS = reader.GetString(9),
+                                    PassportDepCode = reader.GetString(10),
+                                    PassportIssueDate = reader.GetDateTime(11),
+                                    Birthdate = reader.GetDateTime(12),
+                                    RegistrationDate = reader.GetDateTime(13)
+                                };
+                                patients.Add(d);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<List<Patient>>(ex.Message);
+            }
+
+            return new Result<List<Patient>>(patients);
         }
 
-        public Task<Result<string>> RemovePatientAsync(int patientId)
+        public async Task<Result<string>> RemovePatientAsync(int patientId)
         {
-            throw new NotImplementedException();
+            if (patientId == 0)
+            {
+                return new Result<string>("Невозможно удалить пациента с Id == 0");
+            }
+
+            var nameProc = @"[dbo].[spPatients_Remove]";
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    var paramId = new SqlParameter();
+                    paramId.ParameterName = "@patid";
+                    paramId.SqlDbType = SqlDbType.Int;
+                    paramId.Value = patientId;
+
+                    cmd.Parameters.Add(paramId);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    await con.OpenAsync();
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<string>(ex.Message);
+            }
+
+            return new Result<string>($"Успешно удален пациент.", string.Empty);
         }
 
-        public Task<Result<string>> UpdatePatientAsync(Patient patient)
+        public async Task<Result<string>> UpdatePatientAsync(Patient patient)
         {
-            throw new NotImplementedException();
+            if (patient == null)
+            {
+                return new Result<string>("Пустое значение параметра");
+            }
+
+            if (patient.Id == 0)
+            {
+                return new Result<string>("Невозможно обновить пациента с Id == 0");
+            }
+
+            var parameters = GetParametersFromPatients(patient);
+            var nameProc = @"[dbo].[spPatients_Update]";
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    var paramId = new SqlParameter();
+                    paramId.ParameterName = "@id";
+                    paramId.SqlDbType = SqlDbType.Int;
+                    paramId.Value = patient.Id;
+
+                    cmd.Parameters.Add(paramId);
+                    parameters.ForEach(p => cmd.Parameters.Add(p));
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    await con.OpenAsync();
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<string>(ex.Message);
+            }
+
+            return new Result<string>($"Успешно обновлено пациента.", string.Empty);
         }
 
-        
+        private List<SqlParameter> GetParametersFromPatients(Patient patient)
+        {
+            var paramFN = new SqlParameter
+            {
+                ParameterName = "@fname",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.FirstName.Trim()
+            };
+
+            var paramLN = new SqlParameter
+            {
+                ParameterName = "@lname",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.LastName.Trim()
+            };
+
+            var paramMN = new SqlParameter
+            {
+                ParameterName = "@mname",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.MiddleName.Trim()
+            };
+
+            var paramCN = new SqlParameter
+            {
+                ParameterName = "@crdnmbr",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.CardNumber.Trim()
+            };
+
+            var paramSX = new SqlParameter
+            {
+                ParameterName = "@sex",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.Sex.Trim()
+            };
+
+            var paramBE = new SqlParameter
+            {
+                ParameterName = "@bhdate",
+                SqlDbType = SqlDbType.DateTime,
+                Value = patient.Birthdate
+            };
+
+            var paramRE = new SqlParameter
+            {
+                ParameterName = "@regdate",
+                SqlDbType = SqlDbType.DateTime,
+                Value = patient.RegistrationDate
+            };
+
+            var paramRC = new SqlParameter
+            {
+                ParameterName = "@rsdnc",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.Residence
+            };
+
+            var paramPN = new SqlParameter
+            {
+                ParameterName = "@psprtnmbr",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.PassportNumber
+            };
+
+            var paramPS = new SqlParameter
+            {
+                ParameterName = "@psprtser",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.PassportSeries
+            };
+
+            var paramPUFMS = new SqlParameter
+            {
+                ParameterName = "@psprtufms",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.PassportUFMS
+            };
+
+            var paramPID = new SqlParameter
+            {
+                ParameterName = "@pasisdt",
+                SqlDbType = SqlDbType.DateTime,
+                Value = patient.PassportIssueDate
+            };
+
+            var paramDC = new SqlParameter
+            {
+                ParameterName = "@psprtdc",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.PassportDepCode
+            };
+
+            var result = new List<SqlParameter>
+            { paramFN, paramLN, paramMN, paramCN, paramSX, paramBE, paramRE, paramRC,
+                paramPN, paramPS, paramPUFMS, paramPID, paramDC};
+
+            return result;
+        }
+
+
     }
 }

@@ -2,11 +2,10 @@
 	@cardn nvarchar(50)
 AS
 BEGIN
-	
-	SELECT [Id]
+	SELECT [Id],
 		[CardNumber],
-		[FirstName],
 		[LastName],
+		[FirstName],
 		[MiddleName],
 		[Sex],
 		[Residence],

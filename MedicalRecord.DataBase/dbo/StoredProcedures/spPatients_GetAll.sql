@@ -1,10 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spPatients_GetAll]
 AS
+BEGIN
 	SELECT 
 		[Id],
 		[CardNumber],
-		[FirstName],
 		[LastName],
+		[FirstName],
 		[MiddleName],
 		[Sex],
 		[Residence],
@@ -14,8 +15,8 @@ AS
 		[PassportDepCode],
 		[Birthdate],
 		[RegistrationDate],
-		[PassportIssueDate],
-		[IsDeleted]
-	FROM dbo.Patients
+		[PassportIssueDate]
+
+	FROM [dbo].[Patients]
 	WHERE [IsDeleted] = 0;
-RETURN 0
+END

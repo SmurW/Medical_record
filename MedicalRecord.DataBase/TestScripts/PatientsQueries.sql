@@ -19,9 +19,11 @@ GO
 
 --процедура GetByCardNumber
 --EXEC dbo.spPatients_GetByCardNumber
+--GO
 
 --процедура GetByLastName
 --EXEC dbo.spPatients_GetByLastName
+--GO
 
 --процедура Update
 --EXEC dbo.spPatients_Update 1, N'Обновленный', N'Обновленный пациент', N'Обновленный пациент', N'Обновленный пациент',

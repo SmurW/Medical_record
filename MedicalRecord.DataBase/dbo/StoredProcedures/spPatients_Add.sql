@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spPatients_Add]
 	@cardn nvarchar(50),
-	@fname nvarchar(50),
 	@lname nvarchar(50),
+	@fname nvarchar(50),
 	@mname nvarchar(50),
 	@sex   nvarchar(50),
 	@rsdn  nvarchar(50),
@@ -16,10 +16,10 @@ AS
 BEGIN
 
 	INSERT INTO dbo.Patients
-		(CardNumber,FirstName,LastName,MiddleName,Sex,Residence,PassportNumber,PassportSeries,PassportUFMS,PassportDepCode,
+		(CardNumber,LastName,FirstName,MiddleName,Sex,Residence,PassportNumber,PassportSeries,PassportUFMS,PassportDepCode,
 		Birthdate,RegistrationDate,PassportIssueDate)
 	VALUES
-		(@cardn,@fname,@lname,@mname,@sex,@rsdn,@pasnum,@passrs,@pasufms,@pasdcod,@bdate,@rdate,@pdate);	
+		(@cardn,@lname,@fname,@mname,@sex,@rsdn,@pasnum,@passrs,@pasufms,@pasdcod,@bdate,@rdate,@pdate);	
 
 	SELECT SCOPE_IDENTITY(); --возвращает Id только что вставленного
 END

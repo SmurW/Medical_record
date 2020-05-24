@@ -101,14 +101,14 @@
     <Build Include="dbo\StoredProcedures\spHospitalizations_GetCountByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spHospitalizations_GetByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spHospitalizations_Add.sql" />
-    <Build Include="dbo\Tables\Patients.sql" />
     <Build Include="dbo\StoredProcedures\spPatients_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spPatients_Remove.sql" />
-    <Build Include="dbo\StoredProcedures\spPatients_GetPatientId.sql" />
+    <Build Include="dbo\StoredProcedures\spPatients_GetLastAddedPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spPatients_Add.sql" />
     <Build Include="dbo\StoredProcedures\spPatients_GetByCardNumber.sql" />
     <Build Include="dbo\StoredProcedures\spPatients_GetByLastName.sql" />
     <Build Include="dbo\StoredProcedures\spPatients_Update.sql" />
+    <Build Include="dbo\Tables\Patients.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\Procedures.sql" />

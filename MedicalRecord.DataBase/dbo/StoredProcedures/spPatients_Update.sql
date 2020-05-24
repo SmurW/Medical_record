@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spPatients_Update]
 	@id int = 0,
 	@cardn nvarchar(50),
-	@fname nvarchar(50),
 	@lname nvarchar(50),
+	@fname nvarchar(50),
 	@mname nvarchar(50),
 	@sex   nvarchar(50),
 	@rsdn  nvarchar(50),
@@ -18,8 +18,8 @@ BEGIN
 
 	UPDATE dbo.Patients
 	SET [CardNumber] = @cardn,
-		[FirstName] = @fname,
 		[LastName] = @lname,
+		[FirstName] = @fname,
 		[MiddleName] = @mname,
 		[Sex] = @sex,
 		[Residence] = @rsdn,

@@ -6,7 +6,7 @@ SET IDENTITY_INSERT [dbo].[Patients] ON;
 GO
 
 INSERT INTO dbo.Patients
-	(Id, CardNumber, FirstName, LastName, MiddleName, Sex, Birthdate, RegistrationDate, Residence, PassportNumber, PassportSeries,
+	(Id, CardNumber, LastName, FirstName, MiddleName, Sex, Birthdate, RegistrationDate, Residence, PassportNumber, PassportSeries,
 	 PassportUFMS, PassportIssueDate, PassportDepCode, IsDeleted)
 VALUES
 	(1, N'2345', N'Мухина', N'Ирина', N'Анатольевна',

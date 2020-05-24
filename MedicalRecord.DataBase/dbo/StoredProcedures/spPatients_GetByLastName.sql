@@ -2,11 +2,10 @@
 	@lname nvarchar(50)
 AS
 BEGIN
-	
-	SELECT [Id]
+	SELECT [Id],
 		[CardNumber],
-		[FirstName],
 		[LastName],
+		[FirstName],
 		[MiddleName],
 		[Sex],
 		[Residence],
@@ -20,5 +19,4 @@ BEGIN
 		[IsDeleted]
 	FROM [dbo].[Patients] AS h
 	WHERE h.LastName = @lname AND h.IsDeleted = 0;
-
 END

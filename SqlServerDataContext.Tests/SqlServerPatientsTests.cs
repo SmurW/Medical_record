@@ -25,10 +25,41 @@ namespace SqlServerDataContext.Tests
         }
 
         [TestMethod]
-        [Description("Получение пациента по Id ")]
-        public async Task GetPatientsByPatientIdAsync_WhenPatientId1_ReturnsOnePatient()
+        [Description ("Получение последнего добавленого id пациента")]
+        public async Task GetLastAddedPatientIdAsync_ReturnsPatientsId()
         {
+            IDataContext sut = new MsSqlDataContext();
             
+            Result<int> result = await sut.Patients.GetLastAddedPatientIdAsync();
+
+            Assert.IsTrue(result.HasValue);
+        }
+
+        [TestMethod]
+        [Description ("Получение пациентов по фамилии")]
+        public async Task GetPatientsByLastNameAsync_ReturnListPatientsByLastName()
+        {
+            var key = "Мухина";
+            IDataContext sut = new MsSqlDataContext();
+
+            Result<List<Patient>> result = await sut.Patients.GetPatientsByLastNameAsync(key);
+
+            Assert.IsTrue(result.HasValue);
+            Assert.IsTrue(result.Value.Count > 0);
+        }
+
+
+        [TestMethod]
+        [Description ("Получение пациентов по номеру карты")]
+        public async Task GetPatientsByCardNumberAsync_ReturnListPatientsByCardNumber()
+        {
+            var key = "2345";
+            IDataContext sut = new MsSqlDataContext();
+
+            Result<List<Patient>> result = await sut.Patients.GetPatientsByCardNumberAsync(key);
+
+            Assert.IsTrue(result.HasValue);
+            Assert.IsTrue(result.Value.Count > 0);
         }
 
         [TestMethod]
