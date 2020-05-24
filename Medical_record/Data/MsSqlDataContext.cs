@@ -29,7 +29,7 @@ namespace Medical_record.Data
             Doctors = new SqlServerDoctors(_connectionService);
             Hospitalizations = new SqlServerHospitalization(_connectionService);
             Patients = new SqlServerPatients(_connectionService);
-            Observations = new SqlServerObservations(_connectionService);
+            Observations = new SqlServerObservations(_connectionService, this);
         }
     }
 }

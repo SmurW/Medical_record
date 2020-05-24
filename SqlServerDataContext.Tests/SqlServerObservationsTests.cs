@@ -15,9 +15,11 @@ namespace SqlServerDataContext.Tests
         [Description("Получение полного списка наблюдений по Id пациента")]
         public async Task GetObservationsByPatientIdAsync_ReturnsObservations()
         {
+            int patientId = 1;
             IDataContext sut = new MsSqlDataContext();
 
-            Result<List<Doctor>> result = await sut.Doctors.GetDoctorsAsync();
+            Result<List<Observation>> result =
+                await sut.Observations.GetObservationsByPatientIdAsync(patientId);
 
             Assert.IsTrue(result.HasValue);
             Assert.IsTrue(result.Value.Count > 0);
