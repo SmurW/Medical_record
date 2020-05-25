@@ -121,10 +121,10 @@ namespace SqlServerDataContext.Tests
 
         [TestMethod]
         [Description("Удаление пациента с корректным Id")]
-        [Ignore("Требуется отдельный запуск")]
+        //[Ignore("Требуется отдельный запуск")]
         public async Task RemovePatientsAsync_WhenValidPatientsId_ThenSuccess()
         {
-            int id = 1;
+            int id = 5;
             IDataContext sut = new MsSqlDataContext();
 
             Result<string> result = await sut.Patients.RemovePatientAsync(id);
