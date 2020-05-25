@@ -257,7 +257,7 @@ namespace Medical_record.Data.MsSqlData
                 using (var cmd = new SqlCommand(nameProc, con))
                 {
                     var paramId = new SqlParameter();
-                    paramId.ParameterName = "@patid";
+                    paramId.ParameterName = "@id";
                     paramId.SqlDbType = SqlDbType.Int;
                     paramId.Value = patientId;
 

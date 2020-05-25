@@ -5,14 +5,14 @@
 	@fname nvarchar(50),
 	@mname nvarchar(50),
 	@sex   nvarchar(50),
-	@rsdn  nvarchar(50),
+	@bdate date,
+	@regdate date,
+	@residn  nvarchar(50),
 	@pasnum nvarchar(50),
-	@passrs nvarchar(50),
+	@passer nvarchar(50),
 	@pasufms nvarchar(50),
-	@pasdcod nvarchar(50),
-	@bdate datetime,
-	@rdate datetime,
-	@pdate datetime
+	@pasissue date,
+	@pasdepcod nvarchar(50)
 AS
 BEGIN
 
@@ -22,14 +22,14 @@ BEGIN
 		[FirstName] = @fname,
 		[MiddleName] = @mname,
 		[Sex] = @sex,
-		[Residence] = @rsdn,
-		[PassportNumber] = @pasnum,
-		[PassportSeries] = @passrs,
-		[PassportUFMS] = @pasufms,
-		[PassportDepCode] = @pasdcod,
 		[Birthdate] = @bdate,
-		[RegistrationDate] = @rdate,
-		[PassportIssueDate] = @pdate
+		[RegistrationDate] = @regdate,
+		[Residence] = @residn,
+		[PassportNumber] = @pasnum,
+		[PassportSeries] = @passer,
+		[PassportUFMS] = @pasufms,
+		[PassportIssueDate] = @pasissue,
+		[PassportDepCode] = @pasdepcod
 		
 	WHERE [Id] = @id;
 END

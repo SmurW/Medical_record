@@ -97,7 +97,7 @@ namespace SqlServerDataContext.Tests
         {
             var patients = new Patient
             {
-                Id = 1,
+                Id = 5,
                 CardNumber = "Новый номер пациента 2",
                 LastName = "Новый пациент 2",
                 FirstName = "Новый пациент 2",
@@ -121,7 +121,7 @@ namespace SqlServerDataContext.Tests
 
         [TestMethod]
         [Description("Удаление пациента с корректным Id")]
-        //[Ignore("Требуется отдельный запуск")]
+        [Ignore("Требуется отдельный запуск")]
         public async Task RemovePatientsAsync_WhenValidPatientsId_ThenSuccess()
         {
             int id = 5;
