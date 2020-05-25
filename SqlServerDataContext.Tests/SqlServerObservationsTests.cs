@@ -24,6 +24,8 @@ namespace SqlServerDataContext.Tests
 
             Assert.IsTrue(result.HasValue);
             Assert.IsTrue(result.Value.Count > 0);
+            Assert.IsNotNull(result.Value[0].Diagnosis);
+            Assert.IsNotNull(result.Value[0].Doctor);
         }
 
         [TestMethod]
