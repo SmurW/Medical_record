@@ -139,5 +139,6 @@
     <None Include="TestScripts\ObservationsQueries.sql" />
     <None Include="TestData\Examinations.sql" />
     <None Include="TestScripts\Examinations.sql" />
+    <None Include="TestData\Readme.md" />
   </ItemGroup>
 </Project>
