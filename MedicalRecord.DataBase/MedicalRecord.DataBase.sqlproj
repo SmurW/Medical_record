@@ -113,6 +113,7 @@
     <Build Include="dbo\StoredProcedures\spObservations_GetByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spObservations_GetCountByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spObservations_Add.sql" />
+    <Build Include="dbo\Tables\Examinations.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\Procedures.sql" />
@@ -133,5 +134,7 @@
     <None Include="TestScripts\PatientsQueries.sql" />
     <None Include="TestData\Observations.sql" />
     <None Include="TestScripts\ObservationsQueries.sql" />
+    <None Include="TestData\Examinations.sql" />
+    <None Include="TestScripts\Examinations.sql" />
   </ItemGroup>
 </Project>
