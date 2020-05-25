@@ -114,6 +114,7 @@
     <Build Include="dbo\StoredProcedures\spObservations_GetCountByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spObservations_Add.sql" />
     <Build Include="dbo\Tables\Examinations.sql" />
+    <Build Include="dbo\StoredProcedures\spExaminations_GetByPatientId.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\Procedures.sql" />
