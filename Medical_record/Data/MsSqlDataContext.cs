@@ -8,11 +8,11 @@ namespace Medical_record.Data
         private readonly ConnectionService _connectionService;
         public IDiagnosisDataContext Diagnoses { get; } //+
         public IDoctorDataContext Doctors { get; } //+
-        public IExaminationDataContext Examinations { get; } //-
+        public IExaminationDataContext Examinations { get; } //+
         public IHealthGroupDataContext HealthGroups { get; } //+
         public IHospitalizationDataContext Hospitalizations { get; } //+
         public IMedicationsDataContext Medications { get; } //+
-        public IObservationDataContext Observations { get; } //-
+        public IObservationDataContext Observations { get; } //+
         public IPatientDataContext Patients { get; } //+
         public IProcedureDataContext Procedures { get; } //+
         public ISpecializationDataContext Specializations { get; } //+
@@ -29,6 +29,8 @@ namespace Medical_record.Data
             Doctors = new SqlServerDoctors(_connectionService);
             Hospitalizations = new SqlServerHospitalization(_connectionService);
             Patients = new SqlServerPatients(_connectionService);
+            Observations = new SqlServerObservations(_connectionService, this);
+            Examinations = new SqlServerExaminations(_connectionService, this);
         }
     }
 }

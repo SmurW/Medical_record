@@ -73,7 +73,6 @@ namespace Medical_record.Data.MsSqlData
 
         public async Task<Result<int>> GetLastAddedPatientIdAsync()
         {
-            var patients = new List<Patient>();
             var nameProc = @"[dbo].[spPatients_GetLastAddedPatientId]";
             int result = 0;
             try
@@ -84,18 +83,6 @@ namespace Medical_record.Data.MsSqlData
                     cmd.CommandType = CommandType.StoredProcedure;
                     await con.OpenAsync();
                     result = Convert.ToInt32(await cmd.ExecuteScalarAsync());
-
-                    using (var reader = await cmd.ExecuteReaderAsync())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (await reader.ReadAsync())
-                            {
-                                var m = GetPatientsFromReader(reader);
-                                patients.Add(m);
-                            }
-                        }
-                    }
                 }
             }
             catch (Exception ex)
@@ -270,7 +257,7 @@ namespace Medical_record.Data.MsSqlData
                 using (var cmd = new SqlCommand(nameProc, con))
                 {
                     var paramId = new SqlParameter();
-                    paramId.ParameterName = "@patid";
+                    paramId.ParameterName = "@id";
                     paramId.SqlDbType = SqlDbType.Int;
                     paramId.Value = patientId;
 
@@ -331,6 +318,13 @@ namespace Medical_record.Data.MsSqlData
 
         private List<SqlParameter> GetParametersFromPatients(Patient patient)
         {
+            var paramCN = new SqlParameter
+            {
+                ParameterName = "@cardn",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = patient.CardNumber.Trim()
+            };
+
             var paramFN = new SqlParameter
             {
                 ParameterName = "@fname",
@@ -352,13 +346,6 @@ namespace Medical_record.Data.MsSqlData
                 Value = patient.MiddleName.Trim()
             };
 
-            var paramCN = new SqlParameter
-            {
-                ParameterName = "@crdnmbr",
-                SqlDbType = SqlDbType.NVarChar,
-                Value = patient.CardNumber.Trim()
-            };
-
             var paramSX = new SqlParameter
             {
                 ParameterName = "@sex",
@@ -368,7 +355,7 @@ namespace Medical_record.Data.MsSqlData
 
             var paramBE = new SqlParameter
             {
-                ParameterName = "@bhdate",
+                ParameterName = "@bdate",
                 SqlDbType = SqlDbType.DateTime,
                 Value = patient.Birthdate
             };
@@ -382,42 +369,42 @@ namespace Medical_record.Data.MsSqlData
 
             var paramRC = new SqlParameter
             {
-                ParameterName = "@rsdnc",
+                ParameterName = "@residn",
                 SqlDbType = SqlDbType.NVarChar,
                 Value = patient.Residence
             };
 
             var paramPN = new SqlParameter
             {
-                ParameterName = "@psprtnmbr",
+                ParameterName = "@pasnum",
                 SqlDbType = SqlDbType.NVarChar,
                 Value = patient.PassportNumber
             };
 
             var paramPS = new SqlParameter
             {
-                ParameterName = "@psprtser",
+                ParameterName = "@passer",
                 SqlDbType = SqlDbType.NVarChar,
                 Value = patient.PassportSeries
             };
 
             var paramPUFMS = new SqlParameter
             {
-                ParameterName = "@psprtufms",
+                ParameterName = "@pasufms",
                 SqlDbType = SqlDbType.NVarChar,
                 Value = patient.PassportUFMS
             };
 
             var paramPID = new SqlParameter
             {
-                ParameterName = "@pasisdt",
+                ParameterName = "@pasissue",
                 SqlDbType = SqlDbType.DateTime,
                 Value = patient.PassportIssueDate
             };
 
             var paramDC = new SqlParameter
             {
-                ParameterName = "@psprtdc",
+                ParameterName = "@pasdepcod",
                 SqlDbType = SqlDbType.NVarChar,
                 Value = patient.PassportDepCode
             };

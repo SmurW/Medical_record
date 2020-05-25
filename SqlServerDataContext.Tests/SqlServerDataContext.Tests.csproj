@@ -52,7 +52,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerDiagnosesTests.cs" />
+    <Compile Include="SqlServerExaminationsTests.cs" />
     <Compile Include="SqlServerMedicationsTests.cs" />
+    <Compile Include="SqlServerObservationsTests.cs" />
     <Compile Include="SqlServerProceduresTests.cs" />
     <Compile Include="SqlServerSpecializationsTests.cs" />
     <Compile Include="SqlServerHealthGroupsTests.cs" />
