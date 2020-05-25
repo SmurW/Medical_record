@@ -18,9 +18,9 @@ namespace Medical_record
             Application.SetCompatibleTextRenderingDefault(false);
 
             //тестовые данные
-            IDataContext dataContext = new TestDataContext();
-            //БД
-            //IDataContext dataContext = new MsSqlDataContext();
+            //IDataContext dataContext = new TestDataContext();
+            //реальная БД
+            IDataContext dataContext = new MsSqlDataContext();
 
             //сервис сообщений
             IMessageService messageService = new MessagesService();
