@@ -1,0 +1,6 @@
+﻿CREATE USER [Admin]
+	WITH PASSWORD = '123'
+
+GO
+
+GRANT CONNECT TO [Admin]

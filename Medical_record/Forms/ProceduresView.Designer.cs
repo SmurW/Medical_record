@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows from Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProceduresView));
             this._textBoxSearch = new System.Windows.Forms.TextBox();
             this._comboBoxSort = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -155,6 +156,7 @@
             this.Controls.Add(this._buttonRemove);
             this.Controls.Add(this._buttonUpdate);
             this.Controls.Add(this._buttonAdd);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProceduresView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр процедур";

@@ -20,7 +20,7 @@ namespace Medical_record.Data.MsSqlData
                 throw new ArgumentNullException(nameof(connectionService));
         }
         
-        private static Patient GetPatientsFromReader(SqlDataReader reader)
+        private static Patient GetPatientsfromReader(SqlDataReader reader)
         {
             return new Patient
             {
@@ -48,7 +48,7 @@ namespace Medical_record.Data.MsSqlData
                 return new Result<string>("Пустое значение параметра");
             }
 
-            var parameters = GetParametersFromPatients(patient);
+            var parameters = GetParametersfromPatients(patient);
             var nameProc = @"[dbo].[spPatients_Add]";
             object res = null;
             try
@@ -110,7 +110,7 @@ namespace Medical_record.Data.MsSqlData
                         {
                             while (await reader.ReadAsync())
                             {
-                                var m = GetPatientsFromReader(reader);
+                                var m = GetPatientsfromReader(reader);
                                 patients.Add(m);
                             }
                         }
@@ -288,7 +288,7 @@ namespace Medical_record.Data.MsSqlData
                 return new Result<string>("Невозможно обновить пациента с Id == 0");
             }
 
-            var parameters = GetParametersFromPatients(patient);
+            var parameters = GetParametersfromPatients(patient);
             var nameProc = @"[dbo].[spPatients_Update]";
             try
             {
@@ -316,7 +316,7 @@ namespace Medical_record.Data.MsSqlData
             return new Result<string>($"Успешно обновлено пациента.", string.Empty);
         }
 
-        private List<SqlParameter> GetParametersFromPatients(Patient patient)
+        private List<SqlParameter> GetParametersfromPatients(Patient patient)
         {
             var paramCN = new SqlParameter
             {

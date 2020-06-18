@@ -8,7 +8,7 @@ namespace Medical_record.Abstractions
         IDataContext DataContext { get; }
         IMessageService MessageService { get; }
 
-        Form GetMainForm();
+        Form GetMainFrom();
         UserControl GetUcViewInput(string key);
         UserControl GetUcViewOutput(string key);
         void ShowAddMedicationsView();
@@ -24,5 +24,8 @@ namespace Medical_record.Abstractions
         void ShowProceduresView();
         void ShowRegistrationView();
         void ShowRegistrationView(Patient patient);
+        void ShowAboutProgramView();
+        void ShowAutorizationView(Users users);
+        void ShowAutorizationView();
     }
 }

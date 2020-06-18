@@ -13,7 +13,7 @@ GO
 --	, [MiddleName]
 --	, [SpecializationId]
 --	, [IsDeleted]
---FROM dbo.Doctors;
+--from dbo.Doctors;
 
 --SELECT [d].[Id]
 --	, [d].[LastName]
@@ -21,7 +21,7 @@ GO
 --	, [d].[MiddleName]
 --	, [d].[SpecializationId]
 --	, [s].[Name] AS 'Specialization'
---FROM dbo.Doctors AS d
+--from dbo.Doctors AS d
 --INNER JOIN dbo.Specializations AS s
 --	ON d.SpecializationId = s.Id
 --WHERE d.IsDeleted = 0

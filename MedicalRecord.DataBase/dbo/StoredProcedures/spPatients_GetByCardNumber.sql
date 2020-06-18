@@ -17,7 +17,7 @@ BEGIN
 		[RegistrationDate],
 		[PassportIssueDate],
 		[IsDeleted]
-	FROM [dbo].[Patients] AS h
+	from [dbo].[Patients] AS h
 	WHERE h.CardNumber = @cardn AND h.IsDeleted = 0;
 
 END

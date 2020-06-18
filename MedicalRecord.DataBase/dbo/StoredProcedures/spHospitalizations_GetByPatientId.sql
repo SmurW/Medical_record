@@ -10,7 +10,7 @@ BEGIN
 		, [MedicalOrganization]
 		, [DefinitiveDiagnosis]
 		, [IsDeleted]
-	FROM [dbo].[Hospitalizations] AS h
+	from [dbo].[Hospitalizations] AS h
 	WHERE h.PatientId = @patientId AND h.IsDeleted = 0
 	ORDER BY h.StartHospitalizationDate DESC;
 

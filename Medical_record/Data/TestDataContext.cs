@@ -16,6 +16,7 @@ namespace Medical_record.Data
         public IPatientDataContext Patients { get; }
         public IProcedureDataContext Procedures { get; }
         public ISpecializationDataContext Specializations { get; }
+        public IUserDataContext Users { get; }
 
         public TestDataContext()
         {
@@ -29,6 +30,7 @@ namespace Medical_record.Data
             Examinations = new TestExaminationDataContext(_dataSource);
             Doctors = new TestDoctorDataContext(_dataSource);
             Diagnoses = new TestDiagnosesDataContext(_dataSource);
+            Users = new TestUsersDataContext(_dataSource);
         }
 
     }

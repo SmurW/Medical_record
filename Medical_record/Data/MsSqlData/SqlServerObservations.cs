@@ -44,7 +44,7 @@ namespace Medical_record.Data.MsSqlData
             object res = null;
             try
             {
-                SqlParameter[] parameters = GetSqlParametersFromObservation(observation);
+                SqlParameter[] parameters = GetSqlParametersfromObservation(observation);
 
                 using (var con = _conService.GetConnection())
                 using (var cmd = con.CreateCommand())
@@ -65,7 +65,7 @@ namespace Medical_record.Data.MsSqlData
             return new Result<string>($"Успешно сохранено новое наблюдение {res}.", string.Empty);
         }
 
-        private SqlParameter[] GetSqlParametersFromObservation(Observation observation)
+        private SqlParameter[] GetSqlParametersfromObservation(Observation observation)
         {
             var result = new List<SqlParameter>();
 
@@ -164,7 +164,7 @@ namespace Medical_record.Data.MsSqlData
                         {
                             while (await reader.ReadAsync())
                             {
-                                var observation = GetObservationFromReader(reader);
+                                var observation = GetObservationfromReader(reader);
                                 result.Add(observation);
                             }
                         }
@@ -216,7 +216,7 @@ namespace Medical_record.Data.MsSqlData
             }
         }
 
-        private Observation GetObservationFromReader(SqlDataReader reader)
+        private Observation GetObservationfromReader(SqlDataReader reader)
         {
             var result = new Observation
             {

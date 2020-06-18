@@ -2,5 +2,5 @@
 	@patientId int
 AS
 	SELECT COUNT(Id)
-    FROM dbo.Examinations
+    from dbo.Examinations
     WHERE PatientId = @patientId;

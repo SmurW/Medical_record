@@ -14,7 +14,7 @@ SELECT
 	, [MedicalOrganization]
 	, [DefinitiveDiagnosis]
 	, [IsDeleted]
-FROM dbo.Hospitalizations;
+from dbo.Hospitalizations;
 
 
 --процедура GetCountByPatientId

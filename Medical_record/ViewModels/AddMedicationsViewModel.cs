@@ -39,13 +39,21 @@ namespace Medical_record.ViewModels
 
         internal async void SaveMedications()
         {
-            Result<string> result = new Result<string>("Error");
+            Result<string> result = new Result<string>("Данные не заполнены");
             var medications = GetMedications();
             if (Id == 0)
             {
                 //запоминаем
-                result = await _appController.DataContext
+                try
+                {
+                    result = await _appController.DataContext
                     .Medications.AddMedicationsAsync(medications);
+                }
+                catch (Exception ex)
+                {
+                    //_appController.MessageService.ShowErrorMessage(result.Error);
+                }
+                
             }
             else
             {

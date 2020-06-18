@@ -17,6 +17,6 @@ BEGIN
 		[RegistrationDate],
 		[PassportIssueDate]
 
-	FROM [dbo].[Patients]
+	from [dbo].[Patients]
 	WHERE [IsDeleted] = 0;
 END

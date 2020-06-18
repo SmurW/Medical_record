@@ -36,7 +36,7 @@ namespace Medical_record.Data.MsSqlData
                         {
                             while (await reader.ReadAsync())
                             {
-                                Doctor d = GetDoctorFromReader(reader);
+                                Doctor d = GetDoctorfromReader(reader);
                                 docs.Add(d);
                             }
                         }
@@ -77,7 +77,7 @@ namespace Medical_record.Data.MsSqlData
                     {
                         if (await reader.ReadAsync())
                         {
-                            doc = GetDoctorFromReader(reader);
+                            doc = GetDoctorfromReader(reader);
                         }
                     }
                 }
@@ -108,7 +108,7 @@ namespace Medical_record.Data.MsSqlData
             object res = null;
             try
             {
-                var parameters = GetSqlParametersFromDoctor(doctor);
+                var parameters = GetSqlParametersfromDoctor(doctor);
 
                 using (var con = _conService.GetConnection())
                 using (var cmd = new SqlCommand(nameProc, con))
@@ -128,7 +128,7 @@ namespace Medical_record.Data.MsSqlData
             return new Result<string>($"Успешно сохранен новый доктор {res}.", string.Empty);
         }
 
-        private Doctor GetDoctorFromReader(SqlDataReader reader)
+        private Doctor GetDoctorfromReader(SqlDataReader reader)
         {
             var result = new Doctor
             {
@@ -148,7 +148,7 @@ namespace Medical_record.Data.MsSqlData
             return result;
         }
 
-        private SqlParameter[] GetSqlParametersFromDoctor(Doctor doctor)
+        private SqlParameter[] GetSqlParametersfromDoctor(Doctor doctor)
         {
             var result = new List<SqlParameter>();
 

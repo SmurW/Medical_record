@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows from Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiagnosesView));
             this._dataGridViewDiagnoses = new System.Windows.Forms.DataGridView();
             this._columnOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -155,6 +156,7 @@
             this.Controls.Add(this._buttonUpdate);
             this.Controls.Add(this._buttonAdd);
             this.Controls.Add(this._dataGridViewDiagnoses);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DiagnosesView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр диагнозов";

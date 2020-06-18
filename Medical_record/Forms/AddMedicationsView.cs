@@ -37,6 +37,13 @@ namespace Medical_record.Forms
             _comboBoxName.DataBindings.Add("Text", _addMedicationsViewModel, nameof(_addMedicationsViewModel.Name));
 
             _buttonAddMedecine.Click += (s, e) => _addMedicationsViewModel.SaveMedications();
+
+            Load += AddMedicationsView_Load;
+        }
+
+        private void AddMedicationsView_Load(object sender, EventArgs e)
+        {
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
     }
 }

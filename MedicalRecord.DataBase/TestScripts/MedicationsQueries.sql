@@ -8,7 +8,7 @@ GO
 
 --SELECT
 --	*
---FROM dbo.Medications;
+--from dbo.Medications;
 
 --процедура GetAll
 EXEC spMedications_GetAll;

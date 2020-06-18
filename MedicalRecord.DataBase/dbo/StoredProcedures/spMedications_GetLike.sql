@@ -13,6 +13,6 @@ BEGIN
 		[ArrivalDate],
 		[ShelfLife],
 		[IsDeleted]
-	FROM [dbo].[Medications]
+	from [dbo].[Medications]
 	WHERE [Name] LIKE CONCAT(@value, '%') AND [IsDeleted] = 0;
 END

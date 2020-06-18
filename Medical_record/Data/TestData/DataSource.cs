@@ -16,6 +16,7 @@ namespace Medical_record.Data.TestData
         public List<Specialization> Specializations { get; } = new List<Specialization>();
         public List<HealthGroup> HealthGroups { get; } = new List<HealthGroup>();
         public List<Examination> Examinations { get; } = new List<Examination>();
+        public List<Users> Users { get; } = new List<Users>();
 
         public DataSource()
         {
@@ -29,6 +30,8 @@ namespace Medical_record.Data.TestData
             SetSpecializations();
             SetHealthGroupus();
             SetExaminations();
+            SetUsers();
+            
         }
 
         private void SetExaminations()
@@ -171,6 +174,33 @@ namespace Medical_record.Data.TestData
             };
             Doctors.Add(d);
 
+        }
+
+        private void SetUsers()
+        {
+            var u = new Users
+            {
+                Id = 1,
+                Login = "Admin",
+                Password = "123456"
+            };
+            Users.Add(u);
+
+            u = new Users
+            {
+                Id = 1,
+                Login = "User",
+                Password = "12345"
+            };
+            Users.Add(u);
+
+            u = new Users
+            {
+                Id = 1,
+                Login = "User",
+                Password = "1234"
+            };
+            Users.Add(u);
         }
 
         private void SetProcedures()

@@ -7,5 +7,5 @@ AS
 		 , [DiagnosisId]
 		 , [HealthGroupId]
 		 , [DoctorId]
-    FROM dbo.Examinations
+    from dbo.Examinations
     WHERE PatientId = @patientId;

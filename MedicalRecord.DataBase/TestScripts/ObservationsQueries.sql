@@ -8,7 +8,7 @@ SELECT [Id]
      , [DoctorId]
      , [StartObservationDate]
      , [EndObservationDate]
-FROM dbo.Observations;
+from dbo.Observations;
 
 SELECT [Id]
      , [PatientId]
@@ -16,5 +16,5 @@ SELECT [Id]
      , [DoctorId]
      , [StartObservationDate]
      , [EndObservationDate]
-FROM dbo.Observations
+from dbo.Observations
 WHERE PatientId = 1;

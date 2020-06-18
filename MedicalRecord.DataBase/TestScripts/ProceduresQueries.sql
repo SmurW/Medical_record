@@ -11,7 +11,7 @@ GO
 --	[Name],
 --	[Description],
 --	[IsDeleted]
---FROM dbo.Procedures;
+--from dbo.Procedures;
 
 --процедура GetAll
 EXEC dbo.spProcedures_GetAll;

@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows from Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorsView));
             this._textBoxMiddleName = new System.Windows.Forms.TextBox();
             this._textBoxFirstName = new System.Windows.Forms.TextBox();
             this._textBoxLastName = new System.Windows.Forms.TextBox();
@@ -184,6 +185,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DoctorsView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Врачи";

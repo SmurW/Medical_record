@@ -27,6 +27,13 @@ namespace Medical_record.Forms
                 nameof(_viewModel.Name), true, DataSourceUpdateMode.OnPropertyChanged);
 
             _buttonSave.Click += (s, e) => _viewModel.SaveProcedure();
+
+            Load += AddProceduresView_Load;
+        }
+
+        private void AddProceduresView_Load(object sender, EventArgs e)
+        {
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
     }
 }

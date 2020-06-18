@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows from Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiagnosisView));
             this._buttonSave = new System.Windows.Forms.Button();
             this._textBoxDescr = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,12 +36,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // _buttonSaveDiagnosis
+            // _buttonSave
             // 
             this._buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this._buttonSave.Location = new System.Drawing.Point(121, 121);
-            this._buttonSave.Name = "_buttonSaveDiagnosis";
+            this._buttonSave.Name = "_buttonSave";
             this._buttonSave.Size = new System.Drawing.Size(142, 23);
             this._buttonSave.TabIndex = 14;
             this._buttonSave.Text = "Добавить диагноз";
@@ -95,6 +96,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this._textBoxName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DiagnosisView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление диагнозов";

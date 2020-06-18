@@ -15,6 +15,7 @@
         IPatientDataContext Patients { get; }
         IProcedureDataContext Procedures { get; }
         ISpecializationDataContext Specializations { get; }
+        IUserDataContext Users { get; }
     }
    
 }

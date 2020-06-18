@@ -28,7 +28,7 @@ namespace Medical_record.Properties {
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Perfromance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
         
@@ -57,6 +57,36 @@ namespace Medical_record.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImagesForwin {
+            get {
+                object obj = ResourceManager.GetObject("ImagesForwin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap main_icon {
+            get {
+                object obj = ResourceManager.GetObject("main_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainImg {
+            get {
+                object obj = ResourceManager.GetObject("MainImg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

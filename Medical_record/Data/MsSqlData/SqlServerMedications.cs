@@ -36,7 +36,7 @@ namespace Medical_record.Data.MsSqlData
                         {
                             while (await reader.ReadAsync())
                             {
-                                var m = GetMedicationsFromReader(reader);
+                                var m = GetMedicationsfromReader(reader);
                                 medics.Add(m);
                             }
                         }
@@ -79,7 +79,7 @@ namespace Medical_record.Data.MsSqlData
                         {
                             while (await reader.ReadAsync())
                             {
-                                var m = GetMedicationsFromReader(reader);
+                                var m = GetMedicationsfromReader(reader);
                                 medics.Add(m);
                             }
                         }
@@ -122,7 +122,7 @@ namespace Medical_record.Data.MsSqlData
                         {
                             while (await reader.ReadAsync())
                             {
-                                var m = GetMedicationsFromReader(reader);
+                                var m = GetMedicationsfromReader(reader);
                                 medics.Add(m);
                             }
                         }
@@ -144,7 +144,7 @@ namespace Medical_record.Data.MsSqlData
                 return new Result<string>("Пустое значение параметра");
             }
 
-            var parameters = GetParametersFromMedications(medications);
+            var parameters = GetParametersfromMedications(medications);
             var nameProc = @"[dbo].[spMedications_Add]";
             object res = null;
             try
@@ -164,7 +164,7 @@ namespace Medical_record.Data.MsSqlData
                 return new Result<string>(ex.Message);
             }
 
-            return new Result<string>($"Успешно сохранен новый диагноз {res}.", string.Empty);
+            return new Result<string>($"Успешно сохраненО новое лекарство {res}.", string.Empty);
         }
 
         public async Task<Result<string>> UpdateMedicationsAsync(Medications medications)
@@ -179,7 +179,7 @@ namespace Medical_record.Data.MsSqlData
                 return new Result<string>("Невозможно обновить лекарство с Id == 0");
             }
 
-            var parameters = GetParametersFromMedications(medications);
+            var parameters = GetParametersfromMedications(medications);
             var nameProc = @"[dbo].[spMedications_Update]";
             try
             {
@@ -240,7 +240,7 @@ namespace Medical_record.Data.MsSqlData
             return new Result<string>($"Успешно удалено лекарство.", string.Empty);
         }
 
-        private static Medications GetMedicationsFromReader(SqlDataReader reader)
+        private static Medications GetMedicationsfromReader(SqlDataReader reader)
         {
             return new Medications
             {
@@ -256,7 +256,7 @@ namespace Medical_record.Data.MsSqlData
             };
         }
 
-        private List<SqlParameter> GetParametersFromMedications(Medications medications)
+        private List<SqlParameter> GetParametersfromMedications(Medications medications)
         {
             var paramName = new SqlParameter
             {

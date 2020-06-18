@@ -142,7 +142,7 @@ namespace Medical_record.Data.MsSqlData
                         {
                             while (await reader.ReadAsync())
                             {
-                                Hospitalization h = GetHospitalizationFromReader(reader);
+                                Hospitalization h = GetHospitalizationfromReader(reader);
                                 hosps.Add(h);
                             }
                         }
@@ -157,7 +157,7 @@ namespace Medical_record.Data.MsSqlData
             return new Result<List<Hospitalization>>(hosps);
         }
 
-        private Hospitalization GetHospitalizationFromReader(SqlDataReader reader)
+        private Hospitalization GetHospitalizationfromReader(SqlDataReader reader)
         {
             return new Hospitalization
             {

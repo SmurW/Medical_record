@@ -6,7 +6,7 @@ BEGIN
 	SELECT
 		[Id],
 		[Title]
-	FROM [dbo].[HealthGroups]
+	from [dbo].[HealthGroups]
 	WHERE [IsDeleted] = 0; --исключаем из выборки удаленные группы помощи
 
 END

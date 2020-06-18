@@ -16,6 +16,7 @@ namespace Medical_record.Data
         public IPatientDataContext Patients { get; } //+
         public IProcedureDataContext Procedures { get; } //+
         public ISpecializationDataContext Specializations { get; } //+
+        public IUserDataContext Users { get; } //+
 
         public MsSqlDataContext()
         {
@@ -31,6 +32,7 @@ namespace Medical_record.Data
             Patients = new SqlServerPatients(_connectionService);
             Observations = new SqlServerObservations(_connectionService, this);
             Examinations = new SqlServerExaminations(_connectionService, this);
+            Users = new SqlServerUsers(_connectionService);
         }
     }
 }

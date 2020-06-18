@@ -23,6 +23,7 @@ namespace Medical_record.Utils
             Value = value;
             Error = String.Empty;
         }
+
         /// <summary>
         /// В случае ошибки
         /// </summary>
@@ -34,6 +35,7 @@ namespace Medical_record.Utils
 
             Error = error;
         }
+
         /// <summary>
         /// В случае Result типа string
         /// </summary>
