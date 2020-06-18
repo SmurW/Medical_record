@@ -45,6 +45,7 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -146,11 +147,7 @@
     <None Include="TestData\Examinations.sql" />
     <None Include="TestScripts\Examinations.sql" />
     <None Include="TestData\Readme.md" />
-    <None Include="MedicalRecord.DataBase.publish.xml" />
     <None Include="TestData\Users.sql" />
     <None Include="TestScripts\UsersQueries.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="MedicalRecord.DataBase.refactorlog" />
   </ItemGroup>
 </Project>
