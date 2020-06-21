@@ -9,7 +9,7 @@ namespace Medical_record.ViewModels
     public class MainViewModel
     {
         private readonly AppController _appController;
-        private readonly AutorizationsViewModels _autorizationsViewModels;
+      //  private readonly AutorizationsViewModels _autorizationsViewModels;
 
         public MainViewModel(AppController appController)
         {

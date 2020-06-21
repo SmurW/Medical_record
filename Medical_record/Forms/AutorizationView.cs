@@ -13,7 +13,7 @@ namespace Medical_record.Forms
     public partial class AutorizationView : Form
     {
         private readonly AutorizationsViewModels _viewModel;
-        private readonly AppController _appController;
+        //private readonly AppController _appController;
 
         public AutorizationView(AutorizationsViewModels autorizationsViewModels)
         {

@@ -15,8 +15,8 @@ namespace Medical_record
     public partial class Mainfrom_MedicalRecord : Form
     {
         private readonly MainViewModel _viewModel;
-        private readonly AutorizationsViewModels _autorizationsViewModels;
-        private readonly BindingSource _bsUsers;
+       // private readonly AutorizationsViewModels _autorizationsViewModels;
+      //  private readonly BindingSource _bsUsers;
 
         public Mainfrom_MedicalRecord(MainViewModel viewModel)
         {

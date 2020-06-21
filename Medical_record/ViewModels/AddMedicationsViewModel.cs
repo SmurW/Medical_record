@@ -49,7 +49,7 @@ namespace Medical_record.ViewModels
                     result = await _appController.DataContext
                     .Medications.AddMedicationsAsync(medications);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     //_appController.MessageService.ShowErrorMessage(result.Error);
                 }

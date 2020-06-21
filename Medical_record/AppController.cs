@@ -12,7 +12,7 @@ namespace Medical_record
     public class AppController : IAppController
     {
         private readonly Mainfrom_MedicalRecord _mainfrom;
-        private readonly AutorizationView _autorizationView;
+      //  private readonly AutorizationView _autorizationView;
         public IDataContext DataContext { get; }
         public IMessageService MessageService { get; }
 
@@ -32,10 +32,10 @@ namespace Medical_record
             return _mainfrom;
         }
 
-        public Form GetAutorizationForm()
-        {
-            return _autorizationView;
-        }
+        //public Form GetAutorizationForm()
+        //{
+        //    return _autorizationView;
+        //}
 
         public UserControl GetUcViewInput(string key)
         {
@@ -214,11 +214,6 @@ namespace Medical_record
             from.Owner = _mainfrom;
             from.Show();
 
-        }
-
-            public void CloseAutorizationView()
-        {
-            _autorizationView.Hide();
         }
 
         public void ShowMainfrom()
