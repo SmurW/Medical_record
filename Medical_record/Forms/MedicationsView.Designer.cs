@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows from Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MedicationsView));
             this._textBoxSearchByName = new System.Windows.Forms.TextBox();
             this._comboBoxSelectSort = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,7 +36,6 @@
             this._buttonUpdate = new System.Windows.Forms.Button();
             this._buttonAdd = new System.Windows.Forms.Button();
             this._dataGridViewMedicat = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this._columnOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +45,7 @@
             this._columnRestPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnQuantityPackage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._columnRemainedUnits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dataGridViewMedicat)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,15 +125,6 @@
             this._dataGridViewMedicat.Size = new System.Drawing.Size(842, 251);
             this._dataGridViewMedicat.TabIndex = 8;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(261, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Поиск по наименованию:";
-            // 
             // _columnOrderNumber
             // 
             this._columnOrderNumber.HeaderText = "Н/П";
@@ -195,6 +187,15 @@
             this._columnRemainedUnits.ReadOnly = true;
             this._columnRemainedUnits.Width = 70;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(261, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(136, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Поиск по наименованию:";
+            // 
             // MedicationsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +210,7 @@
             this.Controls.Add(this._buttonAdd);
             this.Controls.Add(this._dataGridViewMedicat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MedicationsView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр лекарств";

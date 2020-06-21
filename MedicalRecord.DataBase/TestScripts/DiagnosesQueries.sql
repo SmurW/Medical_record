@@ -11,7 +11,7 @@ GO
 --	[Name],
 --	[Description],
 --	[IsDeleted]
---FROM dbo.Diagnoses;
+--from dbo.Diagnoses;
 
 --процедура GetAll
 EXEC dbo.spDiagnoses_GetAll;

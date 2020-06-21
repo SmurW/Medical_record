@@ -12,6 +12,6 @@ AS
 		[ArrivalDate],
 		[ShelfLife],
 		[IsDeleted]
-	FROM dbo.Medications
+	from dbo.Medications
 	WHERE [IsDeleted] = 0;
 RETURN 0

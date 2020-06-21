@@ -3,7 +3,7 @@ AS
 BEGIN
 	
 	SELECT Max(Id)
-	FROM [dbo].[Patients]
+	from [dbo].[Patients]
 
 END
 

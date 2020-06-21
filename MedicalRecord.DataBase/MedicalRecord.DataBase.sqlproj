@@ -45,6 +45,7 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -63,7 +64,6 @@
     <Folder Include="dbo\StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Diagnoses.sql" />
     <Build Include="dbo\StoredProcedures\spDiagnoses_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spDiagnoses_GetAllWithOrder.sql" />
     <Build Include="dbo\StoredProcedures\spDiagnoses_GetLike.sql" />
@@ -72,7 +72,6 @@
     <Build Include="dbo\StoredProcedures\spDiagnoses_Update.sql" />
     <Build Include="dbo\StoredProcedures\spDiagnoses_Remove.sql" />
     <Build Include="dbo\StoredProcedures\spDiagnoses_Add.sql" />
-    <Build Include="dbo\Tables\Procedures.sql" />
     <Build Include="dbo\StoredProcedures\spProcedures_Add.sql" />
     <Build Include="dbo\StoredProcedures\spProcedures_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spProcedures_GetAllWithOrder.sql" />
@@ -80,24 +79,19 @@
     <Build Include="dbo\StoredProcedures\spProcedures_GetLike.sql" />
     <Build Include="dbo\StoredProcedures\spProcedures_Remove.sql" />
     <Build Include="dbo\StoredProcedures\spProcedures_Update.sql" />
-    <Build Include="dbo\Tables\Medications.sql" />
     <Build Include="dbo\StoredProcedures\spMedications_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spMedications_GetAllWithOrder.sql" />
     <Build Include="dbo\StoredProcedures\spMedications_GetLike.sql" />
     <Build Include="dbo\StoredProcedures\spMedications_Update.sql" />
     <Build Include="dbo\StoredProcedures\spMedications_Remove.sql" />
     <Build Include="dbo\StoredProcedures\spMedications_Add.sql" />
-    <Build Include="dbo\Tables\Specializations.sql" />
     <Build Include="dbo\StoredProcedures\spSpecializations_GetAll.sql" />
-    <Build Include="dbo\Tables\HealthGroups.sql" />
     <Build Include="dbo\StoredProcedures\spHealthGroups_Add.sql" />
     <Build Include="dbo\StoredProcedures\spHealthGroups_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spHealthGroups_GetById.sql" />
     <Build Include="dbo\StoredProcedures\spDoctors_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spDoctors_Add.sql" />
     <Build Include="dbo\StoredProcedures\spDoctors_GetById.sql" />
-    <Build Include="dbo\Tables\Hospitalizations.sql" />
-    <Build Include="dbo\Tables\Doctors.sql" />
     <Build Include="dbo\StoredProcedures\spHospitalizations_GetCountByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spHospitalizations_GetByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spHospitalizations_Add.sql" />
@@ -108,15 +102,28 @@
     <Build Include="dbo\StoredProcedures\spPatients_GetByCardNumber.sql" />
     <Build Include="dbo\StoredProcedures\spPatients_GetByLastName.sql" />
     <Build Include="dbo\StoredProcedures\spPatients_Update.sql" />
-    <Build Include="dbo\Tables\Patients.sql" />
-    <Build Include="dbo\Tables\Observations.sql" />
     <Build Include="dbo\StoredProcedures\spObservations_GetByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spObservations_GetCountByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spObservations_Add.sql" />
-    <Build Include="dbo\Tables\Examinations.sql" />
     <Build Include="dbo\StoredProcedures\spExaminations_GetByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spExaminations_GetCountByPatientId.sql" />
     <Build Include="dbo\StoredProcedures\spExaminations_Add.sql" />
+    <Build Include="dbo\Tables\Specializations.sql" />
+    <Build Include="dbo\Tables\Doctors.sql" />
+    <Build Include="dbo\Tables\HealthGroups.sql" />
+    <Build Include="dbo\Tables\Medications.sql" />
+    <Build Include="dbo\Tables\Procedures.sql" />
+    <Build Include="dbo\Tables\Patients.sql" />
+    <Build Include="dbo\Tables\Diagnoses.sql" />
+    <Build Include="dbo\Tables\Observations.sql" />
+    <Build Include="dbo\Tables\Examinations.sql" />
+    <Build Include="dbo\Tables\Hospitalizations.sql" />
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\StoredProcedures\spUsers_Add.sql" />
+    <Build Include="dbo\StoredProcedures\spUsers_GetAll.sql" />
+    <Build Include="dbo\StoredProcedures\spUsers_Remove.sql" />
+    <Build Include="dbo\StoredProcedures\spUsers_Update.sql" />
+    <Build Include="dbo\StoredProcedures\spUsers_GetLike.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\Procedures.sql" />
@@ -128,7 +135,6 @@
     <None Include="TestScripts\SpecializationsQueries.sql" />
     <None Include="TestData\HealthGroups.sql" />
     <None Include="TestScripts\HealthGroupsQueries.sql" />
-    <None Include="MedicalRecord.DataBase.publish.xml" />
     <None Include="TestData\Doctors.sql" />
     <None Include="TestScripts\DoctorsQueries.sql" />
     <None Include="TestData\Hospitalizations.sql" />
@@ -140,5 +146,7 @@
     <None Include="TestData\Examinations.sql" />
     <None Include="TestScripts\Examinations.sql" />
     <None Include="TestData\Readme.md" />
+    <None Include="TestData\Users.sql" />
+    <None Include="TestScripts\UsersQueries.sql" />
   </ItemGroup>
 </Project>

@@ -15,7 +15,7 @@ BEGIN
 				[ArrivalDate],
 				[ShelfLife],
 				[IsDeleted]
-			FROM [dbo].[Medications]
+			from [dbo].[Medications]
 			WHERE [IsDeleted] = 0
 			ORDER By [Name]
 		END
@@ -32,7 +32,7 @@ BEGIN
 				[ArrivalDate],
 				[ShelfLife],
 				[IsDeleted]
-			FROM [dbo].[Medications]
+			from [dbo].[Medications]
 			WHERE [IsDeleted] = 0
 			ORDER By [Description]
 		END

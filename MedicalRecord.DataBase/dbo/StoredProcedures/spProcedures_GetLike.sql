@@ -6,6 +6,6 @@ BEGIN
 		[Id],
 		[Name],
 		[Description]
-	FROM [dbo].[Procedures]
+	from [dbo].[Procedures]
 	WHERE [Name] LIKE CONCAT(@value, '%') AND [IsDeleted] = 0;
 END

@@ -27,9 +27,9 @@ namespace Medical_record
             //контроллер приложения
             IAppController appController = new AppController(dataContext, messageService);
             //получаем гл.форму
-            var mainForm = appController.GetMainForm();
+            var mainfrom = appController.GetMainFrom();
 
-            Application.Run(mainForm);
+            Application.Run(mainfrom);
         }
     }
 }

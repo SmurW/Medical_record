@@ -6,7 +6,7 @@ BEGIN
 	SELECT
 		[Id],
 		[Title]
-	FROM [dbo].[HealthGroups]
+	from [dbo].[HealthGroups]
 	WHERE [Id] = @id;
 
 END

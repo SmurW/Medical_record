@@ -9,6 +9,7 @@ namespace Medical_record.ViewModels
     public class MainViewModel
     {
         private readonly AppController _appController;
+        private readonly AutorizationsViewModels _autorizationsViewModels;
 
         public MainViewModel(AppController appController)
         {
@@ -21,5 +22,8 @@ namespace Medical_record.ViewModels
         internal void ShowMedicationsView() => _appController.ShowMedicationsView();
         internal void ShowProceduresView() => _appController.ShowProceduresView();
         internal void ShowDoctorsView() => _appController.ShowDoctorsView();
+        internal void ShowAboutProgram() => _appController.ShowAboutProgramView();
+        internal void ShowAutorization() => _appController.ShowAutorizationView();
+      //  internal void GetThisUser() => _autorizationsViewModels.SetCurrentUserLogin();
     }
 }

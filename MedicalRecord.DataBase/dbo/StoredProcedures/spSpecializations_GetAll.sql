@@ -6,7 +6,7 @@ BEGIN
 	SELECT
 		[Id],
 		[Name]
-	FROM [dbo].[Specializations]
+	from [dbo].[Specializations]
 	WHERE [IsDeleted] = 0; --исключаем из выборки удаленные специализации
 
 END

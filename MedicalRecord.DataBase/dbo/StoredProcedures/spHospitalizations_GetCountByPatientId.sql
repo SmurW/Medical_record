@@ -2,6 +2,6 @@
 	@patientId int = 0
 AS
 	SELECT COUNT(@patientId)
-	FROM [dbo].[Hospitalizations] AS h
+	from [dbo].[Hospitalizations] AS h
 	WHERE h.PatientId = @patientId AND h.IsDeleted = 0;
 GO

@@ -1,14 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29806.167
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medical_record", "Medical_record\Medical_record.csproj", "{AE4E2532-FC60-4506-A09D-9D3D5E47F732}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{EEEE51C0-7C97-4B23-B908-BA32C873ADBD}"
-	ProjectSection(SolutionItems) = preProject
-		..\schema.jpg = ..\schema.jpg
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CDF09049-4D68-4E84-8F86-ACF0B4E959FA}"
 EndProject

@@ -42,13 +42,22 @@ namespace Medical_record.ViewModels
         /// </summary>
         internal async void SavePatient()
         {
-            var result = new Result<string>("Error");
+            var result = new Result<string>("Данные не заполнены");
             Patient patient = GetPatient();
             if (Id == 0)
             {
-                //запоминаем нового
-                result = await _appController.DataContext
-                    .Patients.AddPatientAsync(patient);
+                try
+                {
+                    //запоминаем нового
+                    result = await _appController.DataContext
+                        .Patients.AddPatientAsync(patient);
+                }
+                catch (Exception)
+                {
+
+                    //_appController.MessageService.ShowErrorMessage(result.Error);
+                }
+                
             }
             else
             {

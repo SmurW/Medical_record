@@ -10,7 +10,7 @@ GO
 --	[Id],
 --	[Title]
 --	[IsDeleted]
---FROM dbo.HealthGroups;
+--from dbo.HealthGroups;
 
 --процедура GetAll
 EXEC dbo.spHealthGroups_GetAll;

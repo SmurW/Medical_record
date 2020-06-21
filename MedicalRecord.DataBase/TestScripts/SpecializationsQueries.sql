@@ -10,7 +10,7 @@ GO
 --	[Id],
 --	[Name]
 --	[IsDeleted]
---FROM dbo.Specializations;
+--from dbo.Specializations;
 
 --процедура GetAll
 EXEC dbo.spSpecializations_GetAll;

@@ -7,7 +7,7 @@ BEGIN
 		[Id],
 		[Name],
 		[Description]
-	FROM [dbo].[Procedures]
+	from [dbo].[Procedures]
 	WHERE [Id] = @id;
 
 END

@@ -61,6 +61,7 @@
     <Compile Include="SqlServerDoctorsTests.cs" />
     <Compile Include="SqlServerHospitalizationTests.cs" />
     <Compile Include="SqlServerPatientsTests.cs" />
+    <Compile Include="SqlServerUsersTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

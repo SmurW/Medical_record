@@ -7,7 +7,7 @@ BEGIN
 		[Id],
 		[Name],
 		[Description]
-	FROM [dbo].[Procedures]
+	from [dbo].[Procedures]
 	WHERE [IsDeleted] = 0; --исключаем из выборки удаленные диагнозы
 
 END

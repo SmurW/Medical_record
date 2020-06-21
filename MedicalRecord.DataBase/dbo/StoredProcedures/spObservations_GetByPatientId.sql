@@ -7,5 +7,5 @@ AS
      , [DoctorId]
      , [StartObservationDate]
      , [EndObservationDate]
-    FROM dbo.Observations
+    from dbo.Observations
     WHERE PatientId = @patientId;

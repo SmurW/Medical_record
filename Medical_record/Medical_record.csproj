@@ -143,7 +143,9 @@
     <Compile Include="Abstractions\IPatientDataContext.cs" />
     <Compile Include="Abstractions\IProcedureDataContext.cs" />
     <Compile Include="Abstractions\ISpecializationDataContext.cs" />
+    <Compile Include="Abstractions\IUserDataContext.cs" />
     <Compile Include="AppController.cs" />
+    <Compile Include="Data\Models\Users.cs" />
     <Compile Include="Data\MsSqlDataContext.cs" />
     <Compile Include="Data\Models\Diagnosis.cs" />
     <Compile Include="Data\Models\Examination.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Data\MsSqlData\SqlServerPatients.cs" />
     <Compile Include="Data\MsSqlData\SqlServerProcedures.cs" />
     <Compile Include="Data\MsSqlData\SqlServerSpecializations.cs" />
+    <Compile Include="Data\MsSqlData\SqlServerUsers.cs" />
     <Compile Include="Data\TestDataContext.cs" />
     <Compile Include="Data\TestData\DataSource.cs" />
     <Compile Include="Data\TestData\TestDiagnosesDataContext.cs" />
@@ -178,6 +181,19 @@
     <Compile Include="Data\TestData\TestPatientDataContext.cs" />
     <Compile Include="Data\TestData\TestProcedureDataContext.cs" />
     <Compile Include="Data\TestData\TestSpecializationDataContext.cs" />
+    <Compile Include="Data\TestData\TestUsersDataContext.cs" />
+    <Compile Include="Forms\AboutProgramView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutProgramView.Designer.cs">
+      <DependentUpon>AboutProgramView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AutorizationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AutorizationView.Designer.cs">
+      <DependentUpon>AutorizationView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DoctorsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,12 +218,6 @@
     <Compile Include="Forms\AddProceduresView.Designer.cs">
       <DependentUpon>AddProceduresView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RegistrationView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\RegistrationView.Designer.cs">
-      <DependentUpon>RegistrationView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\CardView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +237,12 @@
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="Abstractions\IAppController.cs" />
+    <Compile Include="Forms\RegistrationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegistrationView.Designer.cs">
+      <DependentUpon>RegistrationView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UseControl\AddHospitalizationView.cs">
@@ -286,8 +302,10 @@
     <Compile Include="UseControl\ViewModels\ObservationViewModel.cs" />
     <Compile Include="Utils\MessagesService.cs" />
     <Compile Include="Utils\Result.cs" />
+    <Compile Include="ViewModels\AboutPrigrammViewModels.cs" />
     <Compile Include="ViewModels\AddMedicationsViewModel.cs" />
     <Compile Include="ViewModels\AddProceduresViewModel.cs" />
+    <Compile Include="ViewModels\AutorizationsViewModels.cs" />
     <Compile Include="ViewModels\CardViewModel.cs" />
     <Compile Include="ViewModels\DiagnosesViewModel.cs" />
     <Compile Include="ViewModels\DiagnosisViewModel.cs" />
@@ -296,6 +314,12 @@
     <Compile Include="ViewModels\MedicationsViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\ProceduresViewModel.cs" />
+    <EmbeddedResource Include="Forms\AboutProgramView.resx">
+      <DependentUpon>AboutProgramView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AutorizationView.resx">
+      <DependentUpon>AutorizationView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DoctorsView.resx">
       <DependentUpon>DoctorsView.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,9 +331,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddProceduresView.resx">
       <DependentUpon>AddProceduresView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RegistrationView.resx">
-      <DependentUpon>RegistrationView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -325,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProceduresView.resx">
       <DependentUpon>ProceduresView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegistrationView.resx">
+      <DependentUpon>RegistrationView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -369,6 +393,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon\main_icon.ico" />
+    <None Include="Resources\ImagesForwin.jpg" />
+    <None Include="Resources\MainImg.jpg" />
+    <None Include="Resources\main_icon.ico" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

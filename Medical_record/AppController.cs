@@ -11,7 +11,8 @@ namespace Medical_record
 {
     public class AppController : IAppController
     {
-        private readonly MainForm_MedicalRecord _mainForm;
+        private readonly Mainfrom_MedicalRecord _mainfrom;
+        private readonly AutorizationView _autorizationView;
         public IDataContext DataContext { get; }
         public IMessageService MessageService { get; }
 
@@ -23,12 +24,17 @@ namespace Medical_record
                 throw new ArgumentNullException(nameof(messageService));
 
             var vm = new MainViewModel(this);
-            _mainForm = new MainForm_MedicalRecord(vm);
+            _mainfrom = new Mainfrom_MedicalRecord(vm);
         }
 
-        public Form GetMainForm()
+        public Form GetMainFrom()
         {
-            return _mainForm;
+            return _mainfrom;
+        }
+
+        public Form GetAutorizationForm()
+        {
+            return _autorizationView;
         }
 
         public UserControl GetUcViewInput(string key)
@@ -73,112 +79,156 @@ namespace Medical_record
             }
         }
 
+        public void ShowAboutProgramView()
+        {
+            var vm = new AboutPrigrammViewModels(this);
+            var from = new AboutProgramView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
+        }
+
         public void ShowCardView()
         {
             var vm = new CardViewModel(this);
-            var form = new CardView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new CardView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowDiagnosesView()
         {
             var vm = new DiagnosesViewModel(this);
-            var form = new DiagnosesView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new DiagnosesView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowMedicationsView()
         {
             var vm = new MedicationsViewModel(this);
-            var form = new MedicationsView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new MedicationsView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowProceduresView()
         {
             var vm = new ProceduresViewModel(this);
-            var form = new ProceduresView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new ProceduresView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowDoctorsView()
         {
             var vm = new DoctorsViewModel(this);
-            var form = new DoctorsView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new DoctorsView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowRegistrationView()
         {
             var vm = new RegistrationViewModel(this);
-            var form = new RegistrationView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new RegistrationView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowRegistrationView(Patient patient)
         {
             var vm = new RegistrationViewModel(this);
             vm.SetPatient(patient);
-            var form = new RegistrationView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new RegistrationView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowDiagnosisView()
         {
             var vm = new DiagnosisViewModel(this);
-            var form = new DiagnosisView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new DiagnosisView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowDiagnosisView(Diagnosis diagnosis)
         {
             var vm = new DiagnosisViewModel(this);
             vm.SetDiagnosis(diagnosis);
-            var form = new DiagnosisView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new DiagnosisView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowAddMedicationsView()
         {
             var vm = new AddMedicationsViewModel(this);
-            var form = new AddMedicationsView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new AddMedicationsView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowAddMedicationsView(Medications medications)
         {
             var vm = new AddMedicationsViewModel(this);
             vm.SetMedications(medications);
-            var form = new AddMedicationsView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new AddMedicationsView(vm);
+            from.Owner = _mainfrom;
+            from.ShowDialog();
         }
 
         public void ShowAddProceduresView()
         {
             var vm = new AddProceduresViewModel(this);
-            var form = new AddProceduresView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new AddProceduresView(vm);
+            from.Owner = _mainfrom;
+            //if (from == null || from.IsDisposed)
+                from.ShowDialog();
         }
 
         public void ShowAddProceduresView(Procedure procedure)
         {
             var vm = new AddProceduresViewModel(this);
             vm.SetPrcedure(procedure);
-            var form = new AddProceduresView(vm);
-            form.Owner = _mainForm;
-            form.Show();
+            var from = new AddProceduresView(vm);
+            from.Owner = _mainfrom;
+           // if (from == null || from.IsDisposed)
+                from.ShowDialog();
+        }
+
+        public void ShowAutorizationView(Users users)
+        {
+            var vm = new AutorizationsViewModels(this);
+            vm.SetUsers(users);
+            var from = new AutorizationView(vm);
+            from.Owner = _mainfrom;
+           // if (from == null || from.IsDisposed)
+                from.ShowDialog();
+        }
+
+        public void ShowAutorizationView()
+        {
+            var vm = new AutorizationsViewModels(this);
+            var from = new AutorizationView(vm);
+            from.Owner = _mainfrom;
+            from.Show();
+
+        }
+
+            public void CloseAutorizationView()
+        {
+            _autorizationView.Hide();
+        }
+
+        public void ShowMainfrom()
+        {
+            var vm = new MainViewModel(this);
+            var from = new Mainfrom_MedicalRecord(vm);
+            //from.Owner = _mainfrom;
+            //from.ShowDialog();
+            if (from == null || from.IsDisposed)
+            from.Show();
         }
     }
 }

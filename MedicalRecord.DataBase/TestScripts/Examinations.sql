@@ -3,4 +3,4 @@ USE [MedicalRecord]
 GO
 
 SELECT *
-FROM dbo.Examinations;
+from dbo.Examinations;

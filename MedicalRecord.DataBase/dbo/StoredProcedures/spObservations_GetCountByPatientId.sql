@@ -2,5 +2,5 @@
 	@patientId int
 AS
 	SELECT COUNT(Id)
-    FROM dbo.Observations
+    from dbo.Observations
     WHERE PatientId = @patientId;

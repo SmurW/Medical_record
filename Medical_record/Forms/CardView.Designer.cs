@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows from Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CardView));
             this.panel1 = new System.Windows.Forms.Panel();
             this._labelCardNumber = new System.Windows.Forms.Label();
             this._textBoxResidence = new System.Windows.Forms.TextBox();
@@ -78,6 +79,7 @@
             this._textBoxPatientsCount = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this._labelPatientCurrentNumber = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this._panelAdditions.SuspendLayout();
             this._groupBoxAdditions.SuspendLayout();
@@ -202,7 +204,7 @@
             this._textBoxMiddleName.BackColor = System.Drawing.SystemColors.MenuBar;
             this._textBoxMiddleName.Location = new System.Drawing.Point(529, 54);
             this._textBoxMiddleName.Name = "_textBoxMiddleName";
-            this._textBoxMiddleName.ReadOnly = true; 
+            this._textBoxMiddleName.ReadOnly = true;
             this._textBoxMiddleName.Size = new System.Drawing.Size(140, 20);
             this._textBoxMiddleName.TabIndex = 50;
             // 
@@ -569,6 +571,7 @@
             this.label19.Size = new System.Drawing.Size(50, 13);
             this.label19.TabIndex = 21;
             this.label19.Text = "Пациент";
+            this.label19.Visible = false;
             // 
             // _labelPatientCurrentNumber
             // 
@@ -578,12 +581,23 @@
             this._labelPatientCurrentNumber.Size = new System.Drawing.Size(13, 13);
             this._labelPatientCurrentNumber.TabIndex = 22;
             this._labelPatientCurrentNumber.Text = "0";
+            this._labelPatientCurrentNumber.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(742, 264);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Отчет карты пациента";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // CardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 443);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this._labelPatientCurrentNumber);
             this.Controls.Add(this.label19);
             this.Controls.Add(this._textBoxPatientsCount);
@@ -599,6 +613,7 @@
             this.Controls.Add(this._buttonPrevPatient);
             this.Controls.Add(this._buttonNextPatient);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CardView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Карта Пациента";
@@ -666,5 +681,6 @@
         private System.Windows.Forms.TextBox _textBoxPatientsCount;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label _labelPatientCurrentNumber;
+        private System.Windows.Forms.Button button1;
     }
 }

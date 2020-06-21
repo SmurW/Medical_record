@@ -48,7 +48,7 @@ namespace Medical_record.Data.MsSqlData
             object res = null;
             try
             {
-                SqlParameter[] parameters = GetSqlParametersFromExamination(examination);
+                SqlParameter[] parameters = GetSqlParametersfromExamination(examination);
 
                 using (var con = _conService.GetConnection())
                 using (var cmd = con.CreateCommand())
@@ -69,7 +69,7 @@ namespace Medical_record.Data.MsSqlData
             return new Result<string>($"Успешно сохранен новый осмотр {res}.", string.Empty);
         }
 
-        private SqlParameter[] GetSqlParametersFromExamination(Examination examination)
+        private SqlParameter[] GetSqlParametersfromExamination(Examination examination)
         {
             var result = new List<SqlParameter>();
 
@@ -168,7 +168,7 @@ namespace Medical_record.Data.MsSqlData
                         {
                             while (await reader.ReadAsync())
                             {
-                                Examination exam = GetExaminationFromReader(reader);
+                                Examination exam = GetExaminationfromReader(reader);
                                 result.Add(exam);
                             }
                         }
@@ -209,7 +209,7 @@ namespace Medical_record.Data.MsSqlData
             return new Result<List<Examination>>(result);
         }
 
-        private Examination GetExaminationFromReader(SqlDataReader reader)
+        private Examination GetExaminationfromReader(SqlDataReader reader)
         {
             return new Examination
             {

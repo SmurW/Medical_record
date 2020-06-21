@@ -8,7 +8,7 @@ BEGIN
 				[Id],
 				[Name],
 				[Description]
-			FROM [dbo].[Diagnoses]
+			from [dbo].[Diagnoses]
 			WHERE [IsDeleted] = 0
 			ORDER By [Name]
 		END
@@ -18,7 +18,7 @@ BEGIN
 				[Id],
 				[Name],
 				[Description]
-			FROM [dbo].[Diagnoses]
+			from [dbo].[Diagnoses]
 			WHERE [IsDeleted] = 0
 			ORDER By [Description]
 		END
