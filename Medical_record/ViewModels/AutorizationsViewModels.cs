@@ -61,17 +61,20 @@ namespace Medical_record.ViewModels
             
             
         }
+        internal void ShowAutorizationView() => _appController.ShowAutorizationView();
+        internal void ShowAutorizationView(Users users) => _appController.ShowAutorizationView(users);
 
         internal async void ReadUser()
         {
+            var user = new Users();
             var result = await _appController.DataContext
                .Users.GetUserAsync();
 
             if (result.HasValue)
             {
-                if (result.Value.Count > 0)
+                if (result.Value.Count > 0 && result.Value.Count == user.Id)
                 {
-                    _appController.ShowMainfrom();
+                    ShowAutorizationView();
                 }
             }
         }

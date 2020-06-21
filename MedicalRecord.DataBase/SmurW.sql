@@ -1,6 +1,0 @@
-﻿CREATE USER [SmurW]
-	WITH PASSWORD = 'P@ssMedicalR|SupeUser!SmurW'
-
-GO
-
-GRANT CONNECT TO [SmurW]

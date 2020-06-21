@@ -9,6 +9,7 @@ namespace Medical_record.Abstractions
         IMessageService MessageService { get; }
 
         Form GetMainFrom();
+        Form GetAutorizationForm();
         UserControl GetUcViewInput(string key);
         UserControl GetUcViewOutput(string key);
         void ShowAddMedicationsView();

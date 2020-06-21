@@ -11,5 +11,6 @@ namespace Medical_record.Abstractions
         Task<Result<string>> UpdateUserAsync(Users users);
         Task<Result<string>> AddUserAsync(Users users);
         Task<Result<string>> RemoveUserAsync(int Id);
+        Task<Result<string>> GetUsersLikeAsync(string value);
     }
 }

@@ -123,8 +123,7 @@
     <Build Include="dbo\StoredProcedures\spUsers_GetAll.sql" />
     <Build Include="dbo\StoredProcedures\spUsers_Remove.sql" />
     <Build Include="dbo\StoredProcedures\spUsers_Update.sql" />
-    <Build Include="SmurW.sql" />
-    <Build Include="Admin.sql" />
+    <Build Include="dbo\StoredProcedures\spUsers_GetLike.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TestData\Procedures.sql" />

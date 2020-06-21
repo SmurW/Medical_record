@@ -209,5 +209,48 @@ namespace Medical_record.Data.MsSqlData
 
             return result;
         }
+
+        public async Task<Result<List<Users>>> GetUsersLikeAsync(string value)
+        {
+            if (String.IsNullOrWhiteSpace(value))
+            {
+                return await GetUserAsync();
+            }
+
+            var users = new List<Users>();
+            var nameProc = @"[dbo].[spUsers_GetLike]";
+            try
+            {
+                using (var con = _conService.GetConnection())
+                using (var cmd = new SqlCommand(nameProc, con))
+                {
+                    var param = new SqlParameter();
+                    param.ParameterName = "@value";
+                    param.SqlDbType = SqlDbType.NVarChar;
+                    param.Value = value;
+
+                    cmd.Parameters.Add(param);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    await con.OpenAsync();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                var m = GetUsersfromReader(reader);
+                                users.Add(m);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Result<List<Users>>(ex.Message);
+            }
+
+            return new Result<List<Users>>(users);
+        }
     }
 }
