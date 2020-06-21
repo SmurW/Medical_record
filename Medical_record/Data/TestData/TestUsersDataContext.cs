@@ -34,6 +34,13 @@ namespace Medical_record.Data.TestData
             return Task.FromResult(new Result<List<Users>>(_dataSource.Users));
         }
 
+        public Task<Result<List<Users>>> GetUsersLikeAsync(string value)
+        {
+            return Task.FromResult(
+                   new Result<List<Users>>(
+                       _dataSource.Users.Where(d => d.Login.Contains(value)).ToList()));
+        }
+
         public Task<Result<string>> RemoveUserAsync(int id)
         {
             var us = _dataSource.Users.FirstOrDefault(d => d.Id == id);
@@ -54,5 +61,6 @@ namespace Medical_record.Data.TestData
             us.Password = users.Password;
             return Task.FromResult(new Result<string>("Успешно обновлен", String.Empty));
         }
+
     }
 }
