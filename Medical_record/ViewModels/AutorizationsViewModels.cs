@@ -66,13 +66,12 @@ namespace Medical_record.ViewModels
 
         internal async void ReadUser()
         {
-            var user = new Users();
             var result = await _appController.DataContext
                .Users.GetUserAsync();
 
             if (result.HasValue)
             {
-                if (result.Value.Count > 0 && result.Value.Count == user.Id)
+                if (result.Value.Count > 0)
                 {
                     ShowAutorizationView();
                 }
